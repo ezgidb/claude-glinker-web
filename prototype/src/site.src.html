@@ -1,0 +1,970 @@
+<title>Glinker Group Site Prototype</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Roboto:wght@400;500&display=swap&subset=latin-ext">
+<style>
+/* Layout: existing glinkergroup.com identity — navy wedge, logo-left hero, square buttons, navy gradient cards. Each page opens with one visual selector and one answer already showing. Single light theme by design (mirrors the live site). */
+:root{
+  --navy:#1a315e; --navy-deep:#0f2559; --cyan:#2fc1ff; --cyan-text:#0077a8;
+  --body:#585858; --paper:#ffffff; --soft:#f4f6fa; --line:#dde2ec; --on-navy:#dbe3f2;
+  --field:#6b7688; --error:#b3261e; --note-bg:#fff6d6; --note-line:#c79a00; --note-ink:#4a3b00; --chrome:#22262e; --chrome-ink:#e8ebf0;
+  --display:Jost,"Segoe UI",Arial,sans-serif; --text:Roboto,"Segoe UI",Arial,sans-serif; --mono:ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--body);font-family:var(--text);font-size:16px;line-height:1.6}
+h1,h2,h3{font-family:var(--display);font-weight:500;margin:0;text-wrap:balance;line-height:1.2}
+h1{font-size:clamp(30px,5vw,44px);color:var(--navy)}
+h2{font-size:clamp(23px,3.2vw,30px);color:var(--cyan-text)}
+h3{font-size:20px;color:var(--navy)}
+h1:focus{outline:none}
+p,dl,dd,ul,ol{margin:0}
+a{color:var(--cyan-text)}
+a:hover{color:var(--navy)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.navy :focus-visible,.door :focus-visible,.foot :focus-visible,.chrome :focus-visible{outline-color:var(--cyan)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.stack{display:flex;flex-direction:column;gap:16px}
+.stack-lg{display:flex;flex-direction:column;gap:28px}
+.measure{max-width:62ch}
+.lead{font-size:18px;color:var(--navy)}
+.ic{width:44px;height:44px;flex:none;color:var(--navy)}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+
+/* prototype chrome (not part of the site) */
+.chrome{background:var(--chrome);color:var(--chrome-ink);font-size:13px;position:sticky;top:env(safe-area-inset-top,0px);z-index:30}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--chrome)}
+.chrome .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding-block:8px}
+.chrome .url{font-family:var(--mono);min-width:0;overflow-wrap:anywhere;flex:1 1 220px}
+.chrome .url b{color:var(--cyan);font-weight:400}
+.chrome button{background:transparent;color:var(--chrome-ink);border:1px solid var(--chrome-ink);padding:6px 12px;cursor:pointer;min-height:34px}
+.chrome button[aria-pressed="true"]{background:var(--note-bg);color:var(--note-ink);border-color:var(--note-bg)}
+.dn{background:var(--note-bg);border-left:4px solid var(--note-line);color:var(--note-ink);padding:14px 18px;font-size:14.5px;line-height:1.55}
+.dn strong{display:block;font-family:var(--display);font-weight:600;margin-bottom:4px}
+.dn ul{padding-left:18px}
+.dn li+li{margin-top:5px}
+
+/* header */
+.top{background:var(--paper);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 26px;padding-block:14px}
+.brand{font-family:var(--display);font-size:26px;font-weight:600;color:var(--navy);text-decoration:none;margin-right:auto}
+.brand span{font-weight:400;font-size:13px;letter-spacing:.3em;margin-left:6px}
+.menu-btn{display:none;font:500 15px var(--display);background:var(--paper);color:var(--navy);border:1px solid var(--navy);padding:10px 16px;min-height:44px;cursor:pointer}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 22px}
+.nav a,.nav summary{font-family:var(--display);font-size:16px;color:var(--navy);text-decoration:none;padding:10px 0;cursor:pointer;display:inline-block}
+.nav a:hover,.nav summary:hover{color:var(--cyan-text)}
+.nav a[aria-current="page"],.dd.cur>summary{box-shadow:inset 0 -2px 0 var(--cyan)}
+.dd{position:relative}
+.dd summary{list-style:none}
+.dd summary::-webkit-details-marker{display:none}
+.dd summary::after{content:"▾";font-size:12px;margin-left:6px}
+.dd .sub{position:absolute;left:0;top:100%;z-index:20;background:var(--paper);border:1px solid var(--line);padding:14px 18px;min-width:310px;display:flex;flex-direction:column}
+.dd .sub a{padding:7px 0;font-size:15px}
+.dd .sub .lbl{font:500 12px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--body);margin-top:8px}
+.wedge{height:48px;background:var(--navy);clip-path:polygon(0 0,100% 0,100% 30%,50% 100%,0 30%)}
+
+/* blocks */
+.sec{padding-block:44px}
+.sec.tight{padding-block:28px}
+.soft{background:var(--soft)}
+.navy{background:var(--navy);color:var(--on-navy)}
+.navy h2,.navy h3{color:var(--paper)}
+.eyebrow{font-family:var(--display);font-size:14px;color:var(--navy);letter-spacing:.08em}
+.eyebrow b{font-weight:600;text-transform:uppercase}
+.crumb{font-size:14px}
+.btn{display:inline-block;padding:14px 26px;background:var(--cyan);color:var(--navy);font:500 15px var(--display);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;min-height:48px}
+.btn:hover{background:var(--navy);color:var(--paper)}
+.navy .btn:hover{background:var(--paper);color:var(--navy)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.hero{display:flex;flex-wrap:wrap;gap:20px 36px;align-items:center}
+.hero .logo{flex:1 1 200px;font-family:var(--display);color:var(--navy);font-size:clamp(40px,7vw,60px);font-style:italic;font-weight:500;line-height:1}
+.hero .logo small{display:block;font-size:.31em;letter-spacing:.45em;font-style:normal;margin-top:6px}
+.hero .txt{flex:3 1 420px;min-width:0}
+.cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 30px}
+
+/* doors (home) */
+.door{position:relative;background:linear-gradient(rgba(15,37,89,.94),rgba(26,49,94,.98)),var(--navy-deep);padding:26px;color:var(--on-navy);display:flex;flex-direction:column;gap:12px}
+.door .head{display:flex;gap:16px;align-items:center}
+.door .ic{color:var(--cyan);width:52px;height:52px}
+.door h3{font-size:24px}
+.door h3 a{color:var(--paper);text-decoration:none}
+.door h3 a::after{content:"";position:absolute;inset:0}
+.door h3 a:hover{color:var(--cyan)}
+.door .arrow{margin-left:auto;font:400 26px var(--display);color:var(--cyan);transition:transform .16s ease-out}
+.door:hover .arrow{transform:translateX(4px)}
+.door .chips{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;border-top:1px solid rgba(219,227,242,.3);padding-top:14px;list-style:none;padding-left:0}
+.door .chips a{display:inline-block;border:1px solid var(--cyan);color:var(--paper);padding:10px 14px;font:15px var(--display);text-decoration:none;min-height:44px}
+.door .chips a:hover{background:var(--cyan);color:var(--navy)}
+.trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.trust dt{font:500 32px/1.1 var(--display);color:var(--cyan)}
+.trust dd{margin-top:4px}
+
+/* chips, tiles */
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--navy);color:var(--navy);padding:9px 14px;font:500 15px var(--display);text-decoration:none;background:var(--paper);cursor:pointer;min-height:44px}
+.chip:hover{background:var(--navy);color:var(--paper)}
+.chip[aria-pressed="true"]{background:var(--navy);color:var(--paper);box-shadow:inset 0 -4px 0 var(--cyan)}
+.chip .ic{width:26px;height:26px;color:inherit}
+.grplbl{font:500 13px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--body)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;list-style:none;padding:0}
+.tile{display:flex;flex-direction:column;gap:8px;align-items:flex-start;border:1px solid var(--line);background:var(--paper);padding:16px;text-align:left;width:100%;height:100%;text-decoration:none;color:var(--navy);font:500 16px/1.25 var(--display)}
+a.tile:hover,button.tile:hover{border-color:var(--navy)}
+button.tile{cursor:pointer}
+.tile[aria-pressed="true"]{background:var(--navy);color:var(--paper);border-color:var(--navy);box-shadow:inset 0 -4px 0 var(--cyan)}
+.tile[aria-pressed="true"] .ic{color:var(--cyan)}
+.tile small{font:400 14px/1.45 var(--text);color:var(--body)}
+.gas{width:44px;height:44px;border:2px solid var(--navy);display:flex;align-items:center;justify-content:center;font:600 15px var(--display);color:var(--navy);flex:none}
+.num{width:44px;height:44px;background:var(--navy);color:var(--paper);display:flex;align-items:center;justify-content:center;font:500 20px var(--display);flex:none}
+.limit{border-left:4px solid var(--navy);background:var(--paper);padding:10px 14px;color:var(--navy);font-weight:500}
+.sopanel{border-top:4px solid var(--cyan);background:var(--paper);padding:18px 20px;min-height:84px}
+.items{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
+.items li{background:var(--soft);padding:6px 12px;font-size:15px;color:var(--navy)}
+
+/* explorer */
+.px{display:flex;flex-direction:column;gap:14px}
+.px-presets{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.px-dia{background:var(--soft);padding:8px}
+.px-dia svg{display:block;width:100%;height:auto}
+.pchain-tall{display:none!important}
+.px-panel{border-top:4px solid var(--cyan);background:var(--paper);border-inline:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 20px;display:flex;flex-direction:column;gap:10px}
+.px-panel .ph{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.px-panel dl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 22px}
+.px[data-locked] .px-panel dl{grid-template-columns:repeat(3,minmax(0,1fr))}
+.px-panel dt,.spec dt{font:500 13px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--cyan-text)}
+.px-panel dd{font-size:15px;line-height:1.45;color:var(--navy)}
+.px-panel dd[data-p]{display:none}
+.px[data-preset="dc"] .r[data-has~="dc"] dd:not([data-p]),.px[data-preset="ap"] .r[data-has~="ap"] dd:not([data-p]),.px[data-preset="du"] .r[data-has~="du"] dd:not([data-p]){display:none}
+.px[data-preset="dc"] dd[data-p="dc"],.px[data-preset="ap"] dd[data-p="ap"],.px[data-preset="du"] dd[data-p="du"]{display:block}
+.px[data-locked] .px-diff,.px[data-locked] .px-presets{display:none}
+.px-next{background:var(--paper);border:1px solid var(--navy);color:var(--navy);padding:8px 14px;font:500 14px var(--display);cursor:pointer;min-height:40px;white-space:nowrap}
+.px-next:hover{background:var(--navy);color:var(--paper)}
+@media (prefers-reduced-motion:no-preference){.px-panel{animation:rise .16s ease-out}@keyframes rise{from{opacity:0;transform:translateY(4px)}}}
+
+/* spec card */
+.spec{border-top:4px solid var(--cyan);background:var(--soft);padding:22px;display:flex;flex-direction:column;gap:12px}
+.spec .tagline{font:500 12px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--navy);border:1px solid var(--navy);padding:2px 8px;align-self:flex-start}
+.spec dl{display:grid;grid-template-columns:minmax(0,32%) minmax(0,1fr);gap:8px 16px}
+.spec dd{color:var(--navy);font-size:15px}
+.anchors{display:flex;gap:4px 18px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.anchors button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 2px;font:500 15px var(--display);color:var(--navy);cursor:pointer;min-height:44px}
+.anchors button:hover{border-bottom-color:var(--cyan)}
+details.std{border:1px solid var(--line);background:var(--paper)}
+details.std summary{cursor:pointer;padding:10px 14px;font:500 15px var(--display);color:var(--navy);min-height:44px}
+details.std p{padding:0 14px 12px;font-size:15px}
+
+/* stepper */
+.steps{display:flex;gap:10px;flex-wrap:wrap;list-style:none;padding:0}
+.steps button{display:flex;align-items:center;gap:10px;background:transparent;border:1px solid var(--on-navy);color:var(--paper);padding:8px 18px 8px 8px;font:500 17px var(--display);cursor:pointer;min-height:48px}
+.steps button .n{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--on-navy);color:var(--navy)}
+.steps button[aria-pressed="true"]{background:var(--paper);color:var(--navy);box-shadow:inset 0 -4px 0 var(--cyan)}
+.steps button[aria-pressed="true"] .n{background:var(--navy);color:var(--paper)}
+.navy .sopanel{color:var(--body)}
+
+/* notes, form, footer */
+.card{border:1px solid var(--line);padding:22px;background:var(--paper);display:flex;flex-direction:column;gap:8px}
+.card p,.card li{font-size:15px}
+.badge{font:500 13px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--cyan-text)}
+.card details summary{cursor:pointer;color:var(--cyan-text);font:500 15px var(--display);min-height:36px}
+ul.plain{padding-left:20px}
+ul.plain li+li{margin-top:6px}
+label,legend{display:block;font:15px var(--display);color:var(--navy);margin-bottom:4px;padding:0}
+fieldset{border:0;padding:0;margin:0}
+input[type=text],input[type=email],input[type=tel],textarea{width:100%;padding:12px;border:1px solid var(--field);font:16px var(--text);background:var(--paper);color:var(--navy);border-radius:0;min-height:48px}
+.radios{display:flex;flex-wrap:wrap;gap:8px}
+.radios label{margin:0;border:1px solid var(--navy);padding:10px 14px;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;font-weight:500}
+.radios input{position:absolute;opacity:0}
+.radios label:has(input:checked){background:var(--navy);color:var(--paper);box-shadow:inset 0 -4px 0 var(--cyan)}
+.radios label:has(input:focus-visible){outline:3px solid var(--navy);outline-offset:2px}
+.field .err{color:var(--error);font-size:14px;margin-top:4px}
+.field [aria-invalid="true"]{border:2px solid var(--error)}
+.hint{font-size:14px}
+.alert{border:2px solid var(--error);color:var(--error);padding:12px 16px}
+.ok{border-left:4px solid var(--cyan);background:var(--soft);padding:22px}
+.foot{background:var(--navy);color:var(--on-navy);font-size:15px}
+.foot .wrap{padding-block:26px;display:flex;flex-wrap:wrap;gap:8px 28px}
+.foot a{color:var(--paper)}
+@media(max-width:860px){
+  .grid2,.grid3{grid-template-columns:1fr}
+  .trust{gap:12px}
+  .trust dt{font-size:26px}
+  .trust dd{font-size:14px;line-height:1.35}
+  .menu-btn{display:inline-block}
+  .nav{display:none;flex-basis:100%;flex-direction:column;align-items:stretch;gap:0}
+  .nav.open{display:flex}
+  .nav a,.nav summary{padding:12px 0;display:block}
+  .dd .sub{position:static;border:0;padding:0 0 8px 14px;min-width:0}
+  .sec{padding-block:32px}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:767px){
+  .pchain-wide{display:none!important}
+  .pchain-tall{display:block!important;max-width:400px;margin:0 auto}
+  .px-panels{position:sticky;bottom:0;z-index:5}
+  .px-panel{border:1px solid var(--navy);border-top:4px solid var(--cyan);padding:10px 12px;gap:6px;max-height:46vh;overflow:auto;box-shadow:0 -6px 16px rgba(26,49,94,.18)}
+  .px-panel h3{font-size:17px}
+  .px-next{min-height:36px;padding:6px 10px}
+  .px-panel dl,.px[data-locked] .px-panel dl{grid-template-columns:1fr;gap:6px}
+  .px-panel dl>div{display:grid;grid-template-columns:84px minmax(0,1fr);gap:8px}
+  .px-panel dt{font-size:11px;padding-top:3px}
+  .px-panel dd{font-size:14px;line-height:1.35}
+  .spec dl{grid-template-columns:1fr;gap:2px}
+  .spec dd{margin-bottom:8px}
+}
+</style>
+
+<!--@sprite-->
+
+<div class="chrome"><div class="wrap">
+  <span class="url" id="url" aria-live="polite"></span>
+  <button type="button" id="noteBtn" aria-pressed="false">Tasarım notlarını göster</button>
+</div></div>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#home">Glinker<span>GROUP</span></a>
+  <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="nav" id="nav" aria-label="Main">
+    <details class="dd"><summary>Online Monitoring</summary>
+      <div class="sub">
+        <a href="#monitoring">Online Monitoring overview</a>
+        <span class="lbl">Technologies</span>
+        <a href="#pd">Partial Discharge Monitoring</a>
+        <a href="#dga">DGA Monitoring</a>
+        <a href="#cable">Cable &amp; MV Monitoring</a>
+        <a href="#dtpq">Distribution Transformer &amp; Power Quality</a>
+        <a href="#apm">Asset Management</a>
+        <span class="lbl">Sectors</span>
+        <a href="#dc">Data Centers</a>
+        <a href="#airports">Airports</a>
+        <a href="#utilities">Distribution Utilities</a>
+      </div>
+    </details>
+    <a href="#supply">Supply &amp; Project Solutions</a>
+    <a href="#notes">Knowledge Notes</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div></header>
+<div class="wedge"></div>
+
+<!-- ================= EXPLORER TEMPLATE (one source, used on hub + 3 sector pages) ================= -->
+<template id="pxT">
+<div class="px" data-preset="all">
+  <div class="px-presets" role="group" aria-label="Show for">
+    <span class="grplbl">Show for</span>
+    <button class="chip" type="button" data-p="all" aria-pressed="true">All</button>
+    <button class="chip" type="button" data-p="dc" aria-pressed="false">Data Centers</button>
+    <button class="chip" type="button" data-p="ap" aria-pressed="false">Airports</button>
+    <button class="chip" type="button" data-p="du" aria-pressed="false">Distribution Utilities</button>
+    <a class="px-sector" href="#dc" hidden>Open sector page</a>
+  </div>
+  <div class="px-dia"><!--@wide--><!--@tall--></div>
+  <div class="px-panels">
+    <article class="px-panel" data-node="n-hv-cable" data-in="dc ap du">
+      <div class="ph"><h3>HV cable circuit</h3><button class="px-next" type="button">Next asset</button></div>
+      <dl>
+        <div class="r" data-has="dc ap"><dt>Main risk</dt><dd>Joint and termination failure.</dd><dd data-p="dc">Joint or termination failure on the single supply route.</dd><dd data-p="ap">Joint and termination failure on supply routes.</dd></div>
+        <div class="px-diff"><dt>What is different</dt><dd>The weak points are spread along the route, not in one place.</dd></div>
+        <div><dt>Monitoring</dt><dd><a href="#cable">Cable &amp; MV Monitoring</a></dd></div>
+        <div><dt>Product</dt><dd>Synaptec Greenlight</dd></div>
+      </dl>
+    </article>
+    <article class="px-panel" data-node="n-power-transformer" data-in="dc ap du">
+      <div class="ph"><h3>Power transformer</h3><button class="px-next" type="button">Next asset</button></div>
+      <dl>
+        <div class="r" data-has="dc ap du"><dt>Main risk</dt><dd>Insulation breakdown in windings and bushings; developing internal fault.</dd><dd data-p="dc">Insulation fault developing unnoticed under continuous high load.</dd><dd data-p="ap">Internal fault leading to loss of the main supply.</dd><dd data-p="du">Developing internal fault; long replacement lead time.</dd></div>
+        <div class="px-diff"><dt>What is different</dt><dd>Long replacement lead time: early warning has the highest value here.</dd></div>
+        <div><dt>Monitoring</dt><dd><a href="#pd">Partial Discharge</a> · <a href="#dga">DGA</a></dd></div>
+        <div><dt>Product</dt><dd>ICMobserver · InsuLogix G2</dd></div>
+      </dl>
+    </article>
+    <article class="px-panel" data-node="n-rotating" data-in="">
+      <div class="ph"><h3>Generator &amp; HV motor</h3><button class="px-next" type="button">Next asset</button></div>
+      <dl>
+        <div class="r" data-has=""><dt>Main risk</dt><dd>Stator winding insulation deterioration.</dd></div>
+        <div class="px-diff"><dt>What is different</dt><dd>Some partial discharge is always present, so the trend matters, not the single reading.</dd></div>
+        <div><dt>Monitoring</dt><dd><a href="#pd">Partial Discharge Monitoring</a></dd></div>
+        <div><dt>Product</dt><dd>ICMobserver</dd></div>
+      </dl>
+    </article>
+    <article class="px-panel" data-node="n-mv-feeder" data-in="du">
+      <div class="ph"><h3>MV overhead feeder</h3><button class="px-next" type="button">Next asset</button></div>
+      <dl>
+        <div class="r" data-has="du"><dt>Main risk</dt><dd>Line faults, broken conductors, high-impedance faults.</dd><dd data-p="du">Long fault-location times; broken conductors.</dd></div>
+        <div class="px-diff"><dt>What is different</dt><dd>The task is locating a fault on a long line, not assessing insulation.</dd></div>
+        <div><dt>Monitoring</dt><dd><a href="#cable">Cable &amp; MV Monitoring</a></dd></div>
+        <div><dt>Product</dt><dd>MS5200 with Megger Grid Analytics</dd></div>
+      </dl>
+    </article>
+    <article class="px-panel" data-node="n-dist-transformer" data-in="ap du">
+      <div class="ph"><h3>Distribution transformer</h3><button class="px-next" type="button">Next asset</button></div>
+      <dl>
+        <div class="r" data-has="ap du"><dt>Main risk</dt><dd>Oil ageing and moisture.</dd><dd data-p="ap">Oil ageing and moisture across many units.</dd><dd data-p="du">Oil ageing and moisture across a large population.</dd></div>
+        <div class="px-diff"><dt>What is different</dt><dd>Many low-cost units: one sensor per unit, not a full monitoring system.</dd></div>
+        <div><dt>Monitoring</dt><dd><a href="#dtpq">Distribution Transformer &amp; Power Quality</a></dd></div>
+        <div><dt>Product</dt><dd>TrafoStick (A. Eberle)</dd></div>
+      </dl>
+    </article>
+    <article class="px-panel" data-node="n-supply-point" data-in="dc ap du">
+      <div class="ph"><h3>Supply point / busbar</h3><button class="px-next" type="button">Next asset</button></div>
+      <dl>
+        <div class="r" data-has="dc ap du"><dt>Main risk</dt><dd>Voltage dips, harmonics, flicker, unbalance.</dd><dd data-p="dc">Voltage dips and harmonics from non-linear load.</dd><dd data-p="ap">Voltage dips and harmonics affecting electronic loads.</dd><dd data-p="du">Supply quality obligations.</dd></div>
+        <div class="px-diff"><dt>What is different</dt><dd>A network property measured at a connection point, not a condition of one asset.</dd></div>
+        <div><dt>Monitoring</dt><dd><a href="#dtpq">Distribution Transformer &amp; Power Quality</a></dd></div>
+        <div><dt>Product</dt><dd>PQI-DA smart (A. Eberle)</dd></div>
+      </dl>
+    </article>
+    <article class="px-panel" data-node="n-fleet" data-in="dc du">
+      <div class="ph"><h3>Whole fleet</h3><button class="px-next" type="button">Next asset</button></div>
+      <dl>
+        <div class="r" data-has="dc du"><dt>Main risk</dt><dd>Maintenance and investment effort placed on the wrong assets.</dd><dd data-p="dc">No single view of asset condition across sites.</dd><dd data-p="du">Prioritising maintenance and investment.</dd></div>
+        <div class="px-diff"><dt>What is different</dt><dd>Combines data from all assets; adds no new measurement.</dd></div>
+        <div><dt>Monitoring</dt><dd><a href="#apm">Asset Management</a></dd></div>
+        <div><dt>Product</dt><dd>IPS APM</dd></div>
+      </dl>
+    </article>
+  </div>
+</div>
+</template>
+
+<!-- ================= HOME ================= -->
+<main data-page="home" data-url="/en/">
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>Ana sayfa artık okunmuyor, seçiliyor: "What do you need?" altında iki kapı. Sektör ziyaretçisi tek dokunuşla kendi sayfasına gider.</li>
+<li>Kapı etiketleri ("Monitor critical assets", "Source electrical materials") yeni metin; onayınız gerekli.</li>
+<li>Logo: canlı sitedeki logo görseli WordPress'te buraya gelir. Megger logosu: imzalı yazı kapsıyorsa eklenir (karar bekliyor).</li>
+<li>Rakamlar sabit metin; sayaç animasyonu yok.</li>
+</ul></div></aside>
+<section class="sec"><div class="wrap hero">
+  <div class="logo" aria-hidden="true">Glinker<small>GROUP</small></div>
+  <div class="txt stack">
+    <p class="eyebrow"><b>Trade Facilitator</b> · One point of access between international buyers and Turkish manufacturers</p>
+    <h1>Solution partner for monitoring and supply in critical electrical infrastructure</h1>
+  </div>
+</div></section>
+
+<section class="sec tight soft"><div class="wrap stack">
+  <h2>What do you need?</h2>
+  <div class="grid2">
+    <div class="door">
+      <div class="head"><svg class="ic" aria-hidden="true"><use href="#i-power-transformer"/></svg>
+        <div><h3><a href="#monitoring">Monitor critical assets</a></h3><p>Transformers, cables, machines, networks</p></div><span class="arrow" aria-hidden="true">→</span></div>
+      <ul class="chips"><li><a href="#dc">Data Centers</a></li><li><a href="#airports">Airports</a></li><li><a href="#utilities">Distribution Utilities</a></li></ul>
+    </div>
+    <div class="door">
+      <div class="head"><svg class="ic" aria-hidden="true"><use href="#i-cable"/></svg>
+        <div><h3><a href="#supply">Source electrical materials</a></h3><p>From Turkish manufacturers, one contact</p></div><span class="arrow" aria-hidden="true">→</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec tight navy"><div class="wrap">
+  <dl class="trust">
+    <div><dt>Megger</dt><dd>Strategic partner</dd></div>
+    <div><dt>81</dt><dd>Provinces in supplier network</dd></div>
+    <div><dt>18+</dt><dd>Years in electrical supply</dd></div>
+  </dl>
+</div></section>
+
+<section class="sec"><div class="wrap cta">
+  <h2>Start with a technical conversation</h2>
+  <a class="btn" href="#contact">Request a technical meeting</a>
+</div></section>
+</main>
+
+<!-- ================= MONITORING HUB ================= -->
+<main data-page="monitoring" data-url="/en/online-monitoring/" hidden>
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>Tablo kaldırıldı; yerine tıklanabilir güç zinciri şeması geldi. Varlığa dokununca risk, farkı, yöntem ve ürün açılır; "Next asset" ile sırayla gezilir. Sektör düğmeleri ilgili varlıkları öne çıkarır ve risk satırını o sektöre göre değiştirir.</li>
+<li>Telefonda bilgi kartı ekranın altında sabit kalır; şemada gezerken hep görünür.</li>
+<li>İçerik HTML'de durur (çevrilebilir, arama motoru okur). WordPress'te tek bir kısa kod olarak dört sayfada kullanılır; ürün adı değişince tek yerden düzeltilir.</li>
+<li>Düzeltmeler: InsuLogix G2 çok gazlı DGA değil. MS5200 OG havai hat sensörü, MGA yazılımı. Greenlight YG kablo içindir. Doğru ürün adı IPS APM.</li>
+<li>GIS şemada yok: ICMobserver GIS için değil (Megger'de ayrı ürün). Kapsamınızdaysa düğüm eklenir. Karar bekliyor.</li>
+<li>Veri merkezinde jeneratör öne çıkarılmadı: yedek jeneratörler çoğunlukla alçak gerilim, online kısmi deşarj izleme uygulanmaz.</li>
+<li>"Neden şimdi Türkiye" paragrafı kaynak linkleri doğrulanınca eklenir. Karar bekliyor.</li>
+</ul></div></aside>
+<section class="sec tight"><div class="wrap stack">
+  <h1>Online Monitoring</h1>
+  <p class="lead measure">Faults develop over weeks. Continuous monitoring shows the trend while the asset stays in service.</p>
+</div></section>
+<section class="sec tight"><div class="wrap stack">
+  <h2>Select an asset</h2>
+  <div class="px-mount" id="hubPx"></div>
+</div></section>
+<section class="sec tight soft"><div class="wrap stack">
+  <h2>Technologies</h2>
+  <ul class="tiles">
+    <li><a class="tile" href="#pd"><svg class="ic" aria-hidden="true"><use href="#i-partial-discharge"/></svg>Partial Discharge</a></li>
+    <li><a class="tile" href="#dga"><svg class="ic" aria-hidden="true"><use href="#i-dga"/></svg>DGA</a></li>
+    <li><a class="tile" href="#cable"><svg class="ic" aria-hidden="true"><use href="#i-cable"/></svg>Cable &amp; MV</a></li>
+    <li><a class="tile" href="#dtpq"><svg class="ic" aria-hidden="true"><use href="#i-power-quality"/></svg>Distribution &amp; Power Quality</a></li>
+    <li><a class="tile" href="#apm"><svg class="ic" aria-hidden="true"><use href="#i-asset-mgmt"/></svg>Asset Management</a></li>
+  </ul>
+  <details class="std"><summary>Why continuous monitoring?</summary><p>Most insulation and network faults do not appear suddenly. They develop over weeks or months, and for most of that time the asset keeps operating normally. A periodic test records one moment. A permanently installed monitor measures while the asset is in service, records the trend and raises an alarm when a set limit is passed, so maintenance can be planned around the condition of the asset.</p></details>
+  <p class="measure">Generation, transmission, rail, defence-industry and other critical facilities use the same assets. For these, and for other solutions and field test instruments, contact us.</p>
+</div></section>
+<section class="sec tight navy"><div class="wrap cta">
+  <h2>Discuss your assets</h2>
+  <a class="btn" href="#contact" data-topic="monitoring">Request a technical meeting</a>
+</div></section>
+</main>
+
+<!-- ================= PD ================= -->
+<main data-page="pd" data-url="/en/online-monitoring/partial-discharge-monitoring/" hidden>
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>Paragraflar yerine: ikonlu "ne tespit eder" kutuları, tek cümlelik sınır notu, varlık düğmeleri (şemaya götürür), ürün özellik kartı, açılır standartlar.</li>
+<li>Değerler Megger sayfasının arama özetinden; yayın öncesi datasheet ile doğrulanacak. Kanal sayısı ve bant genişliği yazılmadı (yalnızca bayi kaynaklı).</li>
+<li>"ICMobserver G2" adı kamuya açık kaynakta bulunamadı; Megger'e teyit ettirin.</li>
+</ul></div></aside>
+<section class="sec tight"><div class="wrap stack">
+  <p class="crumb"><a href="#monitoring">Online Monitoring</a> / Partial Discharge Monitoring</p>
+  <h1>Partial Discharge Monitoring</h1>
+  <p class="lead measure">Shows whether an insulation defect is stable or growing, while the asset stays energised.</p>
+  <div class="anchors"><button type="button" data-go="detects">Detects</button><button type="button" data-go="applies">Applies</button><button type="button" data-go="product">Product</button><button type="button" data-go="standards">Standards</button></div>
+</div></section>
+<section class="sec tight soft" data-sec="detects"><div class="wrap stack">
+  <h2>What it detects</h2>
+  <ul class="tiles">
+    <li><div class="tile"><svg class="ic" aria-hidden="true"><use href="#i-partial-discharge"/></svg>Voids and cracks<small>Inside solid insulation.</small></div></li>
+    <li><div class="tile"><svg class="ic" aria-hidden="true"><use href="#i-power-transformer"/></svg>Surface tracking<small>On bushings and terminations.</small></div></li>
+    <li><div class="tile"><svg class="ic" aria-hidden="true"><use href="#i-rotating"/></svg>Stator discharges<small>Slot and end-winding discharges in stator windings.</small></div></li>
+    <li><div class="tile"><svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg>Rising trend<small>Changes in magnitude and repetition rate over time.</small></div></li>
+  </ul>
+  <p class="limit">A single measurement shows discharge is present. A trend tells you whether to act.</p>
+</div></section>
+<section class="sec tight" data-sec="applies"><div class="wrap stack">
+  <h2>Where it applies</h2>
+  <ul class="chips">
+    <li><a class="chip" href="#monitoring" data-node="n-power-transformer"><svg class="ic" aria-hidden="true"><use href="#i-power-transformer"/></svg>Power transformer</a></li>
+    <li><a class="chip" href="#monitoring" data-node="n-rotating"><svg class="ic" aria-hidden="true"><use href="#i-rotating"/></svg>Generator &amp; HV motor</a></li>
+    <li><a class="chip" href="#monitoring" data-node="n-hv-cable"><svg class="ic" aria-hidden="true"><use href="#i-cable"/></svg>Cable terminations</a></li>
+  </ul>
+</div></section>
+<section class="sec tight" data-sec="product"><div class="wrap stack">
+  <h2>Product</h2>
+  <div class="spec"><h3>ICMobserver</h3><p>Permanently installed monitoring system from Megger's Power Diagnostix line.</p><span class="tagline">Per manufacturer data</span>
+    <dl><dt>In one unit</dt><dd>Spectrum analyser, time-domain oscilloscope, voltage measurement, partial discharge monitor</dd>
+    <dt>Alarms</dt><dd>Qp on discharge level; NQS on discharge events per second</dd>
+    <dt>Operation</dt><dd>Web browser</dd>
+    <dt>Existing sensors</dt><dd>Sensors from other suppliers can typically be integrated</dd>
+    <dt>Sensors</dt><dd>Defined per installation with the manufacturer</dd></dl></div>
+</div></section>
+<section class="sec tight soft" data-sec="standards"><div class="wrap stack">
+  <h2>Standards</h2>
+  <div class="grid3">
+    <details class="std"><summary>IEC 60270</summary><p>Reference standard for partial discharge measurement.</p></details>
+    <details class="std"><summary>IEC TS 62478</summary><p>Electromagnetic and acoustic measurement methods.</p></details>
+    <details class="std"><summary>IEC TS 60034-27-2</summary><p>Online measurement on stator windings of rotating machines.</p></details>
+  </div>
+  <p>See also: <a href="#dga">DGA Monitoring</a></p>
+</div></section>
+<section class="sec tight navy"><div class="wrap cta"><h2>Ask about partial discharge monitoring</h2><a class="btn" href="#contact" data-topic="monitoring">Request a technical meeting</a></div></section>
+</main>
+
+<!-- ================= DGA ================= -->
+<main data-page="dga" data-url="/en/online-monitoring/dga-monitoring/" hidden>
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>Önemli düzeltme: InsuLogix G2 iki gaz (hidrojen, asetilen) ve nem ölçer; tam DGA veya arıza tipi teşhisi iddia edilemez. Sınır notu bunu tek cümleyle söylüyor.</li>
+<li>Algılama sınırları Megger blog yazısının arama özetinden; yayın öncesi datasheet ile doğrulanacak.</li>
+</ul></div></aside>
+<section class="sec tight"><div class="wrap stack">
+  <p class="crumb"><a href="#monitoring">Online Monitoring</a> / DGA Monitoring</p>
+  <h1>Dissolved Gas Analysis (DGA) Monitoring</h1>
+  <p class="lead measure">Online gas measurement gives an early warning between laboratory oil samples.</p>
+  <div class="anchors"><button type="button" data-go="detects">Detects</button><button type="button" data-go="applies">Applies</button><button type="button" data-go="product">Product</button><button type="button" data-go="standards">Standards</button></div>
+</div></section>
+<section class="sec tight soft" data-sec="detects"><div class="wrap stack">
+  <h2>What it detects</h2>
+  <ul class="tiles">
+    <li><div class="tile"><span class="gas" aria-hidden="true">H₂</span>Hydrogen<small>Produced by most developing faults: a general early indicator.</small></div></li>
+    <li><div class="tile"><span class="gas" aria-hidden="true">C₂H₂</span>Acetylene<small>Associated with arcing; even small amounts need attention.</small></div></li>
+    <li><div class="tile"><svg class="ic" aria-hidden="true"><use href="#i-moisture"/></svg>Moisture<small>Reduces dielectric strength and speeds up paper ageing.</small></div></li>
+  </ul>
+  <p class="limit">A two-gas monitor shows that something is developing. Fault type needs laboratory DGA.</p>
+</div></section>
+<section class="sec tight" data-sec="applies"><div class="wrap stack">
+  <h2>Where it applies</h2>
+  <ul class="chips">
+    <li><a class="chip" href="#monitoring" data-node="n-power-transformer"><svg class="ic" aria-hidden="true"><use href="#i-power-transformer"/></svg>Oil-filled power transformer</a></li>
+  </ul>
+</div></section>
+<section class="sec tight" data-sec="product"><div class="wrap stack">
+  <h2>Product</h2>
+  <div class="spec"><h3>InsuLogix G2</h3><p>Megger's online monitor for transformer oil.</p><span class="tagline">Per manufacturer data</span>
+    <dl><dt>Measures</dt><dd>Hydrogen, acetylene, moisture in oil</dd>
+    <dt>Detection limits</dt><dd>25 ppm H₂ · 0.5 ppm C₂H₂ · 2 ppm moisture</dd>
+    <dt>Mounting</dt><dd>Single 38 mm (1.5 in) valve</dd>
+    <dt>Weight</dt><dd>Approx. 13.5 kg</dd>
+    <dt>Communication</dt><dd>Modbus RTU / TCP; DNP3 and IEC 61850 optional</dd></dl>
+    <p class="limit">Two-gas monitor. It does not replace laboratory DGA; ratio methods do not apply to its readings alone.</p></div>
+</div></section>
+<section class="sec tight soft" data-sec="standards"><div class="wrap stack">
+  <h2>Standards</h2>
+  <div class="grid2">
+    <details class="std"><summary>IEC 60599</summary><p>Guide for interpreting full multi-gas DGA results from laboratory analysis.</p></details>
+    <details class="std"><summary>IEEE C57.104</summary><p>Guide for interpreting gases generated in oil-immersed transformers.</p></details>
+  </div>
+  <p>See also: <a href="#pd">Partial Discharge Monitoring</a></p>
+</div></section>
+<section class="sec tight navy"><div class="wrap cta"><h2>Ask about DGA monitoring</h2><a class="btn" href="#contact" data-topic="monitoring">Request a technical meeting</a></div></section>
+</main>
+
+<!-- ================= CABLE ================= -->
+<main data-page="cable" data-url="/en/online-monitoring/cable-and-mv-monitoring/" hidden>
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>"MGA/MS5200" tek ürün değil: MS5200 sensör, MGA = Megger Grid Analytics yazılımı. Havai hat içindir; yeraltı OG kablo için hangi sensörün kapsamınızda olduğu Megger'e sorulmalı.</li>
+<li>Greenlight Synaptec ürünüdür; Megger ile ilişki "strategic alliance".</li>
+<li>Bu sayfada standart adı yok: ürünlere kesin bağlanabilen standart bulunamadı.</li>
+</ul></div></aside>
+<section class="sec tight"><div class="wrap stack">
+  <p class="crumb"><a href="#monitoring">Online Monitoring</a> / Cable &amp; MV Monitoring</p>
+  <h1>Cable &amp; MV Monitoring</h1>
+  <p class="lead measure">The asset is a route, not a single item: watch known weak points, locate faults fast.</p>
+  <div class="anchors"><button type="button" data-go="detects">Detects</button><button type="button" data-go="applies">Applies</button><button type="button" data-go="product">Products</button></div>
+</div></section>
+<section class="sec tight soft" data-sec="detects"><div class="wrap stack">
+  <h2>What it detects</h2>
+  <ul class="tiles">
+    <li><div class="tile"><svg class="ic" aria-hidden="true"><use href="#i-cable"/></svg>Screen current<small>Abnormal sheath currents at HV joints and terminations.</small></div></li>
+    <li><div class="tile"><svg class="ic" aria-hidden="true"><use href="#i-alarm"/></svg>Overheating<small>Temperature at HV joints and terminations.</small></div></li>
+    <li><div class="tile"><svg class="ic" aria-hidden="true"><use href="#i-overhead-line"/></svg>Broken conductor<small>On MV overhead feeders, with the faulted section identified.</small></div></li>
+    <li><div class="tile"><svg class="ic" aria-hidden="true"><use href="#i-power-quality"/></svg>High-impedance fault<small>On MV overhead feeders.</small></div></li>
+  </ul>
+</div></section>
+<section class="sec tight" data-sec="applies"><div class="wrap stack">
+  <h2>Where it applies</h2>
+  <ul class="chips">
+    <li><a class="chip" href="#monitoring" data-node="n-hv-cable"><svg class="ic" aria-hidden="true"><use href="#i-cable"/></svg>HV cable circuit</a></li>
+    <li><a class="chip" href="#monitoring" data-node="n-mv-feeder"><svg class="ic" aria-hidden="true"><use href="#i-overhead-line"/></svg>MV overhead feeder</a></li>
+  </ul>
+</div></section>
+<section class="sec tight" data-sec="product"><div class="wrap stack">
+  <h2>Products</h2>
+  <div class="grid2">
+  <div class="spec"><h3>Synaptec Greenlight</h3><p>For HV cable circuits; from Synaptec, offered by Megger under a strategic alliance.</p><span class="tagline">Per manufacturer data</span>
+    <dl><dt>Monitors</dt><dd>Joints and terminations along the circuit</dd>
+    <dt>Measures</dt><dd>Phase current, screen current, temperature</dd>
+    <dt>Sensors</dt><dd>Passive; no control power at the measuring point</dd></dl></div>
+  <div class="spec"><h3>MS5200 with Megger Grid Analytics</h3><p>Line-mounted MV sensor and the software that analyses its data.</p><span class="tagline">Per manufacturer data</span>
+    <dl><dt>Accuracy</dt><dd>0.5 % current and voltage measurement</dd>
+    <dt>Versions</dt><dd>MS5200-SU with radio; MS5200-GS with integrated cellular gateway</dd>
+    <dt>Software</dt><dd>Identifies broken conductors and high-impedance faults; Megger-hosted or on the customer's server</dd></dl></div>
+  </div>
+  <p>See also: <a href="#pd">Partial Discharge Monitoring</a> · <a href="#dtpq">Distribution Transformer &amp; Power Quality</a></p>
+</div></section>
+<section class="sec tight navy"><div class="wrap cta"><h2>Ask about cable and MV monitoring</h2><a class="btn" href="#contact" data-topic="monitoring">Request a technical meeting</a></div></section>
+</main>
+
+<!-- ================= DT + PQ ================= -->
+<main data-page="dtpq" data-url="/en/online-monitoring/distribution-transformer-and-power-quality/" hidden>
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>BEKLEMEDE: TrafoStick TS G2 için A. Eberle'nin kendi sitesinde ürün sayfası bulunamadı. Kartta yalnızca ad ve tek cümle var; datasheet sizden gelince özellik satırları eklenir.</li>
+<li>Megger ile A. Eberle ilişkisini gösteren kamuya açık kaynak yok; yalnızca marka adı yazıldı. Megger'den yazılı teyit gelirse "Megger üzerinden" cümlesi eklenir.</li>
+</ul></div></aside>
+<section class="sec tight"><div class="wrap stack">
+  <p class="crumb"><a href="#monitoring">Online Monitoring</a> / Distribution Transformer &amp; Power Quality</p>
+  <h1>Distribution Transformer &amp; Power Quality Monitoring</h1>
+  <p class="lead measure">A compact sensor for transformer oil, and a Class A analyser for the quality of supply.</p>
+  <div class="anchors"><button type="button" data-go="detects">Detects</button><button type="button" data-go="applies">Applies</button><button type="button" data-go="product">Products</button><button type="button" data-go="standards">Standards</button></div>
+</div></section>
+<section class="sec tight soft" data-sec="detects"><div class="wrap stack">
+  <h2>What it detects</h2>
+  <ul class="tiles">
+    <li><div class="tile"><svg class="ic" aria-hidden="true"><use href="#i-dist-transformer"/></svg>Oil strength<small>Falling dielectric strength of transformer oil.</small></div></li>
+    <li><div class="tile"><svg class="ic" aria-hidden="true"><use href="#i-moisture"/></svg>Moisture<small>Rising moisture in the oil.</small></div></li>
+    <li><div class="tile"><svg class="ic" aria-hidden="true"><use href="#i-power-quality"/></svg>Voltage events<small>Dips, swells, harmonics, flicker and unbalance, with recorded waveforms.</small></div></li>
+  </ul>
+</div></section>
+<section class="sec tight" data-sec="applies"><div class="wrap stack">
+  <h2>Where it applies</h2>
+  <ul class="chips">
+    <li><a class="chip" href="#monitoring" data-node="n-dist-transformer"><svg class="ic" aria-hidden="true"><use href="#i-dist-transformer"/></svg>Distribution transformer</a></li>
+    <li><a class="chip" href="#monitoring" data-node="n-supply-point"><svg class="ic" aria-hidden="true"><use href="#i-power-quality"/></svg>Supply point / busbar</a></li>
+  </ul>
+</div></section>
+<section class="sec tight" data-sec="product"><div class="wrap stack">
+  <h2>Products</h2>
+  <div class="grid2">
+  <div class="spec"><h3>TrafoStick (A. Eberle)</h3><p>In-oil sensor for continuous monitoring of transformer oil condition.</p></div>
+  <div class="spec"><h3>PQI-DA smart (A. Eberle)</h3><p>Fixed-installed power quality analyser and fault recorder for LV, MV and HV networks.</p><span class="tagline">Per manufacturer data</span>
+    <dl><dt>Measurement class</dt><dd>Class A to IEC 61000-4-30 Edition 3</dd>
+    <dt>Classification</dt><dd>PQI-A-FI-H under IEC 62586</dd>
+    <dt>Fault recorder</dt><dd>Sampling at 40.96 kHz</dd></dl></div>
+  </div>
+</div></section>
+<section class="sec tight soft" data-sec="standards"><div class="wrap stack">
+  <h2>Standards</h2>
+  <div class="grid2">
+    <details class="std"><summary>EN 50160</summary><p>Voltage characteristics of public electricity networks.</p></details>
+    <details class="std"><summary>IEC 61000-4-30</summary><p>How power quality parameters are measured; Class A gives comparable, contractually reliable results.</p></details>
+  </div>
+  <p>See also: <a href="#dga">DGA Monitoring</a> · <a href="#apm">Asset Management</a></p>
+</div></section>
+<section class="sec tight navy"><div class="wrap cta"><h2>Ask about distribution and power quality monitoring</h2><a class="btn" href="#contact" data-topic="monitoring">Request a technical meeting</a></div></section>
+</main>
+
+<!-- ================= APM ================= -->
+<main data-page="apm" data-url="/en/online-monitoring/asset-management/" hidden>
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>Ürün adı "Megger APM/IPS" değil: IPS APM (IPS-ENERGY yazılımı, Megger tarafından sunuluyor).</li>
+<li>Yazılım olduğu için "ne tespit eder" yerine dört adımlı "ne yapar". SCADA/ERP entegrasyon listesi doğrulanana kadar yazılmadı.</li>
+</ul></div></aside>
+<section class="sec tight"><div class="wrap stack">
+  <p class="crumb"><a href="#monitoring">Online Monitoring</a> / Asset Management</p>
+  <h1>Asset Management</h1>
+  <p class="lead measure">Software that turns test and monitoring data into a ranked plan for the whole fleet.</p>
+  <div class="anchors"><button type="button" data-go="detects">Does</button><button type="button" data-go="applies">Applies</button><button type="button" data-go="product">Product</button></div>
+</div></section>
+<section class="sec tight soft" data-sec="detects"><div class="wrap stack">
+  <h2>What it does</h2>
+  <ol class="tiles">
+    <li><div class="tile"><span class="num" aria-hidden="true">1</span>Collect<small>Test and monitoring data in one record per asset.</small></div></li>
+    <li><div class="tile"><span class="num" aria-hidden="true">2</span>Assess<small>A condition indication per asset.</small></div></li>
+    <li><div class="tile"><span class="num" aria-hidden="true">3</span>Rank<small>By condition and importance to the network.</small></div></li>
+    <li><div class="tile"><span class="num" aria-hidden="true">4</span>Plan<small>Maintenance and longer-term investment.</small></div></li>
+  </ol>
+  <p class="limit">It adds no new measurement. Its value depends on the data that monitoring and testing provide.</p>
+</div></section>
+<section class="sec tight" data-sec="applies"><div class="wrap stack">
+  <h2>Where it applies</h2>
+  <ul class="chips">
+    <li><a class="chip" href="#monitoring" data-node="n-fleet"><svg class="ic" aria-hidden="true"><use href="#i-asset-mgmt"/></svg>Whole fleet</a></li>
+  </ul>
+</div></section>
+<section class="sec tight" data-sec="product"><div class="wrap stack">
+  <h2>Product</h2>
+  <div class="spec"><h3>IPS APM</h3><p>Asset performance management software from IPS-ENERGY, offered by Megger.</p>
+    <dl><dt>Platform</dt><dd>IPS SYSTEMS enterprise asset management for power utilities</dd>
+    <dt>Data</dt><dd>Test and monitoring data brought into the asset record</dd>
+    <dt>Planning</dt><dd>Asset investment planning through a dedicated module</dd>
+    <dt>Scope</dt><dd>Data sources and interfaces defined per organisation</dd></dl></div>
+</div></section>
+<section class="sec tight navy"><div class="wrap cta"><h2>Ask about asset management</h2><a class="btn" href="#contact" data-topic="monitoring">Request a technical meeting</a></div></section>
+</main>
+
+<!-- ================= SECTORS ================= -->
+<main data-page="dc" data-url="/en/online-monitoring/sectors/data-centers/" hidden>
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>Aynı şema, bu sektöre kilitli: ilgili varlıklar belirgin, diğerleri soluk. Karta dokununca "burada risk", yöntem ve ürün görünür.</li>
+<li>Ürün adı gösteriliyor (isteğiniz: sektör ziyaretçisi hangi ürünle destek alacağını görsün); özellikler teknoloji sayfasında kalıyor.</li>
+<li>Bağlam cümlesi (veri merkezi kapasite büyümesi rakamları) kaynak linki doğrulanınca eklenir. Karar bekliyor.</li>
+</ul></div></aside>
+<section class="sec tight"><div class="wrap stack">
+  <p class="crumb"><a href="#monitoring">Online Monitoring</a> / Sectors / Data Centers</p>
+  <h1>Online Monitoring for Data Centers</h1>
+  <p class="lead measure">Redundancy hides a slow insulation fault; it does not remove it.</p>
+</div></section>
+<section class="sec tight"><div class="wrap stack">
+  <div class="px-mount" data-preset="dc"></div>
+  <p>Racks, PDU, UPS and ATS/STS: see <a href="#supply">Supply &amp; Project Solutions</a>. · <a href="#monitoring">See all assets</a></p>
+</div></section>
+<section class="sec tight navy"><div class="wrap cta"><h2>Discuss your data center</h2><a class="btn" href="#contact" data-topic="monitoring">Request a technical meeting</a></div></section>
+</main>
+
+<main data-page="airports" data-url="/en/online-monitoring/sectors/airports/" hidden>
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>Bağlam olarak Mart 2025 Heathrow trafo merkezi yangını (checklist 4.4'te onaylı) kamuya açık bilgi olarak eklenebilir; onayınız gerekli.</li>
+</ul></div></aside>
+<section class="sec tight"><div class="wrap stack">
+  <p class="crumb"><a href="#monitoring">Online Monitoring</a> / Sectors / Airports</p>
+  <h1>Online Monitoring for Airports</h1>
+  <p class="lead measure">One substation fault can stop the whole operation, and maintenance windows are short.</p>
+</div></section>
+<section class="sec tight"><div class="wrap stack">
+  <div class="px-mount" data-preset="ap"></div>
+  <p><a href="#monitoring">See all assets</a></p>
+</div></section>
+<section class="sec tight navy"><div class="wrap cta"><h2>Discuss your airport</h2><a class="btn" href="#contact" data-topic="monitoring">Request a technical meeting</a></div></section>
+</main>
+
+<main data-page="utilities" data-url="/en/online-monitoring/sectors/distribution-utilities/" hidden>
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>Dağıtım şirketleri Türkçe okur: Türkçe açıldığında ilk yayımlanacak sayfalar bu sayfa, Online İzleme ana sayfası ve dağıtım trafosu sayfası olmalı.</li>
+<li>Bağlam: EPDK hizmet kalitesi düzenlemesi ve yatırım rakamı kaynak linkiyle doğrulanınca eklenir. Karar bekliyor.</li>
+</ul></div></aside>
+<section class="sec tight"><div class="wrap stack">
+  <p class="crumb"><a href="#monitoring">Online Monitoring</a> / Sectors / Distribution Utilities</p>
+  <h1>Online Monitoring for Distribution Utilities</h1>
+  <p class="lead measure">Where is the fault, which asset is closest to failure, what to maintain first?</p>
+</div></section>
+<section class="sec tight"><div class="wrap stack">
+  <div class="px-mount" data-preset="du"></div>
+  <p><a href="#monitoring">See all assets</a></p>
+</div></section>
+<section class="sec tight navy"><div class="wrap cta"><h2>Discuss your network</h2><a class="btn" href="#contact" data-topic="monitoring">Request a technical meeting</a></div></section>
+</main>
+
+<!-- ================= SUPPLY ================= -->
+<main data-page="supply" data-url="/en/supply-and-project-solutions/" hidden>
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>Altı kalem grubu ikonlu kutu; dokununca kalemler altta açılır. Çalışma biçimi üç adım: "You bring / You get".</li>
+<li>Kalemler Drive'daki portföy dokümanınızdan. "MV installations" için dokümanda kalem yok; sizden bekleniyor.</li>
+<li>Build ve Run adımlarındaki "You bring" satırları yeni metin; onayınız gerekli.</li>
+<li>81 il cümlesi (checklist 6.7): görüp teyit etmek istemiştiniz; oda/TOBB anılmıyor.</li>
+<li>"Scope is set out in the agreement" cümlesi avukat onayı ister.</li>
+</ul></div></aside>
+<section class="sec tight"><div class="wrap stack">
+  <h1>Supply &amp; Project Solutions</h1>
+  <p class="lead measure">Electrical materials and project solutions matched with Turkish manufacturers. Glinker Group is not a manufacturer; you deal with one contact.</p>
+</div></section>
+<section class="sec tight soft"><div class="wrap stack" data-so>
+  <h2>Supply scope</h2>
+  <ul class="tiles">
+    <li><button class="tile" type="button" data-so-btn="earth" aria-pressed="true"><svg class="ic" aria-hidden="true"><use href="#i-earthing"/></svg>Earthing &amp; conduit</button></li>
+    <li><button class="tile" type="button" data-so-btn="cables" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-cable"/></svg>Cables &amp; conductors</button></li>
+    <li><button class="tile" type="button" data-so-btn="mv" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-mv"/></svg>MV installations</button></li>
+    <li><button class="tile" type="button" data-so-btn="panels" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-panel"/></svg>Panels &amp; switchgear</button></li>
+    <li><button class="tile" type="button" data-so-btn="lighting" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-lighting"/></svg>Lighting</button></li>
+    <li><button class="tile" type="button" data-so-btn="dcp" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-datacenter"/></svg>Data center power</button></li>
+  </ul>
+  <div class="sopanel" data-so-panel="earth"><ul class="items"><li>Galvanized strip</li><li>Copper</li><li>Grounding rods and boards</li><li>Lightning protection</li><li>PVC pipes and conduits</li><li>Cases, boxes and fixing units</li><li>Cable trays and ladders</li><li>Under-floor cable trays</li></ul></div>
+  <div class="sopanel" data-so-panel="cables" hidden><ul class="items"><li>MV and LV power cables</li><li>Industrial, wind and solar power cables</li><li>Signal cables</li><li>Weak current cables</li><li>Fiber optic cables</li><li>Special production cables</li><li>Structured cabling systems</li></ul></div>
+  <div class="sopanel" data-so-panel="mv" hidden><ul class="items"><li>Materials for medium-voltage installations</li></ul></div>
+  <div class="sopanel" data-so-panel="panels" hidden><ul class="items"><li>Low voltage panels</li><li>Panelboards and switchboards</li><li>Protection and control products</li><li>Switchgear</li><li>Busbar</li><li>Switches and sockets</li><li>Compensation equipment</li></ul></div>
+  <div class="sopanel" data-so-panel="lighting" hidden><ul class="items"><li>Indoor lighting</li><li>Exterior and outdoor lighting</li><li>Motion sensors</li><li>Emergency kits and lighting</li><li>Lighting automation</li></ul></div>
+  <div class="sopanel stack" data-so-panel="dcp" hidden><ul class="items"><li>Passive infrastructure</li><li>Racks</li><li>PDU</li><li>UPS</li><li>ATS/STS</li></ul><p><a href="#dc">Monitoring for data centers</a></p></div>
+</div></section>
+<section class="sec tight navy"><div class="wrap stack" data-so>
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><button type="button" data-so-btn="define" aria-pressed="true"><span class="n">1</span>Define</button></li>
+    <li><button type="button" data-so-btn="build" aria-pressed="false"><span class="n">2</span>Build</button></li>
+    <li><button type="button" data-so-btn="run" aria-pressed="false"><span class="n">3</span>Run</button></li>
+  </ol>
+  <div class="sopanel" data-so-panel="define"><dl class="grid2 px-panel-dl"><div><dt class="grplbl">You bring</dt><dd>Item list, technical specification, applicable standards, target delivery.</dd></div><div><dt class="grplbl">You get</dt><dd>A clear scope and a short list of open questions.</dd></div></dl></div>
+  <div class="sopanel" data-so-panel="build" hidden><dl class="grid2"><div><dt class="grplbl">You bring</dt><dd>Answers to the open questions; your priorities on specification, quality and delivery time.</dd></div><div><dt class="grplbl">You get</dt><dd>A comparable proposal from matched manufacturers. The choice stays with you.</dd></div></dl></div>
+  <div class="sopanel" data-so-panel="run" hidden><dl class="grid2"><div><dt class="grplbl">You bring</dt><dd>Your selection and order.</dd></div><div><dt class="grplbl">You get</dt><dd>Order, production follow-up, documents and logistics through one contact; a status you can follow.</dd></div></dl></div>
+  <p class="hint">The scope of each engagement is set out in the agreement.</p>
+</div></section>
+<section class="sec tight"><div class="wrap stack">
+  <p class="lead measure"><strong>81 provinces</strong> in the supplier network. A preliminary study can be started for items where you are looking for an alternative.</p>
+  <p class="measure">You can also contact us for needs in engineering and project design, building systems, software and cyber security.</p>
+  <div><a class="btn" href="#contact" data-topic="supply">Send your requirement</a></div>
+</div></section>
+</main>
+
+<!-- ================= NOTES ================= -->
+<main data-page="notes" data-url="/en/knowledge-notes/" hidden>
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>Kartlar kısaldı: başlık ve "kimin için" satırı görünür; üç maddelik özet dokununca açılır. Megger metni kopyalanmaz, kendi özetimiz ve kaynağa bağlantı.</li>
+<li>Üç Glinker notu tam metinleri gelene kadar gösterilmiyor. Karar bekliyor: tam metin yayımlansın mı?</li>
+<li>İki özet arama özetlerinden yazıldı; yayın öncesi yazıların kendisi bir kez okunmalı. Haber ve etkinlikler burada bir format etiketi olacak.</li>
+</ul></div></aside>
+<section class="sec tight"><div class="wrap stack">
+  <h1>Knowledge Notes</h1>
+  <p class="lead">Our notes, and short summaries of industry sources.</p>
+  <div class="chips" id="filters" role="group" aria-label="Filter by topic">
+    <button class="chip" type="button" data-f="all" aria-pressed="true">All</button>
+    <button class="chip" type="button" data-f="pd" aria-pressed="false">Partial discharge</button>
+    <button class="chip" type="button" data-f="dga" aria-pressed="false">Dissolved gas analysis</button>
+  </div>
+</div></section>
+<section class="sec tight soft"><div class="wrap grid2" id="noteGrid">
+  <article class="card" data-tags="pd"><span class="badge">Digest · Megger Knowledge Hub</span><h3>Choosing a partial discharge monitoring system</h3><p>For: maintenance and asset management teams preparing a specification.</p><details><summary>3-point summary</summary><ul class="plain"><li><strong>What it says:</strong> systems range from permanent online monitoring to portable, periodic measurement; the choice follows from the asset and the purpose.</li><li><strong>Why it matters:</strong> the decision is about the asset and its criticality first, the instrument second.</li></ul></details><p><a href="https://www.megger.com/en/knowledge-hub/partial-discharge-monitoring-systems-choosing-the-right-solution">Open the source (megger.com)</a></p></article>
+  <article class="card" data-tags="dga"><span class="badge">Digest · Megger</span><h3>Why hydrogen and acetylene are the two gases to watch</h3><p>For: transformer engineers and substation maintenance managers.</p><details><summary>3-point summary</summary><ul class="plain"><li><strong>What it says:</strong> hydrogen appears early in most developing transformer faults, while acetylene points to high-energy faults.</li><li><strong>Why it matters:</strong> it explains what a two-gas online monitor is for, and what still needs laboratory analysis.</li></ul></details><p><a href="https://www.megger.com/en/why-hydrogen-and-acetylene-monitoring-prevent-asset-failure">Open the source (megger.com)</a></p></article>
+</div></section>
+</main>
+
+<!-- ================= ABOUT ================= -->
+<main data-page="about" data-url="/en/about/" hidden>
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>Hakkımızda üç kutu ve bir geçiş düğmesine indi (yaklaşık 80 kelime). Ekip, isim, değerler duvarı yok.</li>
+<li>Türk üretici metni ikinci sekmede, düğmesiz ve form seçeneksiz (11.11).</li>
+</ul></div></aside>
+<section class="sec tight"><div class="wrap stack">
+  <h1>About Glinker Group</h1>
+  <p class="lead measure">Ankara-based engineering and supply company; solution partner for critical electrical infrastructure.</p>
+</div></section>
+<section class="sec tight soft"><div class="wrap">
+  <ul class="tiles">
+    <li><a class="tile" href="#monitoring"><svg class="ic" aria-hidden="true"><use href="#i-power-transformer"/></svg>Online Monitoring<small>In strategic partnership with Megger.</small></a></li>
+    <li><a class="tile" href="#supply"><svg class="ic" aria-hidden="true"><use href="#i-cable"/></svg>Supply &amp; Project Solutions<small>18+ years in electrical supply.</small></a></li>
+    <li><div class="tile"><svg class="ic" aria-hidden="true"><use href="#i-meeting"/></svg>Trade Facilitator<small>Bridging Cultures, Building Trust.</small></div></li>
+  </ul>
+</div></section>
+<section class="sec tight"><div class="wrap stack" data-so>
+  <h2>Trade Facilitator</h2>
+  <div class="chips" role="group" aria-label="Trade Facilitator for">
+    <button class="chip" type="button" data-so-btn="buyers" aria-pressed="true">International buyers</button>
+    <button class="chip" type="button" data-so-btn="makers" aria-pressed="false">Turkish manufacturers</button>
+  </div>
+  <div class="sopanel" data-so-panel="buyers"><p class="measure">One point of access to Turkish manufacturers, with alternatives in quality and delivery time and follow-up of the supply process.</p></div>
+  <div class="sopanel" data-so-panel="makers" hidden><p class="measure">Where a manufacturer is looking to enter an international market, Glinker Group can help open the relevant network connections. Write to koordinasyon@glinkergroup.com.</p></div>
+</div></section>
+<section class="sec tight navy"><div class="wrap cta"><h2>Start with a technical conversation</h2><a class="btn" href="#contact">Request a technical meeting</a></div></section>
+</main>
+
+<!-- ================= CONTACT ================= -->
+<main data-page="contact" data-url="/en/contact/" hidden>
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>Konu, açılır liste yerine dokunulan düğmeler; diğer sayfalardaki düğmeler konuyu önceden seçer.</li>
+<li>Telefon ve WhatsApp numarası netleşmediği için gösterilmiyor. Numara gelince "WhatsApp · Coordination, weekdays 09:00–18:00" satırı eklenir.</li>
+<li>"2 iş günü içinde dönüş" sözü onayınızı bekliyor.</li>
+<li>KVKK: zorunlu kabul kutusu yerine bilgilendirme satırı; metin ve aydınlatma sayfası avukat onayı ister.</li>
+<li>Prototipte form gerçekten gönderim yapmaz.</li>
+</ul></div></aside>
+<section class="sec tight"><div class="wrap grid2">
+  <div class="stack">
+    <h1>Contact</h1>
+    <p class="lead">Tell us your sector and the asset or need.</p>
+    <p><strong>Ankara, Türkiye</strong><br>koordinasyon@glinkergroup.com</p>
+  </div>
+  <div>
+    <form class="card stack" id="form" novalidate>
+      <div class="alert" id="formAlert" role="alert" tabindex="-1" hidden>Please check the fields below.</div>
+      <fieldset class="field" id="f-topic"><legend>What is it about?</legend>
+        <div class="radios">
+          <label><input type="radio" name="topic" value="monitoring">Online monitoring</label>
+          <label><input type="radio" name="topic" value="supply">Supply and projects</label>
+          <label><input type="radio" name="topic" value="sourcing">Sourcing from Türkiye</label>
+          <label><input type="radio" name="topic" value="other">Other</label>
+        </div></fieldset>
+      <div class="field"><label for="f-name">Full name</label><input id="f-name" type="text" autocomplete="name" data-req="Enter your full name."></div>
+      <div class="field"><label for="f-email">Work email</label><input id="f-email" type="email" autocomplete="email" inputmode="email" data-req="Enter your work email address."></div>
+      <div class="field"><label for="f-org">Organization</label><input id="f-org" type="text" autocomplete="organization" data-req="Enter the name of your organization."></div>
+      <div class="field"><label for="f-phone">Phone (optional)</label><input id="f-phone" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="f-note">Short note (optional)</label><textarea id="f-note" rows="3" maxlength="1500"></textarea></div>
+      <p class="hint">Your personal data is processed by Glinker Group as data controller, only to respond to your request. See the <a href="#privacy">Privacy Notice (KVKK)</a>.</p>
+      <div><button class="btn" type="submit">Send request</button></div>
+    </form>
+    <div class="ok stack" id="formOk" hidden tabindex="-1"><h2>Your request has been received.</h2><p>Thank you. We will reply to the email address you provided.</p></div>
+  </div>
+</div></section>
+</main>
+
+<!-- ================= PRIVACY ================= -->
+<main data-page="privacy" data-url="/en/privacy-notice/" hidden>
+<aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
+<li>Bu sayfanın metni avukat tarafından yazılır/onaylanır; başlık iskeleti uzman raporunda (cro.md, bölüm 3.6). Türkçe sürümü site İngilizce açılırken de yayımlanmalı.</li>
+</ul></div></aside>
+<section class="sec"><div class="wrap stack">
+  <h1>Privacy Notice (KVKK)</h1>
+  <p class="measure">This notice explains how Glinker Group processes personal data sent through the contact form.</p>
+  <p><a href="#contact">Back to Contact</a></p>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <span>Glinker Group · Ankara, Türkiye</span>
+  <span>koordinasyon@glinkergroup.com</span>
+  <a href="#contact">Contact</a>
+  <a href="#privacy">Privacy Notice</a>
+  <span>© 2026 Glinker Group</span>
+</div></footer>
+
+<script>
+(function(){
+  var $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s));};
+  var pages=$$('main[data-page]');
+  var url=document.getElementById('url'),nav=document.getElementById('nav'),menuBtn=document.getElementById('menuBtn');
+  var noteBtn=document.getElementById('noteBtn'),notesOn=false,pendingTopic='',pendingNode='',started=false;
+  var parents={pd:1,dga:1,cable:1,dtpq:1,apm:1,dc:1,airports:1,utilities:1};
+  var sectorPage={dc:'#dc',ap:'#airports',du:'#utilities'};
+  var ORDER=['n-hv-cable','n-power-transformer','n-rotating','n-mv-feeder','n-dist-transformer','n-supply-point','n-fleet'];
+
+  /* ---- power-chain explorer ---- */
+  var tpl=document.getElementById('pxT'),hub=null;
+  $$('.px-mount').forEach(function(m){
+    var root=tpl.content.firstElementChild.cloneNode(true);m.appendChild(root);
+    var locked=m.dataset.preset||'',preset=locked||'all',cur='';
+    if(locked)root.setAttribute('data-locked','');
+    var panels=$$('.px-panel',root),nodes=$$('g.node',root),sectorLink=root.querySelector('.px-sector');
+    function inPreset(id){if(preset==='all')return true;var p=panels.filter(function(x){return x.dataset.node===id;})[0];return p.dataset.in.split(' ').indexOf(preset)>-1;}
+    function select(id,scroll){
+      cur=id;
+      panels.forEach(function(p){p.hidden=p.dataset.node!==id;});
+      nodes.forEach(function(n){var on=n.dataset.node===id;n.classList.toggle('is-active',on);n.setAttribute('aria-pressed',on?'true':'false');});
+      if(scroll&&window.innerWidth>=768){var p=root.querySelector('.px-panels');var r=p.getBoundingClientRect();if(r.bottom>window.innerHeight)p.scrollIntoView({block:'nearest'});}
+    }
+    function setPreset(p){
+      preset=p;root.dataset.preset=p;
+      $$('.px-presets .chip',root).forEach(function(c){c.setAttribute('aria-pressed',c.dataset.p===p?'true':'false');});
+      nodes.forEach(function(n){var dim=!inPreset(n.dataset.node);n.classList.toggle('is-dim',dim);if(locked){if(dim){n.removeAttribute('tabindex');n.style.cursor='default';}}});
+      sectorLink.hidden=p==='all'||!!locked;if(sectorPage[p])sectorLink.setAttribute('href',sectorPage[p]);
+      if(!cur||!inPreset(cur))select(ORDER.filter(inPreset)[0]);
+    }
+    nodes.forEach(function(n){
+      var label=(panels.filter(function(x){return x.dataset.node===n.dataset.node;})[0]||{querySelector:function(){return{textContent:''};}}).querySelector('h3').textContent;
+      n.setAttribute('role','button');n.setAttribute('tabindex','0');n.setAttribute('aria-label',label);
+      function go(){if(locked&&!inPreset(n.dataset.node))return;select(n.dataset.node,true);}
+      n.addEventListener('click',go);
+      n.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+    });
+    $$('.px-presets .chip',root).forEach(function(c){c.addEventListener('click',function(){setPreset(c.dataset.p);});});
+    $$('.px-next',root).forEach(function(b){b.addEventListener('click',function(){var list=ORDER.filter(inPreset);select(list[(list.indexOf(cur)+1)%list.length],false);});});
+    setPreset(preset);
+    if(!locked){select('n-power-transformer');hub={select:select,reset:function(){setPreset('all');select('n-power-transformer');},el:root};}
+  });
+
+  /* ---- select-one groups (supply tiles, stepper, about toggle) ---- */
+  $$('[data-so]').forEach(function(g){
+    var btns=$$('[data-so-btn]',g),pans=$$('[data-so-panel]',g);
+    btns.forEach(function(b){b.addEventListener('click',function(){
+      btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+      pans.forEach(function(p){p.hidden=p.dataset.soPanel!==b.dataset.soBtn;});
+      var p=pans.filter(function(x){return !x.hidden;})[0];var r=p.getBoundingClientRect();if(r.bottom>window.innerHeight||r.top<0)p.scrollIntoView({block:'nearest'});
+    });});
+  });
+
+  /* ---- in-page anchors ---- */
+  $$('[data-go]').forEach(function(b){b.addEventListener('click',function(){
+    var t=b.closest('main').querySelector('[data-sec="'+b.dataset.go+'"]');
+    if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-56,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
+  });});
+
+  /* ---- router ---- */
+  var chips=$$('#filters .chip');
+  function show(){
+    var id=(location.hash||'#home').slice(1),found=false;
+    pages.forEach(function(p){var on=p.dataset.page===id;p.hidden=!on;if(on){found=true;url.innerHTML='glinkergroup.com<b>'+p.dataset.url+'</b>';}});
+    if(!found){location.hash='#home';return;}
+    $$('a',nav).forEach(function(a){if(a.getAttribute('href').slice(1)===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+    var dd=nav.querySelector('details');dd.open=false;dd.classList.toggle('cur',id==='monitoring'||!!parents[id]);
+    nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');
+    if(id==='contact'){resetForm();if(pendingTopic){var r=form.querySelector('input[name=topic][value="'+pendingTopic+'"]');if(r)r.checked=true;}}
+    chips.length&&chips[0].click();
+    window.scrollTo(0,0);
+    if(id==='monitoring'&&hub){if(pendingNode){hub.select(pendingNode);hub.el.scrollIntoView({block:'start'});}else hub.reset();}
+    pendingTopic='';pendingNode='';
+    if(started&&!(id==='monitoring'&&location.hash&&hub&&false)){var h=document.querySelector('main:not([hidden]) h1');if(h){h.tabIndex=-1;h.focus({preventScroll:true});}}
+    started=true;
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[data-topic]');if(a)pendingTopic=a.dataset.topic;
+    var n=e.target.closest('a[data-node]');if(n)pendingNode=n.dataset.node;
+    var dd=nav.querySelector('details');if(dd.open&&!e.target.closest('.dd'))dd.open=false;
+  });
+  document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;var dd=nav.querySelector('details');if(dd.open){dd.open=false;dd.querySelector('summary').focus();}else if(nav.classList.contains('open')){nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.focus();}});
+  nav.querySelector('details').addEventListener('focusout',function(e){if(!this.contains(e.relatedTarget))this.open=false;});
+  menuBtn.addEventListener('click',function(){var o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o?'true':'false');});
+  noteBtn.addEventListener('click',function(){
+    notesOn=!notesOn;noteBtn.setAttribute('aria-pressed',notesOn?'true':'false');
+    noteBtn.textContent=notesOn?'Tasarım notlarını gizle':'Tasarım notlarını göster';
+    $$('.dn').forEach(function(n){n.hidden=!notesOn;});
+  });
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false');});
+    var f=c.dataset.f;$$('#noteGrid article').forEach(function(a){a.hidden=!(f==='all'||a.dataset.tags.split(' ').indexOf(f)>-1);});
+  });});
+
+  /* ---- form ---- */
+  var form=document.getElementById('form'),ok=document.getElementById('formOk'),alertBox=document.getElementById('formAlert'),topic=document.getElementById('f-topic');
+  var tried=false,fields=$$('input[type=text],input[type=email],input[type=tel],textarea',form);
+  function setErr(box,el,msg){var m=box.querySelector('.err');if(m)m.remove();el.removeAttribute('aria-invalid');
+    if(msg){el.setAttribute('aria-invalid','true');var p=document.createElement('p');p.className='err';p.textContent=msg;box.appendChild(p);}return !msg;}
+  function check(el){var msg='';
+    if(el.dataset.req&&!el.value.trim())msg=el.dataset.req;
+    else if(el.id==='f-email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()))msg='Enter an email address in the format name@organization.com.';
+    return setErr(el.parentNode,el,msg);}
+  function checkTopic(){return setErr(topic,topic,form.querySelector('input[name=topic]:checked')?'':'Select a topic.');}
+  function resetForm(){tried=false;form.reset();form.hidden=false;ok.hidden=true;alertBox.hidden=true;fields.forEach(function(el){setErr(el.parentNode,el,'');});setErr(topic,topic,'');}
+  fields.forEach(function(el){el.addEventListener('input',function(){if(tried&&el.getAttribute('aria-invalid'))check(el);});});
+  topic.addEventListener('change',function(){if(tried)checkTopic();});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();tried=true;var t=checkTopic();var bad=fields.filter(function(el){return !check(el);});
+    if(!t||bad.length){alertBox.hidden=false;(t?bad[0]:topic.querySelector('input')).focus();return;}
+    form.hidden=true;ok.hidden=false;ok.focus();
+  });
+  window.addEventListener('hashchange',show);show();
+})();
+</script>

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 750" class="pchain pchain-tall">
+<title>Power chain from grid to load with condition-monitoring points</title>
+<style>
+.pchain{font-family:var(--display,Jost,"Segoe UI",Arial,sans-serif)}
+.pchain .wire{fill:none;stroke:var(--navy,#1a315e);stroke-width:2}
+.pchain .bus{fill:none;stroke:var(--navy,#1a315e);stroke-width:6}
+.pchain .sym{fill:none;stroke:var(--navy,#1a315e);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pchain .sym.b{fill:var(--paper,#fff)}
+.pchain .sym.cab{stroke-width:5;stroke-linecap:butt}
+.pchain .solid{fill:var(--navy,#1a315e)}
+.pchain .lbl{fill:var(--navy,#1a315e);font-size:var(--pc-label-size,15px);font-weight:500;text-anchor:middle}
+.pchain .lbl.s{text-anchor:start}
+.pchain .ctx .lbl{fill:var(--body,#585858);font-weight:400}
+.pchain .ltr{fill:var(--navy,#1a315e);font-size:15px;font-weight:600;text-anchor:middle}
+.pchain .hit{fill:var(--cyan,#2fc1ff);fill-opacity:0;stroke:var(--cyan,#2fc1ff);stroke-opacity:0;stroke-width:1.5}
+.pchain .frame{fill:none;stroke:var(--pc-frame,#8a97b0);stroke-width:1.5;stroke-dasharray:6 5;pointer-events:none}
+.pchain .tab{fill:var(--soft,#f4f6fa);stroke:var(--pc-frame,#8a97b0);stroke-width:1.5}
+.pchain .mp-dot{fill:var(--cyan,#2fc1ff);stroke:var(--paper,#fff);stroke-width:1.5}
+.pchain .mp-ring{fill:none;stroke:var(--cyan,#2fc1ff);stroke-width:1.5;opacity:0;transform-box:fill-box;transform-origin:center}
+.pchain .node{cursor:pointer;outline:none;transition:opacity .2s}
+.pchain .node:hover .hit,.pchain .node:focus-visible .hit{fill-opacity:.1}
+.pchain .node:focus-visible .hit{stroke:var(--cyan-text,#0077a8);stroke-opacity:1;stroke-width:2}
+.pchain .node:hover .tab{fill:var(--line,#dde2ec)}
+.pchain .node:focus-visible .tab{stroke:var(--cyan-text,#0077a8);stroke-width:2.5}
+.pchain .node.is-active .hit{fill-opacity:.16;stroke-opacity:1}
+.pchain .node.is-active .sym,.pchain .node.is-active .wire{stroke-width:3}
+.pchain .node.is-active .sym.cab{stroke-width:7}
+.pchain .node.is-active .bus{stroke-width:8}
+.pchain .node.is-active .sym.o{fill:var(--cyan,#2fc1ff);fill-opacity:.3}
+.pchain .node.is-active .sym.b{fill:var(--pc-active-fill,#bfeaff)}
+.pchain .node.is-active .lbl{font-weight:600}
+.pchain .node.is-active .frame{stroke:var(--cyan,#2fc1ff);stroke-width:3;stroke-dasharray:none}
+.pchain .node.is-active .tab{fill:var(--cyan,#2fc1ff);stroke:var(--cyan,#2fc1ff)}
+.pchain .node.is-active .mp-ring{opacity:.9}
+.pchain .node.is-active .mp-dot{stroke:var(--navy,#1a315e)}
+.pchain .node.is-dim{opacity:.35}
+.pchain .hit.x{fill-opacity:0!important;stroke-opacity:0!important}
+@media (prefers-reduced-motion:no-preference){.pchain .node.is-active .mp-ring{animation:pc-pulse 2.4s ease-out infinite}}
+@keyframes pc-pulse{0%{transform:scale(.6);opacity:.9}75%,100%{transform:scale(1.9);opacity:0}}
+</style>
+<g id="n-fleet" class="node" data-node="fleet">
+<rect class="frame" x="8" y="48" width="344" height="686"/>
+<rect class="tab" x="8" y="14" width="140" height="34"/>
+<rect class="hit x" x="8" y="0" width="140" height="56"/>
+<g class="mp" transform="translate(26 31)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl s" x="42" y="36">Whole fleet</text>
+</g>
+<g class="ctx">
+<path class="sym" d="M81 110 92 62l11 48M83 74h18M74 88h36M85 100h14"/>
+<text class="lbl s" x="160" y="93">Grid</text>
+</g>
+<path class="wire" d="M110 88v44M110 208v29M110 307v165M110 524v39M110 613v49M225 346v26M285 346v26"/>
+<path class="bus" d="M60 346h250"/>
+<g class="ctx">
+<path class="wire" d="M84 662v42M110 662v42M136 662v42"/>
+<path class="solid" d="M79 704h10l-5 10zM105 704h10l-5 10zM131 704h10l-5 10z"/>
+<text class="lbl s" x="160" y="714">Loads</text>
+</g>
+<g id="n-hv-cable" class="node" data-node="hv-cable">
+<rect class="hit" x="24" y="122" width="312" height="96"/>
+<path class="sym cab" d="M110 146v48"/>
+<path class="sym b" d="M102 132h16l-8 14zM102 208h16l-8-14zM103 162h14v16h-14z"/>
+<g class="mp" transform="translate(117 162)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl s" x="160" y="175">HV cable circuit</text>
+</g>
+<g id="n-power-transformer" class="node" data-node="power-transformer">
+<rect class="hit" x="24" y="226" width="312" height="92"/>
+<circle class="sym o" cx="110" cy="258" r="21"/><circle class="sym o" cx="110" cy="286" r="21"/>
+<g class="mp" transform="translate(125 243)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl s" x="160" y="277">Power transformer</text>
+</g>
+<g id="n-rotating" class="node" data-node="rotating">
+<rect class="hit" x="174" y="356" width="162" height="92"/>
+<circle class="sym o" cx="225" cy="390" r="18"/><circle class="sym o" cx="285" cy="390" r="18"/>
+<text class="ltr" x="225" y="395">G</text><text class="ltr" x="285" y="395">M</text>
+<g class="mp" transform="translate(238 377)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl" x="255" y="434">Generator &amp; HV motor</text>
+</g>
+<g id="n-mv-feeder" class="node" data-node="mv-feeder">
+<rect class="hit" x="24" y="456" width="312" height="84"/>
+<path class="wire" d="M110 472v52"/>
+<path class="sym" d="M96 472h28M96 498h28M96 524h28"/>
+<circle class="solid" cx="110" cy="472" r="3.5"/><circle class="solid" cx="110" cy="498" r="3.5"/><circle class="solid" cx="110" cy="524" r="3.5"/>
+<g class="mp" transform="translate(124 498)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl s" x="160" y="503">MV overhead feeder</text>
+</g>
+<g id="n-dist-transformer" class="node" data-node="dist-transformer">
+<rect class="hit" x="24" y="552" width="312" height="70"/>
+<circle class="sym o" cx="110" cy="578" r="15"/><circle class="sym o" cx="110" cy="598" r="15"/>
+<g class="mp" transform="translate(120.6 567.4)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl s" x="160" y="584">Distribution<tspan x="160" dy="18">transformer</tspan></text>
+</g>
+<g id="n-supply-point" class="node" data-node="supply-point">
+<rect class="hit" x="24" y="626" width="312" height="66"/>
+<path class="sym b" d="M105 632h10v10h-10z"/>
+<path class="bus" d="M70 662h80"/>
+<g class="mp" transform="translate(150 662)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl s" x="172" y="655">Supply point /<tspan x="172" dy="18">busbar</tspan></text>
+</g>
+</svg>

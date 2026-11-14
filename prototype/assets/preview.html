@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Glinker illustration assets – preview</title>
+<style>
+:root{--navy:#1a315e;--cyan:#2fc1ff;--cyan-text:#0077a8;--body:#585858;--soft:#f4f6fa;--line:#dde2ec;--paper:#fff;--display:Jost,"Segoe UI",Arial,sans-serif}
+body{margin:0;padding:16px;font-family:Roboto,"Segoe UI",Arial,sans-serif;color:var(--body);background:#fff}
+h1,h2{font-family:var(--display);color:var(--navy);font-weight:500}
+h1{font-size:24px}h2{font-size:18px;margin:32px 0 8px}
+.scroll{overflow-x:auto;border:1px solid var(--line)}
+.scroll svg{display:block;width:100%;min-width:900px;height:auto}
+.phone{width:358px;max-width:100%;border:1px solid var(--line)}
+.phone svg{display:block;width:100%;height:auto}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);color:var(--navy)}
+.grid figure{margin:0;padding:14px 8px 10px;background:#fff;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px}
+.grid figcaption{flex:0 0 100%;text-align:center;font:12px/1.3 ui-monospace,Menlo,Consolas,monospace;color:var(--body)}
+.grid.navy{color:#fff;background:#31497a;border-color:#31497a}
+.grid.navy figure{background:var(--navy)}.grid.navy figcaption{color:#dbe3f2}
+.i48{width:48px;height:48px}.i24{width:24px;height:24px}
+</style></head><body>
+<h1>Glinker illustration assets</h1>
+<p>States shown: wide – <code>n-power-transformer.is-active</code>, <code>n-mv-feeder.is-dim</code>; tall – <code>n-rotating.is-active</code>, <code>n-hv-cable.is-dim</code>. Both layouts are inlined here, so node ids repeat on this page.</p>
+<h2>power-chain-wide.svg</h2>
+<div class="scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 380" class="pchain pchain-wide">
+<title>Power chain from grid to load with condition-monitoring points</title>
+<style>
+.pchain{font-family:var(--display,Jost,"Segoe UI",Arial,sans-serif)}
+.pchain .wire{fill:none;stroke:var(--navy,#1a315e);stroke-width:2}
+.pchain .bus{fill:none;stroke:var(--navy,#1a315e);stroke-width:6}
+.pchain .sym{fill:none;stroke:var(--navy,#1a315e);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pchain .sym.b{fill:var(--paper,#fff)}
+.pchain .sym.cab{stroke-width:5;stroke-linecap:butt}
+.pchain .solid{fill:var(--navy,#1a315e)}
+.pchain .lbl{fill:var(--navy,#1a315e);font-size:var(--pc-label-size,14px);font-weight:500;text-anchor:middle}
+.pchain .lbl.s{text-anchor:start}
+.pchain .ctx .lbl{fill:var(--body,#585858);font-weight:400}
+.pchain .ltr{fill:var(--navy,#1a315e);font-size:15px;font-weight:600;text-anchor:middle}
+.pchain .hit{fill:var(--cyan,#2fc1ff);fill-opacity:0;stroke:var(--cyan,#2fc1ff);stroke-opacity:0;stroke-width:1.5}
+.pchain .frame{fill:none;stroke:var(--pc-frame,#8a97b0);stroke-width:1.5;stroke-dasharray:6 5;pointer-events:none}
+.pchain .tab{fill:var(--soft,#f4f6fa);stroke:var(--pc-frame,#8a97b0);stroke-width:1.5}
+.pchain .mp-dot{fill:var(--cyan,#2fc1ff);stroke:var(--paper,#fff);stroke-width:1.5}
+.pchain .mp-ring{fill:none;stroke:var(--cyan,#2fc1ff);stroke-width:1.5;opacity:0;transform-box:fill-box;transform-origin:center}
+.pchain .node{cursor:pointer;outline:none;transition:opacity .2s}
+.pchain .node:hover .hit,.pchain .node:focus-visible .hit{fill-opacity:.1}
+.pchain .node:focus-visible .hit{stroke:var(--cyan-text,#0077a8);stroke-opacity:1;stroke-width:2}
+.pchain .node:hover .tab{fill:var(--line,#dde2ec)}
+.pchain .node:focus-visible .tab{stroke:var(--cyan-text,#0077a8);stroke-width:2.5}
+.pchain .node.is-active .hit{fill-opacity:.16;stroke-opacity:1}
+.pchain .node.is-active .sym,.pchain .node.is-active .wire{stroke-width:3}
+.pchain .node.is-active .sym.cab{stroke-width:7}
+.pchain .node.is-active .bus{stroke-width:8}
+.pchain .node.is-active .sym.o{fill:var(--cyan,#2fc1ff);fill-opacity:.3}
+.pchain .node.is-active .sym.b{fill:var(--pc-active-fill,#bfeaff)}
+.pchain .node.is-active .lbl{font-weight:600}
+.pchain .node.is-active .frame{stroke:var(--cyan,#2fc1ff);stroke-width:3;stroke-dasharray:none}
+.pchain .node.is-active .tab{fill:var(--cyan,#2fc1ff);stroke:var(--cyan,#2fc1ff)}
+.pchain .node.is-active .mp-ring{opacity:.9}
+.pchain .node.is-active .mp-dot{stroke:var(--navy,#1a315e)}
+.pchain .node.is-dim{opacity:.35}
+.pchain .hit.x{fill-opacity:0!important;stroke-opacity:0!important}
+@media (prefers-reduced-motion:no-preference){.pchain .node.is-active .mp-ring{animation:pc-pulse 2.4s ease-out infinite}}
+@keyframes pc-pulse{0%{transform:scale(.6);opacity:.9}75%,100%{transform:scale(1.9);opacity:0}}
+</style>
+<g id="n-fleet" class="node" data-node="fleet">
+<rect class="frame" x="20" y="50" width="1060" height="310"/>
+<rect class="tab" x="20" y="22" width="136" height="28"/>
+<rect class="hit x" x="20" y="8" width="136" height="48"/>
+<g class="mp" transform="translate(36 36)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl s" x="50" y="41">Whole fleet</text>
+</g>
+<g class="ctx">
+<path class="sym" d="M69 268 80 196l11 72M68 212h24M62 230h36M72 250h16"/>
+<text class="lbl" x="80" y="300">Grid</text>
+</g>
+<path class="wire" d="M98 230h62M290 230h59M421 230h134M705 230h86M839 230h86M480 105h34M480 160h34"/>
+<path class="bus" d="M480 85v177"/>
+<g class="ctx">
+<path class="wire" d="M925 208h60M925 230h60M925 252h60"/>
+<path class="solid" d="M985 203l10 5-10 5zM985 225l10 5-10 5zM985 247l10 5-10 5z"/>
+<text class="lbl s" x="1008" y="235">Loads</text>
+</g>
+<g id="n-hv-cable" class="node" data-node="hv-cable">
+<rect class="hit" x="150" y="192" width="150" height="140"/>
+<path class="sym cab" d="M174 230h102"/>
+<path class="sym b" d="M160 222v16l14-8zM290 222v16l-14-8zM214 222h22v16h-22z"/>
+<g class="mp" transform="translate(236 222)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl" x="225" y="300">HV cable<tspan x="225" dy="17">circuit</tspan></text>
+</g>
+<g id="n-power-transformer" class="node is-active" data-node="power-transformer">
+<rect class="hit" x="325" y="192" width="120" height="140"/>
+<circle class="sym o" cx="371" cy="230" r="22"/><circle class="sym o" cx="399" cy="230" r="22"/>
+<g class="mp" transform="translate(414.5 214.5)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl" x="385" y="300">Power<tspan x="385" dy="17">transformer</tspan></text>
+</g>
+<g id="n-rotating" class="node" data-node="rotating">
+<rect class="hit" x="498" y="76" width="166" height="110"/>
+<circle class="sym o" cx="532" cy="105" r="18"/><circle class="sym o" cx="532" cy="160" r="18"/>
+<text class="ltr" x="532" y="110">G</text><text class="ltr" x="532" y="165">M</text>
+<g class="mp" transform="translate(545 92)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl s" x="564" y="129">Generator &amp;<tspan x="564" dy="17">HV motor</tspan></text>
+</g>
+<g id="n-mv-feeder" class="node is-dim" data-node="mv-feeder">
+<rect class="hit" x="540" y="192" width="180" height="140"/>
+<path class="sym" d="M555 230q37.5 16 75 0 37.5 16 75 0M555 230v46M630 230v46M705 230v46M548 276h14M623 276h14M698 276h14"/>
+<path class="solid" d="M552 223h6v8h-6zM627 223h6v8h-6zM702 223h6v8h-6z"/>
+<g class="mp" transform="translate(667.5 238)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl" x="630" y="300">MV overhead<tspan x="630" dy="17">feeder</tspan></text>
+</g>
+<g id="n-dist-transformer" class="node" data-node="dist-transformer">
+<rect class="hit" x="754" y="192" width="120" height="140"/>
+<circle class="sym o" cx="806" cy="230" r="15"/><circle class="sym o" cx="824" cy="230" r="15"/>
+<g class="mp" transform="translate(834.6 219.4)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl" x="815" y="300">Distribution<tspan x="815" dy="17">transformer</tspan></text>
+</g>
+<g id="n-supply-point" class="node" data-node="supply-point">
+<rect class="hit" x="876" y="192" width="100" height="140"/>
+<path class="sym b" d="M884 225h10v10h-10z"/>
+<path class="bus" d="M925 196v68"/>
+<g class="mp" transform="translate(925 196)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl" x="926" y="300">Supply point /<tspan x="926" dy="17">busbar</tspan></text>
+</g>
+</svg>
+</div>
+<h2>power-chain-tall.svg</h2>
+<div class="phone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 750" class="pchain pchain-tall">
+<title>Power chain from grid to load with condition-monitoring points</title>
+<style>
+.pchain{font-family:var(--display,Jost,"Segoe UI",Arial,sans-serif)}
+.pchain .wire{fill:none;stroke:var(--navy,#1a315e);stroke-width:2}
+.pchain .bus{fill:none;stroke:var(--navy,#1a315e);stroke-width:6}
+.pchain .sym{fill:none;stroke:var(--navy,#1a315e);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pchain .sym.b{fill:var(--paper,#fff)}
+.pchain .sym.cab{stroke-width:5;stroke-linecap:butt}
+.pchain .solid{fill:var(--navy,#1a315e)}
+.pchain .lbl{fill:var(--navy,#1a315e);font-size:var(--pc-label-size,15px);font-weight:500;text-anchor:middle}
+.pchain .lbl.s{text-anchor:start}
+.pchain .ctx .lbl{fill:var(--body,#585858);font-weight:400}
+.pchain .ltr{fill:var(--navy,#1a315e);font-size:15px;font-weight:600;text-anchor:middle}
+.pchain .hit{fill:var(--cyan,#2fc1ff);fill-opacity:0;stroke:var(--cyan,#2fc1ff);stroke-opacity:0;stroke-width:1.5}
+.pchain .frame{fill:none;stroke:var(--pc-frame,#8a97b0);stroke-width:1.5;stroke-dasharray:6 5;pointer-events:none}
+.pchain .tab{fill:var(--soft,#f4f6fa);stroke:var(--pc-frame,#8a97b0);stroke-width:1.5}
+.pchain .mp-dot{fill:var(--cyan,#2fc1ff);stroke:var(--paper,#fff);stroke-width:1.5}
+.pchain .mp-ring{fill:none;stroke:var(--cyan,#2fc1ff);stroke-width:1.5;opacity:0;transform-box:fill-box;transform-origin:center}
+.pchain .node{cursor:pointer;outline:none;transition:opacity .2s}
+.pchain .node:hover .hit,.pchain .node:focus-visible .hit{fill-opacity:.1}
+.pchain .node:focus-visible .hit{stroke:var(--cyan-text,#0077a8);stroke-opacity:1;stroke-width:2}
+.pchain .node:hover .tab{fill:var(--line,#dde2ec)}
+.pchain .node:focus-visible .tab{stroke:var(--cyan-text,#0077a8);stroke-width:2.5}
+.pchain .node.is-active .hit{fill-opacity:.16;stroke-opacity:1}
+.pchain .node.is-active .sym,.pchain .node.is-active .wire{stroke-width:3}
+.pchain .node.is-active .sym.cab{stroke-width:7}
+.pchain .node.is-active .bus{stroke-width:8}
+.pchain .node.is-active .sym.o{fill:var(--cyan,#2fc1ff);fill-opacity:.3}
+.pchain .node.is-active .sym.b{fill:var(--pc-active-fill,#bfeaff)}
+.pchain .node.is-active .lbl{font-weight:600}
+.pchain .node.is-active .frame{stroke:var(--cyan,#2fc1ff);stroke-width:3;stroke-dasharray:none}
+.pchain .node.is-active .tab{fill:var(--cyan,#2fc1ff);stroke:var(--cyan,#2fc1ff)}
+.pchain .node.is-active .mp-ring{opacity:.9}
+.pchain .node.is-active .mp-dot{stroke:var(--navy,#1a315e)}
+.pchain .node.is-dim{opacity:.35}
+.pchain .hit.x{fill-opacity:0!important;stroke-opacity:0!important}
+@media (prefers-reduced-motion:no-preference){.pchain .node.is-active .mp-ring{animation:pc-pulse 2.4s ease-out infinite}}
+@keyframes pc-pulse{0%{transform:scale(.6);opacity:.9}75%,100%{transform:scale(1.9);opacity:0}}
+</style>
+<g id="n-fleet" class="node" data-node="fleet">
+<rect class="frame" x="8" y="48" width="344" height="686"/>
+<rect class="tab" x="8" y="14" width="140" height="34"/>
+<rect class="hit x" x="8" y="0" width="140" height="56"/>
+<g class="mp" transform="translate(26 31)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl s" x="42" y="36">Whole fleet</text>
+</g>
+<g class="ctx">
+<path class="sym" d="M81 110 92 62l11 48M83 74h18M74 88h36M85 100h14"/>
+<text class="lbl s" x="160" y="93">Grid</text>
+</g>
+<path class="wire" d="M110 88v44M110 208v29M110 307v165M110 524v39M110 613v49M225 346v26M285 346v26"/>
+<path class="bus" d="M60 346h250"/>
+<g class="ctx">
+<path class="wire" d="M84 662v42M110 662v42M136 662v42"/>
+<path class="solid" d="M79 704h10l-5 10zM105 704h10l-5 10zM131 704h10l-5 10z"/>
+<text class="lbl s" x="160" y="714">Loads</text>
+</g>
+<g id="n-hv-cable" class="node is-dim" data-node="hv-cable">
+<rect class="hit" x="24" y="122" width="312" height="96"/>
+<path class="sym cab" d="M110 146v48"/>
+<path class="sym b" d="M102 132h16l-8 14zM102 208h16l-8-14zM103 162h14v16h-14z"/>
+<g class="mp" transform="translate(117 162)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl s" x="160" y="175">HV cable circuit</text>
+</g>
+<g id="n-power-transformer" class="node" data-node="power-transformer">
+<rect class="hit" x="24" y="226" width="312" height="92"/>
+<circle class="sym o" cx="110" cy="258" r="21"/><circle class="sym o" cx="110" cy="286" r="21"/>
+<g class="mp" transform="translate(125 243)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl s" x="160" y="277">Power transformer</text>
+</g>
+<g id="n-rotating" class="node is-active" data-node="rotating">
+<rect class="hit" x="174" y="356" width="162" height="92"/>
+<circle class="sym o" cx="225" cy="390" r="18"/><circle class="sym o" cx="285" cy="390" r="18"/>
+<text class="ltr" x="225" y="395">G</text><text class="ltr" x="285" y="395">M</text>
+<g class="mp" transform="translate(238 377)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl" x="255" y="434">Generator &amp; HV motor</text>
+</g>
+<g id="n-mv-feeder" class="node" data-node="mv-feeder">
+<rect class="hit" x="24" y="456" width="312" height="84"/>
+<path class="wire" d="M110 472v52"/>
+<path class="sym" d="M96 472h28M96 498h28M96 524h28"/>
+<circle class="solid" cx="110" cy="472" r="3.5"/><circle class="solid" cx="110" cy="498" r="3.5"/><circle class="solid" cx="110" cy="524" r="3.5"/>
+<g class="mp" transform="translate(124 498)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl s" x="160" y="503">MV overhead feeder</text>
+</g>
+<g id="n-dist-transformer" class="node" data-node="dist-transformer">
+<rect class="hit" x="24" y="552" width="312" height="70"/>
+<circle class="sym o" cx="110" cy="578" r="15"/><circle class="sym o" cx="110" cy="598" r="15"/>
+<g class="mp" transform="translate(120.6 567.4)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl s" x="160" y="584">Distribution<tspan x="160" dy="18">transformer</tspan></text>
+</g>
+<g id="n-supply-point" class="node" data-node="supply-point">
+<rect class="hit" x="24" y="626" width="312" height="66"/>
+<path class="sym b" d="M105 632h10v10h-10z"/>
+<path class="bus" d="M70 662h80"/>
+<g class="mp" transform="translate(150 662)"><circle class="mp-ring" r="8"/><circle class="mp-dot" r="4"/></g>
+<text class="lbl s" x="172" y="655">Supply point /<tspan x="172" dy="18">busbar</tspan></text>
+</g>
+</svg>
+</div>
+<h2>icons.svg – on white (48px / 24px)</h2>
+<div class="sprite"><svg xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-partial-discharge" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4v6M24 38v6M8 10h32M8 38h32M27 14l-8 10h10l-8 10"/></symbol>
+<symbol id="i-dga" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5C17 14 11 22 11 29a13 13 0 0 0 26 0C37 22 31 14 24 5z"/><circle cx="20" cy="31" r="3.5"/><circle cx="28.5" cy="25" r="2.5"/><circle cx="28" cy="35" r="1.5"/></symbol>
+<symbol id="i-cable" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h11M4 28h11M33 20h11M33 28h11M15 20l4-5h10l4 5v8l-4 5H19l-4-5zM21 24h6"/></symbol>
+<symbol id="i-overhead-line" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8v34M18 42h12M12 15h24M14 15v-5M34 15v-5M24 22l-6-7M24 22l6-7M14 10C10 15 7 16 3 16M34 10c4 5 7 6 11 6"/></symbol>
+<symbol id="i-dist-transformer" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 18h26v20H11zM8 42h32M15 38v4M33 38v4M18 24v8M24 24v8M30 24v8M17 18v-7M24 18v-7M31 18v-7M15 11h4M22 11h4M29 11h4"/></symbol>
+<symbol id="i-power-quality" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 24q4-28 8 0t8 0q4-8 8 0t8 0q4-28 8 0"/></symbol>
+<symbol id="i-asset-mgmt" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h8v8H7zM20 7h8v8h-8zM7 20h8v8H7zM20 20h8v8h-8zM33 20h8v8h-8zM7 33h8v8H7zM20 33h8v8h-8zM33 33h8v8h-8z"/><path fill="currentColor" d="M33 7h8v8h-8z"/></symbol>
+<symbol id="i-power-transformer" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4v6M24 38v6"/><circle cx="24" cy="19" r="9"/><circle cx="24" cy="29" r="9"/></symbol>
+<symbol id="i-rotating" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="21" cy="23" r="14"/><path d="M13 23q4-8 8 0t8 0M35 23h9M10 41h22M14 35l-2 6M28 35l2 6"/></symbol>
+<symbol id="i-earthing" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5v13M10 18h28M15 25h18M20 32h8M24 37v7"/></symbol>
+<symbol id="i-conduit" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h21a12 12 0 0 1 12 12v19M5 24h19a2 2 0 0 1 2 2v17M13 10v16M24 36h16"/></symbol>
+<symbol id="i-panel" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h32v34H8zM24 6v34M12 40v3M36 40v3M12 11h8v6h-8zM20 26v6M28 13h8M28 19h8M28 25h8"/></symbol>
+<symbol id="i-lighting" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5v9M32 5v9M8 14h32l-4 8H12zM13 28l-3 7M24 28v8M35 28l3 7"/></symbol>
+<symbol id="i-datacenter" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 6h26v36H11zM11 18h26M11 30h26M16 12h.01M16 24h.01M16 36h.01M22 12h10M22 24h10M22 36h10"/></symbol>
+<symbol id="i-ups" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14h34v20H5zM39 20h4v8h-4zM24 18l-6 6h8l-6 6"/></symbol>
+<symbol id="i-mv" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5h28v38H10zM15 12h18M24 12v6M24 18l6 7M24 27v5M20 32h8l-4 6z"/></symbol>
+<symbol id="i-define" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h-8v34h28V8h-8M18 5h12v6H18zM16 20h16M16 27h16M16 34h9"/></symbol>
+<symbol id="i-build" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h14v30H5zM29 9h14v30H29zM19 17h10M19 31h10M9 17h6M9 31h6M33 17h6M33 31h6M22 24h4"/></symbol>
+<symbol id="i-run" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="37" r="3"/><path d="M12 37h16a6 6 0 0 0 0-12H18a6 6 0 0 1 0-12h10M32 13l3 3 5-6"/><circle cx="36" cy="13" r="8"/></symbol>
+<symbol id="i-meeting" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h24v16H15l-5 5v-5H5zM33 17h10v16h-5v5l-5-5H19v-5"/></symbol>
+<symbol id="i-trend" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6v36h36M10 36l8-6 6 2 8-10 8-12"/><path stroke-dasharray="3 4" d="M10 17h32"/></symbol>
+<symbol id="i-alarm" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6v4M12 34V22a12 12 0 0 1 24 0v12l3 4H9zM20 42a4 4 0 0 0 8 0M8 9q-3 4-3 9M40 9q3 4 3 9"/></symbol>
+<symbol id="i-moisture" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5C17 14 11 22 11 29a13 13 0 0 0 26 0C37 22 31 14 24 5zM12 29q3-4 6 0t6 0 6 0 6 0"/></symbol>
+<symbol id="i-hydrogen" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5C17 14 11 22 11 29a13 13 0 0 0 26 0C37 22 31 14 24 5zM22.5 30h3"/><circle cx="19" cy="30" r="3.5"/><circle cx="29" cy="30" r="3.5"/></symbol>
+</svg>
+</div>
+<div class="grid "><figure><svg class="i48" aria-hidden="true"><use href="#i-partial-discharge"/></svg><svg class="i24" aria-hidden="true"><use href="#i-partial-discharge"/></svg><figcaption>i-partial-discharge</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-dga"/></svg><svg class="i24" aria-hidden="true"><use href="#i-dga"/></svg><figcaption>i-dga</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-cable"/></svg><svg class="i24" aria-hidden="true"><use href="#i-cable"/></svg><figcaption>i-cable</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-overhead-line"/></svg><svg class="i24" aria-hidden="true"><use href="#i-overhead-line"/></svg><figcaption>i-overhead-line</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-dist-transformer"/></svg><svg class="i24" aria-hidden="true"><use href="#i-dist-transformer"/></svg><figcaption>i-dist-transformer</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-power-quality"/></svg><svg class="i24" aria-hidden="true"><use href="#i-power-quality"/></svg><figcaption>i-power-quality</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-asset-mgmt"/></svg><svg class="i24" aria-hidden="true"><use href="#i-asset-mgmt"/></svg><figcaption>i-asset-mgmt</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-power-transformer"/></svg><svg class="i24" aria-hidden="true"><use href="#i-power-transformer"/></svg><figcaption>i-power-transformer</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-rotating"/></svg><svg class="i24" aria-hidden="true"><use href="#i-rotating"/></svg><figcaption>i-rotating</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-earthing"/></svg><svg class="i24" aria-hidden="true"><use href="#i-earthing"/></svg><figcaption>i-earthing</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-conduit"/></svg><svg class="i24" aria-hidden="true"><use href="#i-conduit"/></svg><figcaption>i-conduit</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-panel"/></svg><svg class="i24" aria-hidden="true"><use href="#i-panel"/></svg><figcaption>i-panel</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-lighting"/></svg><svg class="i24" aria-hidden="true"><use href="#i-lighting"/></svg><figcaption>i-lighting</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-datacenter"/></svg><svg class="i24" aria-hidden="true"><use href="#i-datacenter"/></svg><figcaption>i-datacenter</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-ups"/></svg><svg class="i24" aria-hidden="true"><use href="#i-ups"/></svg><figcaption>i-ups</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-mv"/></svg><svg class="i24" aria-hidden="true"><use href="#i-mv"/></svg><figcaption>i-mv</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-define"/></svg><svg class="i24" aria-hidden="true"><use href="#i-define"/></svg><figcaption>i-define</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-build"/></svg><svg class="i24" aria-hidden="true"><use href="#i-build"/></svg><figcaption>i-build</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-run"/></svg><svg class="i24" aria-hidden="true"><use href="#i-run"/></svg><figcaption>i-run</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-meeting"/></svg><svg class="i24" aria-hidden="true"><use href="#i-meeting"/></svg><figcaption>i-meeting</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-trend"/></svg><svg class="i24" aria-hidden="true"><use href="#i-trend"/></svg><figcaption>i-trend</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-alarm"/></svg><svg class="i24" aria-hidden="true"><use href="#i-alarm"/></svg><figcaption>i-alarm</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-moisture"/></svg><svg class="i24" aria-hidden="true"><use href="#i-moisture"/></svg><figcaption>i-moisture</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-hydrogen"/></svg><svg class="i24" aria-hidden="true"><use href="#i-hydrogen"/></svg><figcaption>i-hydrogen</figcaption></figure></div>
+<h2>icons.svg – on navy</h2>
+<div class="grid navy"><figure><svg class="i48" aria-hidden="true"><use href="#i-partial-discharge"/></svg><svg class="i24" aria-hidden="true"><use href="#i-partial-discharge"/></svg><figcaption>i-partial-discharge</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-dga"/></svg><svg class="i24" aria-hidden="true"><use href="#i-dga"/></svg><figcaption>i-dga</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-cable"/></svg><svg class="i24" aria-hidden="true"><use href="#i-cable"/></svg><figcaption>i-cable</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-overhead-line"/></svg><svg class="i24" aria-hidden="true"><use href="#i-overhead-line"/></svg><figcaption>i-overhead-line</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-dist-transformer"/></svg><svg class="i24" aria-hidden="true"><use href="#i-dist-transformer"/></svg><figcaption>i-dist-transformer</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-power-quality"/></svg><svg class="i24" aria-hidden="true"><use href="#i-power-quality"/></svg><figcaption>i-power-quality</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-asset-mgmt"/></svg><svg class="i24" aria-hidden="true"><use href="#i-asset-mgmt"/></svg><figcaption>i-asset-mgmt</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-power-transformer"/></svg><svg class="i24" aria-hidden="true"><use href="#i-power-transformer"/></svg><figcaption>i-power-transformer</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-rotating"/></svg><svg class="i24" aria-hidden="true"><use href="#i-rotating"/></svg><figcaption>i-rotating</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-earthing"/></svg><svg class="i24" aria-hidden="true"><use href="#i-earthing"/></svg><figcaption>i-earthing</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-conduit"/></svg><svg class="i24" aria-hidden="true"><use href="#i-conduit"/></svg><figcaption>i-conduit</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-panel"/></svg><svg class="i24" aria-hidden="true"><use href="#i-panel"/></svg><figcaption>i-panel</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-lighting"/></svg><svg class="i24" aria-hidden="true"><use href="#i-lighting"/></svg><figcaption>i-lighting</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-datacenter"/></svg><svg class="i24" aria-hidden="true"><use href="#i-datacenter"/></svg><figcaption>i-datacenter</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-ups"/></svg><svg class="i24" aria-hidden="true"><use href="#i-ups"/></svg><figcaption>i-ups</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-mv"/></svg><svg class="i24" aria-hidden="true"><use href="#i-mv"/></svg><figcaption>i-mv</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-define"/></svg><svg class="i24" aria-hidden="true"><use href="#i-define"/></svg><figcaption>i-define</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-build"/></svg><svg class="i24" aria-hidden="true"><use href="#i-build"/></svg><figcaption>i-build</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-run"/></svg><svg class="i24" aria-hidden="true"><use href="#i-run"/></svg><figcaption>i-run</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-meeting"/></svg><svg class="i24" aria-hidden="true"><use href="#i-meeting"/></svg><figcaption>i-meeting</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-trend"/></svg><svg class="i24" aria-hidden="true"><use href="#i-trend"/></svg><figcaption>i-trend</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-alarm"/></svg><svg class="i24" aria-hidden="true"><use href="#i-alarm"/></svg><figcaption>i-alarm</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-moisture"/></svg><svg class="i24" aria-hidden="true"><use href="#i-moisture"/></svg><figcaption>i-moisture</figcaption></figure><figure><svg class="i48" aria-hidden="true"><use href="#i-hydrogen"/></svg><svg class="i24" aria-hidden="true"><use href="#i-hydrogen"/></svg><figcaption>i-hydrogen</figcaption></figure></div>
+</body></html>

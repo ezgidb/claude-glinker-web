@@ -10,6 +10,7 @@
   --display:Jost,"Segoe UI",Arial,sans-serif; --text:Roboto,"Segoe UI",Arial,sans-serif; --mono:ui-monospace,Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{margin:0;background:var(--paper);color:var(--body);font-family:var(--text);font-size:16px;line-height:1.65}
 h1,h2,h3{font-family:var(--display);font-weight:500;margin:0;text-wrap:balance;line-height:1.2}
 h1{font-size:clamp(30px,5vw,44px);color:var(--navy)}
@@ -47,7 +48,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 22px}
 .nav a,.nav summary{font-family:var(--display);font-size:16px;color:var(--navy);text-decoration:none;padding:10px 0;cursor:pointer;display:inline-block}
 .nav a:hover,.nav summary:hover{color:var(--cyan-text)}
-.nav a[aria-current="page"]{box-shadow:inset 0 -2px 0 var(--cyan)}
+.nav a[aria-current="page"],.dd.cur>summary{box-shadow:inset 0 -2px 0 var(--cyan)}
 .dd{position:relative}
 .dd summary{list-style:none}
 .dd summary::-webkit-details-marker{display:none}
@@ -203,19 +204,9 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
   </dl>
 </div></section>
 
-<section class="sec"><div class="wrap stack-lg">
-  <h2>From the Knowledge Notes</h2>
-  <div class="grid3">
-    <div class="card"><span class="badge">Glinker note</span><h3>Data center reliability: the power chain</h3><p>Redundancy protects the load, not the equipment.</p></div>
-    <div class="card"><span class="badge">Glinker note</span><h3>Reading partial discharge and DGA together</h3><p>What each measurement can and cannot tell you about a power transformer.</p></div>
-    <div class="card"><span class="badge">Glinker note</span><h3>Invisible Infrastructure</h3><p>Why the condition of electrical assets stays out of sight in daily operation.</p></div>
-  </div>
-  <div><a href="#notes">View all knowledge notes</a></div>
-</div></section>
-
 <section class="sec soft"><div class="wrap stack">
   <h2>Start with a technical conversation</h2>
-  <p class="measure">Share your sector and the asset or supply need you have in mind. Meetings are held online or by appointment.</p>
+  <p class="measure">Share your sector and the asset or supply need you have in mind.</p>
   <div><a class="btn" href="#contact">Request a technical meeting</a></div>
 </div></section>
 </main>
@@ -225,7 +216,7 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
 <aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
 <li>Tek tablo: ortak mantık üstte bir kez yazılı; satırlarda yalnızca "bu varlıkta farklı olan" var (checklist 5.2 kaygınız).</li>
 <li>Düzeltmeler: InsuLogix G2 çok gazlı DGA değil (hidrojen + asetilen + nem). MS5200 bir OG havai hat sensörü, MGA ise yazılımı; kablo satırından ayrıldı. Greenlight YG kablo içindir ve kısmi deşarj ölçmez. "Megger APM/IPS" yerine doğru ürün adı IPS APM.</li>
-<li>GIS satırı: ICMobserver GIS için değil (Megger'de ayrı ürün: GISmonitor). Kapsamınızda mı? Karar bekliyor; şimdilik "On request".</li>
+<li>GIS satırı çıkarıldı: ICMobserver GIS için değil (Megger'de ayrı ürün: GISmonitor). Kapsamınızdaysa satır geri eklenir. Karar bekliyor.</li>
 <li>"Neden şimdi Türkiye" paragrafı (Milli Enerji 2040, EPDK tarife dönemi rakamları) eklenmedi: kaynak linkleri doğrulanana kadar karar bekliyor.</li>
 <li>Diğer sektörler ayrı sayfa değil, tek blok. "Yakında" etiketi yok.</li>
 </ul></div></aside>
@@ -237,13 +228,13 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
 
 <section class="sec soft"><div class="wrap stack-lg">
   <div class="stack"><h2>Which asset, which risk, which method</h2>
-  <p class="measure">The table lists only what differs from one asset to the next.</p></div>
+  <p class="measure">The table lists only what differs from one asset to the next. Or go directly to a technology:</p>
+  <ul class="linklist"><li><a href="#pd">Partial Discharge</a></li><li><a href="#dga">DGA</a></li><li><a href="#cable">Cable &amp; MV</a></li><li><a href="#dtpq">Distribution Transformer &amp; Power Quality</a></li><li><a href="#apm">Asset Management</a></li></ul></div>
   <div class="tblwrap" role="region" aria-label="Asset, risk and monitoring method" tabindex="0"><table>
     <thead><tr><th scope="col">Asset</th><th scope="col">Main failure mode</th><th scope="col">What is different about this asset</th><th scope="col">Monitoring technology</th><th scope="col">Product</th></tr></thead>
     <tbody>
     <tr><th scope="row">Power transformer</th><td>Insulation breakdown in windings and bushings; developing internal fault</td><td>Long replacement lead time: early warning has the highest value here</td><td><a href="#pd">Partial Discharge Monitoring</a><br><a href="#dga">DGA Monitoring</a></td><td>ICMobserver<br>InsuLogix G2</td></tr>
     <tr><th scope="row">Generator and HV motor</th><td>Stator winding insulation deterioration</td><td>Some partial discharge is always present in normal operation, so the trend matters, not the single reading</td><td><a href="#pd">Partial Discharge Monitoring</a></td><td>ICMobserver</td></tr>
-    <tr><th scope="row">Gas-insulated switchgear</th><td>Internal insulation defects</td><td>Sealed and compact: measurement is made in the UHF range from inside the enclosure</td><td>UHF partial discharge monitoring</td><td>On request</td></tr>
     <tr><th scope="row">HV cable circuit</th><td>Joint and termination failure</td><td>The weak points are spread along the route, not in one place</td><td><a href="#cable">Cable &amp; MV Monitoring</a></td><td>Synaptec Greenlight</td></tr>
     <tr><th scope="row">MV overhead feeder</th><td>Line faults, broken conductors, high-impedance faults</td><td>The task is locating a fault on a long line, not assessing insulation</td><td><a href="#cable">Cable &amp; MV Monitoring</a></td><td>MS5200 with Megger Grid Analytics</td></tr>
     <tr><th scope="row">Distribution transformer</th><td>Oil ageing and moisture</td><td>Many low-cost units: one sensor per unit, not a full monitoring system</td><td><a href="#dtpq">Distribution Transformer &amp; Power Quality</a></td><td>TrafoStick (A. Eberle)</td></tr>
@@ -255,17 +246,18 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
 <section class="sec"><div class="wrap stack-lg">
   <h2>Monitoring by sector</h2>
   <div class="grid3">
-    <div class="card"><h3><a href="#dc">Data Centers</a></h3><p>The power chain behind redundancy: intake, transformers, generators, supply quality.</p></div>
+    <div class="card"><h3><a href="#dc">Data Centers</a></h3><p>The power chain behind redundancy: intake, transformers, cables, supply quality.</p></div>
     <div class="card"><h3><a href="#airports">Airports</a></h3><p>Substations and a private medium-voltage network with short maintenance windows.</p></div>
     <div class="card"><h3><a href="#utilities">Distribution Utilities</a></h3><p>Many assets over a wide area: where the fault is and what to maintain first.</p></div>
   </div>
   <div class="stack"><h3>Other critical facilities</h3>
-  <p class="measure">The same assets are found in generation plants, transmission substations, rail and transport systems, defence-industry facilities and other critical infrastructure. The monitoring technologies on this site apply to them in the same way.</p></div>
+  <p class="measure">The same assets are found in generation plants, transmission substations, rail and transport systems, defence-industry facilities and other critical infrastructure. The monitoring technologies on this site apply to them in the same way.</p>
+  <p class="measure">For other solutions and field test instruments, you can also contact us.</p></div>
 </div></section>
 
 <section class="sec navy"><div class="wrap stack">
   <h2>Discuss your assets</h2>
-  <p class="measure">For other solutions and field test instruments, you can also contact us. We will help you find the right route for your requirement.</p>
+  <p class="measure">Tell us the asset and the risk you have in mind.</p>
   <div><a class="btn" href="#contact" data-topic="monitoring">Request a technical meeting</a></div>
 </div></section>
 </main>
@@ -396,7 +388,7 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
 <!-- ================= DT + PQ ================= -->
 <main data-page="dtpq" data-url="/en/online-monitoring/distribution-transformer-and-power-quality/" hidden>
 <aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
-<li>BEKLEMEDE: TrafoStick TS G2 için A. Eberle'nin kendi sitesinde ürün sayfası bulunamadı; parametreler yalnızca bölgesel bir sitede. Datasheet sizden gelince bu cümle kesinleşir.</li>
+<li>BEKLEMEDE: TrafoStick TS G2 için A. Eberle'nin kendi sitesinde ürün sayfası bulunamadı; parametreler yalnızca bölgesel bir sitede. Bu yüzden ölçülen büyüklükler yazılmadı; datasheet sizden gelince eklenir.</li>
 <li>Megger ile A. Eberle ilişkisini gösteren kamuya açık kaynak yok. Bu yüzden "Megger üzerinden" cümlesi yazılmadı, yalnızca marka adı var. Megger'den yazılı teyit gelirse eklenir.</li>
 <li>Yazım: "PQI-DA smart" (küçük s).</li>
 </ul></div></aside>
@@ -407,7 +399,7 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
 </div></section>
 <section class="sec soft"><div class="wrap grid2">
   <div class="stack"><h2>What it detects</h2><ul class="plain">
-    <li>In the transformer: falling dielectric strength of the oil, rising moisture, and hydrogen as a sign of a developing fault</li>
+    <li>In the transformer: falling dielectric strength of the oil and rising moisture</li>
     <li>In the network: voltage dips and swells, interruptions, harmonics, flicker, unbalance and frequency deviation, with recorded waveforms of each event</li></ul></div>
   <div class="stack"><h2>Where it applies</h2><ul class="plain">
     <li>Distribution transformers in utility, industrial and campus networks</li>
@@ -419,8 +411,7 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
   <h2>Products</h2>
   <div class="grid2">
   <div class="prod stack"><h3>TrafoStick (A. Eberle)</h3>
-    <p>An in-oil sensor from A. Eberle for continuous monitoring of transformer oil condition. The TS G2 generation combines breakdown voltage, hydrogen, moisture, oil temperature and oil pressure in one sensor.</p>
-    <p class="src">Values per manufacturer data.</p></div>
+    <p>An in-oil sensor from A. Eberle for continuous monitoring of transformer oil condition.</p></div>
   <div class="prod stack"><h3>PQI-DA smart (A. Eberle)</h3>
     <p>A fixed-installed power quality analyser and fault recorder from A. Eberle for low-, medium- and high-voltage networks.</p>
     <ul class="plain"><li>Class A measurement to IEC 61000-4-30 Edition 3.</li>
@@ -464,8 +455,7 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
     <p>Asset performance management software from IPS-ENERGY, offered by Megger.</p>
     <ul class="plain"><li>Built on the IPS SYSTEMS enterprise asset management platform for power utilities.</li>
       <li>Brings test and monitoring data into the asset record.</li>
-      <li>Extends to asset investment planning through a dedicated module.</li></ul>
-    <p class="src">Values per manufacturer data.</p></div>
+      <li>Extends to asset investment planning through a dedicated module.</li></ul></div>
   <p class="measure">Scope, data sources and interfaces to existing systems are defined for each organisation.</p>
   <p class="measure"><strong>Related technology.</strong> Every monitoring technology on this site can feed an asset management platform: <a href="#pd">Partial Discharge</a>, <a href="#dga">DGA</a>, <a href="#cable">Cable &amp; MV</a>, <a href="#dtpq">Distribution Transformer &amp; Power Quality</a>.</p>
   <div><a class="btn" href="#contact" data-topic="monitoring">Request a technical meeting</a></div>
@@ -488,9 +478,8 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
   <h2>The power chain</h2>
   <div class="tblwrap" role="region" aria-label="Data center assets and monitoring" tabindex="0"><table>
     <thead><tr><th scope="col">Asset</th><th scope="col">Typical risk</th><th scope="col">Monitoring technology</th><th scope="col">Product</th></tr></thead><tbody>
-    <tr><th scope="row">Main and step-down transformers</th><td>Insulation fault developing unnoticed under continuous high load</td><td><a href="#pd">Partial Discharge Monitoring</a><br><a href="#dga">DGA Monitoring</a></td><td>ICMobserver<br>InsuLogix G2</td></tr>
+    <tr><th scope="row">Oil-filled main and step-down transformers</th><td>Insulation fault developing unnoticed under continuous high load</td><td><a href="#pd">Partial Discharge Monitoring</a><br><a href="#dga">DGA Monitoring</a></td><td>ICMobserver<br>InsuLogix G2</td></tr>
     <tr><th scope="row">Incoming supply and main busbars</th><td>Voltage dips and harmonics from non-linear load</td><td><a href="#dtpq">Distribution Transformer &amp; Power Quality</a></td><td>PQI-DA smart</td></tr>
-    <tr><th scope="row">Standby generators</th><td>Stator insulation deterioration on machines that rarely run</td><td><a href="#pd">Partial Discharge Monitoring</a></td><td>ICMobserver</td></tr>
     <tr><th scope="row">HV grid connection cable</th><td>Joint or termination failure on the single supply route</td><td><a href="#cable">Cable &amp; MV Monitoring</a></td><td>Synaptec Greenlight</td></tr>
     <tr><th scope="row">Whole power chain</th><td>No single view of asset condition across sites</td><td><a href="#apm">Asset Management</a></td><td>IPS APM</td></tr>
     </tbody></table></div>
@@ -552,7 +541,7 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
 <main data-page="supply" data-url="/en/supply-and-project-solutions/" hidden>
 <aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
 <li>Sektörden bağımsız sabit katalog. Sıra değişti: önce kapsam, sonra çalışma biçimi (satın alma okuyucusu önce kapsamı arar).</li>
-<li>Kalem satırları tipik kalemlerle dolduruldu; portföy dokümanınızla (Deck_Focus_Electrical_Products) karşılaştırıp düzeltmeniz gerekiyor. Karar bekliyor.</li>
+<li>Kalem satırları Drive'daki portföy dokümanınızdan (Deck_Focus_Electrical_Products) alındı. "MV installations" için dokümanda kalem yok; sizden bekleniyor. Veri merkezi satırı sizin verdiğiniz kapsamdan.</li>
 <li>Tanımla–Kur–Yürüt "ne olur / ne alırsınız" diliyle yeniden yazıldı; "sorumluluk", "sizin adınıza", "yaparız" yok.</li>
 <li>81 il cümlesi (checklist 6.7): çıktıyı görüp teyit etmek istemiştiniz; oda/TOBB anılmıyor.</li>
 <li>"Scope is set out in the agreement" cümlesi avukat onayı ister.</li>
@@ -564,12 +553,12 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
 <section class="sec soft"><div class="wrap stack-lg">
   <h2>Supply scope</h2>
   <div class="grid3">
-    <div class="card"><h3>Earthing &amp; conduit</h3><p>Earthing rods and conductors · earthing tapes · exothermic welding materials · lightning protection components · steel and PVC conduit · cable trays and ladders</p></div>
-    <div class="card"><h3>Cables &amp; conductors</h3><p>LV power cables · MV cables · control and instrumentation cables · halogen-free and fire-resistant cables · bare conductors · joints, terminations and lugs</p></div>
-    <div class="card"><h3>MV installations</h3><p>MV switchgear · distribution transformers · compact substations · surge arresters · insulators · current and voltage transformers</p></div>
-    <div class="card"><h3>Panels, switchgear &amp; distribution</h3><p>Main and sub-distribution panels · MCC and automation panels · busbar systems · circuit breakers and switching devices · power factor correction · metering</p></div>
-    <div class="card"><h3>Lighting</h3><p>Indoor industrial luminaires · outdoor and area lighting · road and tunnel lighting · emergency lighting · poles and masts · lighting control</p></div>
-    <div class="card"><h3>Data center passive infrastructure &amp; uninterruptible power</h3><p>Racks and cabinets · aisle containment · structured cabling · PDU · UPS · ATS/STS</p><p><a href="#dc">Monitoring for data center power</a></p></div>
+    <div class="card"><h3>Earthing &amp; conduit</h3><p>Galvanized strip · copper · grounding rods and boards · lightning protection · PVC pipes and conduits · cases, boxes and fixing units · cable trays and ladders · under-floor cable trays</p></div>
+    <div class="card"><h3>Cables &amp; conductors</h3><p>MV and LV power cables · industrial, wind and solar power cables · signal cables · weak current cables · fiber optic cables · special production cables · structured cabling systems</p></div>
+    <div class="card"><h3>MV installations</h3></div>
+    <div class="card"><h3>Panels, switchgear &amp; distribution</h3><p>Low voltage panels, panelboards and switchboards · protection and control products, switchgear · busbar · switches and sockets · compensation equipment</p></div>
+    <div class="card"><h3>Lighting</h3><p>Indoor lighting · exterior and outdoor lighting · motion sensors · emergency kits and lighting · lighting automation</p></div>
+    <div class="card"><h3>Data center passive infrastructure &amp; uninterruptible power</h3><p>Passive infrastructure · racks · PDU · UPS · ATS/STS</p><p><a href="#dc">Monitoring for data center power</a></p></div>
   </div>
 </div></section>
 <section class="sec navy"><div class="wrap stack-lg">
@@ -582,7 +571,7 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
   <p>The scope of each engagement is set out in the agreement.</p>
 </div></section>
 <section class="sec"><div class="wrap stack">
-  <h2>Reach and other needs</h2>
+  <h2>Alternatives across Türkiye</h2>
   <p class="measure">With a supplier network reaching manufacturers across all 81 provinces of Türkiye, a preliminary study can be started for items where you are looking for an alternative product.</p>
   <p class="measure">You can also contact us for needs in engineering and project design, building systems, software and cyber security.</p>
   <div><a class="btn" href="#contact" data-topic="supply">Send your requirement</a></div>
@@ -594,27 +583,21 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
 <aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
 <li>İki içerik türü: Glinker notu (tam metin sitede) ve Digest (kendi özgün 3 maddelik özetimiz + kaynağa link; Megger metni kopyalanmaz).</li>
 <li>Filtreler gerçek değerlerle çalışır. Haber ve etkinlikler ayrı bölüm değil, burada bir format etiketi olacak.</li>
-<li>Glinker notlarının tam metinleri sizin dokümanlarınızdan gelecek; o yüzden kartlar henüz bir sayfaya bağlı değil. Karar bekliyor: bu üç not tam metin yayımlansın mı (checklist 11.8 yanıtınız net değil)?</li>
+<li>Üç Glinker notu (Invisible Infrastructure, PD ve DGA birlikte, veri merkezi güç zinciri) kartları kaldırıldı: tam metinleri gelmeden boş kart göstermek doğru değil. Karar bekliyor: bu notlar tam metin yayımlansın mı? Evet ise ana sayfaya da üç kartlık bir bölüm eklenir.</li>
 <li>İki Megger özeti arama özetlerinden yazıldı; yayın öncesi yazıların kendisi bir kez okunup düzeltilmeli.</li>
 </ul></div></aside>
 <section class="sec"><div class="wrap stack">
   <h1>Knowledge Notes</h1>
   <p class="measure">Analytical notes on electrical infrastructure, and short summaries of industry sources with a link to the original.</p>
   <div class="stack" id="filters">
-    <div class="linklist" role="group" aria-label="Filter by technology">
+    <div class="linklist" role="group" aria-label="Filter by topic">
       <button class="chip" type="button" data-f="all" aria-pressed="true">All</button>
       <button class="chip" type="button" data-f="pd" aria-pressed="false">Partial discharge</button>
       <button class="chip" type="button" data-f="dga" aria-pressed="false">Dissolved gas analysis</button>
-      <button class="chip" type="button" data-f="pq" aria-pressed="false">Power quality</button>
-      <button class="chip" type="button" data-f="am" aria-pressed="false">Asset management</button>
-      <button class="chip" type="button" data-f="dc" aria-pressed="false">Data centers</button>
     </div>
   </div>
 </div></section>
 <section class="sec soft"><div class="wrap grid3" id="noteGrid">
-  <article class="card" data-tags="am"><span class="badge">Glinker note</span><h3>Invisible Infrastructure</h3><p>Electrical infrastructure is noticed only when it fails. This note explains why the condition of transformers, cables and switchgear stays out of sight in daily operation, and what continuous measurement makes visible.</p><div><span class="tag">Whole fleet</span><span class="tag">Asset management</span></div></article>
-  <article class="card" data-tags="pd dga"><span class="badge">Glinker note</span><h3>Reading partial discharge and DGA together</h3><p>Partial discharge shows the electrical condition of the insulation; dissolved gases show what is happening in the oil. What each measurement can and cannot tell you about a power transformer.</p><div><span class="tag">Power transformer</span><span class="tag">Partial discharge</span><span class="tag">Dissolved gas analysis</span></div></article>
-  <article class="card" data-tags="pq dc"><span class="badge">Glinker note</span><h3>Data center reliability: the power chain</h3><p>Redundancy protects the load, not the equipment. This note follows the power chain from grid connection to distribution board and marks where a slow-developing fault can sit behind a redundant design.</p><div><span class="tag">Data centers</span><span class="tag">Power quality</span></div></article>
   <article class="card" data-tags="pd"><span class="badge">Digest · Megger Knowledge Hub</span><h3>Choosing a partial discharge monitoring system</h3><ul class="plain"><li><strong>What it says:</strong> systems range from permanent online monitoring to portable, periodic measurement; the choice follows from the asset and the purpose.</li><li><strong>Why it matters:</strong> the decision is about the asset and its criticality first, the instrument second.</li><li><strong>Who it is for:</strong> maintenance and asset management teams preparing a specification.</li></ul><p><a href="https://www.megger.com/en/knowledge-hub/partial-discharge-monitoring-systems-choosing-the-right-solution">Open the source (megger.com)</a></p></article>
   <article class="card" data-tags="dga"><span class="badge">Digest · Megger</span><h3>Why hydrogen and acetylene are the two gases to watch</h3><ul class="plain"><li><strong>What it says:</strong> hydrogen appears early in most developing transformer faults, while acetylene points to high-energy faults.</li><li><strong>Why it matters:</strong> it explains what a two-gas online monitor is for, and what still needs laboratory analysis.</li><li><strong>Who it is for:</strong> transformer engineers and substation maintenance managers.</li></ul><p><a href="https://www.megger.com/en/why-hydrogen-and-acetylene-monitoring-prevent-asset-failure">Open the source (megger.com)</a></p></article>
 </div></section>
@@ -632,7 +615,7 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
   <p class="measure">Glinker Group is an Ankara-based engineering and supply company and a solution partner for critical electrical infrastructure. It works on two lines: <a href="#monitoring">online monitoring solutions</a> for critical energy assets, and <a href="#supply">electrical supply and project solutions</a>.</p>
 </div></section>
 <section class="sec soft"><div class="wrap grid2">
-  <div class="stack"><h2>Way of working</h2><p>Each request starts from the need, not from a product list. The need is defined with you, the solution is built with suitable manufacturers and specialists, and the process runs through a single point of contact. Technical values are quoted as stated in manufacturer datasheets.</p></div>
+  <div class="stack"><h2>Way of working</h2><p>Each request starts from the need, not from a product list. Technical values are quoted as stated in manufacturer datasheets. The working steps are described under <a href="#supply">Supply &amp; Project Solutions</a>.</p></div>
   <div class="stack"><h2>Partnership with Megger</h2><p>Online monitoring solutions are offered in strategic partnership with Megger.</p></div>
 </div></section>
 <section class="sec"><div class="wrap stack">
@@ -641,6 +624,9 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
   <h3>Trade Facilitator</h3>
   <p class="measure">For international buyers: one point of access to Turkish manufacturers, with alternatives in quality and delivery time and follow-up of the supply process.</p>
   <p class="measure">For Turkish manufacturers: where a manufacturer is looking to enter an international market, Glinker Group can help open the relevant network connections. Write to koordinasyon@glinkergroup.com.</p>
+</div></section>
+<section class="sec navy"><div class="wrap stack">
+  <h2>Start with a technical conversation</h2>
   <div><a class="btn" href="#contact">Request a technical meeting</a></div>
 </div></section>
 </main>
@@ -649,7 +635,7 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
 <main data-page="contact" data-url="/en/contact/" hidden>
 <aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
 <li>Form yalnızca bu sayfada; diğer sayfalardaki düğmeler konuyu önceden seçerek buraya getirir.</li>
-<li>Telefon ve WhatsApp numarası netleşmediği için gösterilmiyor (uydurma numara yok). WhatsApp Business numarası gelince "Write on WhatsApp" bağlantısı olur.</li>
+<li>Telefon ve WhatsApp numarası netleşmediği için gösterilmiyor (uydurma numara yok). WhatsApp Business numarası gelince bu sayfaya ve alt bilgiye "WhatsApp · Coordination, weekdays 09:00–18:00" satırı bağlantısıyla eklenir.</li>
 <li>"2 iş günü içinde dönüş" sözü onayınızı bekliyor; şu an mesajda yok.</li>
 <li>KVKK: zorunlu "kabul ediyorum" kutusu yerine bilgilendirme satırı (aydınlatma okunur, kabul edilmez). Metin ve aydınlatma sayfası avukat onayı ister. Tam adres yalnızca aydınlatma metninde olur.</li>
 <li>Prototipte form gerçekten gönderim yapmaz; yalnızca doğrulama ve teşekkür mesajını gösterir.</li>
@@ -658,7 +644,7 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
   <div class="stack">
     <h1>Contact</h1>
     <p>Request a technical meeting or send your supply requirement. Tell us your sector and the asset or need you have in mind. Meetings are held online or by appointment.</p>
-    <p><strong>Ankara, Türkiye</strong><br>koordinasyon@glinkergroup.com<br>WhatsApp · Coordination, weekdays 09:00–18:00 (Türkiye time)</p>
+    <p><strong>Ankara, Türkiye</strong><br>koordinasyon@glinkergroup.com</p>
     <p>Item lists and specifications can be sent to the email address above.</p>
   </div>
   <div>
@@ -674,7 +660,6 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
         <option value="monitoring">Online monitoring</option>
         <option value="supply">Supply and project solutions</option>
         <option value="sourcing">Sourcing from Türkiye (international buyers)</option>
-        <option value="other-topics">Engineering, building systems, software or cyber security</option>
         <option value="other">Other</option></select></div>
       <div class="field"><label for="f-phone">Phone (optional)</label><input id="f-phone" type="tel" autocomplete="tel"></div>
       <div class="field"><label for="f-note">Short note (optional)</label><textarea id="f-note" rows="4" maxlength="1500"></textarea><p class="hint">Sector, asset type or item list summary helps prepare the meeting.</p></div>
@@ -689,13 +674,11 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
 <!-- ================= PRIVACY ================= -->
 <main data-page="privacy" data-url="/en/privacy-notice/" hidden>
 <aside class="dn" hidden><div class="wrap"><strong>Tasarım notu — sitede görünmez</strong><ul>
-<li>Bu sayfanın metni avukat tarafından yazılır/onaylanır; burada yalnızca başlık iskeleti var. Türkçe sürümü site İngilizce açılırken de yayımlanmalı.</li>
+<li>Bu sayfanın metni avukat tarafından yazılır/onaylanır; başlık iskeleti uzman raporunda (cro.md, bölüm 3.6) duruyor. Türkçe sürümü site İngilizce açılırken de yayımlanmalı.</li>
 </ul></div></aside>
 <section class="sec"><div class="wrap stack">
   <h1>Privacy Notice (KVKK)</h1>
-  <ol class="plain measure">
-    <li>Data controller</li><li>Personal data we process</li><li>Purposes of processing</li><li>Legal basis</li><li>How the data is collected</li><li>Recipients and transfers</li><li>Retention period</li><li>Your rights (KVKK Article 11)</li><li>How to submit a request</li><li>Contact through WhatsApp</li>
-  </ol>
+  <p class="measure">This notice explains how Glinker Group processes personal data sent through the contact form.</p>
   <p><a href="#contact">Back to Contact</a></p>
 </div></section>
 </main>
@@ -712,7 +695,8 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
 (function(){
   var pages=[].slice.call(document.querySelectorAll('main[data-page]'));
   var url=document.getElementById('url'),nav=document.getElementById('nav'),menuBtn=document.getElementById('menuBtn');
-  var noteBtn=document.getElementById('noteBtn'),notesOn=false,pendingTopic='';
+  var noteBtn=document.getElementById('noteBtn'),notesOn=false,pendingTopic='',started=false;
+  var chips=[].slice.call(document.querySelectorAll('#filters .chip'));
   var parents={pd:'monitoring',dga:'monitoring',cable:'monitoring',dtpq:'monitoring',apm:'monitoring',dc:'monitoring',airports:'monitoring',utilities:'monitoring'};
   function show(){
     var id=(location.hash||'#home').slice(1),found=false;
@@ -722,17 +706,22 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
       var t=a.getAttribute('href').slice(1);
       if(t===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
     });
-    var dd=nav.querySelector('details');dd.open=false;
+    var dd=nav.querySelector('details');dd.open=false;dd.classList.toggle('cur',id==='monitoring'||!!parents[id]);
     nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');
     if(id==='contact'){resetForm();if(pendingTopic){document.getElementById('f-topic').value=pendingTopic;}}
     pendingTopic='';
+    chips.length&&chips[0].click();
     window.scrollTo(0,0);
+    if(started){var h=document.querySelector('main:not([hidden]) h1');if(h){h.tabIndex=-1;h.focus({preventScroll:true});}}
+    started=true;
   }
   document.addEventListener('click',function(e){
     var a=e.target.closest('a[data-topic]');if(a)pendingTopic=a.dataset.topic;
     var dd=nav.querySelector('details');
     if(dd.open&&!e.target.closest('.dd'))dd.open=false;
   });
+  document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;var dd=nav.querySelector('details');if(dd.open){dd.open=false;dd.querySelector('summary').focus();}else if(nav.classList.contains('open')){nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.focus();}});
+  nav.querySelector('details').addEventListener('focusout',function(e){if(!this.contains(e.relatedTarget))this.open=false;});
   menuBtn.addEventListener('click',function(){var o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o?'true':'false');});
   noteBtn.addEventListener('click',function(){
     notesOn=!notesOn;noteBtn.setAttribute('aria-pressed',notesOn?'true':'false');
@@ -740,7 +729,6 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
     [].forEach.call(document.querySelectorAll('.dn'),function(n){n.hidden=!notesOn;});
   });
   /* notes filter */
-  var chips=[].slice.call(document.querySelectorAll('#filters .chip'));
   chips.forEach(function(c){c.addEventListener('click',function(){
     chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false');});
     var f=c.dataset.f;
@@ -750,17 +738,20 @@ input,select,textarea{width:100%;padding:12px;border:1px solid var(--field);font
   /* form */
   var form=document.getElementById('form'),ok=document.getElementById('formOk'),alertBox=document.getElementById('formAlert');
   function clearErr(el){el.removeAttribute('aria-invalid');el.removeAttribute('aria-describedby');var m=el.parentNode.querySelector('.err');if(m)m.remove();}
-  function resetForm(){form.hidden=false;ok.hidden=true;alertBox.hidden=true;[].forEach.call(form.querySelectorAll('input,select,textarea'),clearErr);}
+  function resetForm(){tried=false;form.hidden=false;ok.hidden=true;alertBox.hidden=true;[].forEach.call(form.querySelectorAll('input,select,textarea'),clearErr);}
+  var tried=false,fields=[].slice.call(form.querySelectorAll('input,select,textarea'));
+  function check(el){
+    clearErr(el);var msg='';
+    if(el.dataset.req&&!el.value.trim())msg=el.dataset.req;
+    else if(el.id==='f-email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()))msg='Enter an email address in the format name@organization.com.';
+    if(msg){el.setAttribute('aria-invalid','true');var p=document.createElement('p');p.className='err';p.id=el.id+'-err';p.textContent=msg;el.setAttribute('aria-describedby',p.id);el.parentNode.appendChild(p);}
+    return !msg;
+  }
+  fields.forEach(function(el){el.addEventListener('input',function(){if(tried&&el.getAttribute('aria-invalid'))check(el);});});
   form.addEventListener('submit',function(e){
-    e.preventDefault();var bad=0;
-    [].forEach.call(form.querySelectorAll('input,select,textarea'),function(el){
-      clearErr(el);var msg='';
-      if(el.dataset.req&&!el.value.trim())msg=el.dataset.req;
-      else if(el.id==='f-email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()))msg='Enter an email address in the format name@organization.com.';
-      if(msg){bad++;el.setAttribute('aria-invalid','true');var p=document.createElement('p');p.className='err';p.id=el.id+'-err';p.textContent=msg;el.setAttribute('aria-describedby',p.id);el.parentNode.appendChild(p);}
-    });
-    if(bad){alertBox.hidden=false;alertBox.focus();return;}
-    form.hidden=true;form.reset();ok.hidden=false;ok.focus();
+    e.preventDefault();tried=true;var bad=fields.filter(function(el){return !check(el);});
+    if(bad.length){alertBox.hidden=false;bad[0].focus();return;}
+    tried=false;form.hidden=true;form.reset();ok.hidden=false;ok.focus();
   });
   window.addEventListener('hashchange',show);show();
 })();

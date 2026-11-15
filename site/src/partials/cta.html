@@ -1,0 +1,19 @@
+<section class="cta-band is-dark instrument" aria-labelledby="cta-title">
+  <svg class="cta-band__trace" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M0 62 L40 60 80 63 120 59 160 62 200 61 240 64 280 60 320 62 360 59 400 63 440 61 480 60 520 63 560 61 600 62 640 59 680 62 720 60 760 63 800 61 840 62 880 60 920 63 960 61 1000 59 1040 62 1080 61 1120 63 1160 60 1200 62 1240 61 1280 59 1320 62 1360 61 1400 63 1440 61"/></svg>
+  <div class="wrap cta-band__inner">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">→</span>{{cta_index}}</p>
+    </div>
+    <div class="cta-band__grid">
+      <h2 class="cta-band__title" id="cta-title" data-reveal>{{cta_title}}</h2>
+      <div class="cta-band__body" data-reveal>
+        <p class="lead">{{cta_text}}</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="contact.html?topic={{cta_topic}}">{{cta_meeting}}{{> arrow}}</a>
+          <a class="btn btn--ghost" href="contact.html?topic=supply">{{cta_requirement}}</a>
+        </div>
+        <p class="label cta-band__contact"><a href="mailto:{{email}}">{{email}}</a><span aria-hidden="true"> · </span>{{foot_place}}</p>
+      </div>
+    </div>
+  </div>
+</section>

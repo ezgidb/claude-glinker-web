@@ -1,0 +1,59 @@
+<header class="site-header" id="top">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="index.html" aria-label="{{site_name}} — {{home}}">{{> logo}}</a>
+    <a class="nav-toggle" href="#footer-nav" data-nav-toggle aria-controls="site-nav">
+      <span class="nav-toggle__label" data-open="{{menu}}" data-close="{{close}}">{{menu}}</span>
+      <span class="nav-toggle__icon" aria-hidden="true"><i></i><i></i></span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="{{nav_label}}">
+      <ul class="nav__list">
+        <li class="nav__item has-mega" data-mega>
+          <a class="nav__link" href="monitoring.html"{{cur_monitoring}}>{{nav_monitoring}}</a>
+          <button class="nav__mega-toggle" type="button" aria-expanded="false" aria-controls="mega-monitoring" aria-label="{{mega_toggle}}">
+            <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4.5 6 8.5l4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+          </button>
+          <div class="mega" id="mega-monitoring">
+            <div class="wrap mega__grid">
+              <div class="mega__intro">
+                <a class="mega__overview" href="monitoring.html">
+                  <span class="label">00</span>
+                  <span class="mega__overview-title">{{mega_overview}}</span>
+                  <span class="mega__overview-text">{{mega_overview_text}}</span>
+                  <span class="link-arrow" aria-hidden="true"><svg class="arrow" viewBox="0 0 24 12" width="24" height="12"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+                </a>
+                <p class="label mega__partner">{{mega_partner}}</p>
+              </div>
+              <div class="mega__col">
+                <p class="label mega__head">{{mega_tech}}</p>
+                <ul class="mega__list">
+                  <li><a href="partial-discharge.html"><span class="mega__n">T1</span><span class="mega__t">{{tech_pd}}</span><span class="mega__h">{{tech_pd_hint}}</span></a></li>
+                  <li><a href="dga.html"><span class="mega__n">T2</span><span class="mega__t">{{tech_dga}}</span><span class="mega__h">{{tech_dga_hint}}</span></a></li>
+                  <li><a href="cable-mv.html"><span class="mega__n">T3</span><span class="mega__t">{{tech_cable}}</span><span class="mega__h">{{tech_cable_hint}}</span></a></li>
+                  <li><a href="distribution-power-quality.html"><span class="mega__n">T4</span><span class="mega__t">{{tech_dpq}}</span><span class="mega__h">{{tech_dpq_hint}}</span></a></li>
+                  <li><a href="asset-management.html"><span class="mega__n">T5</span><span class="mega__t">{{tech_apm}}</span><span class="mega__h">{{tech_apm_hint}}</span></a></li>
+                </ul>
+              </div>
+              <div class="mega__col mega__col--narrow">
+                <p class="label mega__head">{{mega_sectors}}</p>
+                <ul class="mega__list">
+                  <li><a href="data-centers.html"><span class="mega__n">S1</span><span class="mega__t">{{sector_dc}}</span></a></li>
+                  <li><a href="airports.html"><span class="mega__n">S2</span><span class="mega__t">{{sector_air}}</span></a></li>
+                  <li><a href="distribution-utilities.html"><span class="mega__n">S3</span><span class="mega__t">{{sector_util}}</span></a></li>
+                  <li><a href="monitoring.html#other-facilities"><span class="mega__n">S4</span><span class="mega__t">{{sector_other}}</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="supply.html"{{cur_supply}}>{{nav_supply}}</a></li>
+        <li class="nav__item"><a class="nav__link" href="knowledge.html"{{cur_knowledge}}>{{nav_knowledge}}</a></li>
+        <li class="nav__item"><a class="nav__link" href="about.html"{{cur_about}}>{{nav_about}}</a></li>
+        <li class="nav__item nav__item--contact"><a class="nav__link" href="contact.html"{{cur_contact}}>{{nav_contact}}</a></li>
+      </ul>
+      <div class="nav__aside">
+        <div class="lang" role="group" aria-label="{{lang_label}}">{{lang_switch}}</div>
+        <a class="btn btn--primary btn--sm nav__cta" href="contact.html?topic=monitoring">{{cta_meeting}}</a>
+      </div>
+    </nav>
+  </div>
+</header>

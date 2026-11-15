@@ -181,7 +181,7 @@
       R = { lines: [], dots: [], late: [], trunk: null };
       var side, fx, fy, gx, gy, bx, by;
       if (!vert) { side = Math.min(h - pad * 2 - 34, w * 0.3); fx = pad + 4; fy = (h - side) / 2 - 8; gx = Math.round(w * 0.6); gy = Math.round(h / 2 - 8); bx = w - pad - 12; by = gy; }
-      else { side = Math.min(w - pad * 2 - 8, 250); fx = (w - side) / 2; fy = pad + 26; gx = Math.round(w / 2); gy = Math.round(fy + side + (h - fy - side) * 0.42); bx = gx; by = h - pad - 34; }
+      else { side = Math.min(w - pad * 2 - 8, 250); fx = (w - side) / 2; fy = pad + 26; gx = Math.round(w / 2); gy = Math.round(fy + side + (h - fy - side) * 0.36); bx = gx; by = h - pad - 34; }
       var sp = side / 8;
       for (i = 0; i < 81; i++) {
         var cx = fx + (i % 9) * sp, cy = fy + Math.floor(i / 9) * sp, on = picks[i], d;

@@ -1,0 +1,703 @@
+---
+title: Component kit
+description: Living component gallery for the Glinker Group website. Internal reference for page builders.
+nav: none
+body_class: page-kit
+---
+<section class="page-hero page-hero--simple">
+  <div class="wrap">
+    <div class="page-hero__grid">
+      <div class="page-hero__main">
+        <p class="label">Internal · not linked from the site</p>
+        <h1 class="page-hero__title">Component kit</h1>
+        <p class="lead">Every component of the design system, rendered live with the markup that produces it. Copy the pattern, change the content. Tokens and class vocabulary are in <code>assets/css/site.css</code>; behaviour is in <code>assets/js/site.js</code>.</p>
+      </div>
+    </div>
+    <div class="ruler" aria-hidden="true"></div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">00</span>Tokens</p></div>
+    <ul class="kit-swatches">
+      <li style="--c:var(--ink)" class="is-dark"><b>--ink</b>#0B1220</li>
+      <li style="--c:var(--ink-2)" class="is-dark"><b>--ink-2</b>#1B2536</li>
+      <li style="--c:var(--paper)"><b>--paper</b>#F4F1EA</li>
+      <li style="--c:var(--paper-2)"><b>--paper-2</b>#E9E5DA</li>
+      <li style="--c:var(--white)"><b>--white</b>#FFFDF8</li>
+      <li style="--c:var(--signal)"><b>--signal</b>#FF4D1F · graphics, buttons</li>
+      <li style="--c:var(--signal-deep)" class="is-dark"><b>--signal-deep</b>#BF300A · small text on paper</li>
+      <li style="--c:var(--trace)"><b>--trace</b>#2FE0C2 · on dark only</li>
+      <li style="--c:var(--amber)"><b>--amber</b>#FFB020 · diagrams only</li>
+    </ul>
+    <p class="small muted mt-5 measure">Components never use the raw colours for text and rules: they use the semantic tokens <code>--bg --fg --muted --rule --rule-strong --accent --surface</code>, which <code>.is-dark</code> re-maps. Section backgrounds: <code>.section</code> (paper), <code>.section--paper2</code>, <code>.section--white</code>, <code>.section.is-dark.instrument</code>.</p>
+    <ul class="kit-toc mt-6">
+      <li><a class="tag" href="#type">Type scale</a></li>
+      <li><a class="tag" href="#labels">Mono labels, section index, tags</a></li>
+      <li><a class="tag" href="#buttons">Buttons and links</a></li>
+      <li><a class="tag" href="#dark">Dark instrument context</a></li>
+      <li><a class="tag" href="#spec">Spec list</a></li>
+      <li><a class="tag" href="#datasheet">Datasheet card (product block)</a></li>
+      <li><a class="tag" href="#notes">Callout and limit note</a></li>
+      <li><a class="tag" href="#dtable">Data table</a></li>
+      <li><a class="tag" href="#stat">Stat numerals</a></li>
+      <li><a class="tag" href="#cards">Cards and note cards</a></li>
+      <li><a class="tag" href="#index">Index list</a></li>
+      <li><a class="tag" href="#ledger">Ledger columns and definition row</a></li>
+      <li><a class="tag" href="#steps">Steps (stations on a line)</a></li>
+      <li><a class="tag" href="#acc">Accordion</a></li>
+      <li><a class="tag" href="#tabs">Tabs and segmented control</a></li>
+      <li><a class="tag" href="#crumbs">Breadcrumbs and in-page nav</a></li>
+      <li><a class="tag" href="#form">Form</a></li>
+      <li><a class="tag" href="#fig">Figure and viz container</a></li>
+      <li><a class="tag" href="#hero">Page hero</a></li>
+      <li><a class="tag" href="#reveal">Reveal on scroll and the line</a></li>
+      <li><a class="tag" href="#icons">Icons</a></li>
+      <li><a class="tag" href="#vizhooks">Viz modules</a></li>
+    </ul>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="type">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">01</span>Type scale</p><p class="small muted measure">Archivo (display, wide), IBM Plex Sans (text), IBM Plex Mono (labels). Classes .display .h1–.h4 can be put on any element; .lead, .small, .muted, .measure, .hl (accent word), .pull (pull-quote).</p></div>
+    <div class="kit-demo">
+<p class="display">Display 81</p>
+<h1 class="h1">Heading one</h1>
+<h2>Heading two</h2>
+<h3>Heading three</h3>
+<h4>Heading four</h4>
+<p class="lead measure">Lead paragraph. A trend tells you whether to act.</p>
+<p class="measure">Body text in IBM Plex Sans with <span class="hl">an accent word</span> and Turkish glyphs: İ ı ğ ş ç ö ü — H<sub>2</sub>, C<sub>2</sub>H<sub>2</sub>.</p>
+<p class="small muted">Small muted text.</p>
+<p class="pull">Periodic testing is a photograph. Monitoring is the film.</p>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;p class="display"&gt;Display 81&lt;/p&gt;
+&lt;h1 class="h1"&gt;Heading one&lt;/h1&gt;
+&lt;h2&gt;Heading two&lt;/h2&gt;
+&lt;h3&gt;Heading three&lt;/h3&gt;
+&lt;h4&gt;Heading four&lt;/h4&gt;
+&lt;p class="lead measure"&gt;Lead paragraph. A trend tells you whether to act.&lt;/p&gt;
+&lt;p class="measure"&gt;Body text in IBM Plex Sans with &lt;span class="hl"&gt;an accent word&lt;/span&gt; and Turkish glyphs: İ ı ğ ş ç ö ü — H&lt;sub&gt;2&lt;/sub&gt;, C&lt;sub&gt;2&lt;/sub&gt;H&lt;sub&gt;2&lt;/sub&gt;.&lt;/p&gt;
+&lt;p class="small muted"&gt;Small muted text.&lt;/p&gt;
+&lt;p class="pull"&gt;Periodic testing is a photograph. Monitoring is the film.&lt;/p&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="labels">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">02</span>Mono labels, section index, tags</p><p class="small muted measure">.label is the datasheet voice. .sec-head + .sec-index gives every section its number and its node on the line.</p></div>
+    <div class="kit-demo">
+<div class="sec-head">
+  <p class="sec-index"><span class="sec-index__n">03</span>Why continuous</p>
+  <h2 class="sec-head__title">Section title, max 20ch.</h2>
+  <p class="lead">Optional lead. Add .sec-head--split to put it in a right-hand column.</p>
+</div>
+<p class="label">Label · muted</p>
+<p class="label label--fg">Label · foreground</p>
+<p class="label label--signal">Label · signal</p>
+<ul class="tags mt-4">
+  <li class="tag">Tag</li>
+  <li><a class="tag" href="#">Link tag</a></li>
+  <li class="tag tag--quiet">Quiet</li>
+  <li class="tag tag--solid">Solid</li>
+  <li class="tag tag--signal">Signal</li>
+  <li class="tag tag--dot">Per manufacturer data</li>
+</ul>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;div class="sec-head"&gt;
+  &lt;p class="sec-index"&gt;&lt;span class="sec-index__n"&gt;03&lt;/span&gt;Why continuous&lt;/p&gt;
+  &lt;h2 class="sec-head__title"&gt;Section title, max 20ch.&lt;/h2&gt;
+  &lt;p class="lead"&gt;Optional lead. Add .sec-head--split to put it in a right-hand column.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p class="label"&gt;Label · muted&lt;/p&gt;
+&lt;p class="label label--fg"&gt;Label · foreground&lt;/p&gt;
+&lt;p class="label label--signal"&gt;Label · signal&lt;/p&gt;
+&lt;ul class="tags mt-4"&gt;
+  &lt;li class="tag"&gt;Tag&lt;/li&gt;
+  &lt;li&gt;&lt;a class="tag" href="#"&gt;Link tag&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="tag tag--quiet"&gt;Quiet&lt;/li&gt;
+  &lt;li class="tag tag--solid"&gt;Solid&lt;/li&gt;
+  &lt;li class="tag tag--signal"&gt;Signal&lt;/li&gt;
+  &lt;li class="tag tag--dot"&gt;Per manufacturer data&lt;/li&gt;
+&lt;/ul&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="buttons">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">03</span>Buttons and links</p><p class="small muted measure">.btn--primary (one per view), .btn--ink, .btn--ghost, .btn--sm, .btn--block. Text links: .link-arrow, .link-inline. The arrow is the partial {{&gt; arrow}}.</p></div>
+    <div class="kit-demo">
+<div class="btn-row">
+  <a class="btn btn--primary" href="#">Request a technical meeting{{> arrow}}</a>
+  <a class="btn btn--ink" href="#">Send your requirement{{> arrow}}</a>
+  <a class="btn btn--ghost" href="#">Ghost</a>
+  <a class="btn btn--ghost btn--sm" href="#">Small</a>
+  <a class="link-arrow" href="#">Arrow link{{> arrow}}</a>
+  <a class="link-inline" href="#">Inline link</a>
+</div>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;div class="btn-row"&gt;
+  &lt;a class="btn btn--primary" href="#"&gt;Request a technical meeting{{&gt; arrow}}&lt;/a&gt;
+  &lt;a class="btn btn--ink" href="#"&gt;Send your requirement{{&gt; arrow}}&lt;/a&gt;
+  &lt;a class="btn btn--ghost" href="#"&gt;Ghost&lt;/a&gt;
+  &lt;a class="btn btn--ghost btn--sm" href="#"&gt;Small&lt;/a&gt;
+  &lt;a class="link-arrow" href="#"&gt;Arrow link{{&gt; arrow}}&lt;/a&gt;
+  &lt;a class="link-inline" href="#"&gt;Inline link&lt;/a&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="dark">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">04</span>Dark instrument context</p><p class="small muted measure">Add .is-dark to any block: every component re-maps its colours. .instrument adds the dotted graph ground. .is-light re-enters paper.</p></div>
+    <div class="kit-demo">
+<div class="is-dark instrument" style="padding:32px">
+  <p class="label label--trace">Trace label</p>
+  <h3 class="mt-4">Components adapt on dark.</h3>
+  <p class="muted mt-4 measure-s">Muted text, rules, buttons and tags all follow the semantic tokens.</p>
+  <div class="btn-row mt-5">
+    <a class="btn btn--primary" href="#">Primary{{> arrow}}</a>
+    <a class="btn btn--ghost" href="#">Ghost</a>
+    <span class="tag tag--live">In service</span>
+  </div>
+</div>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;div class="is-dark instrument" style="padding:32px"&gt;
+  &lt;p class="label label--trace"&gt;Trace label&lt;/p&gt;
+  &lt;h3 class="mt-4"&gt;Components adapt on dark.&lt;/h3&gt;
+  &lt;p class="muted mt-4 measure-s"&gt;Muted text, rules, buttons and tags all follow the semantic tokens.&lt;/p&gt;
+  &lt;div class="btn-row mt-5"&gt;
+    &lt;a class="btn btn--primary" href="#"&gt;Primary{{&gt; arrow}}&lt;/a&gt;
+    &lt;a class="btn btn--ghost" href="#"&gt;Ghost&lt;/a&gt;
+    &lt;span class="tag tag--live"&gt;In service&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="spec">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">05</span>Spec list</p><p class="small muted measure">dl.spec with .spec__row. .spec--lg for larger values.</p></div>
+    <div class="kit-demo">
+<dl class="spec">
+  <div class="spec__row"><dt>Alarms</dt><dd>Two types: Qp alarm on discharge level; NQS alarm on events per second</dd></div>
+  <div class="spec__row"><dt>Operation</dt><dd>Through a web browser</dd></div>
+</dl>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;dl class="spec"&gt;
+  &lt;div class="spec__row"&gt;&lt;dt&gt;Alarms&lt;/dt&gt;&lt;dd&gt;Two types: Qp alarm on discharge level; NQS alarm on events per second&lt;/dd&gt;&lt;/div&gt;
+  &lt;div class="spec__row"&gt;&lt;dt&gt;Operation&lt;/dt&gt;&lt;dd&gt;Through a web browser&lt;/dd&gt;&lt;/div&gt;
+&lt;/dl&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="datasheet">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">06</span>Datasheet card (product block)</p><p class="small muted measure">Always carries the “Per manufacturer data” tag. .datasheet--wide puts head and specs side by side; .ticks adds corner marks.</p></div>
+    <div class="kit-demo">
+<article class="datasheet datasheet--wide ticks">
+  <header class="datasheet__head">
+    <div class="stack">
+      <div class="datasheet__meta"><p class="label">Product · Megger</p></div>
+      <h3 class="datasheet__name">InsuLogix® G2</h3>
+      <p class="datasheet__desc">Online monitor for hydrogen, acetylene and moisture in transformer oil.</p>
+    </div>
+  </header>
+  <div class="datasheet__body">
+    <dl class="spec">
+      <div class="spec__row"><dt>Detection limits</dt><dd>25 ppm H<sub>2</sub> · 0.5 ppm C<sub>2</sub>H<sub>2</sub> · 2 ppm moisture</dd></div>
+      <div class="spec__row"><dt>Mounting</dt><dd>Single 38 mm (1.5 in) valve</dd></div>
+    </dl>
+  </div>
+  <footer class="datasheet__foot">
+    <p class="tag tag--dot">Per manufacturer data</p>
+    <p class="label">Two-gas monitor · not a replacement for laboratory DGA</p>
+  </footer>
+</article>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;article class="datasheet datasheet--wide ticks"&gt;
+  &lt;header class="datasheet__head"&gt;
+    &lt;div class="stack"&gt;
+      &lt;div class="datasheet__meta"&gt;&lt;p class="label"&gt;Product · Megger&lt;/p&gt;&lt;/div&gt;
+      &lt;h3 class="datasheet__name"&gt;InsuLogix® G2&lt;/h3&gt;
+      &lt;p class="datasheet__desc"&gt;Online monitor for hydrogen, acetylene and moisture in transformer oil.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+  &lt;div class="datasheet__body"&gt;
+    &lt;dl class="spec"&gt;
+      &lt;div class="spec__row"&gt;&lt;dt&gt;Detection limits&lt;/dt&gt;&lt;dd&gt;25 ppm H&lt;sub&gt;2&lt;/sub&gt; · 0.5 ppm C&lt;sub&gt;2&lt;/sub&gt;H&lt;sub&gt;2&lt;/sub&gt; · 2 ppm moisture&lt;/dd&gt;&lt;/div&gt;
+      &lt;div class="spec__row"&gt;&lt;dt&gt;Mounting&lt;/dt&gt;&lt;dd&gt;Single 38 mm (1.5 in) valve&lt;/dd&gt;&lt;/div&gt;
+    &lt;/dl&gt;
+  &lt;/div&gt;
+  &lt;footer class="datasheet__foot"&gt;
+    &lt;p class="tag tag--dot"&gt;Per manufacturer data&lt;/p&gt;
+    &lt;p class="label"&gt;Two-gas monitor · not a replacement for laboratory DGA&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/article&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="notes">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">07</span>Callout and limit note</p><p class="small muted measure">.limit-note states what a measurement or product does not do. Use it wherever the content has a caveat.</p></div>
+    <div class="kit-demo">
+<div class="callout">
+  <p class="callout__title">Glinker Group is not a manufacturer.</p>
+  <p>That is the point: we are not tied to one factory’s catalogue.</p>
+</div>
+<div class="limit-note mt-5">
+  <p class="limit-note__label">Limit</p>
+  <p>A two-gas monitor shows that something is developing. Identifying the type of fault needs laboratory DGA.</p>
+</div>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;div class="callout"&gt;
+  &lt;p class="callout__title"&gt;Glinker Group is not a manufacturer.&lt;/p&gt;
+  &lt;p&gt;That is the point: we are not tied to one factory’s catalogue.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="limit-note mt-5"&gt;
+  &lt;p class="limit-note__label"&gt;Limit&lt;/p&gt;
+  &lt;p&gt;A two-gas monitor shows that something is developing. Identifying the type of fault needs laboratory DGA.&lt;/p&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="dtable">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">08</span>Data table</p><p class="small muted measure">table.dtable. Give every td a data-label: below 860px rows stack and the label is shown.</p></div>
+    <div class="kit-demo">
+<table class="dtable">
+  <thead><tr><th scope="col">Asset</th><th scope="col">Typical risk</th><th scope="col">Monitoring technology</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Standby generators</th><td data-label="Typical risk">Stator insulation deterioration on machines that rarely run</td><td data-label="Monitoring technology"><a href="partial-discharge.html">Partial Discharge Monitoring</a></td></tr>
+    <tr><th scope="row">HV grid connection cable</th><td data-label="Typical risk">Joint or termination failure on the single supply route</td><td data-label="Monitoring technology"><a href="cable-mv.html">Cable &amp; MV Monitoring</a></td></tr>
+  </tbody>
+</table>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;table class="dtable"&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th scope="col"&gt;Asset&lt;/th&gt;&lt;th scope="col"&gt;Typical risk&lt;/th&gt;&lt;th scope="col"&gt;Monitoring technology&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;th scope="row"&gt;Standby generators&lt;/th&gt;&lt;td data-label="Typical risk"&gt;Stator insulation deterioration on machines that rarely run&lt;/td&gt;&lt;td data-label="Monitoring technology"&gt;&lt;a href="partial-discharge.html"&gt;Partial Discharge Monitoring&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;th scope="row"&gt;HV grid connection cable&lt;/th&gt;&lt;td data-label="Typical risk"&gt;Joint or termination failure on the single supply route&lt;/td&gt;&lt;td data-label="Monitoring technology"&gt;&lt;a href="cable-mv.html"&gt;Cable &amp;amp; MV Monitoring&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="stat">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">09</span>Stat numerals</p><p class="small muted measure">data-count ticks up from 0 when scrolled into view (the final value is in the HTML). .stat--s is the small size, .stat__num--word for a word.</p></div>
+    <div class="kit-demo">
+<div class="cols-3">
+  <div class="stat"><p class="stat__num"><span data-count="81">81</span></p><p class="stat__label">Provinces in the supplier network</p></div>
+  <div class="stat"><p class="stat__num"><span data-count="18">18</span><small>+</small></p><p class="stat__label">Years in electrical supply</p></div>
+  <div class="stat stat--s"><p class="stat__num">5</p><p class="stat__label">Technology groups</p><p class="stat__note">Small variant with a note.</p></div>
+</div>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;div class="cols-3"&gt;
+  &lt;div class="stat"&gt;&lt;p class="stat__num"&gt;&lt;span data-count="81"&gt;81&lt;/span&gt;&lt;/p&gt;&lt;p class="stat__label"&gt;Provinces in the supplier network&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="stat"&gt;&lt;p class="stat__num"&gt;&lt;span data-count="18"&gt;18&lt;/span&gt;&lt;small&gt;+&lt;/small&gt;&lt;/p&gt;&lt;p class="stat__label"&gt;Years in electrical supply&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="stat stat--s"&gt;&lt;p class="stat__num"&gt;5&lt;/p&gt;&lt;p class="stat__label"&gt;Technology groups&lt;/p&gt;&lt;p class="stat__note"&gt;Small variant with a note.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="cards">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">10</span>Cards and note cards</p><p class="small muted measure">a.card for whole-card links; .note-card for knowledge notes (uses a.stretched inside the title). Grids: .cols-2 / .cols-3 / .cols-4.</p></div>
+    <div class="kit-demo">
+<div class="cols-3">
+  <a class="card" href="#"><p class="label">Technology T2</p><h3 class="card__title">DGA Monitoring</h3><p class="card__text">Is something developing in the oil?</p><div class="card__foot"><span class="label">Open page</span>{{> arrow}}</div></a>
+  <article class="note-card">
+    <div class="note-card__meta"><p class="label label--fg">Glinker note</p><p class="label">N1</p></div>
+    <h3 class="note-card__title"><a class="stretched" href="#">Invisible Infrastructure</a></h3>
+    <p class="note-card__text">Why condition stays out of sight.</p>
+    <div class="note-card__foot"><ul class="tags"><li class="tag tag--quiet">Whole fleet</li></ul>{{> arrow}}</div>
+  </article>
+  <article class="note-card">
+    <div class="note-card__meta"><p class="label label--fg">Digest</p><p class="label">N4</p></div>
+    <h3 class="note-card__title"><a class="stretched" href="#">Choosing a partial discharge monitoring system</a></h3>
+    <p class="note-card__text">For teams preparing a specification.</p>
+    <div class="note-card__foot"><ul class="tags"><li class="tag tag--quiet">Partial discharge</li></ul>{{> arrow}}</div>
+  </article>
+</div>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;div class="cols-3"&gt;
+  &lt;a class="card" href="#"&gt;&lt;p class="label"&gt;Technology T2&lt;/p&gt;&lt;h3 class="card__title"&gt;DGA Monitoring&lt;/h3&gt;&lt;p class="card__text"&gt;Is something developing in the oil?&lt;/p&gt;&lt;div class="card__foot"&gt;&lt;span class="label"&gt;Open page&lt;/span&gt;{{&gt; arrow}}&lt;/div&gt;&lt;/a&gt;
+  &lt;article class="note-card"&gt;
+    &lt;div class="note-card__meta"&gt;&lt;p class="label label--fg"&gt;Glinker note&lt;/p&gt;&lt;p class="label"&gt;N1&lt;/p&gt;&lt;/div&gt;
+    &lt;h3 class="note-card__title"&gt;&lt;a class="stretched" href="#"&gt;Invisible Infrastructure&lt;/a&gt;&lt;/h3&gt;
+    &lt;p class="note-card__text"&gt;Why condition stays out of sight.&lt;/p&gt;
+    &lt;div class="note-card__foot"&gt;&lt;ul class="tags"&gt;&lt;li class="tag tag--quiet"&gt;Whole fleet&lt;/li&gt;&lt;/ul&gt;{{&gt; arrow}}&lt;/div&gt;
+  &lt;/article&gt;
+  &lt;article class="note-card"&gt;
+    &lt;div class="note-card__meta"&gt;&lt;p class="label label--fg"&gt;Digest&lt;/p&gt;&lt;p class="label"&gt;N4&lt;/p&gt;&lt;/div&gt;
+    &lt;h3 class="note-card__title"&gt;&lt;a class="stretched" href="#"&gt;Choosing a partial discharge monitoring system&lt;/a&gt;&lt;/h3&gt;
+    &lt;p class="note-card__text"&gt;For teams preparing a specification.&lt;/p&gt;
+    &lt;div class="note-card__foot"&gt;&lt;ul class="tags"&gt;&lt;li class="tag tag--quiet"&gt;Partial discharge&lt;/li&gt;&lt;/ul&gt;{{&gt; arrow}}&lt;/div&gt;
+  &lt;/article&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="index">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">11</span>Index list</p><p class="small muted measure">A table of contents with large rows: number, title, text, question, arrow.</p></div>
+    <div class="kit-demo">
+<div class="index-list">
+  <a class="index-row" href="#">
+    <span class="index-row__n">T3</span>
+    <h3 class="index-row__title">Cable &amp; MV Monitoring</h3>
+    <p class="index-row__text">A cable or feeder is a route, not a single item.</p>
+    <p class="index-row__q"><span class="label">Tells you</span><b>Where along the route?</b></p>
+    <span class="index-row__go">{{> arrow}}</span>
+  </a>
+</div>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;div class="index-list"&gt;
+  &lt;a class="index-row" href="#"&gt;
+    &lt;span class="index-row__n"&gt;T3&lt;/span&gt;
+    &lt;h3 class="index-row__title"&gt;Cable &amp;amp; MV Monitoring&lt;/h3&gt;
+    &lt;p class="index-row__text"&gt;A cable or feeder is a route, not a single item.&lt;/p&gt;
+    &lt;p class="index-row__q"&gt;&lt;span class="label"&gt;Tells you&lt;/span&gt;&lt;b&gt;Where along the route?&lt;/b&gt;&lt;/p&gt;
+    &lt;span class="index-row__go"&gt;{{&gt; arrow}}&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="ledger">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">12</span>Ledger columns and definition row</p><p class="small muted measure">.ledger with --ledger-cols (default 3) for ruled columns; .defrow for a one-line definition.</p></div>
+    <div class="kit-demo">
+<div class="ledger" style="--ledger-cols: 3">
+  <div class="ledger__cell"><p class="label">D1</p><h3>Voids and cracks</h3><p class="muted">Inside solid insulation.</p></div>
+  <div class="ledger__cell"><p class="label">D2</p><h3>Surface tracking</h3><p class="muted">On bushings and terminations.</p></div>
+  <div class="ledger__cell"><p class="label label--signal">D3</p><h3>Rising trend</h3><p class="muted">Magnitude and repetition rate over time.</p></div>
+</div>
+<div class="defrow">
+  <p class="label label--fg">Trade Facilitator</p>
+  <p>One point of access between international buyers and Turkish manufacturers.</p>
+</div>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;div class="ledger" style="--ledger-cols: 3"&gt;
+  &lt;div class="ledger__cell"&gt;&lt;p class="label"&gt;D1&lt;/p&gt;&lt;h3&gt;Voids and cracks&lt;/h3&gt;&lt;p class="muted"&gt;Inside solid insulation.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="ledger__cell"&gt;&lt;p class="label"&gt;D2&lt;/p&gt;&lt;h3&gt;Surface tracking&lt;/h3&gt;&lt;p class="muted"&gt;On bushings and terminations.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="ledger__cell"&gt;&lt;p class="label label--signal"&gt;D3&lt;/p&gt;&lt;h3&gt;Rising trend&lt;/h3&gt;&lt;p class="muted"&gt;Magnitude and repetition rate over time.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="defrow"&gt;
+  &lt;p class="label label--fg"&gt;Trade Facilitator&lt;/p&gt;
+  &lt;p&gt;One point of access between international buyers and Turkish manufacturers.&lt;/p&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="steps">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">13</span>Steps (stations on a line)</p><p class="small muted measure">ol.steps is vertical; add .steps--row for three across on desktop. .step__io holds the “You bring / You get” pair.</p></div>
+    <div class="kit-demo">
+<ol class="steps steps--row">
+  <li class="step"><p class="step__n">01</p><h3 class="step__title">Define</h3><div class="step__io"><div><span class="label">You bring</span>The item list and specification.</div><div><span class="label">You get</span>A clear scope.</div></div></li>
+  <li class="step"><p class="step__n">02</p><h3 class="step__title">Build</h3><div class="step__io"><div><span class="label">You bring</span>Your priorities.</div><div><span class="label">You get</span>A comparable proposal.</div></div></li>
+  <li class="step"><p class="step__n">03</p><h3 class="step__title">Run</h3><div class="step__io"><div><span class="label">You bring</span>Your selection.</div><div><span class="label">You get</span>One contact through delivery.</div></div></li>
+</ol>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;ol class="steps steps--row"&gt;
+  &lt;li class="step"&gt;&lt;p class="step__n"&gt;01&lt;/p&gt;&lt;h3 class="step__title"&gt;Define&lt;/h3&gt;&lt;div class="step__io"&gt;&lt;div&gt;&lt;span class="label"&gt;You bring&lt;/span&gt;The item list and specification.&lt;/div&gt;&lt;div&gt;&lt;span class="label"&gt;You get&lt;/span&gt;A clear scope.&lt;/div&gt;&lt;/div&gt;&lt;/li&gt;
+  &lt;li class="step"&gt;&lt;p class="step__n"&gt;02&lt;/p&gt;&lt;h3 class="step__title"&gt;Build&lt;/h3&gt;&lt;div class="step__io"&gt;&lt;div&gt;&lt;span class="label"&gt;You bring&lt;/span&gt;Your priorities.&lt;/div&gt;&lt;div&gt;&lt;span class="label"&gt;You get&lt;/span&gt;A comparable proposal.&lt;/div&gt;&lt;/div&gt;&lt;/li&gt;
+  &lt;li class="step"&gt;&lt;p class="step__n"&gt;03&lt;/p&gt;&lt;h3 class="step__title"&gt;Run&lt;/h3&gt;&lt;div class="step__io"&gt;&lt;div&gt;&lt;span class="label"&gt;You bring&lt;/span&gt;Your selection.&lt;/div&gt;&lt;div&gt;&lt;span class="label"&gt;You get&lt;/span&gt;One contact through delivery.&lt;/div&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="acc">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">14</span>Accordion</p><p class="small muted measure">Native details/summary. Give a group the same name attribute to make it exclusive.</p></div>
+    <div class="kit-demo">
+<div class="acc-group">
+  <details class="acc" name="kit-acc" open><summary><span class="acc__n">Q1</span><span class="acc__title">Is any partial discharge a problem?</span><span class="acc__meta"></span></summary>
+    <div class="acc__body"><p>Not necessarily. What matters most is a change.</p></div></details>
+  <details class="acc" name="kit-acc"><summary><span class="acc__n">G5</span><span class="acc__title">Lighting</span><span class="acc__meta">5 items</span></summary>
+    <div class="acc__body"><ul class="acc__items"><li>Indoor lighting</li><li>Exterior and outdoor lighting</li><li>Motion sensors</li><li>Emergency kits and lighting</li><li>Lighting automation</li></ul></div></details>
+</div>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;div class="acc-group"&gt;
+  &lt;details class="acc" name="kit-acc" open&gt;&lt;summary&gt;&lt;span class="acc__n"&gt;Q1&lt;/span&gt;&lt;span class="acc__title"&gt;Is any partial discharge a problem?&lt;/span&gt;&lt;span class="acc__meta"&gt;&lt;/span&gt;&lt;/summary&gt;
+    &lt;div class="acc__body"&gt;&lt;p&gt;Not necessarily. What matters most is a change.&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;
+  &lt;details class="acc" name="kit-acc"&gt;&lt;summary&gt;&lt;span class="acc__n"&gt;G5&lt;/span&gt;&lt;span class="acc__title"&gt;Lighting&lt;/span&gt;&lt;span class="acc__meta"&gt;5 items&lt;/span&gt;&lt;/summary&gt;
+    &lt;div class="acc__body"&gt;&lt;ul class="acc__items"&gt;&lt;li&gt;Indoor lighting&lt;/li&gt;&lt;li&gt;Exterior and outdoor lighting&lt;/li&gt;&lt;li&gt;Motion sensors&lt;/li&gt;&lt;li&gt;Emergency kits and lighting&lt;/li&gt;&lt;li&gt;Lighting automation&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/details&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="tabs">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">15</span>Tabs and segmented control</p><p class="small muted measure">Tabs are links to panels: without JS every panel shows in order. .seg works with radios (forms, no JS needed) or with buttons[aria-pressed] (fires a seg:change event with detail.value).</p></div>
+    <div class="kit-demo">
+<div class="tabs">
+  <div class="tabs__list">
+    <a class="tabs__tab" href="#kit-tab-a">Periodic test</a>
+    <a class="tabs__tab" href="#kit-tab-b">Continuous monitoring</a>
+  </div>
+  <div class="tabs__panel" id="kit-tab-a"><p class="measure">One point on the timeline. The report is correct about the day it was written.</p></div>
+  <div class="tabs__panel" id="kit-tab-b"><p class="measure">A line. The change is small, but it is on record.</p></div>
+</div>
+<div class="seg mt-6" role="group" aria-label="Show for">
+  <button type="button" aria-pressed="true" value="all">All</button>
+  <button type="button" aria-pressed="false" value="data-centers">Data Centers</button>
+  <button type="button" aria-pressed="false" value="airports">Airports</button>
+</div>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;div class="tabs"&gt;
+  &lt;div class="tabs__list"&gt;
+    &lt;a class="tabs__tab" href="#kit-tab-a"&gt;Periodic test&lt;/a&gt;
+    &lt;a class="tabs__tab" href="#kit-tab-b"&gt;Continuous monitoring&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class="tabs__panel" id="kit-tab-a"&gt;&lt;p class="measure"&gt;One point on the timeline. The report is correct about the day it was written.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="tabs__panel" id="kit-tab-b"&gt;&lt;p class="measure"&gt;A line. The change is small, but it is on record.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="seg mt-6" role="group" aria-label="Show for"&gt;
+  &lt;button type="button" aria-pressed="true" value="all"&gt;All&lt;/button&gt;
+  &lt;button type="button" aria-pressed="false" value="data-centers"&gt;Data Centers&lt;/button&gt;
+  &lt;button type="button" aria-pressed="false" value="airports"&gt;Airports&lt;/button&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="crumbs">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">16</span>Breadcrumbs and in-page nav</p><p class="small muted measure">.pagenav is sticky under the header on real pages (place it directly after the page hero); links get .is-active while their section is in view.</p></div>
+    <div class="kit-demo">
+<nav aria-label="Breadcrumb"><ol class="crumbs">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="monitoring.html">Online Monitoring</a></li>
+  <li><span aria-current="page">DGA Monitoring</span></li>
+</ol></nav>
+<nav class="pagenav mt-5" aria-label="On this page" style="position:static"><ul class="pagenav__list" style="margin:0;padding:0">
+  <li><a href="#spec" class="is-active"><span>01</span>Detects</a></li>
+  <li><a href="#datasheet"><span>02</span>Product</a></li>
+  <li><a href="#notes"><span>03</span>Standards</a></li>
+</ul></nav>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;nav aria-label="Breadcrumb"&gt;&lt;ol class="crumbs"&gt;
+  &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="monitoring.html"&gt;Online Monitoring&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span aria-current="page"&gt;DGA Monitoring&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/nav&gt;
+&lt;nav class="pagenav mt-5" aria-label="On this page" style="position:static"&gt;&lt;ul class="pagenav__list" style="margin:0;padding:0"&gt;
+  &lt;li&gt;&lt;a href="#spec" class="is-active"&gt;&lt;span&gt;01&lt;/span&gt;Detects&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#datasheet"&gt;&lt;span&gt;02&lt;/span&gt;Product&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#notes"&gt;&lt;span&gt;03&lt;/span&gt;Standards&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/nav&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="form">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">17</span>Form</p><p class="small muted measure">form[data-contact-form] composes a mailto: on submit and reveals [data-form-status]. ?topic=monitoring|supply|sourcing|other preselects the radio. data-label on inputs sets the line label in the e-mail; data-text the readable topic.</p></div>
+    <div class="kit-demo">
+<form class="form" data-contact-form data-mailto="koordinasyon@glinkergroup.com" data-subject="Website request">
+  <p class="form__alert" data-form-alert hidden>Please check the fields below.</p>
+  <fieldset class="field"><legend>What is it about?</legend>
+    <div class="seg seg--stack">
+      <label class="seg__opt"><input type="radio" name="topic" value="monitoring" data-label="Topic" data-text="Online monitoring" checked><span>Online monitoring</span></label>
+      <label class="seg__opt"><input type="radio" name="topic" value="supply" data-label="Topic" data-text="Supply and projects"><span>Supply and projects</span></label>
+      <label class="seg__opt"><input type="radio" name="topic" value="sourcing" data-label="Topic" data-text="Sourcing from Türkiye"><span>Sourcing from Türkiye</span></label>
+      <label class="seg__opt"><input type="radio" name="topic" value="other" data-label="Topic" data-text="Other"><span>Other</span></label>
+    </div>
+  </fieldset>
+  <div class="form__row form__row--2">
+    <div class="field"><label for="kit-name">Full name</label><input id="kit-name" name="name" type="text" data-label="Name" autocomplete="name" required><p class="field__error">Please enter your name.</p></div>
+    <div class="field"><label for="kit-email">Work email</label><input id="kit-email" name="email" type="email" data-label="Email" autocomplete="email" required><p class="field__error">Please enter a valid email address.</p></div>
+  </div>
+  <div class="field"><label for="kit-note">Short note <i>(optional)</i></label><textarea id="kit-note" name="note" data-label="Note"></textarea></div>
+  <div class="btn-row"><button class="btn btn--primary" type="submit">Send request{{> arrow}}</button></div>
+</form>
+<div class="form__status mt-5" data-form-status hidden>
+  <p class="form__status-title">Your email app should now be open.</p>
+  <p>The request is sent from your own mailbox. If nothing opened, <a class="link-inline" data-mailto-link href="mailto:koordinasyon@glinkergroup.com">open the message here</a>.</p>
+</div>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;form class="form" data-contact-form data-mailto="koordinasyon@glinkergroup.com" data-subject="Website request"&gt;
+  &lt;p class="form__alert" data-form-alert hidden&gt;Please check the fields below.&lt;/p&gt;
+  &lt;fieldset class="field"&gt;&lt;legend&gt;What is it about?&lt;/legend&gt;
+    &lt;div class="seg seg--stack"&gt;
+      &lt;label class="seg__opt"&gt;&lt;input type="radio" name="topic" value="monitoring" data-label="Topic" data-text="Online monitoring" checked&gt;&lt;span&gt;Online monitoring&lt;/span&gt;&lt;/label&gt;
+      &lt;label class="seg__opt"&gt;&lt;input type="radio" name="topic" value="supply" data-label="Topic" data-text="Supply and projects"&gt;&lt;span&gt;Supply and projects&lt;/span&gt;&lt;/label&gt;
+      &lt;label class="seg__opt"&gt;&lt;input type="radio" name="topic" value="sourcing" data-label="Topic" data-text="Sourcing from Türkiye"&gt;&lt;span&gt;Sourcing from Türkiye&lt;/span&gt;&lt;/label&gt;
+      &lt;label class="seg__opt"&gt;&lt;input type="radio" name="topic" value="other" data-label="Topic" data-text="Other"&gt;&lt;span&gt;Other&lt;/span&gt;&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+  &lt;div class="form__row form__row--2"&gt;
+    &lt;div class="field"&gt;&lt;label for="kit-name"&gt;Full name&lt;/label&gt;&lt;input id="kit-name" name="name" type="text" data-label="Name" autocomplete="name" required&gt;&lt;p class="field__error"&gt;Please enter your name.&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="field"&gt;&lt;label for="kit-email"&gt;Work email&lt;/label&gt;&lt;input id="kit-email" name="email" type="email" data-label="Email" autocomplete="email" required&gt;&lt;p class="field__error"&gt;Please enter a valid email address.&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;&lt;label for="kit-note"&gt;Short note &lt;i&gt;(optional)&lt;/i&gt;&lt;/label&gt;&lt;textarea id="kit-note" name="note" data-label="Note"&gt;&lt;/textarea&gt;&lt;/div&gt;
+  &lt;div class="btn-row"&gt;&lt;button class="btn btn--primary" type="submit"&gt;Send request{{&gt; arrow}}&lt;/button&gt;&lt;/div&gt;
+&lt;/form&gt;
+&lt;div class="form__status mt-5" data-form-status hidden&gt;
+  &lt;p class="form__status-title"&gt;Your email app should now be open.&lt;/p&gt;
+  &lt;p&gt;The request is sent from your own mailbox. If nothing opened, &lt;a class="link-inline" data-mailto-link href="mailto:koordinasyon@glinkergroup.com"&gt;open the message here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="fig">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">18</span>Figure and viz container</p><p class="small muted measure">figure.fig frames a diagram: optional .fig__head, .fig__body (--flush removes padding), .fig__cap. A [data-viz] container holds a static .viz__fallback that the module replaces; set height with --viz-h. Static diagrams use svg.dg with .dg-axis .dg-grid .dg-limit .dg-line(--trace/--signal/--ghost) .dg-dot. Label every illustration “Illustrative”.</p></div>
+    <div class="kit-demo">
+<figure class="fig is-dark instrument ticks" style="--tick: var(--signal)">
+  <div class="fig__head"><p class="label label--fg">Fig. — Title</p><p class="label">Illustrative</p></div>
+  <div class="fig__body">
+    <div class="viz" data-viz="kit-demo" style="--viz-h: 200px">
+      <svg class="viz__fallback dg" viewBox="0 0 600 200" role="img" aria-label="Illustrative trend rising to an alarm limit">
+        <path class="dg-axis" d="M30 20V170H580"/>
+        <path class="dg-limit" d="M30 60H580"/>
+        <path class="dg-line dg-line--trace" d="M30 150 120 148 210 150 300 140 380 118 450 88 500 60"/>
+        <circle class="dg-dot--signal" cx="500" cy="60" r="5"/>
+        <text x="580" y="52" text-anchor="end" class="dg-signal">Alarm limit</text>
+      </svg>
+    </div>
+  </div>
+  <figcaption class="fig__cap"><p>Illustrative. Not measured data.</p></figcaption>
+</figure>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;figure class="fig is-dark instrument ticks" style="--tick: var(--signal)"&gt;
+  &lt;div class="fig__head"&gt;&lt;p class="label label--fg"&gt;Fig. — Title&lt;/p&gt;&lt;p class="label"&gt;Illustrative&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="fig__body"&gt;
+    &lt;div class="viz" data-viz="kit-demo" style="--viz-h: 200px"&gt;
+      &lt;svg class="viz__fallback dg" viewBox="0 0 600 200" role="img" aria-label="Illustrative trend rising to an alarm limit"&gt;
+        &lt;path class="dg-axis" d="M30 20V170H580"/&gt;
+        &lt;path class="dg-limit" d="M30 60H580"/&gt;
+        &lt;path class="dg-line dg-line--trace" d="M30 150 120 148 210 150 300 140 380 118 450 88 500 60"/&gt;
+        &lt;circle class="dg-dot--signal" cx="500" cy="60" r="5"/&gt;
+        &lt;text x="580" y="52" text-anchor="end" class="dg-signal"&gt;Alarm limit&lt;/text&gt;
+      &lt;/svg&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;figcaption class="fig__cap"&gt;&lt;p&gt;Illustrative. Not measured data.&lt;/p&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="hero">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">19</span>Page hero</p><p class="small muted measure">section.page-hero (light) or .page-hero--dark.is-dark.instrument. Main column + optional aside (figure, facts). Close with .ruler. Set header: dark in front-matter for dark heroes. See partial-discharge.html for the full technology-page pattern.</p></div>
+    <div class="kit-demo">
+<div class="page-hero" style="padding-top:0">
+  <div class="page-hero__grid" style="padding-top:8px">
+    <div class="page-hero__main">
+      <p class="label">Technology T2 · Power transformer</p>
+      <h1 class="page-hero__title h1" role="presentation">Page title</h1>
+      <p class="page-hero__lead-strong">One strong sentence that says what it shows.</p>
+      <p class="lead">Intro paragraph of around fifty words.</p>
+    </div>
+    <div class="page-hero__aside">
+      <dl class="spec"><div class="spec__row"><dt>Asset</dt><dd>Oil-filled power transformer</dd></div><div class="spec__row"><dt>Product</dt><dd>InsuLogix® G2</dd></div></dl>
+    </div>
+  </div>
+  <div class="ruler" aria-hidden="true"></div>
+</div>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;div class="page-hero" style="padding-top:0"&gt;
+  &lt;div class="page-hero__grid" style="padding-top:8px"&gt;
+    &lt;div class="page-hero__main"&gt;
+      &lt;p class="label"&gt;Technology T2 · Power transformer&lt;/p&gt;
+      &lt;h1 class="page-hero__title h1" role="presentation"&gt;Page title&lt;/h1&gt;
+      &lt;p class="page-hero__lead-strong"&gt;One strong sentence that says what it shows.&lt;/p&gt;
+      &lt;p class="lead"&gt;Intro paragraph of around fifty words.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="page-hero__aside"&gt;
+      &lt;dl class="spec"&gt;&lt;div class="spec__row"&gt;&lt;dt&gt;Asset&lt;/dt&gt;&lt;dd&gt;Oil-filled power transformer&lt;/dd&gt;&lt;/div&gt;&lt;div class="spec__row"&gt;&lt;dt&gt;Product&lt;/dt&gt;&lt;dd&gt;InsuLogix® G2&lt;/dd&gt;&lt;/div&gt;&lt;/dl&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="ruler" aria-hidden="true"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="reveal">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">20</span>Reveal on scroll and the line</p><p class="small muted measure">data-reveal on one element; data-reveal-group on a parent staggers its children. data-reveal="fade" skips the rise. Every top-level section in main draws a segment of the line automatically (.no-line opts out); nothing to add in markup.</p></div>
+    <div class="kit-demo">
+<div class="cols-3" data-reveal-group>
+  <div class="callout"><p>Child one</p></div>
+  <div class="callout"><p>Child two</p></div>
+  <div class="callout"><p>Child three</p></div>
+</div>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;div class="cols-3" data-reveal-group&gt;
+  &lt;div class="callout"&gt;&lt;p&gt;Child one&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="callout"&gt;&lt;p&gt;Child two&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="callout"&gt;&lt;p&gt;Child three&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="icons">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">21</span>Icons</p><p class="small muted measure">The sprite assets/img/icons.svg is inlined once at the top of every page by build.py, so a local reference works everywhere (also from file://). Size with .icon (24px) or .icon--lg (40px); colour follows currentColor.</p></div>
+    <div class="kit-demo">
+<ul class="kit-icons">
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-grid"/></svg><span class="label">i-grid</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hv-cable"/></svg><span class="label">i-hv-cable</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-power-transformer"/></svg><span class="label">i-power-transformer</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-generator"/></svg><span class="label">i-generator</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gis"/></svg><span class="label">i-gis</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mv-feeder"/></svg><span class="label">i-mv-feeder</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-distribution-transformer"/></svg><span class="label">i-distribution-transformer</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-busbar"/></svg><span class="label">i-busbar</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fleet"/></svg><span class="label">i-fleet</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pd"/></svg><span class="label">i-pd</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-dga"/></svg><span class="label">i-dga</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cable"/></svg><span class="label">i-cable</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pq"/></svg><span class="label">i-pq</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-apm"/></svg><span class="label">i-apm</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-earthing"/></svg><span class="label">i-earthing</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cables"/></svg><span class="label">i-cables</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mv-installations"/></svg><span class="label">i-mv-installations</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-panels"/></svg><span class="label">i-panels</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-lighting"/></svg><span class="label">i-lighting</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-data-center"/></svg><span class="label">i-data-center</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-right"/></svg><span class="label">i-arrow-right</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-up-right"/></svg><span class="label">i-arrow-up-right</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plus"/></svg><span class="label">i-plus</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-minus"/></svg><span class="label">i-minus</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-close"/></svg><span class="label">i-close</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-menu"/></svg><span class="label">i-menu</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg><span class="label">i-mail</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg><span class="label">i-pin</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span class="label">i-check</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-globe"/></svg><span class="label">i-globe</span></li>
+  <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-external"/></svg><span class="label">i-external</span></li>
+</ul>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;ul class="kit-icons"&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-grid"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-grid&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-hv-cable"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-hv-cable&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-power-transformer"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-power-transformer&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-generator"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-generator&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-gis"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-gis&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-mv-feeder"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-mv-feeder&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-distribution-transformer"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-distribution-transformer&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-busbar"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-busbar&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-fleet"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-fleet&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-pd"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-pd&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-dga"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-dga&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-cable"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-cable&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-pq"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-pq&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-apm"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-apm&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-earthing"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-earthing&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-cables"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-cables&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-mv-installations"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-mv-installations&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-panels"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-panels&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-lighting"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-lighting&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-data-center"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-data-center&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-arrow-right"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-arrow-right&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-arrow-up-right"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-arrow-up-right&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-plus"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-plus&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-minus"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-minus&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-close"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-close&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-menu"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-menu&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-mail"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-mail&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-pin"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-pin&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-check"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-check&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-globe"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-globe&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;svg class="icon" viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;use href="#i-external"/&gt;&lt;/svg&gt;&lt;span class="label"&gt;i-external&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre></details>
+  </div>
+</section>
+<section class="section section--tight section--ruled kit-sec" id="vizhooks">
+  <div class="wrap">
+    <div class="sec-head"><p class="sec-index"><span class="sec-index__n">22</span>Viz modules</p><p class="small muted measure">Put a container with data-viz on the page; build.py adds the matching script from assets/js/viz/ automatically. Illustrations fill the container (16:10 by default) and take data-theme="dark|light". Others: hero-signal (absolute layer in a dark hero), test-vs-monitor (sets its own height; pad the host), power-chain (best on dark, wide), supply-route. Keep a static .viz__fallback inside for no-JS.</p></div>
+    <div class="kit-demo">
+<div class="cols-2">
+  <figure class="fig is-dark ticks"><div class="fig__body"><div class="viz" data-viz="gas-trend" data-theme="dark"></div></div></figure>
+  <figure class="fig ticks"><div class="fig__body"><div class="viz" data-viz="pq-wave" data-theme="light"></div></div></figure>
+</div>
+    </div>
+    <details class="kit-code"><summary class="label">Markup</summary><pre><code>&lt;div class="cols-2"&gt;
+  &lt;figure class="fig is-dark ticks"&gt;&lt;div class="fig__body"&gt;&lt;div class="viz" data-viz="gas-trend" data-theme="dark"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/figure&gt;
+  &lt;figure class="fig ticks"&gt;&lt;div class="fig__body"&gt;&lt;div class="viz" data-viz="pq-wave" data-theme="light"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>

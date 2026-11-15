@@ -261,7 +261,7 @@
       }
       for (i = 1; i <= 4; i++) svgEl('line', { x1: x1, x2: x2, y1: Y(i / 4), y2: Y(i / 4), 'class': 'vz-grid' }, svg);
       svgEl('line', { x1: x1, x2: x2, y1: y2, y2: y2, 'class': 'vz-axis' }, svg);
-      text('vz-dim', x1, y1 - 24, STR.months + ' →');
+      if (!narrow) text('vz-dim', x1, y1 - 24, STR.months + ' →');
 
       /* threshold */
       g.thr = svgEl('g', { 'class': 'vz-thr' }, svg);
@@ -288,9 +288,9 @@
       text('vz-dim2', X(T_FAULT) + 6, Y(BASE) + 19, STR.begins, 'start', g.begin);
 
       /* periodic: assumed-normal line, hidden trend (revealed after failure), failure */
-      g.assumed = svgEl('g', { 'class': 'vz-assumed', 'clip-path': 'url(#' + id + ')' }, svg);
+      g.assumed = svgEl('g', { 'class': 'vz-assumed', 'clip-path': 'url(#' + id + ')' }, svg); g.assumedLbl = null;
       svgEl('line', { x1: X(T_TEST), x2: X(T_FAIL), y1: Y(BASE), y2: Y(BASE), 'class': 'vz-assumed-line' }, g.assumed);
-      text('vz-dim2', X(narrow ? 5.2 : 4.6), Y(BASE) - 8, STR.assumed, 'start', g.assumed);
+      g.assumedLbl = text('vz-dim2', X(narrow ? 5.2 : 4.6), Y(BASE) - 8, STR.assumed, 'start', g.assumed);
       g.hidden = svgEl('path', { d: pathFor(fault, T_FAULT, T_FAIL), 'class': 'vz-hidden' }, svg);
       g.fail = svgEl('g', { 'class': 'vz-fail' }, svg);
       var fx = X(T_FAIL), fy = Y(1);
@@ -341,7 +341,7 @@
       g.cur.setAttribute('transform', 'translate(' + x.toFixed(1) + ' 0)');
       var failed = p && T >= T_FAIL;
       /* periodic layer */
-      show(g.assumed, p && T > T_TEST); show(g.hidden, failed); show(g.fail, failed); show(g.outage, failed);
+      show(g.assumed, p && T > T_TEST); show(g.assumedLbl, !failed); show(g.hidden, failed); show(g.fail, failed); show(g.outage, failed);
       show(g.begin, p ? failed : T >= T_FAULT);
       g.thr.style.opacity = p ? 0.35 : 1;
       show(g.tests[0], T >= T_TEST - 0.02); g.tests[1].style.opacity = T >= T_NEXT && !failed ? 1 : 0.4;

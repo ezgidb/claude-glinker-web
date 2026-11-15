@@ -228,7 +228,10 @@
         a.c = lerp(a.c0, a.c1, u);
         var top = a.rank < 3 && u > 0.5, x = R.X(a.c), d = R.dots[k], tg = R.tags[k];
         d.setAttribute('cx', x); d.setAttribute('class', top ? 'f-sig' : (a.rank < 8 ? 'f-fg' : 'f-dim'));
-        tg.textContent = top ? '0' + (a.rank + 1) : ''; tg.setAttribute('x', x + 8);
+        tg.textContent = top ? '0' + (a.rank + 1) : '';
+        var left = false;
+        if (top) A.forEach(function (o) { if (o !== a && o.rank < 8) { var dx = R.X(lerp(o.c0, o.c1, u)) - x; if (dx > 0 && dx < 30 && Math.abs(R.Y(o.imp) - R.Y(a.imp)) < 11) left = true; } });
+        tg.setAttribute('x', x + (left ? -8 : 8)); tg.setAttribute('text-anchor', left ? 'end' : 'start');
         if (R.list) {
           var ty = a.rank < 5 ? R.ly0 + a.rank * R.lh : R.ly0 + 5 * R.lh + 6, g = R.rows[k];
           a.ly = a.ly < 0 || reduced() ? ty : a.ly + (ty - a.ly) * 0.14;

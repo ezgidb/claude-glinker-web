@@ -207,6 +207,9 @@ def build():
     partials = {p.stem: p.read_text(encoding="utf-8") for p in (SRC / "partials").glob("*.html")}
     pages = {lang: {p.stem: p for p in sorted((SRC / "pages" / lang).glob("*.html"))}
              if (SRC / "pages" / lang).is_dir() else {} for lang in LANGS}
+    sprite_file = SRC / "assets" / "img" / "icons.svg"
+    sprite = sprite_file.read_text(encoding="utf-8").strip() if sprite_file.exists() else ""
+    viz_dir = SRC / "assets" / "js" / "viz"
     year = datetime.date.today().year
     count = 0
 
@@ -257,14 +260,20 @@ def build():
                 "og_image": og_image,
                 "og_type": "article" if slug.startswith("note-") else "website",
                 "lang_switch": switch("en", lang == "en") + switch("tr", lang == "tr"),
-                "scripts": "".join(
-                    f'\n<script src="{root}assets/js/viz/{name.strip()}.js" defer></script>'
-                    for name in meta.get("viz", "").split(",") if name.strip()),
+                "icon_sprite": sprite,
             }
             for sec in NAV_SECTIONS:
                 ctx[f"cur_{sec}"] = ' aria-current="true"' if nav == sec else ""
             ctx.update({k: v for k, v in meta.items() if k not in ctx})
             ctx["content"] = render(body, ctx, partials)
+            # load a viz module for every data-viz="name" used on the page (plus front-matter `viz:`)
+            names = [n.strip() for n in meta.get("viz", "").split(",") if n.strip()]
+            for n in re.findall(r'data-viz="([\w-]+)"', ctx["content"]):
+                if n not in names:
+                    names.append(n)
+            ctx["scripts"] = "".join(
+                f'\n<script src="{root}assets/js/viz/{n}.js" defer></script>'
+                for n in names if (viz_dir / f"{n}.js").exists())
             html = render(layout, ctx, partials)
             dest = out_path(lang, slug)
             dest.parent.mkdir(parents=True, exist_ok=True)

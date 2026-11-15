@@ -21,7 +21,7 @@ viz: hero-signal, test-vs-monitor, power-chain
 
   <div class="hero__stage">
     <div class="hero__readout wrap">
-      <p class="tag tag--live" data-viz-status="hero-signal">In service · Trend rising</p>
+      <p class="tag tag--live" data-viz-status="hero-signal">In service · continuous trace</p>
       <p class="label">Illustrative trace — not measured data</p>
     </div>
     <div class="viz hero__viz" data-viz="hero-signal" role="img" aria-label="Illustrative trend: a condition indicator stays flat, then rises slowly over time until it passes an alarm limit, well before an outage.">
@@ -58,7 +58,7 @@ viz: hero-signal, test-vs-monitor, power-chain
     <div class="sec-head">
       <p class="sec-index"><span class="sec-index__n">01</span>Who we are</p>
     </div>
-    <h2 class="statement__text" id="who-title" data-reveal="lines">Glinker Group is an Ankara-based engineering and supply company, and a solution partner for <span class="hl">critical electrical infrastructure.</span></h2>
+    <h2 class="statement__text" id="who-title" data-reveal>Glinker Group is an Ankara-based engineering and supply company, and a solution partner for <span class="hl">critical electrical infrastructure.</span></h2>
     <div class="statement__grid">
       <div class="statement__body stack" data-reveal>
         <p>We work on two lines. The first is online monitoring: continuous condition monitoring of power assets, provided in Türkiye as a strategic partner of Megger. The second is supply and project solutions: electrical materials and project scopes matched with Turkish manufacturers.</p>
@@ -148,9 +148,9 @@ viz: hero-signal, test-vs-monitor, power-chain
       <figure class="fig is-dark instrument ticks why__fig" data-reveal>
         <div class="fig__head">
           <p class="label label--fg">Fig. 1 — One asset, two ways of looking at it</p>
-          <p class="label">Illustrative</p>
+          <p class="label">Home / 03</p>
         </div>
-        <div class="fig__body fig__body--flush">
+        <div class="fig__body">
           <div class="viz" data-viz="test-vs-monitor" style="--viz-h: clamp(300px, 34vw, 480px)">
             <svg class="viz__fallback dg" viewBox="0 0 800 440" role="img" aria-labelledby="fig1-t fig1-d" focusable="false">
               <title id="fig1-t">Periodic test compared with continuous monitoring</title>
@@ -201,14 +201,14 @@ viz: hero-signal, test-vs-monitor, power-chain
           <li class="chain__item" data-asset="hv-cable" data-sectors="data-centers airports distribution-utilities" data-failure="Joint and termination failure" data-different="The weak points are spread along the route, not in one place" data-method="Current, screen current and temperature sensing at joints and terminations" data-product="Synaptec Greenlight®" data-href="cable-mv.html">
             <a class="chain__link" href="cable-mv.html"><span class="chain__n">01</span><span class="chain__name">HV cable circuit</span><span class="chain__line">The weak points are spread along the route.</span><span class="chain__method">Cable &amp; MV Monitoring</span></a>
           </li>
-          <li class="chain__item" data-asset="gis" data-sectors="" data-failure="Internal insulation defects" data-different="Sealed and compact: measurement is made in the UHF range from inside the enclosure" data-method="UHF partial discharge monitoring" data-product="On request" data-href="contact.html?topic=monitoring">
-            <a class="chain__link" href="contact.html?topic=monitoring"><span class="chain__n">02</span><span class="chain__name">Gas-insulated switchgear</span><span class="chain__line">Sealed, compact, measured from inside.</span><span class="chain__method">On request</span></a>
-          </li>
           <li class="chain__item" data-asset="power-transformer" data-sectors="data-centers airports distribution-utilities" data-failure="Insulation breakdown in windings and bushings; developing internal fault" data-different="Long replacement lead time: early warning has the highest value here" data-method="Partial discharge monitoring + dissolved gas and moisture monitoring" data-product="ICMobserver; InsuLogix® G2" data-href="partial-discharge.html">
-            <a class="chain__link" href="partial-discharge.html"><span class="chain__n">03</span><span class="chain__name">Power transformer</span><span class="chain__line">The longest wait if it fails.</span><span class="chain__method">Partial Discharge · DGA</span></a>
+            <a class="chain__link" href="partial-discharge.html"><span class="chain__n">02</span><span class="chain__name">Power transformer</span><span class="chain__line">The longest wait if it fails.</span><span class="chain__method">Partial Discharge · DGA</span></a>
           </li>
           <li class="chain__item" data-asset="generator-motor" data-sectors="data-centers" data-failure="Stator winding insulation deterioration" data-different="Some partial discharge is always present in normal operation, so the trend matters, not the single reading" data-method="Partial discharge monitoring" data-product="ICMobserver" data-href="partial-discharge.html">
-            <a class="chain__link" href="partial-discharge.html"><span class="chain__n">04</span><span class="chain__name">Generator &amp; HV motor</span><span class="chain__line">Some discharge is normal. Watch the trend.</span><span class="chain__method">Partial Discharge Monitoring</span></a>
+            <a class="chain__link" href="partial-discharge.html"><span class="chain__n">03</span><span class="chain__name">Generator &amp; HV motor</span><span class="chain__line">Some discharge is normal. Watch the trend.</span><span class="chain__method">Partial Discharge Monitoring</span></a>
+          </li>
+          <li class="chain__item" data-asset="gis" data-sectors="" data-failure="Internal insulation defects" data-different="Sealed and compact: measurement is made in the UHF range from inside the enclosure" data-method="UHF partial discharge monitoring" data-product="On request" data-href="contact.html?topic=monitoring">
+            <a class="chain__link" href="contact.html?topic=monitoring"><span class="chain__n">04</span><span class="chain__name">Gas-insulated switchgear</span><span class="chain__line">Sealed, compact, measured from inside.</span><span class="chain__method">On request</span></a>
           </li>
           <li class="chain__item" data-asset="mv-feeder" data-sectors="distribution-utilities" data-failure="Line faults, broken conductors, high-impedance faults" data-different="The task is locating a fault on a long line, not assessing insulation" data-method="Line-mounted current and voltage sensors with analytics software" data-product="MS5200 with Megger Grid Analytics" data-href="cable-mv.html">
             <a class="chain__link" href="cable-mv.html"><span class="chain__n">05</span><span class="chain__name">MV overhead feeder</span><span class="chain__line">The question is where, not whether.</span><span class="chain__method">Cable &amp; MV Monitoring</span></a>
@@ -287,7 +287,7 @@ viz: hero-signal, test-vs-monitor, power-chain
     <div class="ledger sectors" data-reveal-group>
       <article class="ledger__cell sector">
         <p class="label">S1 · links that matter here</p>
-        <svg class="sector__chain" viewBox="0 0 232 16" width="232" height="16" role="img" aria-label="Power chain links typically monitored in data centers: HV cable, power transformer, generator, supply point, whole fleet"><path d="M8 8H224" stroke="currentColor" opacity=".35"/><g fill="var(--bg)" stroke="currentColor"><circle cx="8" cy="8" r="5" class="on"/><circle cx="38.9" cy="8" r="5"/><circle cx="69.7" cy="8" r="5" class="on"/><circle cx="100.6" cy="8" r="5" class="on"/><circle cx="131.4" cy="8" r="5"/><circle cx="162.3" cy="8" r="5"/><circle cx="193.1" cy="8" r="5" class="on"/><circle cx="224" cy="8" r="5" class="on"/></g></svg>
+        <svg class="sector__chain" viewBox="0 0 232 16" width="232" height="16" role="img" aria-label="Power chain links typically monitored in data centers: HV cable, power transformer, generator, supply point, whole fleet"><path d="M8 8H224" stroke="currentColor" opacity=".35"/><g fill="var(--bg)" stroke="currentColor"><circle cx="8" cy="8" r="5" class="on"/><circle cx="38.9" cy="8" r="5" class="on"/><circle cx="69.7" cy="8" r="5" class="on"/><circle cx="100.6" cy="8" r="5"/><circle cx="131.4" cy="8" r="5"/><circle cx="162.3" cy="8" r="5"/><circle cx="193.1" cy="8" r="5" class="on"/><circle cx="224" cy="8" r="5" class="on"/></g></svg>
         <h3 class="sector__title"><a class="stretched" href="data-centers.html">Data Centers</a></h3>
         <p class="sector__hook">Redundancy hides a slow fault. It does not remove it.</p>
         <p class="sector__text">Every redundant path still starts at the same intake and passes through transformers, switchgear and cables.</p>
@@ -295,7 +295,7 @@ viz: hero-signal, test-vs-monitor, power-chain
       </article>
       <article class="ledger__cell sector">
         <p class="label">S2 · links that matter here</p>
-        <svg class="sector__chain" viewBox="0 0 232 16" width="232" height="16" role="img" aria-label="Power chain links typically monitored at airports: HV cable, power transformer, distribution transformer, supply point"><path d="M8 8H224" stroke="currentColor" opacity=".35"/><g fill="var(--bg)" stroke="currentColor"><circle cx="8" cy="8" r="5" class="on"/><circle cx="38.9" cy="8" r="5"/><circle cx="69.7" cy="8" r="5" class="on"/><circle cx="100.6" cy="8" r="5"/><circle cx="131.4" cy="8" r="5"/><circle cx="162.3" cy="8" r="5" class="on"/><circle cx="193.1" cy="8" r="5" class="on"/><circle cx="224" cy="8" r="5"/></g></svg>
+        <svg class="sector__chain" viewBox="0 0 232 16" width="232" height="16" role="img" aria-label="Power chain links typically monitored at airports: HV cable, power transformer, distribution transformer, supply point"><path d="M8 8H224" stroke="currentColor" opacity=".35"/><g fill="var(--bg)" stroke="currentColor"><circle cx="8" cy="8" r="5" class="on"/><circle cx="38.9" cy="8" r="5" class="on"/><circle cx="69.7" cy="8" r="5"/><circle cx="100.6" cy="8" r="5"/><circle cx="131.4" cy="8" r="5"/><circle cx="162.3" cy="8" r="5" class="on"/><circle cx="193.1" cy="8" r="5" class="on"/><circle cx="224" cy="8" r="5"/></g></svg>
         <h3 class="sector__title"><a class="stretched" href="airports.html">Airports</a></h3>
         <p class="sector__hook">One substation fault can affect the whole operation, and maintenance windows are short.</p>
         <p class="sector__text">Terminals, airfield lighting, baggage systems and navigation equipment run from the airport’s own substations and private MV network.</p>
@@ -303,7 +303,7 @@ viz: hero-signal, test-vs-monitor, power-chain
       </article>
       <article class="ledger__cell sector">
         <p class="label">S3 · links that matter here</p>
-        <svg class="sector__chain" viewBox="0 0 232 16" width="232" height="16" role="img" aria-label="Power chain links typically monitored by distribution utilities: HV cable, power transformer, MV overhead feeder, distribution transformer, supply point, whole fleet"><path d="M8 8H224" stroke="currentColor" opacity=".35"/><g fill="var(--bg)" stroke="currentColor"><circle cx="8" cy="8" r="5" class="on"/><circle cx="38.9" cy="8" r="5"/><circle cx="69.7" cy="8" r="5" class="on"/><circle cx="100.6" cy="8" r="5"/><circle cx="131.4" cy="8" r="5" class="on"/><circle cx="162.3" cy="8" r="5" class="on"/><circle cx="193.1" cy="8" r="5" class="on"/><circle cx="224" cy="8" r="5" class="on"/></g></svg>
+        <svg class="sector__chain" viewBox="0 0 232 16" width="232" height="16" role="img" aria-label="Power chain links typically monitored by distribution utilities: HV cable, power transformer, MV overhead feeder, distribution transformer, supply point, whole fleet"><path d="M8 8H224" stroke="currentColor" opacity=".35"/><g fill="var(--bg)" stroke="currentColor"><circle cx="8" cy="8" r="5" class="on"/><circle cx="38.9" cy="8" r="5" class="on"/><circle cx="69.7" cy="8" r="5"/><circle cx="100.6" cy="8" r="5"/><circle cx="131.4" cy="8" r="5" class="on"/><circle cx="162.3" cy="8" r="5" class="on"/><circle cx="193.1" cy="8" r="5" class="on"/><circle cx="224" cy="8" r="5" class="on"/></g></svg>
         <h3 class="sector__title"><a class="stretched" href="distribution-utilities.html">Distribution Utilities</a></h3>
         <p class="sector__hook">Where is the fault? Which asset is closest to failure? What comes first?</p>
         <p class="sector__text">A large number of assets over a wide area, measured on continuity and quality of supply.</p>

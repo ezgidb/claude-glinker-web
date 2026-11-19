@@ -1,0 +1,222 @@
+---
+title: Data Center Reliability: The Power Chain | Glinker
+description: Redundancy protects the load, not the equipment. A walk along the data center power chain, and where a slow fault can sit behind a redundant design.
+nav: knowledge
+body_class: page-note
+---
+<section class="page-hero note-hero" aria-labelledby="page-title">
+  <div class="read-progress" data-read-progress aria-hidden="true"></div>
+  <div class="wrap">
+    <nav aria-label="Breadcrumb"><ol class="crumbs">
+      <li><a href="knowledge.html">Knowledge Notes</a></li>
+      <li><span aria-current="page">Glinker note</span></li>
+    </ol></nav>
+    <div class="note-hero__grid">
+      <div class="note-hero__main">
+        <p class="label"><span class="label--signal">Glinker note 03</span></p>
+        <h1 class="note-hero__title" id="page-title">Data center reliability: the power chain</h1>
+        <p class="note-hero__standfirst">Redundancy protects the load, not the equipment. This note follows the power chain from grid connection to distribution board and marks where a slow-developing fault can sit behind a redundant design.</p>
+      </div>
+      <div class="note-hero__aside" aria-hidden="true">
+        <p class="note-hero__no">03</p>
+        <svg class="kn-cover note-hero__cover" viewBox="0 0 240 132" focusable="false">
+          <path class="kn-cover__ghost" d="M12 66H60M60 66C80 66 80 34 100 34H180M60 66C80 66 80 98 100 98H180M180 34C200 34 200 66 220 66M180 98C200 98 200 66 220 66"/>
+          <path class="kn-cover__trace" d="M12 66H60C80 66 80 34 100 34H180C200 34 200 66 220 66"/>
+          <g class="kn-cover__nodes"><circle cx="12" cy="66" r="4"/><circle cx="100" cy="34" r="4"/><circle cx="140" cy="34" r="4"/><circle cx="100" cy="98" r="4"/><circle cx="220" cy="66" r="5"/></g>
+          <circle class="kn-cover__dot" cx="140" cy="98" r="4.5"/>
+          <text x="140" y="122" text-anchor="middle" class="kn-cover__t">Condition?</text>
+        </svg>
+      </div>
+    </div>
+    <dl class="note-meta">
+      <div><dt class="label">Format</dt><dd>Glinker note</dd></div>
+      <div><dt class="label">By</dt><dd>Glinker Group</dd></div>
+      <div><dt class="label">Reading time</dt><dd>5 min <span class="muted">· 1,080 words</span></dd></div>
+      <div class="note-meta__tags"><dt class="label">Tags</dt><dd><ul class="tags"><li class="tag tag--quiet">Power transformer</li><li class="tag tag--quiet">Power quality</li><li class="tag tag--quiet">Data centers</li><li class="tag tag--quiet">Glinker note</li></ul></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section note-body" aria-label="Article">
+  <div class="wrap">
+    <div class="note-layout">
+      <aside class="note-rail" aria-label="In brief and contents">
+        <div class="note-rail__inner">
+          <div class="note-brief">
+            <p class="label label--fg">In brief</p>
+            <ul class="list-ticks">
+              <li>Redundancy answers the question “what if one path is lost?”. It does not answer “what condition is the other path in?”.</li>
+              <li>Every redundant path still passes through transformers, switchgear and cables that age out of sight.</li>
+              <li>Monitoring shows the condition of each link while the load stays online.</li>
+            </ul>
+          </div>
+          <nav class="note-toc" data-toc aria-label="Contents of this note">
+            <p class="label">Contents</p>
+            <ol>
+              <li><a href="#s1"><span>01</span>What redundancy is for</a></li>
+              <li><a href="#s2"><span>02</span>How a fault hides behind a redundant design</a></li>
+              <li><a href="#s3"><span>03</span>Walking the chain</a></li>
+              <li><a href="#s4"><span>04</span>The view across the chain</a></li>
+              <li><a href="#s5"><span>05</span>What monitoring does not change</a></li>
+              <li><a href="#s6"><span>06</span>A question for a design review</a></li>
+            </ol>
+          </nav>
+        </div>
+      </aside>
+
+      <article class="note-article" data-article aria-labelledby="page-title">
+        <div class="note-prose" data-words>
+          <h2 id="s1"><span class="note-h__n">01</span>What redundancy is for</h2>
+          <p class="note-open">A data center is designed around redundancy. Two supplies, two transformers, two distribution paths, standby generation, uninterruptible power between them. The principle is sound: if one element is lost, another carries the load.</p>
+          <p>Redundancy is a statement about the load. It says the servers stay on when a component fails. It is not a statement about the components. It says nothing about the condition of the transformer that is now carrying everything, or about why the first one failed.</p>
+          <aside class="note-pull" aria-hidden="true"><p>Redundancy protects the load, not the equipment.</p></aside>
+          <p>That gap is the subject of this note. Redundancy protects the load, not the equipment. And a slow insulation fault in the power chain is not removed by redundancy; it is only hidden by it.</p>
+
+          <figure class="fig note-fig note-fig--wide ticks" data-reveal>
+            <div class="fig__head"><p class="label label--fg">Fig. 1 — Two paths, one load</p><p class="label">Illustrative</p></div>
+            <div class="fig__body">
+              <svg class="dg note-svg" viewBox="0 0 900 300" role="img" aria-labelledby="n3f1-t n3f1-d" focusable="false">
+                <title id="n3f1-t">Normal operation compared with operation after failover</title>
+                <desc id="n3f1-d">Left: the supply splits into two paths, A and B, each with a transformer at part load, and both feed the load. Right: path A is lost; path B now carries the full load, its condition unknown, and the load stays online.</desc>
+                <text x="20" y="24" class="dg-fg">Normal operation</text>
+                <text x="480" y="24" class="dg-fg">After failover</text>
+                <path class="dg-grid" d="M450 10V290"/>
+                <!-- left -->
+                <path class="dg-line" d="M30 160H80C110 160 110 90 140 90H310C340 90 340 160 370 160H410"/>
+                <path class="dg-line" d="M80 160C110 160 110 230 140 230H310C340 230 340 160 370 160"/>
+                <circle class="dg-dot" cx="30" cy="160" r="6"/>
+                <rect class="note-svg__tx" x="206" y="76" width="28" height="28"/>
+                <rect class="note-svg__tx" x="206" y="216" width="28" height="28"/>
+                <circle class="dg-dot" cx="410" cy="160" r="8"/>
+                <text x="30" y="188" text-anchor="middle">Grid</text>
+                <text x="220" y="66" text-anchor="middle">Path A · part load</text>
+                <text x="220" y="268" text-anchor="middle">Path B · part load</text>
+                <text x="410" y="190" text-anchor="middle">Load</text>
+                <!-- right -->
+                <path class="dg-line dg-line--ghost" d="M540 160C570 160 570 90 600 90H770C800 90 800 160 830 160"/>
+                <path class="dg-line dg-line--signal" stroke-width="3" d="M490 160H540C570 160 570 230 600 230H770C800 230 800 160 830 160H870"/>
+                <circle class="dg-dot" cx="490" cy="160" r="6"/>
+                <rect class="note-svg__tx note-svg__tx--lost" x="666" y="76" width="28" height="28"/>
+                <path class="note-svg__x" d="M670 80L690 100M690 80L670 100"/>
+                <rect class="note-svg__tx note-svg__tx--hot" x="666" y="216" width="28" height="28"/>
+                <text x="680" y="235" text-anchor="middle" class="dg-signal note-svg__q">?</text>
+                <circle class="dg-dot--signal" cx="870" cy="160" r="8"/>
+                <text x="490" y="188" text-anchor="middle">Grid</text>
+                <text x="680" y="66" text-anchor="middle">Path A · lost</text>
+                <text x="680" y="268" text-anchor="middle" class="dg-signal">Path B · full load · condition?</text>
+                <text x="870" y="190" text-anchor="middle" class="dg-fg">Load online</text>
+              </svg>
+            </div>
+            <figcaption class="fig__cap"><p>Illustrative. Redundancy keeps the load online. It says nothing about the condition of the path that is left, at the moment that path carries everything.</p></figcaption>
+          </figure>
+
+          <h2 id="s2"><span class="note-h__n">02</span>How a fault hides behind a redundant design</h2>
+          <p>Three mechanisms are at work.</p>
+          <ol class="note-points">
+            <li><p><strong>Nothing forces the question.</strong> In a single-path installation, any weakness shows itself quickly as an interruption. In a redundant one, the system tolerates a great deal before anyone is disturbed. That tolerance is the purpose of the design. It also means there is no operational signal that a component is deteriorating.</p></li>
+            <li><p><strong>The paths are alike.</strong> Redundant transformers are usually of the same design and age, installed at the same time, in the same environment, under similar load. Whatever ages one is ageing the other. Redundancy assumes failures are independent. Common conditions make them less so.</p></li>
+            <li><p><strong>Failover is the hardest moment.</strong> When one path is lost, the remaining one takes the full load at once. An asset that was comfortable at part load is now at its highest stress, at the moment when there is no further reserve. If its condition is unknown, this is when it is found out.</p></li>
+          </ol>
+          <p>None of this is an argument against redundancy. It is an argument for knowing the condition of what the redundancy consists of.</p>
+
+          <h2 id="s3"><span class="note-h__n">03</span>Walking the chain</h2>
+          <p>Follow the power from the grid connection to the distribution board. At each link, ask what could develop unseen.</p>
+
+          <figure class="fig note-fig note-fig--wide is-dark instrument ticks" style="--tick: var(--trace)" data-reveal>
+            <div class="fig__head"><p class="label label--fg">Fig. 2 — The chain in a data center</p><p class="label">Illustrative · select a link</p></div>
+            <div class="fig__body">
+              <div class="viz" data-viz="power-chain" data-sector="data-centers" data-theme="dark">
+                <ol class="chain viz__fallback">
+                  <li class="chain__item"><a class="chain__link" href="cable-mv.html"><span class="chain__n">01</span><span class="chain__name">HV cable circuit</span><span class="chain__line">The weak points are spread along the route.</span><span class="chain__method">Cable &amp; MV Monitoring</span></a></li>
+                  <li class="chain__item"><a class="chain__link" href="partial-discharge.html"><span class="chain__n">02</span><span class="chain__name">Power transformer</span><span class="chain__line">The longest wait if it fails.</span><span class="chain__method">Partial Discharge · DGA</span></a></li>
+                  <li class="chain__item"><a class="chain__link" href="partial-discharge.html"><span class="chain__n">03</span><span class="chain__name">Generator &amp; HV motor</span><span class="chain__line">Some discharge is normal. Watch the trend.</span><span class="chain__method">Partial Discharge Monitoring</span></a></li>
+                  <li class="chain__item"><a class="chain__link" href="distribution-power-quality.html"><span class="chain__n">07</span><span class="chain__name">Supply point / busbar</span><span class="chain__line">A property of the network, not of one asset.</span><span class="chain__method">Distribution &amp; Power Quality</span></a></li>
+                  <li class="chain__item"><a class="chain__link" href="asset-management.html"><span class="chain__n">08</span><span class="chain__name">Whole fleet</span><span class="chain__line">Which asset first?</span><span class="chain__method">Asset Management</span></a></li>
+                </ol>
+              </div>
+            </div>
+            <figcaption class="fig__cap"><p>Illustrative. The links typically monitored in a data center, from the grid connection to the whole fleet. A generic chain, not a specific facility.</p></figcaption>
+          </figure>
+
+          <div class="note-walk">
+            <p><span class="note-walk__k">HV</span><strong>The grid connection cable.</strong> Many sites have a single high-voltage route to the network, or two routes that share a trench for part of the way. The cable itself is factory-made; its joints and terminations are assembled on site and are the usual weak points. A joint in difficulty tends to show it in temperature and in screen current before it fails. These can be measured continuously at the joints and terminations.</p>
+            <p><span class="note-walk__k">TX</span><strong>Main and step-down transformers.</strong> These run under continuous high load, and there is rarely a convenient moment to take one out for testing. An insulation fault can develop unnoticed, because the output voltage does not change. Two measurements are made in service. Partial discharge shows electrical activity in the insulation. Dissolved gas and moisture show what is happening in the oil. On an oil-filled power transformer the two are read together. An online two-gas monitor gives a warning between laboratory samples; it does not replace them.</p>
+            <p><span class="note-walk__k">PQ</span><strong>The incoming supply and main busbars.</strong> Here the concern is not the condition of an asset but the quality of the voltage. A data center’s load is largely power electronics, which is non-linear: it draws distorted current and raises harmonic levels. From the other direction, faults elsewhere on the network arrive as voltage dips. A Class A power quality analyser at the intake and the main busbars records dips, harmonics, flicker and unbalance with the waveform of each event. This is also the record that shows whether a disturbance came from the grid or from the site.</p>
+            <p><span class="note-walk__k">GEN</span><strong>Standby generators.</strong> A generator that rarely runs is easy to assume healthy. But stator winding insulation ages with time, moisture, contamination and temperature cycles, not only with running hours. Routine starts prove that the engine starts. They say little about the state of the winding insulation. Partial discharge measurement on the stator does. In rotating machines some partial discharge is always present in normal operation, so the trend matters, not the single reading.</p>
+            <p><span class="note-walk__k">DIST</span><strong>Distribution towards the halls.</strong> Further down, the chain divides into many smaller transformers and boards. Here the logic changes from depth to breadth: more units, each of lower individual importance, and measurement chosen accordingly.</p>
+            <p><span class="note-walk__k">UPS</span><strong>The uninterruptible power equipment</strong> sits in this chain as well. It bridges interruptions and conditions the supply to the load. It does not change the condition of anything upstream of it, and everything it does depends on the upstream chain returning.</p>
+          </div>
+
+          <h2 id="s4"><span class="note-h__n">04</span>The view across the chain</h2>
+          <p>Each of these measurements describes one link. An operator, particularly one with several sites, needs the view across all of them: which transformer first, which site next, where the budget goes this year.</p>
+          <p>The typical difficulty is that there is no single view of asset condition across sites. Test reports, oil results and monitoring data sit in separate systems. Asset performance management software brings them into one record per asset and ranks them by condition and importance. It adds no new measurement. It makes the existing ones usable together.</p>
+
+          <h2 id="s5"><span class="note-h__n">05</span>What monitoring does not change</h2>
+          <p>Some limits should be stated.</p>
+          <ul class="note-props">
+            <li>Monitoring does not make a failure impossible. Some failures are sudden, and no method sees every failure mode.</li>
+            <li>It does not replace redundancy. A monitored single path is still a single path.</li>
+            <li>It does not replace testing. An alarm is normally followed by a laboratory sample or a targeted test at a planned outage.</li>
+          </ul>
+          <p>What it changes is the state of knowledge. Without it, a redundant design gives confidence in the load and no information about the equipment. With it, the condition of each link is followed while the load stays online, and maintenance is planned at a time of the operator’s choosing instead of during a failover.</p>
+
+          <h2 id="s6"><span class="note-h__n">06</span>A question for a design review</h2>
+          <p>Reliability reviews usually ask: what happens if this component fails? It is a necessary question, and redundancy is the answer to it.</p>
+          <aside class="note-pull" aria-hidden="true"><p>How would we know that this component is on its way to failing?</p></aside>
+          <p class="note-close">A second question is worth adding: how would we know that this component is on its way to failing? Where the honest answer is “we would not”, the redundancy behind it is being relied on blind.</p>
+        </div>
+        <footer class="note-endnote">
+          <p class="label">Note</p>
+          <p class="small muted">This note is general engineering explanation. It describes a generic power chain, not a specific facility or design standard.</p>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper2 note-after" aria-labelledby="related-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">→</span>Related on this site</p>
+      <h2 class="h3" id="related-title">Continue from here</h2>
+    </div>
+    <div class="index-list" data-reveal-group>
+      <a class="index-row" href="data-centers.html">
+        <span class="index-row__n">S1</span>
+        <h3 class="index-row__title">Online Monitoring for Data Centers</h3>
+        <p class="index-row__text">The links of the chain that are typically monitored, and why.</p>
+        <span class="index-row__go">{{> arrow}}</span>
+      </a>
+      <a class="index-row" href="partial-discharge.html">
+        <span class="index-row__n">T1</span>
+        <h3 class="index-row__title">Partial Discharge Monitoring</h3>
+        <p class="index-row__text">Transformers, generators and cable terminations.</p>
+        <span class="index-row__go">{{> arrow}}</span>
+      </a>
+      <a class="index-row" href="dga.html">
+        <span class="index-row__n">T2</span>
+        <h3 class="index-row__title">DGA Monitoring</h3>
+        <p class="index-row__text">Hydrogen, acetylene and moisture in the transformer oil.</p>
+        <span class="index-row__go">{{> arrow}}</span>
+      </a>
+      <a class="index-row" href="distribution-power-quality.html">
+        <span class="index-row__n">T4</span>
+        <h3 class="index-row__title">Distribution Transformer &amp; Power Quality Monitoring</h3>
+        <p class="index-row__text">Dips, harmonics, flicker and unbalance at the intake and the busbars.</p>
+        <span class="index-row__go">{{> arrow}}</span>
+      </a>
+      <a class="index-row" href="supply.html">
+        <span class="index-row__n">SP</span>
+        <h3 class="index-row__title">Supply &amp; Project Solutions: data center power</h3>
+        <p class="index-row__text">Passive infrastructure, racks, PDU, UPS, ATS/STS.</p>
+        <span class="index-row__go">{{> arrow}}</span>
+      </a>
+    </div>
+    <nav class="note-pn" aria-label="More notes">
+      <a class="note-pn__link note-pn__link--prev" href="note-pd-and-dga.html"><span class="label">Previous · Note 02</span><b>Reading partial discharge and DGA together</b></a>
+      <a class="note-pn__link note-pn__link--next" href="knowledge.html"><span class="label">All notes</span><b>Knowledge Notes</b></a>
+    </nav>
+  </div>
+</section>
+
+{{> cta cta_title="Discuss your data center." cta_meeting="Plan a technical meeting"}}

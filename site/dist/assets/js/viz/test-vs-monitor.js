@@ -184,10 +184,10 @@
         'The intervention is planned for a maintenance window. No unplanned outage.']
     },
     tr: {
-      group: 'Ölçüm yaklaşımı', periodic: 'Periyodik test', continuous: 'Sürekli izleme', ill: 'Temsili',
+      group: 'Ölçüm yaklaşımı', periodic: 'Periyodik test', continuous: 'Sürekli izleme', ill: 'Temsilî',
       play: 'Oynat', pause: 'Duraklat', replay: 'Yeniden oynat', scrub: 'Zaman', month: 'Ay', months: 'AY',
       thr: 'ALARM EŞİĞİ', test: 'TEST', next: 'SONRAKİ TEST', begins: 'ARIZA BAŞLIYOR', assumed: 'VARSAYIM: NORMAL',
-      alarm: 'ALARM', failure: 'ARIZA · PLANSIZ KESİNTİ', failureS: 'ARIZA', lead: 'KAZANILAN SÜRE', planned: 'PLANLI MÜDAHALE', ok: 'OK',
+      alarm: 'ALARM', failure: 'ARIZA · PLANSIZ KESİNTİ', failureS: 'ARIZA', lead: 'KAZANILAN SÜRE', planned: 'PLANLI MÜDAHALE', ok: 'İYİ',
       chart: 'Grafik: bir varlığın on dört aylık durumu; periyodik test ile sürekli izlemenin karşılaştırması.',
       capP: ['Varlık işletmede. Testler arasında hiçbir şey ölçülmüyor.',
         'Periyodik test: sonuç normal. Bir sonraki teste on iki ay var.',

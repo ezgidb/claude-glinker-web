@@ -1,0 +1,199 @@
+---
+title: Online Monitoring for Data Centers | Glinker Group
+description: Condition monitoring for the data center power chain: transformers, standby generators, grid cables and supply quality. Glinker Group, Türkiye.
+nav: monitoring
+header: dark
+body_class: page-sector page-sector--dc
+---
+<section class="page-hero page-hero--dark is-dark instrument sec-hero" aria-labelledby="page-title">
+  <div class="wrap">
+    <nav aria-label="Breadcrumb"><ol class="crumbs">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="monitoring.html">Online Monitoring</a></li>
+      <li><a href="monitoring.html#sectors">Sectors</a></li>
+      <li><span aria-current="page">Data Centers</span></li>
+    </ol></nav>
+    <div class="page-hero__grid">
+      <div class="page-hero__main">
+        <p class="label"><span class="label--trace">Sector</span> · Data Centers</p>
+        <h1 class="page-hero__title sec-hero__title" id="page-title">Online Monitoring for Data Centers</h1>
+        <p class="sec-hero__truth">Redundancy hides a slow insulation fault. It does not remove it.</p>
+        <p class="lead">A data center is designed around redundancy, but every redundant path still starts at the same medium-voltage intake and passes through transformers, switchgear and cables. A slow insulation fault in that chain is not removed by redundancy; it is only hidden by it. Monitoring shows the condition of each link while the load stays online.</p>
+        <div class="btn-row mt-6">
+          <a class="btn btn--primary" href="contact.html?topic=monitoring">Plan a technical meeting{{> arrow}}</a>          <a class="link-arrow" href="note-data-center-power-chain.html">Read the note: the data center power chain{{> arrow}}</a>        </div>
+      </div>
+      <div class="page-hero__aside">
+        <dl class="spec sec-hero__spec"><div class="spec__row"><dt>Constraint</dt><dd>The load stays online</dd></div><div class="spec__row"><dt>Links that matter</dt><dd>5 of 8 in the chain</dd></div><div class="spec__row"><dt>Technologies</dt><dd>T1 · T2 · T3 · T4 · T5</dd></div></dl>
+      </div>
+    </div>
+  </div>
+  <div class="wrap"><div class="ruler" aria-hidden="true"></div></div>
+</section>
+<section class="section sx-sec" id="chain" aria-labelledby="chain-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <p class="sec-index"><span class="sec-index__n">01</span>The power chain</p>
+      <h2 class="sec-head__title" id="chain-title">From the grid connection to the data hall.</h2>
+      <p class="lead">Follow the line. Each station is a link the load depends on, and each one ages out of sight.</p>
+    </div>
+    <div class="sx-fig">
+      <figure class="fig ticks sx-figure" data-reveal="fade">
+        <div class="fig__head"><p class="label label--fg">Fig. 1 — Data Centers: the chain, station by station</p><p class="label">Illustrative · generic<span class="sx-hint" aria-hidden="true"> · scroll sideways →</span></p></div>
+        <div class="fig__body sx-scroll" tabindex="0" role="group" aria-label="Schematic, scrolls sideways on small screens">
+        <svg class="dg sx" viewBox="0 0 960 440" role="img" aria-labelledby="dc-t dc-d" focusable="false">
+          <title id="dc-t">Illustrative schematic of a generic data center power chain</title>
+          <desc id="dc-d">One grid connection and one HV cable feed two transformers, A and B. Each feeds its own MV busbar, with a bus tie between them and a standby generator on each. Both paths reach each of two data halls. Ghosted frames behind the site stand for further sites of the same operator. Numbered markers 01 to 07 match the station list.</desc>
+          <path class="sx-ghost" d="M70 20H930V380"/><path class="sx-ghost" d="M50 30H910V390"/>
+          <rect class="sx-frame" x="30" y="40" width="860" height="370"/>
+          <text x="44" y="58" text-anchor="start" class="dg-fg">Site 01</text><text x="930" y="14" text-anchor="end">Site n</text>
+          <circle class="sx-src" cx="90" cy="225" r="24"/><text x="90" y="229" text-anchor="middle" class="dg-fg">Grid</text>
+          <path class="sx-w" d="M114 225H230"/><rect class="sx-joint" x="146.5" y="221.5" width="7" height="7"/><rect class="sx-joint" x="190.5" y="221.5" width="7" height="7"/><text x="172" y="252" text-anchor="middle">HV cable</text>
+          <path class="sx-w" d="M230 225V130H286M230 225V320H286"/>
+          <circle class="sx-tr" cx="292.6" cy="130" r="12"/><circle class="sx-tr" cx="307.4" cy="130" r="12"/><circle class="sx-tr" cx="292.6" cy="320" r="12"/><circle class="sx-tr" cx="307.4" cy="320" r="12"/>
+          <text x="300" y="160" text-anchor="middle">Tx A</text><text x="300" y="296" text-anchor="middle">Tx B</text>
+          <path class="sx-w" d="M314 130H360M314 320H360"/>
+          <path class="sx-bus" d="M360 130H540M360 320H540"/>
+          <path class="sx-tie" d="M450 130V320"/><rect class="sx-brk" x="444" y="219" width="12" height="12"/><text x="462" y="229" text-anchor="start">Bus tie</text>
+          <text x="424" y="118" text-anchor="start">MV bus A</text><text x="424" y="345" text-anchor="start">MV bus B</text>
+          <path class="sx-w" d="M410 86V130M410 320V356"/>
+          <circle class="sx-gen" cx="410" cy="70" r="16"/><text x="410" y="74" text-anchor="middle" class="dg-fg">G</text>
+          <circle class="sx-gen" cx="410" cy="372" r="16"/><text x="410" y="376" text-anchor="middle" class="dg-fg">G</text>
+          <text x="434" y="74" text-anchor="start">Standby</text><text x="434" y="376" text-anchor="start">Standby</text>
+          <path class="sx-w" d="M540 130H592M540 320H592"/>
+          <circle class="sx-tr" cx="598.4" cy="130" r="9"/><circle class="sx-tr" cx="609.6" cy="130" r="9"/><circle class="sx-tr" cx="598.4" cy="320" r="9"/><circle class="sx-tr" cx="609.6" cy="320" r="9"/>
+          <path class="sx-w" d="M614 130H660V118H700M660 130V282H700"/>
+          <path class="sx-w sx-w--b" d="M614 320H680V332H700M680 320V160H700"/>
+          <text x="640" y="120" text-anchor="middle">A</text><text x="640" y="345" text-anchor="middle">B</text>
+          <rect class="sx-hall" x="700" y="90" width="160" height="96"/>
+          <rect class="sx-rack" x="716" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="731" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="746" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="761" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="776" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="791" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="806" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="821" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="836" y="112" width="8" height="52"/>
+          <text x="708" y="180" text-anchor="start" class="dg-fg">Data hall 1</text>
+          <rect class="sx-hall" x="700" y="254" width="160" height="96"/>
+          <rect class="sx-rack" x="716" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="731" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="746" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="761" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="776" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="791" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="806" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="821" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="836" y="276" width="8" height="52"/>
+          <text x="708" y="344" text-anchor="start" class="dg-fg">Data hall 2</text>
+          <g class="sx-mk" data-st="1"><circle cx="90" cy="182" r="12"/><text x="90" y="185.6" text-anchor="middle">01</text></g>
+          <g class="sx-mk" data-st="2"><circle cx="172" cy="196" r="12"/><text x="172" y="199.6" text-anchor="middle">02</text></g>
+          <g class="sx-mk" data-st="3"><circle cx="262" cy="98" r="12"/><text x="262" y="101.6" text-anchor="middle">03</text></g>
+          <g class="sx-mk" data-st="4"><circle cx="520" cy="104" r="12"/><text x="520" y="107.6" text-anchor="middle">04</text></g>
+          <g class="sx-mk" data-st="5"><circle cx="380" cy="372" r="12"/><text x="380" y="375.6" text-anchor="middle">05</text></g>
+          <g class="sx-mk" data-st="6"><circle cx="780" cy="70" r="12"/><text x="780" y="73.6" text-anchor="middle">06</text></g>
+          <g class="sx-mk" data-st="7"><circle cx="890" cy="40" r="12"/><text x="890" y="43.6" text-anchor="middle">07</text></g>
+        </svg>
+        </div>
+        <figcaption class="fig__cap"><p class="label">Illustrative — generic data center power chain. Actual topologies differ.</p></figcaption>
+      </figure>
+      <ol class="stations" style="--st-n: 7" data-reveal-group><li class="stations__item" data-st="1"><span class="stations__n">01</span><h3 class="stations__t">Grid connection</h3><p>Where the site meets the network. Supply quality is set here before anything on site can influence it.</p></li><li class="stations__item" data-st="2"><span class="stations__n">02</span><h3 class="stations__t">HV grid connection cable</h3><p>Often a single route. Its joints and terminations are the points to watch.</p></li><li class="stations__item" data-st="3"><span class="stations__n">03</span><h3 class="stations__t">Main and step-down transformers</h3><p>Under continuous high load, with little opportunity for an outage to test them.</p></li><li class="stations__item" data-st="4"><span class="stations__n">04</span><h3 class="stations__t">MV switchgear and main busbars</h3><p>Where the redundant paths divide. Also where voltage quality for the whole site can be measured.</p></li><li class="stations__item" data-st="5"><span class="stations__n">05</span><h3 class="stations__t">Standby generators</h3><p>Idle most of the time, expected to work at once. Insulation ages whether the machine runs or not.</p></li><li class="stations__item" data-st="6"><span class="stations__n">06</span><h3 class="stations__t">Distribution to the halls</h3><p>Many smaller transformers and boards, fed from the same upstream chain.</p></li><li class="stations__item" data-st="7"><span class="stations__n">07</span><h3 class="stations__t">The whole chain, across sites</h3><p>One operator, several sites, no single view of condition unless someone builds it.</p></li></ol>
+    </div>
+    <p class="pull sx-pull" data-reveal>Redundancy protects the load, not the equipment.</p>
+  </div>
+</section>
+<section class="section is-dark instrument chain-sec" id="monitor" aria-labelledby="monitor-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <p class="sec-index"><span class="sec-index__n">02</span>What to monitor</p>
+      <h2 class="sec-head__title" id="monitor-title">Five links. What can go unseen in each.</h2>
+      <p class="lead">The full chain, with the links that matter in data centers lit. Select an asset to see the typical risk here and the technology that watches it.</p>
+    </div>
+    <div class="viz chain-viz" data-viz="power-chain" data-sector="data-centers">
+      <div class="viz__fallback">
+        <p class="label chain__hint">5 links in Data Centers</p>
+        <ol class="chain">
+          <li class="chain__item"><a class="chain__link" href="cable-mv.html"><span class="chain__n">01</span><span class="chain__name">HV grid connection cable</span><span class="chain__line">Joint or termination failure on the single supply route</span><span class="chain__method">Cable &amp; MV Monitoring</span></a></li>
+          <li class="chain__item"><a class="chain__link" href="partial-discharge.html"><span class="chain__n">02</span><span class="chain__name">Main and step-down transformers</span><span class="chain__line">Insulation fault developing unnoticed under continuous high load</span><span class="chain__method">Partial Discharge · DGA</span></a></li>
+          <li class="chain__item"><a class="chain__link" href="partial-discharge.html"><span class="chain__n">03</span><span class="chain__name">Standby generators</span><span class="chain__line">Stator insulation deterioration on machines that rarely run</span><span class="chain__method">Partial Discharge Monitoring</span></a></li>
+          <li class="chain__item"><a class="chain__link" href="distribution-power-quality.html"><span class="chain__n">04</span><span class="chain__name">Incoming supply and main busbars</span><span class="chain__line">Voltage dips and harmonics from non-linear load</span><span class="chain__method">Distribution &amp; Power Quality</span></a></li>
+          <li class="chain__item"><a class="chain__link" href="asset-management.html"><span class="chain__n">05</span><span class="chain__name">Whole power chain</span><span class="chain__line">No single view of asset condition across sites</span><span class="chain__method">Asset Management</span></a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight section--paper2 rows-sec" id="assets" aria-labelledby="assets-title">
+  <div class="wrap">
+    <div class="rows-head">
+      <h2 class="h3" id="assets-title">The rows, in full</h2>
+      <p class="small muted">Asset, typical risk in this sector, and the technology page that explains the measurement.</p>
+    </div>
+    <table class="dtable rows" data-reveal>
+      <caption class="visually-hidden">Data Centers: assets, typical risks and monitoring technologies</caption>
+      <thead><tr><th scope="col">Asset</th><th scope="col">Typical risk</th><th scope="col">Monitoring technology</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Main and step-down transformers</th><td data-label="Typical risk">Insulation fault developing unnoticed under continuous high load</td><td data-label="Monitoring technology"><div class="tlinks"><a class="tlink" href="partial-discharge.html"><span class="tlink__c">T1</span><span class="tlink__n">Partial Discharge Monitoring&nbsp;{{> arrow}}</span></a><a class="tlink" href="dga.html"><span class="tlink__c">T2</span><span class="tlink__n">Dissolved Gas Analysis (DGA) Monitoring&nbsp;{{> arrow}}</span></a></div></td></tr>
+        <tr><th scope="row">Incoming supply and main busbars</th><td data-label="Typical risk">Voltage dips and harmonics from non-linear load</td><td data-label="Monitoring technology"><div class="tlinks"><a class="tlink" href="distribution-power-quality.html"><span class="tlink__c">T4</span><span class="tlink__n">Distribution Transformer &amp; Power Quality Monitoring&nbsp;{{> arrow}}</span></a></div></td></tr>
+        <tr><th scope="row">Standby generators</th><td data-label="Typical risk">Stator insulation deterioration on machines that rarely run</td><td data-label="Monitoring technology"><div class="tlinks"><a class="tlink" href="partial-discharge.html"><span class="tlink__c">T1</span><span class="tlink__n">Partial Discharge Monitoring&nbsp;{{> arrow}}</span></a></div></td></tr>
+        <tr><th scope="row">HV grid connection cable</th><td data-label="Typical risk">Joint or termination failure on the single supply route</td><td data-label="Monitoring technology"><div class="tlinks"><a class="tlink" href="cable-mv.html"><span class="tlink__c">T3</span><span class="tlink__n">Cable &amp; MV Monitoring&nbsp;{{> arrow}}</span></a></div></td></tr>
+        <tr><th scope="row">Whole power chain</th><td data-label="Typical risk">No single view of asset condition across sites</td><td data-label="Monitoring technology"><div class="tlinks"><a class="tlink" href="asset-management.html"><span class="tlink__c">T5</span><span class="tlink__n">Asset Management&nbsp;{{> arrow}}</span></a></div></td></tr>
+      </tbody>
+    </table>
+    <p class="rows-foot"><a class="link-arrow" href="monitoring.html#assets">See all assets in the Online Monitoring table{{> arrow}}</a></p>
+  </div>
+</section>
+<section class="section" id="why" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">03</span>The blind spot</p>
+      <h2 class="sec-head__title" id="why-title">Why redundancy is not the answer to this.</h2>
+    </div>
+    <div class="ledger sx-blocks" data-reveal-group><div class="ledger__cell sx-block"><p class="label">DC·01</p><h3>A redundant path is still equipment.</h3><p class="muted">The second transformer is the same age, the same design and under the same conditions as the first. Common conditions produce common ageing.</p></div><div class="ledger__cell sx-block"><p class="label">DC·02</p><h3>A failover is a stress, not a rest.</h3><p class="muted">When one path is lost, the other takes the full load at once. That is the worst moment to discover its condition.</p></div><div class="ledger__cell sx-block"><p class="label">DC·03</p><h3>Operation gives no signal.</h3><p class="muted">A transformer with a developing fault delivers the same voltage as a healthy one. The building management system shows green until it does not.</p></div></div>
+    <p class="small muted mt-5">General engineering reasoning. No design or tier claims are implied.</p>
+  </div>
+</section>
+<section class="section section--paper2" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="split split--rail">
+      <div class="sec-head">
+        <p class="sec-index"><span class="sec-index__n">04</span>Questions</p>
+        <h2 class="h3" id="faq-title">Questions this sector asks</h2>
+      </div>
+      <div class="acc-group" data-reveal>
+        <details class="acc" open><summary><span class="acc__n">Q1</span><span class="acc__title">We have N+1 or 2N. Why monitor the equipment as well?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>Redundancy covers the loss of one path. Monitoring tells you the condition of the path you would be left with. The two answer different questions.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q2</span><span class="acc__title">Our transformers cannot be taken out for testing. What then?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>That is the case online monitoring is for. Partial discharge and dissolved gas are measured while the transformer carries load.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q3</span><span class="acc__title">Our generators hardly run. Why would their insulation deteriorate?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>Winding insulation ages with time, temperature cycles, moisture and contamination, not only with running hours. On a machine that rarely runs, a problem has few chances to show itself before the day it is needed.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q4</span><span class="acc__title">Our load is mostly power electronics. Does that matter upstream?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>Non-linear loads draw distorted current and raise harmonic levels on the supply. A Class A analyser at the intake and main busbars records harmonics and dips, and helps show whether a disturbance came from the grid or from the site.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q5</span><span class="acc__title">We operate several sites. How do we compare them?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>With a common asset record and common assessment rules. That is the role of asset performance management software. See <a class="link-inline" href="asset-management.html">Asset Management</a>.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q6</span><span class="acc__title">What about racks, PDU, UPS and ATS/STS?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>Those are supply items, not monitoring. See <a class="link-inline" href="supply.html#data-center">Supply &amp; Project Solutions</a>.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="related" aria-labelledby="related-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">05</span>Related</p>
+      <h2 class="sec-head__title" id="related-title">Go deeper, or compare.</h2>
+    </div>
+    <div class="sx-rel">
+      <div>
+        <p class="label label--fg sx-rel__k">Technologies</p>
+        <ul class="rel-list" data-reveal-group><li><a class="rel-row" href="partial-discharge.html"><span class="rel-row__c">T1</span><span class="rel-row__n">Partial Discharge Monitoring</span>{{> arrow}}</a></li><li><a class="rel-row" href="dga.html"><span class="rel-row__c">T2</span><span class="rel-row__n">DGA Monitoring</span>{{> arrow}}</a></li><li><a class="rel-row" href="cable-mv.html"><span class="rel-row__c">T3</span><span class="rel-row__n">Cable &amp; MV Monitoring</span>{{> arrow}}</a></li><li><a class="rel-row" href="distribution-power-quality.html"><span class="rel-row__c">T4</span><span class="rel-row__n">Distribution Transformer &amp; Power Quality Monitoring</span>{{> arrow}}</a></li><li><a class="rel-row" href="asset-management.html"><span class="rel-row__c">T5</span><span class="rel-row__n">Asset Management</span>{{> arrow}}</a></li></ul>
+        <p class="mt-5"><a class="link-arrow" href="monitoring.html#assets">Start from your asset instead{{> arrow}}</a></p>
+      </div>
+      <div class="sx-rel__others" data-reveal-group><a class="card sx-other" href="airports.html"><p class="label">Other sector</p><h3 class="card__title">Airports</h3><p class="card__text">One substation fault can affect the whole operation, and maintenance windows are short.</p><div class="card__foot"><span class="label">Open sector</span>{{> arrow}}</div></a><a class="card sx-other" href="distribution-utilities.html"><p class="label">Other sector</p><h3 class="card__title">Distribution Utilities</h3><p class="card__text">Where is the fault? Which asset is closest to failure? What comes first?</p><div class="card__foot"><span class="label">Open sector</span>{{> arrow}}</div></a></div>
+    </div>
+    <div class="sx-rel__foot">
+      <div class="sx-supply" data-reveal>
+        <div><p class="label label--signal">Supply &amp; Project Solutions</p>
+        <p class="sx-supply__t">Passive infrastructure and uninterruptible power equipment are covered under Supply &amp; Project Solutions: passive infrastructure, racks, PDU, UPS and ATS/STS, matched with Turkish manufacturers.</p></div>
+        <a class="btn btn--ink" href="supply.html#data-center">Data center power in the supply scope{{> arrow}}</a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+{{> cta cta_title="Discuss your data center." cta_text="Tell us the intake voltage, the number of main transformers and generators, and what you can and cannot take out of service." cta_meeting="Plan a technical meeting"}}

@@ -1,0 +1,374 @@
+---
+title: Cable and MV Network Monitoring | Glinker Group
+description: Online monitoring of HV cable joints and terminations with Synaptec Greenlight, and MV feeder fault sensing with MS5200. In partnership with Megger.
+nav: monitoring
+header: dark
+body_class: page-tech page-cable
+---
+<section class="page-hero page-hero--dark is-dark instrument" aria-labelledby="page-title">
+  <div class="wrap">
+    <nav aria-label="Breadcrumb"><ol class="crumbs">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="monitoring.html">Online Monitoring</a></li>
+      <li><span aria-current="page">Cable &amp; MV Monitoring</span></li>
+    </ol></nav>
+    <div class="page-hero__grid">
+      <div class="page-hero__main">
+        <p class="label"><span class="label--trace">Technology T3</span> · HV cable circuit · MV overhead feeder</p>
+        <h1 class="page-hero__title" id="page-title">Cable &amp; MV Monitoring</h1>
+        <p class="page-hero__lead-strong">The asset is a route, not a single item. Watch the known weak points. Locate faults fast.</p>
+        <p class="lead">The weak points are spread along kilometres of circuit. Monitoring therefore has two tasks: watching known weak points on high-voltage cables, and locating faults quickly on medium-voltage feeders.</p>
+        <div class="hero-limit">
+          <p class="label">Two on one page</p>
+          <p>This page covers two separate solutions: one for high-voltage cable circuits, one for medium-voltage overhead lines. They share a page because both deal with a route. They do not share a product.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="contact.html?topic=monitoring">Plan a technical meeting{{> arrow}}</a>
+          <a class="btn btn--ghost" href="#products">Product datasheets</a>
+        </div>
+      </div>
+      <figure class="page-hero__aside fig ticks" style="--tick: var(--trace)">
+        <div class="fig__body fig__body--flush">
+          <div class="viz" data-viz="cable-route" data-theme="dark">
+            <svg class="viz__fallback dg" viewBox="0 0 560 350" role="img" aria-label="Illustration in two parts: an HV cable route with terminations and joints, one joint running warm; and an MV overhead feeder with line sensors, the fault located between two sensors." focusable="false">
+              <text x="40" y="50">HV cable · joints &amp; terminations · illustrative</text>
+              <path class="dg-line dg-line--trace" d="M40 110H520"/>
+              <circle class="dg-dot" cx="40" cy="110" r="6"/><circle class="dg-dot" cx="160" cy="110" r="6"/><circle class="dg-dot--signal" cx="280" cy="110" r="7"/><circle class="dg-dot" cx="400" cy="110" r="6"/><circle class="dg-dot" cx="520" cy="110" r="6"/>
+              <text x="40" y="210">MV overhead feeder · line sensors</text>
+              <path class="dg-line dg-line--trace" d="M40 270H520"/>
+              <rect x="330" y="252" width="110" height="36" fill="none" stroke="#FF4D1F" stroke-dasharray="3 3"/>
+              <circle class="dg-dot" cx="180" cy="270" r="6"/><circle class="dg-dot" cx="330" cy="270" r="6"/><circle class="dg-dot" cx="440" cy="270" r="6"/>
+              <text x="385" y="310" text-anchor="middle" class="dg-signal">Fault section</text>
+            </svg>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+  <div class="wrap"><div class="ruler" aria-hidden="true"></div></div>
+</section>
+
+<nav class="pagenav no-line" aria-label="On this page">
+  <div class="wrap"><ul class="pagenav__list">
+    <li><a href="#tasks"><span>01</span>Two tasks</a></li>
+    <li><a href="#detects"><span>02</span>Detects</a></li>
+    <li><a href="#reading"><span>03</span>Reading it</a></li>
+    <li><a href="#limits"><span>04</span>Can and cannot</a></li>
+    <li><a href="#applies"><span>05</span>Applies</a></li>
+    <li><a href="#products"><span>06</span>Products</a></li>
+    <li><a href="#after-alarm"><span>07</span>After an alarm</a></li>
+    <li><a href="#related"><span>08</span>Related</a></li>
+    <li><a href="#faq"><span>09</span>FAQ</a></li>
+  </ul></div>
+</nav>
+
+<section class="section" id="tasks" aria-labelledby="tasks-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">01</span>Two tasks</p>
+      <h2 class="sec-head__title sec-head__title--wide" id="tasks-title">On a cable, watch the points. On a line, find the section.</h2>
+    </div>
+    <div class="duo">
+      <article class="duo__col" data-reveal>
+        <div class="duo__mark"><span class="duo__letter" aria-hidden="true">A</span><div class="duo__for"><p class="label">Task A · HV cable circuit</p><h3 class="duo__title">Watch the weak points.</h3></div></div>
+        <figure class="duo__fig">
+          <svg class="sch" viewBox="0 0 360 120" role="img" aria-label="Schematic: an HV cable route from termination to termination with three joints. The middle joint runs warmer than its neighbours." focusable="false">
+            <path class="sch-line" d="M18 60H342"/>
+            <rect class="sch-node" x="8" y="48" width="20" height="24"/><rect class="sch-node" x="332" y="48" width="20" height="24"/>
+            <rect class="sch-node" x="92" y="52" width="26" height="16" rx="8"/>
+            <circle class="sch-ring" cx="180" cy="60" r="20"/>
+            <rect class="sch-hot" x="167" y="52" width="26" height="16" rx="8"/>
+            <rect class="sch-node" x="242" y="52" width="26" height="16" rx="8"/>
+            <text x="18" y="100" text-anchor="middle">T</text><text x="105" y="100" text-anchor="middle">J1</text><text x="180" y="100" text-anchor="middle" class="sch-s">J2</text><text x="180" y="24" text-anchor="middle" class="sch-s">Warm</text><text x="255" y="100" text-anchor="middle">J3</text><text x="342" y="100" text-anchor="middle">T</text>
+          </svg>
+          <figcaption>Schematic · T termination, J joint · J2 runs warmer than its neighbours at the same load</figcaption>
+        </figure>
+        <div class="prose">
+          <p>A high-voltage cable is manufactured and tested in a factory. Its joints and terminations are assembled on site, by hand, in a trench or on a structure. That is where most of the risk sits. They are also spread along the route, often in places that are hard to reach.</p>
+          <p>Three quantities say a lot about them. <strong>Phase current</strong> shows the load each cable carries. <strong>Screen current</strong> shows whether the metallic screen and its bonding are behaving as designed. <strong>Temperature</strong> shows whether a joint or termination is running hotter than its neighbours.</p>
+        </div>
+      </article>
+      <article class="duo__col" data-reveal>
+        <div class="duo__mark"><span class="duo__letter duo__letter--signal" aria-hidden="true">B</span><div class="duo__for"><p class="label">Task B · MV overhead feeder</p><h3 class="duo__title">Find the fault.</h3></div></div>
+        <figure class="duo__fig">
+          <svg class="sch" viewBox="0 0 360 120" role="img" aria-label="Schematic: an MV overhead feeder from the substation with three line sensors. The fault lies between the second and third sensor." focusable="false">
+            <path class="sch-line" d="M18 60H342"/>
+            <rect class="sch-zone" x="196" y="40" width="96" height="40"/>
+            <rect class="sch-node" x="6" y="46" width="24" height="28"/>
+            <circle class="sch-node" cx="100" cy="60" r="8"/><circle class="sch-node" cx="196" cy="60" r="8"/><circle class="sch-node" cx="292" cy="60" r="8"/>
+            <path d="M238 52l6 8-6 8 8-6 8 6-6-8 6-8-8 6z" class="sch-hot"/>
+            <text x="18" y="100" text-anchor="middle">Sub.</text><text x="100" y="100" text-anchor="middle">S1</text><text x="196" y="100" text-anchor="middle">S2</text><text x="292" y="100" text-anchor="middle">S3</text>
+            <text x="244" y="28" text-anchor="middle" class="sch-s">Faulted section</text>
+          </svg>
+          <figcaption>Schematic · S1 and S2 saw the fault current, S3 did not · the fault lies between S2 and S3</figcaption>
+        </figure>
+        <div class="prose">
+          <p>On a medium-voltage overhead feeder the question is rarely the condition of insulation. It is location. A feeder may run for many kilometres with branches. When protection trips, someone has to find where. Some faults do not trip protection at all: a broken conductor or a high-impedance fault may draw too little current to be seen from the substation.</p>
+          <p>Sensors mounted on the line measure current and voltage at points along it. Software compares what the sensors saw and narrows the fault down to a section.</p>
+        </div>
+      </article>
+    </div>
+    <p class="pull mt-8" data-reveal>On a feeder, the task is locating a fault on a long line, not assessing insulation.</p>
+  </div>
+</section>
+
+<section class="section section--paper2" id="detects" aria-labelledby="detects-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">02</span>What it detects</p>
+      <h2 class="sec-head__title sec-head__title--wide" id="detects-title">Three conditions on the cable. Three events on the line.</h2>
+    </div>
+    <div class="duo">
+      <div class="duo__col" data-reveal>
+        <p class="label"><span class="ds-tag"><b>A</b>HV cable</span></p>
+        <dl class="spec spec--lg">
+          <div class="spec__row"><dt>Screen current</dt><dd>Abnormal screen (sheath) currents at joints and terminations.</dd></div>
+          <div class="spec__row"><dt>Overheating</dt><dd>Temperature at joints and terminations.</dd></div>
+          <div class="spec__row"><dt>Load imbalance</dt><dd>Unequal phase currents along the circuit.</dd></div>
+        </dl>
+      </div>
+      <div class="duo__col" data-reveal>
+        <p class="label"><span class="ds-tag"><b>B</b>MV overhead feeder</span></p>
+        <dl class="spec spec--lg">
+          <div class="spec__row"><dt>Fault passage</dt><dd>Which sensors saw the fault current, so the faulted section is identified.</dd></div>
+          <div class="spec__row"><dt>Broken conductor</dt><dd>An open conductor, with the section identified.</dd></div>
+          <div class="spec__row"><dt>High-impedance fault</dt><dd>A fault that draws too little current for conventional detection.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reading" aria-labelledby="reading-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">03</span>Reading it</p>
+      <h2 class="sec-head__title sec-head__title--wide" id="reading-title">Compare with the neighbours, with the load, and with the next sensor.</h2>
+    </div>
+    <div class="duo">
+      <div class="duo__col" data-reveal>
+        <p class="label"><span class="ds-tag"><b>A</b>HV cable</span></p>
+        <dl class="spec">
+          <div class="spec__row"><dt>Screen current against design</dt><dd>The screen bonding of a cable circuit is designed so that screen currents stay within an expected pattern. A change in that pattern points to the bonding system, the links or the outer sheath, usually at or near a joint.</dd></div>
+          <div class="spec__row"><dt>Temperature against neighbours</dt><dd>Joints on the same circuit carry the same load. One that runs warmer than the others, at the same current, is the one to look at.</dd></div>
+          <div class="spec__row"><dt>Everything against load</dt><dd>Temperature and screen current rise and fall with load. Reading them together with phase current separates a normal busy day from an abnormal condition.</dd></div>
+        </dl>
+      </div>
+      <div class="duo__col" data-reveal>
+        <p class="label"><span class="ds-tag"><b>B</b>MV overhead feeder</span></p>
+        <dl class="spec">
+          <div class="spec__row"><dt>Between which sensors</dt><dd>A fault is located between the last sensor that saw it and the first that did not. More sensors mean shorter sections.</dd></div>
+          <div class="spec__row"><dt>Voltage and current together</dt><dd>A broken conductor may show as a loss of current or an abnormal voltage downstream, not as a fault current. Measuring both is what makes it visible.</dd></div>
+          <div class="spec__row"><dt>Patterns over time</dt><dd>Repeated short events on the same section can point to a developing problem before a permanent fault.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper2" id="limits" aria-labelledby="limits-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <p class="sec-index"><span class="sec-index__n">04</span>Can and cannot</p>
+      <h2 class="sec-head__title" id="limits-title">What it can and cannot tell you.</h2>
+      <p class="lead">Neither product on this page measures partial discharge, and neither covers what lies between its sensors.</p>
+    </div>
+    <div data-reveal>
+      <table class="cando">
+        <caption class="visually-hidden">What cable and MV monitoring can and cannot tell you</caption>
+        <thead><tr><th scope="col">It can tell you</th><th scope="col">It cannot tell you</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Can tell you"><span class="cando__k">HV cable</span>That a joint or termination is behaving differently in current, screen current or temperature</td><td data-label="Cannot tell you"><span class="cando__k">HV cable</span>The partial discharge level or insulation condition. Greenlight is not a partial discharge system</td></tr>
+          <tr><td data-label="Can tell you"><span class="cando__k">HV cable</span>Which monitored point along the route is affected</td><td data-label="Cannot tell you"><span class="cando__k">HV cable</span>The state of unmonitored points between sensors</td></tr>
+          <tr><td data-label="Can tell you"><span class="cando__k">MV feeder</span>Which section a fault is in</td><td data-label="Cannot tell you"><span class="cando__k">MV feeder</span>The condition of underground cable. MS5200 is an overhead-line sensor</td></tr>
+          <tr><td data-label="Can tell you"><span class="cando__k">MV feeder</span>That a broken conductor or high-impedance fault has occurred</td><td data-label="Cannot tell you"><span class="cando__k">MV feeder</span>The exact pole or span; a section still has to be patrolled</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-8" data-reveal>
+      <p class="label gloss__head">Terms used on this page</p>
+      <dl class="gloss gloss--2">
+        <div><dt>Joint</dt><dd>The connection between two lengths of cable.</dd></div>
+        <div><dt>Termination</dt><dd>The end of a cable where it connects to other equipment.</dd></div>
+        <div><dt>Screen (sheath)</dt><dd>The metallic layer around the cable insulation, bonded to earth.</dd></div>
+        <div><dt>Screen current</dt><dd>Current flowing in that metallic layer.</dd></div>
+        <div><dt>Passive sensor</dt><dd>A sensor that needs no power supply at the measuring point.</dd></div>
+        <div><dt>High-impedance fault</dt><dd>A fault with too little current to operate conventional protection.</dd></div>
+        <div><dt>Fault passage</dt><dd>An indication that fault current flowed past a given point.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="applies" aria-labelledby="applies-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">05</span>Where it applies</p>
+      <h2 class="sec-head__title" id="applies-title">Wherever the asset is a route.</h2>
+    </div>
+    <ul class="ledger" style="--ledger-cols: 3" data-reveal-group>
+      <li class="ledger__cell"><p class="label">A · HV cable</p><h3>Land cable circuits</h3><p class="muted">High-voltage land cable circuits and their joint bays and terminations.</p></li>
+      <li class="ledger__cell"><p class="label">A · HV cable</p><h3>Offshore wind cables</h3><p class="muted">Export and array cables of offshore wind plants.</p></li>
+      <li class="ledger__cell"><p class="label label--signal">B · MV feeder</p><h3>Overhead distribution feeders</h3><p class="muted">Medium-voltage overhead distribution feeders.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--paper2" id="products" aria-labelledby="products-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">06</span>Products</p>
+      <h2 class="sec-head__title" id="products-title">Two tasks, two products.</h2>
+    </div>
+    <div class="ds-stack">
+      <article class="datasheet datasheet--wide ticks" data-reveal aria-labelledby="ds-a">
+        <header class="datasheet__head">
+          <div class="stack">
+            <div class="datasheet__meta"><p class="label"><span class="ds-tag"><b>A</b>For HV cable circuits</span></p></div>
+            <h3 class="datasheet__name" id="ds-a">Synaptec Greenlight®</h3>
+            <p class="datasheet__desc">A continuous online monitoring system for high-voltage cable circuits from Synaptec, offered by Megger under a strategic alliance between the two companies.</p>
+          </div>
+          <div class="stack">
+            <div class="limit-note">
+              <p class="limit-note__label">Limit — not partial discharge</p>
+              <p>Greenlight measures current, screen current and temperature. It is not a partial discharge monitoring system.</p>
+            </div>
+          </div>
+        </header>
+        <div class="datasheet__body">
+          <dl class="spec">
+            <div class="spec__row"><dt>Monitors</dt><dd>Cable joints and terminations along the circuit</dd></div>
+            <div class="spec__row"><dt>Measures</dt><dd>Phase current, screen current, temperature</dd></div>
+            <div class="spec__row"><dt>Sensors</dt><dd>Passive; no control power needed at the measuring point</dd></div>
+            <div class="spec__row"><dt>Voltage level</dt><dd>High-voltage cable systems</dd></div>
+          </dl>
+          <div class="datasheet__why mt-6">
+            <p class="label label--fg">Why passive sensors matter</p>
+            <p class="muted measure">Joint bays are often far from any auxiliary supply. A sensor that needs no power at the measuring point can be placed where the joint is, not where the power is.</p>
+          </div>
+        </div>
+        <footer class="datasheet__foot">
+          <p class="tag tag--dot">Per manufacturer data</p>
+          <p class="label">Ask us for the current datasheet for any value not listed here</p>
+        </footer>
+      </article>
+
+      <article class="datasheet datasheet--wide ticks" data-reveal aria-labelledby="ds-b">
+        <header class="datasheet__head">
+          <div class="stack">
+            <div class="datasheet__meta"><p class="label"><span class="ds-tag"><b>B</b>For MV overhead feeders</span></p></div>
+            <h3 class="datasheet__name" id="ds-b">MS5200 with Megger Grid Analytics</h3>
+            <p class="datasheet__desc">MS5200 is a Megger line-mounted sensor for medium-voltage networks. Megger Grid Analytics (MGA) is the software that manages the sensors and analyses their data.</p>
+          </div>
+          <div class="stack">
+            <div class="limit-note">
+              <p class="limit-note__label">Limit — overhead lines</p>
+              <p>MS5200 is a sensor for overhead lines. For underground MV cable, ask us; the suitable equipment is checked with the manufacturer.</p>
+            </div>
+          </div>
+        </header>
+        <div class="datasheet__body">
+          <dl class="spec">
+            <div class="spec__row"><dt>Hardware</dt><dd>MS5200 line-mounted sensor</dd></div>
+            <div class="spec__row"><dt>Software</dt><dd>Megger Grid Analytics (MGA)</dd></div>
+            <div class="spec__row"><dt>Measures</dt><dd>Current and voltage on the line</dd></div>
+            <div class="spec__row"><dt>Accuracy</dt><dd>0.5 % current and voltage measurement</dd></div>
+            <div class="spec__row"><dt>Versions</dt><dd>MS5200-SU with radio communication; MS5200-GS with an integrated cellular gateway</dd></div>
+            <div class="spec__row"><dt>Analytics</dt><dd>MGA identifies conditions such as broken conductors and high-impedance faults</dd></div>
+            <div class="spec__row"><dt>Hosting</dt><dd>MGA can run on a Megger-hosted cloud server or on the customer’s own server</dd></div>
+          </dl>
+        </div>
+        <footer class="datasheet__foot">
+          <p class="tag tag--dot">Per manufacturer data</p>
+          <p class="label">Ask us for the current datasheet for any value not listed here</p>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="after-alarm" aria-labelledby="after-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">07</span>After an alarm</p>
+      <h2 class="sec-head__title sec-head__title--wide" id="after-title">On the cable, inspect a point. On the line, dispatch to a section.</h2>
+    </div>
+    <div class="steps-duo">
+      <div class="steps-duo__col" data-reveal>
+        <p class="label"><span class="ds-tag"><b>A</b>HV cable</span></p>
+        <ol class="steps">
+          <li class="step"><p class="step__n">01 · Alarm</p><h3 class="h3">A joint or termination stands out.</h3><p class="muted">Abnormal temperature or screen current.</p></li>
+          <li class="step"><p class="step__n">02 · Compare</p><h3 class="h3">Against load and the other points.</h3><p class="muted">Check against load and against the other monitored points on the circuit.</p></li>
+          <li class="step"><p class="step__n">03 · Inspect</p><h3 class="h3">Plan a site inspection.</h3><p class="muted">Of the joint bay, link boxes and bonding at that location.</p></li>
+          <li class="step"><p class="step__n">04 · Decide</p><h3 class="h3">Load, repair or watch.</h3><p class="muted">Adjust loading, schedule a repair or continue to watch.</p></li>
+        </ol>
+      </div>
+      <div class="steps-duo__col" data-reveal>
+        <p class="label"><span class="ds-tag"><b>B</b>MV overhead feeder</span></p>
+        <ol class="steps">
+          <li class="step"><p class="step__n">01 · Event</p><h3 class="h3">The software reports a fault.</h3><p class="muted">And the section it lies in.</p></li>
+          <li class="step"><p class="step__n">02 · Dispatch</p><h3 class="h3">The crew goes to that section.</h3><p class="muted">Instead of patrolling the whole feeder.</p></li>
+          <li class="step"><p class="step__n">03 · Restore</p><h3 class="h3">Isolate the section.</h3><p class="muted">Switching isolates the section; supply to the rest is restored.</p></li>
+          <li class="step"><p class="step__n">04 · Review</p><h3 class="h3">Look for repeats.</h3><p class="muted">Recurring events on the same section are reviewed as a possible developing problem.</p></li>
+        </ol>
+      </div>
+    </div>
+    <p class="small muted mt-5">General sequences. Switching and dispatch procedures belong to the network operator.</p>
+  </div>
+</section>
+
+<section class="section section--paper2" id="related" aria-labelledby="related-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <p class="sec-index"><span class="sec-index__n">08</span>Related technology</p>
+      <h2 class="sec-head__title" id="related-title">What this page does not cover, and where it is.</h2>
+      <p class="lead">Partial discharge at cable terminations, voltage quality on the same feeders, and fleet-level planning each have their own page.</p>
+    </div>
+    <div class="xlinks" data-reveal-group>
+      <a class="xlink" href="partial-discharge.html"><span class="xlink__n">T1</span><span class="xlink__t">Partial Discharge Monitoring</span><span class="xlink__d">Partial discharge at cable terminations.</span>{{> arrow}}</a>
+      <a class="xlink" href="distribution-power-quality.html"><span class="xlink__n">T4</span><span class="xlink__t">Distribution Transformer &amp; Power Quality Monitoring</span><span class="xlink__d">Voltage quality on the same feeders.</span>{{> arrow}}</a>
+      <a class="xlink" href="asset-management.html"><span class="xlink__n">T5</span><span class="xlink__t">Asset Management</span><span class="xlink__d">Records from both solutions on this page can feed fleet-level planning.</span>{{> arrow}}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="split split--rail">
+      <div class="sec-head">
+        <p class="sec-index"><span class="sec-index__n">09</span>FAQ</p>
+        <h2 class="h3" id="faq-title">Questions we are asked</h2>
+      </div>
+      <div class="acc-group" data-reveal>
+        <details class="acc" open><summary><span class="acc__n">Q1</span><span class="acc__title">Does Greenlight measure partial discharge in the cable?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>No. Per manufacturer data it measures phase current, screen current and temperature at joints and terminations.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q2</span><span class="acc__title">Is Greenlight for medium-voltage cable?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>No. It is a system for high-voltage cable circuits.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q3</span><span class="acc__title">Are MS5200 and Megger Grid Analytics the same thing?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>No. MS5200 is the sensor on the line. Megger Grid Analytics is the software that manages the sensors and analyses their data.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q4</span><span class="acc__title">Where does the analytics software run?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>Per manufacturer data, on a Megger-hosted cloud server or on the customer’s own server.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q5</span><span class="acc__title">We have underground MV cable. What applies?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>MS5200 is an overhead-line sensor. Tell us about the network and we will check the suitable route with the manufacturer.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight tseq-sec" aria-labelledby="tseq-title">
+  <div class="wrap tseq">
+    <div class="tseq__top">
+      <p class="sec-index"><span class="sec-index__n">T3</span>Technology 3 of 5</p>
+      <h2 class="visually-hidden" id="tseq-title">More monitoring technologies</h2>
+      <a class="link-arrow" href="monitoring.html#assets">Back to all assets{{> arrow}}</a>
+    </div>
+    <ol class="tseq__rail">
+      <li><a class="tseq__stop" href="partial-discharge.html"><b>T1</b><span>Partial Discharge</span></a></li>
+      <li><a class="tseq__stop" href="dga.html"><b>T2</b><span>DGA</span></a></li>
+      <li><span class="tseq__stop" aria-current="page"><b>T3</b><span>Cable &amp; MV</span></span></li>
+      <li><a class="tseq__stop" href="distribution-power-quality.html"><b>T4</b><span>Distribution &amp; Power Quality</span></a></li>
+      <li><a class="tseq__stop" href="asset-management.html"><b>T5</b><span>Asset Management</span></a></li>
+    </ol>
+    <div class="tseq__nav">
+      <a class="tseq__go tseq__go--prev" href="dga.html" rel="prev"><span class="label">{{> arrow}}Previous · T2</span><span class="tseq__t">Dissolved Gas Analysis (DGA) Monitoring</span><span class="tseq__q">Is something developing in the oil, and how fast?</span></a>
+      <a class="tseq__go tseq__go--next" href="distribution-power-quality.html" rel="next"><span class="label">Next · T4{{> arrow}}</span><span class="tseq__t">Distribution Transformer &amp; Power Quality Monitoring</span><span class="tseq__q">What condition is the oil in? What quality is the supply?</span></a>
+    </div>
+  </div>
+</section>
+
+{{> cta cta_title="Ask about cable and MV monitoring." cta_text="Tell us the voltage level, whether the route is cable or overhead line, and its approximate length." cta_topic="monitoring"}}

@@ -217,19 +217,19 @@
       tech: { 'partial-discharge': 'Kısmi Deşarj İzleme', 'dga': 'Çözünmüş Gaz Analizi (DGA) İzleme', 'cable-mv': 'Kablo ve OG İzleme',
         'distribution-power-quality': 'Dağıtım Trafosu ve Güç Kalitesi İzleme', 'asset-management': 'Varlık Yönetimi' },
       assets: {
-        'hv-cable': { s: 'YG kablo hattı', n: 'YG kablo hattı', fail: 'Ek ve başlık arızası', diff: 'Zayıf noktalar tek bir yerde değil, güzergâh boyunca dağılmıştır', method: 'Ek ve başlıklarda akım, ekran akımı ve sıcaklık algılama', product: 'Synaptec Greenlight®' },
+        'hv-cable': { s: 'YG kablo hattı', n: 'YG kablo hattı', fail: 'Ek ve başlık arızası', diff: 'Zayıf noktalar tek bir yerde değil, güzergâh boyunca dağılmıştır', method: 'Ek ve başlıklarda akım, ekran akımı ve sıcaklık ölçümü', product: 'Synaptec Greenlight®' },
         'power-transformer': { s: 'Güç trafosu', n: 'Güç trafosu', fail: 'Sargı ve buşinglerde yalıtım delinmesi; gelişmekte olan iç arıza', diff: 'Yenisinin temin süresi uzundur: erken uyarının değeri en çok buradadır', method: 'Kısmi deşarj izleme + çözünmüş gaz ve nem izleme', product: 'ICMobserver; InsuLogix® G2' },
         'generator': { s: 'Jeneratör ve YG motor', n: 'Jeneratör ve YG motor', fail: 'Stator sargı yalıtımının bozulması', diff: 'Normal işletmede her zaman bir miktar kısmi deşarj vardır; bu yüzden önemli olan tek bir okuma değil, eğilimdir', method: 'Kısmi deşarj izleme', product: 'ICMobserver' },
         'gis': { s: 'Gaz yalıtımlı şalt', n: 'Gaz yalıtımlı şalt (GIS)', fail: 'İç yalıtım kusurları', diff: 'Kapalı ve kompakt yapı: ölçüm, muhafazanın içinden UHF bandında yapılır', method: 'UHF kısmi deşarj izleme', product: 'Talep üzerine' },
-        'mv-feeder': { s: 'OG havai hat fideri', n: 'OG havai hat fideri', fail: 'Hat arızaları, iletken kopması, yüksek empedanslı arızalar', diff: 'Buradaki iş yalıtımı değerlendirmek değil, uzun bir hat üzerinde arızanın yerini bulmaktır', method: 'Hatta monte akım ve gerilim sensörleri ile analiz yazılımı', product: 'MS5200 ve Megger Grid Analytics' },
-        'distribution-transformer': { s: 'Dağıtım trafosu', n: 'Dağıtım trafosu', fail: 'Yağ yaşlanması ve nem', diff: 'Çok sayıda düşük maliyetli ünite: tam bir izleme sistemi değil, ünite başına bir sensör', method: 'Çevrim içi yağ durumu algılama', product: 'TrafoStick (A. Eberle)' },
-        'busbar': { s: 'Besleme noktası · bara', n: 'Besleme noktası / bara', fail: 'Gerilim çukurları, harmonikler, fliker, dengesizlik', diff: 'Tek bir varlığın durumu değil, bir bağlantı noktasında ölçülen şebeke özelliğidir', method: 'A sınıfı güç kalitesi ölçümü', product: 'PQI-DA smart (A. Eberle)' },
-        'fleet': { s: 'Tüm filo', n: 'Tüm filo', fail: 'Bakım ve yatırım emeğinin yanlış varlıklara harcanması', diff: 'Yukarıdaki tüm satırların verisini birleştirir; yeni bir ölçüm eklemez', method: 'Varlık performans yönetimi yazılımı', product: 'IPS®APM' }
+        'mv-feeder': { s: 'OG havai hat fideri', n: 'OG havai hat fideri', fail: 'Hat arızaları, iletken kopması, yüksek empedanslı arızalar', diff: 'Buradaki iş yalıtımı değerlendirmek değil, uzun bir hat üzerinde arızanın yerini bulmaktır', method: 'Hat üzerine monte akım ve gerilim sensörleri ile analiz yazılımı', product: 'MS5200 ve Megger Grid Analytics' },
+        'distribution-transformer': { s: 'Dağıtım trafosu', n: 'Dağıtım trafosu', fail: 'Yağ yaşlanması ve nem', diff: 'Çok sayıda düşük maliyetli ünite: tam bir izleme sistemi değil, ünite başına bir sensör', method: 'Online yağ durumu ölçümü', product: 'TrafoStick (A. Eberle)' },
+        'busbar': { s: 'Besleme noktası · bara', n: 'Besleme noktası / bara', fail: 'Gerilim çökmeleri, harmonikler, fliker, dengesizlik', diff: 'Tek bir varlığın durumu değil, bir bağlantı noktasında ölçülen şebeke özelliğidir', method: 'A sınıfı güç kalitesi ölçümü', product: 'PQI-DA smart (A. Eberle)' },
+        'fleet': { s: 'Tüm varlık parkı', n: 'Tüm varlık parkı', fail: 'Bakım ve yatırım kaynaklarının yanlış varlıklara harcanması', diff: 'Yukarıdaki tüm satırların verisini birleştirir; yeni bir ölçüm eklemez', method: 'Varlık performans yönetimi yazılımı', product: 'IPS®APM' }
       },
       sec: {
         'data-centers': {
           'power-transformer': ['Ana ve indirici trafolar', 'Sürekli yüksek yük altında fark edilmeden gelişen yalıtım arızası'],
-          'busbar': ['Giriş beslemesi ve ana baralar', 'Doğrusal olmayan yükten kaynaklanan gerilim çukurları ve harmonikler'],
+          'busbar': ['Giriş beslemesi ve ana baralar', 'Doğrusal olmayan yüklerden kaynaklanan gerilim çökmeleri ve harmonikler'],
           'generator': ['Yedek jeneratörler', 'Nadiren çalışan makinelerde stator yalıtımının bozulması'],
           'hv-cable': ['YG şebeke bağlantı kablosu', 'Tek besleme güzergâhında ek veya başlık arızası'],
           'fleet': ['Tüm güç zinciri', 'Sahalar genelinde varlık durumunun tek bir görünümünün olmaması'] },
@@ -237,14 +237,14 @@
           'power-transformer': ['Giriş trafo merkezi trafoları', 'Ana beslemenin kaybına yol açan iç arıza'],
           'hv-cable': ['YG besleme kabloları', 'Besleme güzergâhlarında ek ve başlık arızası'],
           'distribution-transformer': ['Terminal ve pist dağıtım trafoları', 'Çok sayıda ünitede yağ yaşlanması ve nem'],
-          'busbar': ['Hassas sistemlerin beslemesi', 'Elektronik yükleri etkileyen gerilim çukurları ve harmonikler'] },
+          'busbar': ['Hassas sistemlerin beslemesi', 'Elektronik yükleri etkileyen gerilim çökmeleri ve harmonikler'] },
         'distribution-utilities': {
           'power-transformer': ['Ana indirici merkezlerdeki güç trafoları', 'Gelişmekte olan iç arıza; uzun temin süresi'],
           'mv-feeder': ['OG havai hat fiderleri', 'Uzun arıza yeri bulma süreleri; iletken kopması'],
           'hv-cable': ['YG kablo hatları', 'Ek ve başlık arızası'],
-          'distribution-transformer': ['Dağıtım trafoları', 'Geniş bir popülasyonda yağ yaşlanması ve nem'],
-          'busbar': ['Besleme noktaları ve tüm filo', 'Tedarik kalitesi yükümlülükleri; yatırımın önceliklendirilmesi'],
-          'fleet': ['Besleme noktaları ve tüm filo', 'Tedarik kalitesi yükümlülükleri; yatırımın önceliklendirilmesi'] }
+          'distribution-transformer': ['Dağıtım trafoları', 'Geniş bir trafo parkında yağ yaşlanması ve nem'],
+          'busbar': ['Besleme noktaları ve tüm varlık parkı', 'Tedarik kalitesi yükümlülükleri; yatırımın önceliklendirilmesi'],
+          'fleet': ['Besleme noktaları ve tüm varlık parkı', 'Tedarik kalitesi yükümlülükleri; yatırımın önceliklendirilmesi'] }
       }
     }
   }[LANG];

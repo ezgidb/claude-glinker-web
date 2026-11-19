@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Monitoring for Data Centers | Glinker Group</title>
+  <meta name="description" content="Condition monitoring for the data center power chain: transformers, standby generators, grid cables and supply quality. Glinker Group, Türkiye.">
+  <meta name="theme-color" content="#0B1220">
+  <meta property="og:site_name" content="Glinker Group">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Online Monitoring for Data Centers | Glinker Group">
+  <meta property="og:description" content="Condition monitoring for the data center power chain: transformers, standby generators, grid cables and supply quality. Glinker Group, Türkiye.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/viz.css">
+  <link rel="stylesheet" href="assets/css/pages-monitoring.css">
+  <link rel="stylesheet" href="assets/css/pages-sectors-supply.css">
+  <link rel="stylesheet" href="assets/css/pages-editorial.css">
+  <script src="assets/js/editorial.js" defer></script>
+  <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+</head>
+<body class="page-sector page-sector--dc" data-nav="monitoring" data-slug="data-centers" data-header="dark">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<!-- Glinker Group icon set · 24px grid · 1.5px stroke · currentColor. Use: <svg class="icon" viewBox="0 0 24 24"><use href="#i-NAME"/></svg> -->
+<symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 8 22M12 3l4 19M5 7h14M6.5 11.5h11M5 7v2M19 7v2M6.5 11.5v2M17.5 11.5v2M9.4 15.5l6.2 4M14.6 15.5l-6.2 4"/></symbol>
+<symbol id="i-hv-cable" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h5.5M16.5 12H22M10.5 9v6M13.5 9v6"/><rect x="7.5" y="9" width="9" height="6" rx="1.5"/><path d="M4 16.5c1 1 2 1 3 0M17 16.5c1 1 2 1 3 0" opacity=".55"/></symbol>
+<symbol id="i-power-transformer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="13" height="11" rx="1"/><path d="M6.5 9V5M10 9V5M13.5 9V5M5.5 5h2M9 5h2M12.5 5h2M16.5 11.5h3.5M16.5 14.5h3.5M16.5 17.5h3.5M20 10.5v8M2.5 20h15"/></symbol>
+<symbol id="i-generator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11.5" r="7"/><path d="M8.5 11.5c1-2.6 2.5-2.6 3.5 0s2.5 2.6 3.5 0M19 11.5h3M7.5 17 6 21M16.5 17l1.5 4M4 21h16"/></symbol>
+<symbol id="i-gis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="8" rx="4"/><path d="M9 7.5v11M15 7.5v11M12 9V4.5M10 4.5h4"/><circle cx="12" cy="13" r="1.4"/></symbol>
+<symbol id="i-mv-feeder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v18M5 8h14M6 8V5.5M18 8V5.5M12 4V2.5M9 8l3 3 3-3M1.5 4.5c1.6 1.3 3 1.5 4.5 1M18 5.5c1.5.5 2.9.3 4.5-1M9.5 22h5"/></symbol>
+<symbol id="i-distribution-transformer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><circle cx="12" cy="15" r="5"/><path d="M12 4V2M12 20v2"/></symbol>
+<symbol id="i-busbar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="3" rx=".5"/><path d="M7 8v9.5M12 8v9.5M17 8v9.5"/><circle cx="7" cy="19" r="1.4"/><circle cx="12" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></symbol>
+<symbol id="i-fleet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="4.5" r="1.4"/><circle cx="6" cy="9.5" r="1.4"/><circle cx="6" cy="14.5" r="1.4"/><circle cx="12" cy="4.5" r="1.4"/><circle cx="12" cy="9.5" r="1.4"/><circle cx="12" cy="14.5" r="1.4"/><circle cx="18" cy="4.5" r="1.4"/><circle cx="18" cy="9.5" r="1.4"/><circle cx="18" cy="14.5" r="1.4"/><path d="M3 18.5v2.5h18v-2.5"/></symbol>
+<symbol id="i-pd" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2.5-9 7.5-9 10 0s7.5 9 10 0M4.5 6V3M6.5 4.5V2M15 18v3M17 19.5V22"/></symbol>
+<symbol id="i-dga" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.5 4.5 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 2.5-6.5 6-11z"/><circle cx="10.3" cy="13.5" r="1.3"/><circle cx="13.6" cy="16.3" r=".9"/></symbol>
+<symbol id="i-cable" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c5 0 4-12 9-12s4 9 9 9"/><circle cx="3" cy="18" r="1.8" fill="currentColor" stroke="none"/><circle cx="12" cy="6" r="1.8" fill="currentColor" stroke="none"/><circle cx="21" cy="15" r="1.8" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-pq" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c1-6 3-6 4 0s3 6 4 0c.7-2.5 2.3-2.5 3 0s2.3 2.5 3 0c1-6 3-6 4 0 .5 3 1.2 4.5 2 4.5M10 19h6M10 17.5v3M16 17.5v3"/></symbol>
+<symbol id="i-apm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v17h17"/><circle cx="9" cy="15" r="1.3"/><circle cx="13" cy="11.5" r="1.3"/><circle cx="8.5" cy="8" r="1.3"/><circle cx="17.5" cy="6.5" r="2" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-earthing" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9M5 12h14M7.5 16h9M10 20h4"/></symbol>
+<symbol id="i-cables" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="8.2" r="2.5"/><circle cx="8.7" cy="13.9" r="2.5"/><circle cx="15.3" cy="13.9" r="2.5"/></symbol>
+<symbol id="i-mv-installations" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5l8-2.5L20 5v16M3 21h18M12 7v14M7 10h2M15 10h2M10 14v2M14 14v2"/></symbol>
+<symbol id="i-panels" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M8 7h8M8 10.5h8M9 14.5v3M12 14.5v3M15 14.5v3"/></symbol>
+<symbol id="i-lighting" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21V7a4 4 0 0 1 4-4h2M13 3h6l-1.2 3h-3.6zM14 9.5v2M17.2 9l1 1.8M10.8 9l-1 1.8M4.5 21h5"/></symbol>
+<symbol id="i-data-center" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M5 9h14M5 15h14M11.5 6H16M11.5 12H16M11.5 18H16"/><circle cx="8" cy="6" r="1.1" fill="currentColor" stroke="none"/><circle cx="8" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="8" cy="18" r="1.1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16M4 16h16"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.25"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></symbol>
+<symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+</svg>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" id="top">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="index.html" aria-label="Glinker Group — Home"><svg class="brand__glyph" viewBox="0 0 34 28" width="34" height="28" aria-hidden="true" focusable="false"><path d="M18.4 7.6A9 9 0 1 0 21 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><path d="M12 14h17" fill="none" stroke="currentColor" stroke-width="2.2"/><circle class="brand__node" cx="30" cy="14" r="3"/></svg><span class="brand__name">Glinker</span><span class="brand__sub">Group</span>
+</a>
+    <a class="nav-toggle" href="#footer-nav" data-nav-toggle aria-controls="site-nav">
+      <span class="nav-toggle__label" data-open="Menu" data-close="Close">Menu</span>
+      <span class="nav-toggle__icon" aria-hidden="true"><i></i><i></i></span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main navigation">
+      <ul class="nav__list">
+        <li class="nav__item has-mega" data-mega>
+          <a class="nav__link" href="monitoring.html" aria-current="true">Online Monitoring</a>
+          <button class="nav__mega-toggle" type="button" aria-expanded="false" aria-controls="mega-monitoring" aria-label="Open the Online Monitoring menu">
+            <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4.5 6 8.5l4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+          </button>
+          <div class="mega" id="mega-monitoring">
+            <div class="wrap mega__grid">
+              <div class="mega__intro">
+                <a class="mega__overview" href="monitoring.html">
+                  <span class="label">00</span>
+                  <span class="mega__overview-title">Online Monitoring overview</span>
+                  <span class="mega__overview-text">Start from your asset: eight links in the power chain, and what to measure on each.</span>
+                  <span class="link-arrow link-arrow--plain" aria-hidden="true"><svg class="arrow" viewBox="0 0 24 12" width="24" height="12"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+                </a>
+                <p class="label mega__partner">In Türkiye as a strategic partner of Megger</p>
+              </div>
+              <div class="mega__col">
+                <p class="label mega__head">Technologies</p>
+                <ul class="mega__list">
+                  <li><a href="partial-discharge.html"><span class="mega__n">T1</span><span class="mega__t">Partial Discharge Monitoring</span><span class="mega__h">Is the insulation defect growing?</span></a></li>
+                  <li><a href="dga.html"><span class="mega__n">T2</span><span class="mega__t">DGA Monitoring</span><span class="mega__h">Is something developing in the oil?</span></a></li>
+                  <li><a href="cable-mv.html"><span class="mega__n">T3</span><span class="mega__t">Cable &amp; MV Monitoring</span><span class="mega__h">Where along the route?</span></a></li>
+                  <li><a href="distribution-power-quality.html"><span class="mega__n">T4</span><span class="mega__t">Distribution Transformer &amp; Power Quality</span><span class="mega__h">Oil condition and voltage quality</span></a></li>
+                  <li><a href="asset-management.html"><span class="mega__n">T5</span><span class="mega__t">Asset Management</span><span class="mega__h">Which asset first?</span></a></li>
+                </ul>
+              </div>
+              <div class="mega__col mega__col--narrow">
+                <p class="label mega__head">Sectors</p>
+                <ul class="mega__list">
+                  <li><a href="data-centers.html"><span class="mega__n">S1</span><span class="mega__t">Data Centers</span></a></li>
+                  <li><a href="airports.html"><span class="mega__n">S2</span><span class="mega__t">Airports</span></a></li>
+                  <li><a href="distribution-utilities.html"><span class="mega__n">S3</span><span class="mega__t">Distribution Utilities</span></a></li>
+                  <li><a href="monitoring.html#other-facilities"><span class="mega__n">S4</span><span class="mega__t">Other critical facilities</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="supply.html">Supply &amp; Project Solutions</a></li>
+        <li class="nav__item"><a class="nav__link" href="knowledge.html">Knowledge Notes</a></li>
+        <li class="nav__item"><a class="nav__link" href="about.html">About</a></li>
+        <li class="nav__item nav__item--contact"><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__aside">
+        <div class="lang" role="group" aria-label="Language"><span class="lang__item is-current" aria-current="true" lang="en">EN</span><span class="lang__item is-disabled" aria-disabled="true" title="This page is not yet available in this language">TR</span></div>
+        <a class="btn btn--primary btn--sm nav__cta" href="contact.html?topic=monitoring">Request a technical meeting</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+<section class="page-hero page-hero--dark is-dark instrument sec-hero" aria-labelledby="page-title">
+  <div class="wrap">
+    <nav aria-label="Breadcrumb"><ol class="crumbs">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="monitoring.html">Online Monitoring</a></li>
+      <li><a href="monitoring.html#sectors">Sectors</a></li>
+      <li><span aria-current="page">Data Centers</span></li>
+    </ol></nav>
+    <div class="page-hero__grid">
+      <div class="page-hero__main">
+        <p class="label"><span class="label--trace">Sector</span> · Data Centers</p>
+        <h1 class="page-hero__title sec-hero__title" id="page-title">Online Monitoring for Data Centers</h1>
+        <p class="sec-hero__truth">Redundancy hides a slow insulation fault. It does not remove it.</p>
+        <p class="lead">A data center is designed around redundancy, but every redundant path still starts at the same medium-voltage intake and passes through transformers, switchgear and cables. A slow insulation fault in that chain is not removed by redundancy; it is only hidden by it. Monitoring shows the condition of each link while the load stays online.</p>
+        <div class="btn-row mt-6">
+          <a class="btn btn--primary" href="contact.html?topic=monitoring">Plan a technical meeting<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a>          <a class="link-arrow" href="note-data-center-power-chain.html">Read the note: the data center power chain<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a>        </div>
+      </div>
+      <div class="page-hero__aside">
+        <dl class="spec sec-hero__spec"><div class="spec__row"><dt>Constraint</dt><dd>The load stays online</dd></div><div class="spec__row"><dt>Links that matter</dt><dd>5 of 8 in the chain</dd></div><div class="spec__row"><dt>Technologies</dt><dd>T1 · T2 · T3 · T4 · T5</dd></div></dl>
+      </div>
+    </div>
+  </div>
+  <div class="wrap"><div class="ruler" aria-hidden="true"></div></div>
+</section>
+<section class="section sx-sec" id="chain" aria-labelledby="chain-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <p class="sec-index"><span class="sec-index__n">01</span>The power chain</p>
+      <h2 class="sec-head__title" id="chain-title">From the grid connection to the data hall.</h2>
+      <p class="lead">Follow the line. Each station is a link the load depends on, and each one ages out of sight.</p>
+    </div>
+    <div class="sx-fig">
+      <figure class="fig ticks sx-figure" data-reveal="fade">
+        <div class="fig__head"><p class="label label--fg">Fig. 1 — Data Centers: the chain, station by station</p><p class="label">Illustrative · generic<span class="sx-hint" aria-hidden="true"> · scroll sideways →</span></p></div>
+        <div class="fig__body sx-scroll" tabindex="0" role="group" aria-label="Schematic, scrolls sideways on small screens">
+        <svg class="dg sx" viewBox="0 0 960 440" role="img" aria-labelledby="dc-t dc-d" focusable="false">
+          <title id="dc-t">Illustrative schematic of a generic data center power chain</title>
+          <desc id="dc-d">One grid connection and one HV cable feed two transformers, A and B. Each feeds its own MV busbar, with a bus tie between them and a standby generator on each. Both paths reach each of two data halls. Ghosted frames behind the site stand for further sites of the same operator. Numbered markers 01 to 07 match the station list.</desc>
+          <path class="sx-ghost" d="M70 20H930V380"/><path class="sx-ghost" d="M50 30H910V390"/>
+          <rect class="sx-frame" x="30" y="40" width="860" height="370"/>
+          <text x="44" y="58" text-anchor="start" class="dg-fg">Site 01</text><text x="930" y="14" text-anchor="end">Site n</text>
+          <circle class="sx-src" cx="90" cy="225" r="24"/><text x="90" y="229" text-anchor="middle" class="dg-fg">Grid</text>
+          <path class="sx-w" d="M114 225H230"/><rect class="sx-joint" x="146.5" y="221.5" width="7" height="7"/><rect class="sx-joint" x="190.5" y="221.5" width="7" height="7"/><text x="172" y="252" text-anchor="middle">HV cable</text>
+          <path class="sx-w" d="M230 225V130H286M230 225V320H286"/>
+          <circle class="sx-tr" cx="292.6" cy="130" r="12"/><circle class="sx-tr" cx="307.4" cy="130" r="12"/><circle class="sx-tr" cx="292.6" cy="320" r="12"/><circle class="sx-tr" cx="307.4" cy="320" r="12"/>
+          <text x="300" y="160" text-anchor="middle">Tx A</text><text x="300" y="296" text-anchor="middle">Tx B</text>
+          <path class="sx-w" d="M314 130H360M314 320H360"/>
+          <path class="sx-bus" d="M360 130H540M360 320H540"/>
+          <path class="sx-tie" d="M450 130V320"/><rect class="sx-brk" x="444" y="219" width="12" height="12"/><text x="462" y="229" text-anchor="start">Bus tie</text>
+          <text x="424" y="118" text-anchor="start">MV bus A</text><text x="424" y="345" text-anchor="start">MV bus B</text>
+          <path class="sx-w" d="M410 86V130M410 320V356"/>
+          <circle class="sx-gen" cx="410" cy="70" r="16"/><text x="410" y="74" text-anchor="middle" class="dg-fg">G</text>
+          <circle class="sx-gen" cx="410" cy="372" r="16"/><text x="410" y="376" text-anchor="middle" class="dg-fg">G</text>
+          <text x="434" y="74" text-anchor="start">Standby</text><text x="434" y="376" text-anchor="start">Standby</text>
+          <path class="sx-w" d="M540 130H592M540 320H592"/>
+          <circle class="sx-tr" cx="598.4" cy="130" r="9"/><circle class="sx-tr" cx="609.6" cy="130" r="9"/><circle class="sx-tr" cx="598.4" cy="320" r="9"/><circle class="sx-tr" cx="609.6" cy="320" r="9"/>
+          <path class="sx-w" d="M614 130H660V118H700M660 130V282H700"/>
+          <path class="sx-w sx-w--b" d="M614 320H680V332H700M680 320V160H700"/>
+          <text x="640" y="120" text-anchor="middle">A</text><text x="640" y="345" text-anchor="middle">B</text>
+          <rect class="sx-hall" x="700" y="90" width="160" height="96"/>
+          <rect class="sx-rack" x="716" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="731" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="746" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="761" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="776" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="791" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="806" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="821" y="112" width="8" height="52"/>
+          <rect class="sx-rack" x="836" y="112" width="8" height="52"/>
+          <text x="708" y="180" text-anchor="start" class="dg-fg">Data hall 1</text>
+          <rect class="sx-hall" x="700" y="254" width="160" height="96"/>
+          <rect class="sx-rack" x="716" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="731" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="746" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="761" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="776" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="791" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="806" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="821" y="276" width="8" height="52"/>
+          <rect class="sx-rack" x="836" y="276" width="8" height="52"/>
+          <text x="708" y="344" text-anchor="start" class="dg-fg">Data hall 2</text>
+          <g class="sx-mk" data-st="1"><circle cx="90" cy="182" r="12"/><text x="90" y="185.6" text-anchor="middle">01</text></g>
+          <g class="sx-mk" data-st="2"><circle cx="172" cy="196" r="12"/><text x="172" y="199.6" text-anchor="middle">02</text></g>
+          <g class="sx-mk" data-st="3"><circle cx="262" cy="98" r="12"/><text x="262" y="101.6" text-anchor="middle">03</text></g>
+          <g class="sx-mk" data-st="4"><circle cx="520" cy="104" r="12"/><text x="520" y="107.6" text-anchor="middle">04</text></g>
+          <g class="sx-mk" data-st="5"><circle cx="380" cy="372" r="12"/><text x="380" y="375.6" text-anchor="middle">05</text></g>
+          <g class="sx-mk" data-st="6"><circle cx="780" cy="70" r="12"/><text x="780" y="73.6" text-anchor="middle">06</text></g>
+          <g class="sx-mk" data-st="7"><circle cx="890" cy="40" r="12"/><text x="890" y="43.6" text-anchor="middle">07</text></g>
+        </svg>
+        </div>
+        <figcaption class="fig__cap"><p class="label">Illustrative — generic data center power chain. Actual topologies differ.</p></figcaption>
+      </figure>
+      <ol class="stations" style="--st-n: 7" data-reveal-group><li class="stations__item" data-st="1"><span class="stations__n">01</span><h3 class="stations__t">Grid connection</h3><p>Where the site meets the network. Supply quality is set here before anything on site can influence it.</p></li><li class="stations__item" data-st="2"><span class="stations__n">02</span><h3 class="stations__t">HV grid connection cable</h3><p>Often a single route. Its joints and terminations are the points to watch.</p></li><li class="stations__item" data-st="3"><span class="stations__n">03</span><h3 class="stations__t">Main and step-down transformers</h3><p>Under continuous high load, with little opportunity for an outage to test them.</p></li><li class="stations__item" data-st="4"><span class="stations__n">04</span><h3 class="stations__t">MV switchgear and main busbars</h3><p>Where the redundant paths divide. Also where voltage quality for the whole site can be measured.</p></li><li class="stations__item" data-st="5"><span class="stations__n">05</span><h3 class="stations__t">Standby generators</h3><p>Idle most of the time, expected to work at once. Insulation ages whether the machine runs or not.</p></li><li class="stations__item" data-st="6"><span class="stations__n">06</span><h3 class="stations__t">Distribution to the halls</h3><p>Many smaller transformers and boards, fed from the same upstream chain.</p></li><li class="stations__item" data-st="7"><span class="stations__n">07</span><h3 class="stations__t">The whole chain, across sites</h3><p>One operator, several sites, no single view of condition unless someone builds it.</p></li></ol>
+    </div>
+    <p class="pull sx-pull" data-reveal>Redundancy protects the load, not the equipment.</p>
+  </div>
+</section>
+<section class="section is-dark instrument chain-sec" id="monitor" aria-labelledby="monitor-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <p class="sec-index"><span class="sec-index__n">02</span>What to monitor</p>
+      <h2 class="sec-head__title" id="monitor-title">Five links. What can go unseen in each.</h2>
+      <p class="lead">The full chain, with the links that matter in data centers lit. Select an asset to see the typical risk here and the technology that watches it.</p>
+    </div>
+    <div class="viz chain-viz" data-viz="power-chain" data-sector="data-centers">
+      <div class="viz__fallback">
+        <p class="label chain__hint">5 links in Data Centers</p>
+        <ol class="chain">
+          <li class="chain__item"><a class="chain__link" href="cable-mv.html"><span class="chain__n">01</span><span class="chain__name">HV grid connection cable</span><span class="chain__line">Joint or termination failure on the single supply route</span><span class="chain__method">Cable &amp; MV Monitoring</span></a></li>
+          <li class="chain__item"><a class="chain__link" href="partial-discharge.html"><span class="chain__n">02</span><span class="chain__name">Main and step-down transformers</span><span class="chain__line">Insulation fault developing unnoticed under continuous high load</span><span class="chain__method">Partial Discharge · DGA</span></a></li>
+          <li class="chain__item"><a class="chain__link" href="partial-discharge.html"><span class="chain__n">03</span><span class="chain__name">Standby generators</span><span class="chain__line">Stator insulation deterioration on machines that rarely run</span><span class="chain__method">Partial Discharge Monitoring</span></a></li>
+          <li class="chain__item"><a class="chain__link" href="distribution-power-quality.html"><span class="chain__n">04</span><span class="chain__name">Incoming supply and main busbars</span><span class="chain__line">Voltage dips and harmonics from non-linear load</span><span class="chain__method">Distribution &amp; Power Quality</span></a></li>
+          <li class="chain__item"><a class="chain__link" href="asset-management.html"><span class="chain__n">05</span><span class="chain__name">Whole power chain</span><span class="chain__line">No single view of asset condition across sites</span><span class="chain__method">Asset Management</span></a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight section--paper2 rows-sec" id="assets" aria-labelledby="assets-title">
+  <div class="wrap">
+    <div class="rows-head">
+      <h2 class="h3" id="assets-title">The rows, in full</h2>
+      <p class="small muted">Asset, typical risk in this sector, and the technology page that explains the measurement.</p>
+    </div>
+    <table class="dtable rows" data-reveal>
+      <caption class="visually-hidden">Data Centers: assets, typical risks and monitoring technologies</caption>
+      <thead><tr><th scope="col">Asset</th><th scope="col">Typical risk</th><th scope="col">Monitoring technology</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Main and step-down transformers</th><td data-label="Typical risk">Insulation fault developing unnoticed under continuous high load</td><td data-label="Monitoring technology"><div class="tlinks"><a class="tlink" href="partial-discharge.html"><span class="tlink__c">T1</span><span class="tlink__n">Partial Discharge Monitoring&nbsp;<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</span></a><a class="tlink" href="dga.html"><span class="tlink__c">T2</span><span class="tlink__n">Dissolved Gas Analysis (DGA) Monitoring&nbsp;<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</span></a></div></td></tr>
+        <tr><th scope="row">Incoming supply and main busbars</th><td data-label="Typical risk">Voltage dips and harmonics from non-linear load</td><td data-label="Monitoring technology"><div class="tlinks"><a class="tlink" href="distribution-power-quality.html"><span class="tlink__c">T4</span><span class="tlink__n">Distribution Transformer &amp; Power Quality Monitoring&nbsp;<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</span></a></div></td></tr>
+        <tr><th scope="row">Standby generators</th><td data-label="Typical risk">Stator insulation deterioration on machines that rarely run</td><td data-label="Monitoring technology"><div class="tlinks"><a class="tlink" href="partial-discharge.html"><span class="tlink__c">T1</span><span class="tlink__n">Partial Discharge Monitoring&nbsp;<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</span></a></div></td></tr>
+        <tr><th scope="row">HV grid connection cable</th><td data-label="Typical risk">Joint or termination failure on the single supply route</td><td data-label="Monitoring technology"><div class="tlinks"><a class="tlink" href="cable-mv.html"><span class="tlink__c">T3</span><span class="tlink__n">Cable &amp; MV Monitoring&nbsp;<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</span></a></div></td></tr>
+        <tr><th scope="row">Whole power chain</th><td data-label="Typical risk">No single view of asset condition across sites</td><td data-label="Monitoring technology"><div class="tlinks"><a class="tlink" href="asset-management.html"><span class="tlink__c">T5</span><span class="tlink__n">Asset Management&nbsp;<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</span></a></div></td></tr>
+      </tbody>
+    </table>
+    <p class="rows-foot"><a class="link-arrow" href="monitoring.html#assets">See all assets in the Online Monitoring table<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a></p>
+  </div>
+</section>
+<section class="section" id="why" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">03</span>The blind spot</p>
+      <h2 class="sec-head__title" id="why-title">Why redundancy is not the answer to this.</h2>
+    </div>
+    <div class="ledger sx-blocks" data-reveal-group><div class="ledger__cell sx-block"><p class="label">DC·01</p><h3>A redundant path is still equipment.</h3><p class="muted">The second transformer is the same age, the same design and under the same conditions as the first. Common conditions produce common ageing.</p></div><div class="ledger__cell sx-block"><p class="label">DC·02</p><h3>A failover is a stress, not a rest.</h3><p class="muted">When one path is lost, the other takes the full load at once. That is the worst moment to discover its condition.</p></div><div class="ledger__cell sx-block"><p class="label">DC·03</p><h3>Operation gives no signal.</h3><p class="muted">A transformer with a developing fault delivers the same voltage as a healthy one. The building management system shows green until it does not.</p></div></div>
+    <p class="small muted mt-5">General engineering reasoning. No design or tier claims are implied.</p>
+  </div>
+</section>
+<section class="section section--paper2" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="split split--rail">
+      <div class="sec-head">
+        <p class="sec-index"><span class="sec-index__n">04</span>Questions</p>
+        <h2 class="h3" id="faq-title">Questions this sector asks</h2>
+      </div>
+      <div class="acc-group" data-reveal>
+        <details class="acc" open><summary><span class="acc__n">Q1</span><span class="acc__title">We have N+1 or 2N. Why monitor the equipment as well?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>Redundancy covers the loss of one path. Monitoring tells you the condition of the path you would be left with. The two answer different questions.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q2</span><span class="acc__title">Our transformers cannot be taken out for testing. What then?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>That is the case online monitoring is for. Partial discharge and dissolved gas are measured while the transformer carries load.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q3</span><span class="acc__title">Our generators hardly run. Why would their insulation deteriorate?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>Winding insulation ages with time, temperature cycles, moisture and contamination, not only with running hours. On a machine that rarely runs, a problem has few chances to show itself before the day it is needed.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q4</span><span class="acc__title">Our load is mostly power electronics. Does that matter upstream?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>Non-linear loads draw distorted current and raise harmonic levels on the supply. A Class A analyser at the intake and main busbars records harmonics and dips, and helps show whether a disturbance came from the grid or from the site.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q5</span><span class="acc__title">We operate several sites. How do we compare them?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>With a common asset record and common assessment rules. That is the role of asset performance management software. See <a class="link-inline" href="asset-management.html">Asset Management</a>.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q6</span><span class="acc__title">What about racks, PDU, UPS and ATS/STS?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>Those are supply items, not monitoring. See <a class="link-inline" href="supply.html#data-center">Supply &amp; Project Solutions</a>.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="related" aria-labelledby="related-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">05</span>Related</p>
+      <h2 class="sec-head__title" id="related-title">Go deeper, or compare.</h2>
+    </div>
+    <div class="sx-rel">
+      <div>
+        <p class="label label--fg sx-rel__k">Technologies</p>
+        <ul class="rel-list" data-reveal-group><li><a class="rel-row" href="partial-discharge.html"><span class="rel-row__c">T1</span><span class="rel-row__n">Partial Discharge Monitoring</span><svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a></li><li><a class="rel-row" href="dga.html"><span class="rel-row__c">T2</span><span class="rel-row__n">DGA Monitoring</span><svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a></li><li><a class="rel-row" href="cable-mv.html"><span class="rel-row__c">T3</span><span class="rel-row__n">Cable &amp; MV Monitoring</span><svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a></li><li><a class="rel-row" href="distribution-power-quality.html"><span class="rel-row__c">T4</span><span class="rel-row__n">Distribution Transformer &amp; Power Quality Monitoring</span><svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a></li><li><a class="rel-row" href="asset-management.html"><span class="rel-row__c">T5</span><span class="rel-row__n">Asset Management</span><svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a></li></ul>
+        <p class="mt-5"><a class="link-arrow" href="monitoring.html#assets">Start from your asset instead<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a></p>
+      </div>
+      <div class="sx-rel__others" data-reveal-group><a class="card sx-other" href="airports.html"><p class="label">Other sector</p><h3 class="card__title">Airports</h3><p class="card__text">One substation fault can affect the whole operation, and maintenance windows are short.</p><div class="card__foot"><span class="label">Open sector</span><svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</div></a><a class="card sx-other" href="distribution-utilities.html"><p class="label">Other sector</p><h3 class="card__title">Distribution Utilities</h3><p class="card__text">Where is the fault? Which asset is closest to failure? What comes first?</p><div class="card__foot"><span class="label">Open sector</span><svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</div></a></div>
+    </div>
+    <div class="sx-rel__foot">
+      <div class="sx-supply" data-reveal>
+        <div><p class="label label--signal">Supply &amp; Project Solutions</p>
+        <p class="sx-supply__t">Passive infrastructure and uninterruptible power equipment are covered under Supply &amp; Project Solutions: passive infrastructure, racks, PDU, UPS and ATS/STS, matched with Turkish manufacturers.</p></div>
+        <a class="btn btn--ink" href="supply.html#data-center">Data center power in the supply scope<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="cta-band is-dark instrument" aria-labelledby="cta-title">
+  <svg class="cta-band__trace" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M0 62 L40 60 80 63 120 59 160 62 200 61 240 64 280 60 320 62 360 59 400 63 440 61 480 60 520 63 560 61 600 62 640 59 680 62 720 60 760 63 800 61 840 62 880 60 920 63 960 61 1000 59 1040 62 1080 61 1120 63 1160 60 1200 62 1240 61 1280 59 1320 62 1360 61 1400 63 1440 61"/></svg>
+  <div class="wrap cta-band__inner">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">→</span>Start</p>
+    </div>
+    <div class="cta-band__grid">
+      <h2 class="cta-band__title" id="cta-title" data-reveal>Discuss your data center.</h2>
+      <div class="cta-band__body" data-reveal>
+        <p class="lead">Tell us the intake voltage, the number of main transformers and generators, and what you can and cannot take out of service.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="contact.html?topic=monitoring">Plan a technical meeting<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a>
+          <a class="btn btn--ghost" href="contact.html?topic=supply">Send your requirement</a>
+        </div>
+        <p class="label cta-band__contact"><a href="mailto:koordinasyon@glinkergroup.com">koordinasyon@glinkergroup.com</a><span aria-hidden="true"> · </span>Ankara, Türkiye</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer class="site-footer is-dark" id="footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="brand brand--lg" href="index.html" aria-label="Glinker Group — Home"><svg class="brand__glyph" viewBox="0 0 34 28" width="34" height="28" aria-hidden="true" focusable="false"><path d="M18.4 7.6A9 9 0 1 0 21 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><path d="M12 14h17" fill="none" stroke="currentColor" stroke-width="2.2"/><circle class="brand__node" cx="30" cy="14" r="3"/></svg><span class="brand__name">Glinker</span><span class="brand__sub">Group</span>
+</a>
+        <p class="site-footer__tagline">Solution partner for monitoring and supply in critical electrical infrastructure.</p>
+        <p class="site-footer__identity">Trade Facilitator — one point of access between international buyers and Turkish manufacturers.</p>
+        <p class="label site-footer__contact"><a href="mailto:koordinasyon@glinkergroup.com">koordinasyon@glinkergroup.com</a><br>Ankara, Türkiye</p>
+      </div>
+      <nav class="site-footer__nav" id="footer-nav" aria-label="Main navigation (footer)">
+        <div class="site-footer__col">
+          <p class="label">Online Monitoring</p>
+          <ul>
+            <li><a href="monitoring.html">Overview</a></li>
+            <li><a href="partial-discharge.html">Partial Discharge Monitoring</a></li>
+            <li><a href="dga.html">DGA Monitoring</a></li>
+            <li><a href="cable-mv.html">Cable &amp; MV Monitoring</a></li>
+            <li><a href="distribution-power-quality.html">Distribution Transformer &amp; Power Quality</a></li>
+            <li><a href="asset-management.html">Asset Management</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <p class="label">Sectors</p>
+          <ul>
+            <li><a href="data-centers.html">Data Centers</a></li>
+            <li><a href="airports.html">Airports</a></li>
+            <li><a href="distribution-utilities.html">Distribution Utilities</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <p class="label">Company</p>
+          <ul>
+            <li><a href="supply.html">Supply &amp; Project Solutions</a></li>
+            <li><a href="knowledge.html">Knowledge Notes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy Notice</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <p class="site-footer__slogan" aria-label="Bridging Cultures, Building Trust."><span>Bridging Cultures,</span> <span>Building Trust.</span></p>
+    <div class="site-footer__legal">
+      <p>© 2026 Glinker Group · Ankara, Türkiye</p>
+      <p class="site-footer__notes">Online monitoring solutions are provided in Türkiye as a strategic partner of Megger. Product and company names are trademarks of their respective owners. Technical values are per manufacturer data.</p>
+      <p><a href="#top" class="site-footer__top-link">Back to top ↑</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/viz/power-chain.js" defer></script>
+</body>
+</html>

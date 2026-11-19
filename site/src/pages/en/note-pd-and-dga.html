@@ -1,0 +1,223 @@
+---
+title: Reading Partial Discharge and DGA Together | Glinker
+description: What partial discharge and dissolved gas monitoring each can and cannot tell you about a power transformer, and why one does not replace the other.
+nav: knowledge
+body_class: page-note
+---
+<section class="page-hero note-hero" aria-labelledby="page-title">
+  <div class="read-progress" data-read-progress aria-hidden="true"></div>
+  <div class="wrap">
+    <nav aria-label="Breadcrumb"><ol class="crumbs">
+      <li><a href="knowledge.html">Knowledge Notes</a></li>
+      <li><span aria-current="page">Glinker note</span></li>
+    </ol></nav>
+    <div class="note-hero__grid">
+      <div class="note-hero__main">
+        <p class="label"><span class="label--signal">Glinker note 02</span></p>
+        <h1 class="note-hero__title" id="page-title">Reading partial discharge and DGA together</h1>
+        <p class="note-hero__standfirst">Partial discharge shows the electrical condition of the insulation; dissolved gases show what is happening in the oil. This note sets out what each measurement can and cannot tell you about a power transformer, and why one does not replace the other.</p>
+      </div>
+      <div class="note-hero__aside" aria-hidden="true">
+        <p class="note-hero__no">02</p>
+        <svg class="kn-cover note-hero__cover" viewBox="0 0 240 132" focusable="false">
+          <path class="kn-cover__grid" d="M0 33H240M0 66H240M0 99H240"/>
+          <path class="kn-cover__ghost" d="M0 52C30 18 60 18 90 52S150 86 180 52 225 18 240 30"/>
+          <path class="kn-cover__pulses" d="M14 52V38M22 52V30M30 52V40M38 52V26M46 52V36M104 52V64M112 52V72M120 52V60M128 52V78M136 52V66M194 52V40M202 52V30M210 52V42"/>
+          <path class="kn-cover__trace" d="M0 118 30 117 60 116 90 114 120 111 150 107 180 101 210 93 240 82"/>
+          <text x="0" y="8" class="kn-cover__t">PD · now</text><text x="0" y="134" class="kn-cover__t">Gas · accumulated</text>
+        </svg>
+      </div>
+    </div>
+    <dl class="note-meta">
+      <div><dt class="label">Format</dt><dd>Glinker note</dd></div>
+      <div><dt class="label">By</dt><dd>Glinker Group</dd></div>
+      <div><dt class="label">Reading time</dt><dd>5 min <span class="muted">· 1,100 words</span></dd></div>
+      <div class="note-meta__tags"><dt class="label">Tags</dt><dd><ul class="tags"><li class="tag tag--quiet">Power transformer</li><li class="tag tag--quiet">Partial discharge</li><li class="tag tag--quiet">Dissolved gas analysis</li><li class="tag tag--quiet">Glinker note</li></ul></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section note-body" aria-label="Article">
+  <div class="wrap">
+    <div class="note-layout">
+      <aside class="note-rail" aria-label="In brief and contents">
+        <div class="note-rail__inner">
+          <div class="note-brief">
+            <p class="label label--fg">In brief</p>
+            <ul class="list-ticks">
+              <li>Partial discharge is an electrical signal, seen as it happens. Dissolved gas is a chemical record, accumulated over time.</li>
+              <li>Each misses things the other catches. Agreement between them is a strong finding; disagreement is information.</li>
+              <li>A two-gas online monitor gives a warning. Fault-type diagnosis still needs laboratory DGA.</li>
+            </ul>
+          </div>
+          <nav class="note-toc" data-toc aria-label="Contents of this note">
+            <p class="label">Contents</p>
+            <ol>
+              <li><a href="#s1"><span>01</span>One insulation system, two views</a></li>
+              <li><a href="#s2"><span>02</span>What partial discharge tells you</a></li>
+              <li><a href="#s3"><span>03</span>What dissolved gas tells you</a></li>
+              <li><a href="#s4"><span>04</span>Side by side</a></li>
+              <li><a href="#s5"><span>05</span>Reading them together</a></li>
+              <li><a href="#s6"><span>06</span>Why one does not replace the other</a></li>
+              <li><a href="#s7"><span>07</span>In short</a></li>
+            </ol>
+          </nav>
+        </div>
+      </aside>
+
+      <article class="note-article" data-article aria-labelledby="page-title">
+        <div class="note-prose" data-words>
+          <h2 id="s1"><span class="note-h__n">01</span>One insulation system, two views</h2>
+          <p class="note-open">The insulation of a power transformer is oil and paper, working together. When something goes wrong inside, the fault leaves two kinds of trace. One is electrical: small discharges at the point of the defect. The other is chemical: gases formed as oil and paper break down, dissolved in the oil.</p>
+          <p>Partial discharge monitoring reads the first trace. Dissolved gas monitoring reads the second. They are often discussed as alternatives. They are better understood as two views of one system, and the useful question is what each view shows that the other does not.</p>
+
+          <figure class="fig note-fig note-fig--wide is-dark instrument ticks" style="--tick: var(--trace)" data-reveal>
+            <div class="fig__head"><p class="label label--fg">Fig. 1 — Two traces of one fault</p><p class="label">Illustrative</p></div>
+            <div class="fig__body note-duo">
+              <div class="note-duo__panel">
+                <p class="label"><span class="label--trace">Electrical</span> · seen as it happens</p>
+                <div class="viz" data-viz="pd-pattern" data-theme="dark">
+                  <svg class="viz__fallback dg" viewBox="0 0 560 350" role="img" aria-label="Illustration: discharge pulses plotted against one cycle of the AC voltage. The pulses cluster on the rising parts of the voltage wave." focusable="false">
+                    <path class="dg-grid" d="M40 60H530M40 175H530M40 290H530"/>
+                    <path class="dg-axis" d="M40 40V310H530"/>
+                    <path class="dg-line dg-line--ghost" d="M40 175C100 20 225 20 285 175S470 330 530 175"/>
+                    <g stroke="#2FE0C2" stroke-width="1.5"><path d="M62 175V132M70 175V118M77 175V140M84 175V96M92 175V124M99 175V108M108 175V136M116 175V88M124 175V128M307 175V214M315 175V232M322 175V206M330 175V252M338 175V224M346 175V240M355 175V212M363 175V262"/></g>
+                    <text x="48" y="54">Magnitude · illustrative</text><text x="522" y="54" text-anchor="end">Phase →</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="note-duo__panel">
+                <p class="label"><span class="label--trace">Chemical</span> · accumulated in the oil</p>
+                <div class="viz" data-viz="gas-trend" data-theme="dark">
+                  <svg class="viz__fallback dg" viewBox="0 0 560 350" role="img" aria-label="Illustration: hydrogen, acetylene and moisture trends over time. Hydrogen rises faster and faster until it crosses the alarm level." focusable="false">
+                    <path class="dg-grid" d="M40 60H530M40 175H530M40 290H530"/>
+                    <path class="dg-axis" d="M40 40V310H530"/>
+                    <path class="dg-limit" d="M40 100H530"/>
+                    <path class="dg-line dg-line--trace" d="M40 280 140 278 240 272 320 258 390 230 450 180 500 110 520 80"/>
+                    <path class="dg-line dg-line--ghost" d="M40 296 200 295 340 292 450 280 520 262"/>
+                    <text x="48" y="54">Level · illustrative</text><text x="522" y="92" text-anchor="end" class="dg-signal">Alarm level</text><text x="522" y="330" text-anchor="end">Time →</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <figcaption class="fig__cap"><p>Illustrative. Left: discharge pulses against one cycle of the voltage, the pattern partial discharge monitoring reads. Right: gas levels building up in the oil over time. Not measured data.</p></figcaption>
+          </figure>
+
+          <h2 id="s2"><span class="note-h__n">02</span>What partial discharge tells you</h2>
+          <p>Partial discharge is a small electrical discharge that bridges only part of the insulation. It occurs where a defect raises the local electric field beyond what the material withstands: a void, a delamination, a contaminated surface on a bushing.</p>
+          <p>Its strengths follow from being an electrical signal.</p>
+          <ul class="note-props">
+            <li><strong>It is immediate.</strong> A discharge is seen when it happens, not hours or days later.</li>
+            <li><strong>It is descriptive.</strong> The size of the pulses, how often they occur and where they fall on the voltage cycle form a pattern, and different kinds of defect give different patterns.</li>
+            <li><strong>It is sensitive to defects that release very little energy.</strong> A small void can discharge for a long time before it produces a measurable amount of gas.</li>
+          </ul>
+          <p>Its limits are equally clear. Partial discharge measurement says nothing about a fault that produces no discharge. Overheating of a connection or of the core is a thermal process; it can become serious without any discharge at all. And on site, the measurement has to be separated from electrical interference, which takes care and good signal processing.</p>
+
+          <h2 id="s3"><span class="note-h__n">03</span>What dissolved gas tells you</h2>
+          <p>When a fault develops inside an oil-filled transformer, the oil and paper break down and release gases that dissolve in the oil. Hydrogen is produced by most developing faults, including partial discharge and overheating, so it is a general early indicator. Acetylene is associated with arcing and very high temperatures, so even small amounts need attention. Moisture, measured alongside, reduces dielectric strength and speeds up ageing of the paper.</p>
+          <p>The strengths of gas measurement follow from being a chemical record.</p>
+          <ul class="note-props">
+            <li><strong>It is broad.</strong> Thermal faults, discharges and arcing all leave gas. Whatever the cause, something appears in the oil.</li>
+            <li><strong>It integrates.</strong> Gas accumulates, so a weak process that runs for weeks becomes visible in the end.</li>
+            <li><strong>It covers the whole tank.</strong> The oil circulates past everything.</li>
+          </ul>
+          <p>The limits follow from the same properties. Gas takes time to form, dissolve and reach the sensor, so the signal lags the event. It says that something is happening, not where. And what it can say about the type of fault depends on how many gases are measured.</p>
+          <div class="callout note-callout">
+            <p class="callout__title">Two gases are a warning, not a diagnosis</p>
+            <p>That last point needs to be stated plainly. An online two-gas monitor answers the question “is something developing, and how fast?”. Identifying the type of fault needs a full multi-gas analysis. Ratio-based interpretation under IEC 60599 or IEEE C57.104 works on the full set of gases from a laboratory sample. It cannot be applied to hydrogen and acetylene alone.</p>
+          </div>
+
+          <h2 id="s4"><span class="note-h__n">04</span>Side by side</h2>
+          <div class="note-wide note-table" data-reveal>
+            <table class="dtable">
+              <caption>Partial discharge and two-gas online monitoring on a power transformer</caption>
+              <thead><tr><th scope="col"><span class="visually-hidden">Property</span></th><th scope="col">Partial discharge</th><th scope="col">Dissolved gas (two-gas online)</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Kind of signal</th><td data-label="Partial discharge">Electrical, at the moment it occurs</td><td data-label="Dissolved gas">Chemical, accumulated in the oil</td></tr>
+                <tr><th scope="row">Responds to</th><td data-label="Partial discharge">Discharge activity in the insulation</td><td data-label="Dissolved gas">Most fault processes that decompose oil or paper</td></tr>
+                <tr><th scope="row">Speed</th><td data-label="Partial discharge">Immediate</td><td data-label="Dissolved gas">Delayed</td></tr>
+                <tr><th scope="row">Says something about</th><td data-label="Partial discharge">The kind of defect, from the pattern</td><td data-label="Dissolved gas">That a fault is developing, and how fast</td></tr>
+                <tr><th scope="row">Blind to</th><td data-label="Partial discharge">Faults without discharge, such as purely thermal ones</td><td data-label="Dissolved gas">Very low-energy defects, until enough gas has formed</td></tr>
+                <tr><th scope="row">Needs for diagnosis</th><td data-label="Partial discharge">Pattern analysis; often a targeted offline test</td><td data-label="Dissolved gas">Laboratory multi-gas DGA</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="s5"><span class="note-h__n">05</span>Reading them together</h2>
+          <p>With both measurements running on the same transformer, four situations are possible. Each means something.</p>
+
+          <figure class="fig note-fig note-fig--wide ticks" data-reveal>
+            <div class="fig__head"><p class="label label--fg">Fig. 2 — Four situations</p><p class="label">A way of thinking · not a diagnostic procedure</p></div>
+            <div class="fig__body">
+              <div class="quad">
+                <p class="quad__y label"><span>Gas</span> stable → rising</p>
+                <div class="quad__grid">
+                  <div class="quad__cell quad__cell--gas"><p class="label">Gas rising · PD stable</p><p class="quad__t">Decomposition without discharge</p><p class="small muted">A thermal process is one possibility. The case a partial discharge monitor alone would miss.</p></div>
+                  <div class="quad__cell quad__cell--both"><p class="label">Both rising</p><p class="quad__t">Two methods agree</p><p class="small muted">The strongest finding. It justifies prompt investigation.</p></div>
+                  <div class="quad__cell quad__cell--calm"><p class="label">Both stable</p><p class="quad__t">No active process seen</p><p class="small muted">Not proof of health, but the best evidence available in service.</p></div>
+                  <div class="quad__cell quad__cell--pd"><p class="label">PD rising · Gas stable</p><p class="quad__t">An electrical defect, no gas yet</p><p class="small muted">Check for interference first. Then watch the trend closely.</p></div>
+                </div>
+                <p class="quad__x label"><span>Partial discharge</span> stable → rising</p>
+              </div>
+            </div>
+            <figcaption class="fig__cap"><p>In each of the three rising cases the next action is the same: confirm with a laboratory sample or a targeted test, then decide.</p></figcaption>
+          </figure>
+
+          <p><strong>Both stable.</strong> No sign of an active process in either view. This is not proof of health, but it is the best evidence available in service.</p>
+          <p><strong>Partial discharge rising, gas stable.</strong> An electrical defect is active but has not yet produced measurable gas. The defect may be small, recent, or outside the main oil volume, for example at a bushing. Check for interference first. Then watch the trend closely. If it continues, hydrogen would be expected to follow.</p>
+          <p><strong>Gas rising, partial discharge stable.</strong> Something is decomposing oil or paper without discharge activity at the monitored points. A thermal process is one possibility. This is the case a partial discharge monitor alone would miss. The next step is an oil sample for full laboratory DGA.</p>
+          <p><strong>Both rising.</strong> Two independent methods agree that a process is active. This is the strongest finding, and it justifies prompt investigation. If acetylene is part of the rise, more so.</p>
+          <p>Note what the combination does and does not add. It adds confidence that a change is real, and it narrows the kind of process. It does not replace the confirming step. In each of the last three cases, the next action is the same: confirm with a laboratory sample or a targeted test, then decide.</p>
+
+          <h2 id="s6"><span class="note-h__n">06</span>Why one does not replace the other</h2>
+          <aside class="note-pull" aria-hidden="true"><p>Each method is blind exactly where the other sees.</p></aside>
+          <p>It is tempting to choose one method and consider the transformer covered. The table above shows why that leaves a gap. Each method is blind exactly where the other sees.</p>
+          <p>There is also a practical reason. A single alarm from a single method always raises the question of whether it is real. A second, independent measurement answers that question faster than any amount of analysis of the first.</p>
+          <p>For a power transformer the argument is stronger than for most assets. Its replacement lead time is long, so early warning has its highest value here. That is why, on the <a href="monitoring.html#assets">asset table on this site</a>, the power transformer is the one row with two monitoring methods.</p>
+
+          <h2 id="s7"><span class="note-h__n">07</span>In short</h2>
+          <p class="note-close">Partial discharge tells you about the electrical condition of the insulation, now. Dissolved gas tells you what has been happening in the oil. Neither gives a diagnosis alone, and neither gives a failure date. Read together, with laboratory analysis behind them, they turn a hidden process into a decision that can be made in time.</p>
+        </div>
+        <footer class="note-endnote">
+          <p class="label">Note</p>
+          <p class="small muted">This note is general engineering explanation. The four cases are a way of thinking, not a diagnostic procedure. Diagnosis belongs to qualified engineers with the full data for the unit.</p>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper2 note-after" aria-labelledby="related-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">→</span>Related on this site</p>
+      <h2 class="h3" id="related-title">Continue from here</h2>
+    </div>
+    <div class="index-list" data-reveal-group>
+      <a class="index-row" href="partial-discharge.html">
+        <span class="index-row__n">T1</span>
+        <h3 class="index-row__title">Partial Discharge Monitoring</h3>
+        <p class="index-row__text">Is the insulation defect stable or growing, while the asset stays energised?</p>
+        <span class="index-row__go">{{> arrow}}</span>
+      </a>
+      <a class="index-row" href="dga.html">
+        <span class="index-row__n">T2</span>
+        <h3 class="index-row__title">Dissolved Gas Analysis (DGA) Monitoring</h3>
+        <p class="index-row__text">Is something developing in the oil, and how fast?</p>
+        <span class="index-row__go">{{> arrow}}</span>
+      </a>
+      <a class="index-row" href="knowledge.html#digest-hydrogen-acetylene">
+        <span class="index-row__n">D</span>
+        <h3 class="index-row__title">Digest: Why hydrogen and acetylene are the two gases to watch</h3>
+        <p class="index-row__text">Our three-point summary, with the link to the source.</p>
+        <span class="index-row__go">{{> arrow}}</span>
+      </a>
+    </div>
+    <nav class="note-pn" aria-label="More notes">
+      <a class="note-pn__link note-pn__link--prev" href="note-invisible-infrastructure.html"><span class="label">Previous · Note 01</span><b>Invisible Infrastructure</b></a>
+      <a class="note-pn__link note-pn__link--next" href="note-data-center-power-chain.html"><span class="label">Next · Note 03</span><b>Data center reliability: the power chain</b></a>
+    </nav>
+  </div>
+</section>
+
+{{> cta cta_title="Ask about transformer monitoring." cta_meeting="Plan a technical meeting"}}

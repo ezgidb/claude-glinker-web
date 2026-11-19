@@ -163,47 +163,147 @@
     });
   });
 
-  /* ---------- contact form: <form data-contact-form data-mailto="…"> */
+  /* ---------- contact form: <form data-contact-form data-mailto="…">
+     Optional hooks (contact page; the kit markup works without them):
+     form[data-subject-template="… {topic} … {organization}"] [data-signature] [data-hide-on-send]
+     input[data-order] orders the e-mail lines · radio[data-help] -> [data-topic-help]
+     textarea[data-max] + [data-charcount] · .field__error[data-missing|data-invalid|data-long]
+     status: [data-mailto-link] [data-mail-text] button[data-copy="text|address"] [data-copy-toast] [data-form-edit] */
   var form = $('[data-contact-form]');
   if (form) {
+    var addr = form.dataset.mailto || 'koordinasyon@glinkergroup.com';
+    var fStatus = $('[data-form-status]');
+    var radios = $$('input[name="topic"]', form);
+    var helpEl = $('[data-topic-help]', form);
+    var helpDefault = helpEl ? helpEl.textContent : '';
+    var submitBtn = $('button[type="submit"]', form);
+    var mailText = '';
     var topic = new URLSearchParams(location.search).get('topic');
     if (topic) {
       var r = form.querySelector('input[name="topic"][value="' + topic.replace(/[^a-z-]/g, '') + '"]');
       if (r) r.checked = true;
     }
-    form.setAttribute('novalidate', '');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var ok = true, first = null;
-      $$('.field', form).forEach(function (f) {
-        var input = $('input:not([type=radio]), textarea, select', f);
-        if (!input) return;
-        var bad = !input.checkValidity();
-        f.classList.toggle('is-invalid', bad);
-        input.setAttribute('aria-invalid', String(bad));
-        if (bad) { ok = false; first = first || input; }
+    var syncHelp = function () {
+      var c = radios.filter(function (x) { return x.checked; })[0];
+      if (helpEl) helpEl.textContent = c && c.dataset.help ? c.dataset.help : helpDefault;
+    };
+    var syncCount = function () {
+      $$('textarea[data-max]', form).forEach(function (t) {
+        var out = t.id && $('[data-charcount="' + t.id + '"]', form), max = +t.dataset.max;
+        if (out) { out.textContent = t.value.length + ' / ' + max; out.classList.toggle('is-over', t.value.length > max); }
       });
-      var alertEl = $('[data-form-alert]', form);
-      if (alertEl) alertEl.hidden = ok;
-      if (!ok) { first.focus(); return; }
-      var lines = [], subject = form.dataset.subject || 'Website request';
-      $$('input, textarea, select', form).forEach(function (el) {
+    };
+    var check = function (f) {
+      var input = $('input:not([type=radio]), textarea, select', f), group = !input && $$('input[type=radio]', f);
+      if (group && group.length) input = group[0];
+      if (!input) return null;
+      if (input.dataset.max) input.setCustomValidity(input.value.length > +input.dataset.max ? 'too long' : '');
+      var bad = !input.checkValidity(), err = $('.field__error', f);
+      if (bad && err) {
+        var v = input.validity;
+        var t = v.valueMissing ? err.dataset.missing : v.customError ? err.dataset.long : err.dataset.invalid;
+        if (t) err.textContent = t;
+      }
+      f.classList.toggle('is-invalid', bad);
+      f.classList.toggle('is-valid', !bad && input.type !== 'radio' && input.value.trim() !== '');
+      (group || [input]).forEach(function (x) { x.setAttribute('aria-invalid', String(bad)); });
+      return bad ? input : null;
+    };
+    var compose = function () {
+      var vals = {}, lines = [], blocks = [];
+      $$('input, textarea, select', form).forEach(function (el, i) {
         if (!el.name || ((el.type === 'radio' || el.type === 'checkbox') && !el.checked)) return;
         var v = el.value.trim();
+        if (el.type === 'radio') v = el.dataset.text || v;
+        vals[el.name] = v;
         if (!v) return;
         var label = el.dataset.label || el.name;
-        if (el.type === 'radio') { v = el.dataset.text || v; subject += ' — ' + v; }
-        lines.push(label + ': ' + v);
+        if (el.tagName === 'TEXTAREA') blocks.push('', label + ':', v);
+        else lines.push({ o: el.dataset.order ? +el.dataset.order : 100 + i, t: label + ': ' + v });
       });
-      var href = 'mailto:' + (form.dataset.mailto || 'koordinasyon@glinkergroup.com') +
-        '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
-      var status = $('[data-form-status]');
-      if (status) {
-        var link = $('[data-mailto-link]', status);
-        if (link) link.href = href;
-        status.hidden = false; status.tabIndex = -1; status.focus();
+      lines.sort(function (a, b) { return a.o - b.o; });
+      var subject, tpl = form.dataset.subjectTemplate;
+      if (tpl) subject = tpl.replace(/\{(\w+)\}/g, function (m, k) { return vals[k] || ''; }).replace(/\s*[—–-]\s*$/, '');
+      else subject = (form.dataset.subject || 'Website request') + (vals.topic ? ' — ' + vals.topic : '');
+      var body = lines.map(function (l) { return l.t; }).concat(blocks);
+      if (form.dataset.signature) body.push('', '—', form.dataset.signature);
+      return { subject: subject, body: body };
+    };
+    var copyText = function (text, done) {
+      var fallback = function () {
+        var ta = doc.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+        doc.body.appendChild(ta); ta.select();
+        try { if (doc.execCommand('copy')) done(); } catch (e) { /* ignore */ }
+        ta.remove();
+      };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+      else fallback();
+    };
+    form.setAttribute('novalidate', '');
+    radios.forEach(function (x) { x.addEventListener('change', function () { syncHelp(); if (form.classList.contains('was-validated')) check(x.closest('.field')); }); });
+    form.addEventListener('input', function (e) {
+      syncCount();
+      var f = e.target.closest('.field');
+      if (f && (f.classList.contains('is-invalid') || f.classList.contains('is-valid'))) check(f);
+    });
+    form.addEventListener('focusout', function (e) {
+      var f = e.target.closest('.field');
+      if (f && e.target.type !== 'radio' && (e.target.value.trim() || form.classList.contains('was-validated'))) check(f);
+    });
+    form.addEventListener('reset', function () {
+      setTimeout(function () {
+        $$('.field', form).forEach(function (f) { f.classList.remove('is-invalid', 'is-valid'); });
+        $$('[aria-invalid]', form).forEach(function (x) { x.removeAttribute('aria-invalid'); });
+        form.classList.remove('was-validated');
+        var a = $('[data-form-alert]', form); if (a) a.hidden = true;
+        syncHelp(); syncCount();
+      });
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      form.classList.add('was-validated');
+      var first = null;
+      $$('.field', form).forEach(function (f) { var bad = check(f); first = first || bad; });
+      var alertEl = $('[data-form-alert]', form);
+      if (alertEl) alertEl.hidden = !first;
+      if (first) { first.focus(); return; }
+      var m = compose();
+      var href = 'mailto:' + addr + '?subject=' + encodeURIComponent(m.subject) + '&body=' + encodeURIComponent(m.body.join('\r\n'));
+      mailText = 'To: ' + addr + '\nSubject: ' + m.subject + '\n\n' + m.body.join('\n');
+      if (submitBtn && submitBtn.dataset.busy) {
+        var label = $('[data-btn-label]', submitBtn) || submitBtn, idle = label.textContent;
+        label.textContent = submitBtn.dataset.busy; submitBtn.disabled = true;
+        setTimeout(function () { label.textContent = idle; submitBtn.disabled = false; }, 1200);
+      }
+      if (fStatus) {
+        $$('[data-mailto-link]', fStatus).forEach(function (a) { a.href = href; });
+        var pre = $('[data-mail-text]', fStatus);
+        if (pre) pre.textContent = mailText;
+        if (form.hasAttribute('data-hide-on-send')) form.hidden = true;
+        fStatus.hidden = false; fStatus.tabIndex = -1; fStatus.focus();
       }
       window.location.href = href;
     });
+    if (fStatus) {
+      fStatus.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-copy], [data-form-edit]');
+        if (!b) return;
+        if (b.hasAttribute('data-form-edit')) {
+          fStatus.hidden = true; form.hidden = false;
+          var c = radios.filter(function (x) { return x.checked; })[0] || $('input, textarea', form);
+          if (c) c.focus();
+          return;
+        }
+        var toast = $('[data-copy-toast]', fStatus);
+        copyText(b.dataset.copy === 'address' ? addr : mailText, function () {
+          if (!toast) return;
+          toast.textContent = toast.dataset.text || 'Copied.';
+          clearTimeout(toast._t); toast._t = setTimeout(function () { toast.textContent = ''; }, 2600);
+        });
+      });
+    }
+    syncHelp(); syncCount();
   }
 })();
+

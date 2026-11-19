@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowledge Notes | Glinker Group</title>
+  <meta name="description" content="Notes on condition monitoring of power assets, and short digests of industry sources. Partial discharge, DGA, power quality, asset management.">
+  <meta name="theme-color" content="#0B1220">
+  <meta property="og:site_name" content="Glinker Group">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Knowledge Notes | Glinker Group">
+  <meta property="og:description" content="Notes on condition monitoring of power assets, and short digests of industry sources. Partial discharge, DGA, power quality, asset management.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/viz.css">
+  <link rel="stylesheet" href="assets/css/pages-monitoring.css">
+  <link rel="stylesheet" href="assets/css/pages-sectors-supply.css">
+  <link rel="stylesheet" href="assets/css/pages-editorial.css">
+  <script src="assets/js/editorial.js" defer></script>
+  <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+</head>
+<body class="page-knowledge" data-nav="knowledge" data-slug="knowledge" data-header="light">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<!-- Glinker Group icon set · 24px grid · 1.5px stroke · currentColor. Use: <svg class="icon" viewBox="0 0 24 24"><use href="#i-NAME"/></svg> -->
+<symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 8 22M12 3l4 19M5 7h14M6.5 11.5h11M5 7v2M19 7v2M6.5 11.5v2M17.5 11.5v2M9.4 15.5l6.2 4M14.6 15.5l-6.2 4"/></symbol>
+<symbol id="i-hv-cable" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h5.5M16.5 12H22M10.5 9v6M13.5 9v6"/><rect x="7.5" y="9" width="9" height="6" rx="1.5"/><path d="M4 16.5c1 1 2 1 3 0M17 16.5c1 1 2 1 3 0" opacity=".55"/></symbol>
+<symbol id="i-power-transformer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="13" height="11" rx="1"/><path d="M6.5 9V5M10 9V5M13.5 9V5M5.5 5h2M9 5h2M12.5 5h2M16.5 11.5h3.5M16.5 14.5h3.5M16.5 17.5h3.5M20 10.5v8M2.5 20h15"/></symbol>
+<symbol id="i-generator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11.5" r="7"/><path d="M8.5 11.5c1-2.6 2.5-2.6 3.5 0s2.5 2.6 3.5 0M19 11.5h3M7.5 17 6 21M16.5 17l1.5 4M4 21h16"/></symbol>
+<symbol id="i-gis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="8" rx="4"/><path d="M9 7.5v11M15 7.5v11M12 9V4.5M10 4.5h4"/><circle cx="12" cy="13" r="1.4"/></symbol>
+<symbol id="i-mv-feeder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v18M5 8h14M6 8V5.5M18 8V5.5M12 4V2.5M9 8l3 3 3-3M1.5 4.5c1.6 1.3 3 1.5 4.5 1M18 5.5c1.5.5 2.9.3 4.5-1M9.5 22h5"/></symbol>
+<symbol id="i-distribution-transformer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><circle cx="12" cy="15" r="5"/><path d="M12 4V2M12 20v2"/></symbol>
+<symbol id="i-busbar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="3" rx=".5"/><path d="M7 8v9.5M12 8v9.5M17 8v9.5"/><circle cx="7" cy="19" r="1.4"/><circle cx="12" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></symbol>
+<symbol id="i-fleet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="4.5" r="1.4"/><circle cx="6" cy="9.5" r="1.4"/><circle cx="6" cy="14.5" r="1.4"/><circle cx="12" cy="4.5" r="1.4"/><circle cx="12" cy="9.5" r="1.4"/><circle cx="12" cy="14.5" r="1.4"/><circle cx="18" cy="4.5" r="1.4"/><circle cx="18" cy="9.5" r="1.4"/><circle cx="18" cy="14.5" r="1.4"/><path d="M3 18.5v2.5h18v-2.5"/></symbol>
+<symbol id="i-pd" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2.5-9 7.5-9 10 0s7.5 9 10 0M4.5 6V3M6.5 4.5V2M15 18v3M17 19.5V22"/></symbol>
+<symbol id="i-dga" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.5 4.5 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 2.5-6.5 6-11z"/><circle cx="10.3" cy="13.5" r="1.3"/><circle cx="13.6" cy="16.3" r=".9"/></symbol>
+<symbol id="i-cable" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c5 0 4-12 9-12s4 9 9 9"/><circle cx="3" cy="18" r="1.8" fill="currentColor" stroke="none"/><circle cx="12" cy="6" r="1.8" fill="currentColor" stroke="none"/><circle cx="21" cy="15" r="1.8" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-pq" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c1-6 3-6 4 0s3 6 4 0c.7-2.5 2.3-2.5 3 0s2.3 2.5 3 0c1-6 3-6 4 0 .5 3 1.2 4.5 2 4.5M10 19h6M10 17.5v3M16 17.5v3"/></symbol>
+<symbol id="i-apm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v17h17"/><circle cx="9" cy="15" r="1.3"/><circle cx="13" cy="11.5" r="1.3"/><circle cx="8.5" cy="8" r="1.3"/><circle cx="17.5" cy="6.5" r="2" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-earthing" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9M5 12h14M7.5 16h9M10 20h4"/></symbol>
+<symbol id="i-cables" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="8.2" r="2.5"/><circle cx="8.7" cy="13.9" r="2.5"/><circle cx="15.3" cy="13.9" r="2.5"/></symbol>
+<symbol id="i-mv-installations" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5l8-2.5L20 5v16M3 21h18M12 7v14M7 10h2M15 10h2M10 14v2M14 14v2"/></symbol>
+<symbol id="i-panels" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M8 7h8M8 10.5h8M9 14.5v3M12 14.5v3M15 14.5v3"/></symbol>
+<symbol id="i-lighting" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21V7a4 4 0 0 1 4-4h2M13 3h6l-1.2 3h-3.6zM14 9.5v2M17.2 9l1 1.8M10.8 9l-1 1.8M4.5 21h5"/></symbol>
+<symbol id="i-data-center" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M5 9h14M5 15h14M11.5 6H16M11.5 12H16M11.5 18H16"/><circle cx="8" cy="6" r="1.1" fill="currentColor" stroke="none"/><circle cx="8" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="8" cy="18" r="1.1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16M4 16h16"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.25"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></symbol>
+<symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+</svg>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" id="top">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="index.html" aria-label="Glinker Group — Home"><svg class="brand__glyph" viewBox="0 0 34 28" width="34" height="28" aria-hidden="true" focusable="false"><path d="M18.4 7.6A9 9 0 1 0 21 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><path d="M12 14h17" fill="none" stroke="currentColor" stroke-width="2.2"/><circle class="brand__node" cx="30" cy="14" r="3"/></svg><span class="brand__name">Glinker</span><span class="brand__sub">Group</span>
+</a>
+    <a class="nav-toggle" href="#footer-nav" data-nav-toggle aria-controls="site-nav">
+      <span class="nav-toggle__label" data-open="Menu" data-close="Close">Menu</span>
+      <span class="nav-toggle__icon" aria-hidden="true"><i></i><i></i></span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main navigation">
+      <ul class="nav__list">
+        <li class="nav__item has-mega" data-mega>
+          <a class="nav__link" href="monitoring.html">Online Monitoring</a>
+          <button class="nav__mega-toggle" type="button" aria-expanded="false" aria-controls="mega-monitoring" aria-label="Open the Online Monitoring menu">
+            <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4.5 6 8.5l4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+          </button>
+          <div class="mega" id="mega-monitoring">
+            <div class="wrap mega__grid">
+              <div class="mega__intro">
+                <a class="mega__overview" href="monitoring.html">
+                  <span class="label">00</span>
+                  <span class="mega__overview-title">Online Monitoring overview</span>
+                  <span class="mega__overview-text">Start from your asset: eight links in the power chain, and what to measure on each.</span>
+                  <span class="link-arrow link-arrow--plain" aria-hidden="true"><svg class="arrow" viewBox="0 0 24 12" width="24" height="12"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+                </a>
+                <p class="label mega__partner">In Türkiye as a strategic partner of Megger</p>
+              </div>
+              <div class="mega__col">
+                <p class="label mega__head">Technologies</p>
+                <ul class="mega__list">
+                  <li><a href="partial-discharge.html"><span class="mega__n">T1</span><span class="mega__t">Partial Discharge Monitoring</span><span class="mega__h">Is the insulation defect growing?</span></a></li>
+                  <li><a href="dga.html"><span class="mega__n">T2</span><span class="mega__t">DGA Monitoring</span><span class="mega__h">Is something developing in the oil?</span></a></li>
+                  <li><a href="cable-mv.html"><span class="mega__n">T3</span><span class="mega__t">Cable &amp; MV Monitoring</span><span class="mega__h">Where along the route?</span></a></li>
+                  <li><a href="distribution-power-quality.html"><span class="mega__n">T4</span><span class="mega__t">Distribution Transformer &amp; Power Quality</span><span class="mega__h">Oil condition and voltage quality</span></a></li>
+                  <li><a href="asset-management.html"><span class="mega__n">T5</span><span class="mega__t">Asset Management</span><span class="mega__h">Which asset first?</span></a></li>
+                </ul>
+              </div>
+              <div class="mega__col mega__col--narrow">
+                <p class="label mega__head">Sectors</p>
+                <ul class="mega__list">
+                  <li><a href="data-centers.html"><span class="mega__n">S1</span><span class="mega__t">Data Centers</span></a></li>
+                  <li><a href="airports.html"><span class="mega__n">S2</span><span class="mega__t">Airports</span></a></li>
+                  <li><a href="distribution-utilities.html"><span class="mega__n">S3</span><span class="mega__t">Distribution Utilities</span></a></li>
+                  <li><a href="monitoring.html#other-facilities"><span class="mega__n">S4</span><span class="mega__t">Other critical facilities</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="supply.html">Supply &amp; Project Solutions</a></li>
+        <li class="nav__item"><a class="nav__link" href="knowledge.html" aria-current="true">Knowledge Notes</a></li>
+        <li class="nav__item"><a class="nav__link" href="about.html">About</a></li>
+        <li class="nav__item nav__item--contact"><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__aside">
+        <div class="lang" role="group" aria-label="Language"><span class="lang__item is-current" aria-current="true" lang="en">EN</span><span class="lang__item is-disabled" aria-disabled="true" title="This page is not yet available in this language">TR</span></div>
+        <a class="btn btn--primary btn--sm nav__cta" href="contact.html?topic=monitoring">Request a technical meeting</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+<section class="page-hero kn-hero" aria-labelledby="page-title">
+  <div class="wrap">
+    <nav aria-label="Breadcrumb"><ol class="crumbs">
+      <li><a href="index.html">Home</a></li>
+      <li><span aria-current="page">Knowledge Notes</span></li>
+    </ol></nav>
+    <div class="page-hero__grid">
+      <div class="page-hero__main">
+        <p class="label label--fg">Knowledge Notes · Contents</p>
+        <h1 class="display kn-hero__title" id="page-title">Knowledge Notes</h1>
+        <p class="page-hero__lead-strong">Our notes, and short summaries of industry sources.</p>
+        <p class="lead">Two kinds of reading. Glinker notes are our own short articles on how to think about the condition of electrical infrastructure. Digests are three-point summaries of articles published by others, with a link to the original. We summarise in our own words and send you to the source for the rest.</p>
+      </div>
+      <div class="page-hero__aside kn-legend">
+        <p class="label">Formats</p>
+        <dl class="spec">
+          <div class="spec__row"><dt>Glinker note</dt><dd>Our own article.</dd></div>
+          <div class="spec__row"><dt>Digest</dt><dd>A three-point summary of someone else’s article, with the source link.</dd></div>
+        </dl>
+        <div class="limit-note mt-5">
+          <p class="limit-note__label">What you will not find here</p>
+          <p>Case studies, references or testimonials. We do not publish them.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ruler" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="section kn-contents" id="contents" aria-labelledby="contents-title" data-kn>
+  <div class="wrap">
+    <div class="sec-head kn-contents__head">
+      <p class="sec-index"><span class="sec-index__n">01</span>Contents</p>
+      <h2 class="visually-hidden" id="contents-title">Contents</h2>
+    </div>
+
+    <div class="kn-filter" data-kn-filter hidden>
+      <div class="kn-filter__top">
+        <p class="kn-filter__lead"><span class="label label--fg" id="kn-filter-label">Filter by</span><button type="button" class="kn-chip" data-tag="" aria-pressed="true" aria-describedby="kn-filter-label">All</button></p>
+        <p class="label kn-filter__count" data-kn-count aria-live="polite">5 items</p>
+      </div>
+      <div class="kn-filter__groups" role="group" aria-labelledby="kn-filter-label">
+        <div class="kn-filter__group">
+          <span class="label">Asset</span>
+          <div class="kn-chips">
+            <button type="button" class="kn-chip" data-tag="power-transformer" aria-pressed="false">Power transformer</button>
+            <button type="button" class="kn-chip" data-tag="generator-motor" aria-pressed="false">Generator &amp; motor</button>
+            <button type="button" class="kn-chip" data-tag="whole-fleet" aria-pressed="false">Whole fleet</button>
+          </div>
+        </div>
+        <div class="kn-filter__group">
+          <span class="label">Method</span>
+          <div class="kn-chips">
+            <button type="button" class="kn-chip" data-tag="partial-discharge" aria-pressed="false">Partial discharge</button>
+            <button type="button" class="kn-chip" data-tag="dga" aria-pressed="false">Dissolved gas analysis</button>
+            <button type="button" class="kn-chip" data-tag="power-quality" aria-pressed="false">Power quality</button>
+            <button type="button" class="kn-chip" data-tag="asset-management" aria-pressed="false">Asset management</button>
+          </div>
+        </div>
+        <div class="kn-filter__group">
+          <span class="label">Sector</span>
+          <div class="kn-chips">
+            <button type="button" class="kn-chip" data-tag="data-centers" aria-pressed="false">Data centers</button>
+            <button type="button" class="kn-chip" data-tag="critical-infrastructure" aria-pressed="false">Critical infrastructure</button>
+          </div>
+        </div>
+        <div class="kn-filter__group">
+          <span class="label">Format</span>
+          <div class="kn-chips">
+            <button type="button" class="kn-chip" data-tag="glinker-note" aria-pressed="false">Glinker note</button>
+            <button type="button" class="kn-chip" data-tag="digest" aria-pressed="false">Digest</button>
+          </div>
+        </div>
+      </div>
+      <p class="kn-empty" data-kn-empty hidden>No notes carry this tag yet.</p>
+    </div>
+
+    <!-- Glinker notes -->
+    <div class="kn-group" data-kn-group>
+      <div class="kn-group__head">
+        <h3 class="kn-group__title">Glinker notes</h3>
+        <p class="label">Our own articles · 3</p>
+      </div>
+      <ol class="kn-list" data-reveal-group>
+        <li class="kn-item" data-kn-item data-tags="whole-fleet asset-management critical-infrastructure glinker-note">
+          <article class="kn-note">
+            <p class="kn-note__n" aria-hidden="true">01</p>
+            <div class="kn-note__main">
+              <p class="label"><span class="label--signal">Glinker note</span> · Note 01 · 5 min read</p>
+              <h4 class="kn-note__title"><a class="stretched" href="note-invisible-infrastructure.html">Invisible Infrastructure</a></h4>
+              <p class="kn-note__text">Electrical infrastructure is noticed only when it fails. This note explains why the condition of transformers, cables and switchgear stays out of sight in daily operation, and what continuous measurement makes visible.</p>
+              <ul class="tags" aria-label="Tags"><li class="tag tag--quiet">Whole fleet</li><li class="tag tag--quiet">Asset management</li><li class="tag tag--quiet">Critical infrastructure</li></ul>
+            </div>
+            <div class="kn-note__side">
+              <svg class="kn-cover" viewBox="0 0 240 132" aria-hidden="true" focusable="false">
+                <path class="kn-cover__grid" d="M0 33H240M0 66H240M0 99H240"/>
+                <path class="kn-cover__limit" d="M0 30H240"/>
+                <path class="kn-cover__ghost" d="M0 108 8 107 16 109 24 107 32 108 40 106 48 109 56 107 64 108 72 107 80 108 88 106 96 108 104 107 112 106 120 107 128 105 136 104 144 102 152 100 160 96 168 92 176 86 184 79 192 70 200 59 208 47 216 33"/>
+                <path class="kn-cover__trace" d="M128 105 136 104 144 102 152 100 160 96 168 92 176 86 184 79 192 70 200 59 208 47 216 33"/>
+                <circle class="kn-cover__dot" cx="216" cy="31" r="4"/>
+              </svg>
+              <span class="kn-note__go">Read the note<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</span>
+            </div>
+          </article>
+        </li>
+        <li class="kn-item" data-kn-item data-tags="power-transformer partial-discharge dga glinker-note">
+          <article class="kn-note">
+            <p class="kn-note__n" aria-hidden="true">02</p>
+            <div class="kn-note__main">
+              <p class="label"><span class="label--signal">Glinker note</span> · Note 02 · 5 min read</p>
+              <h4 class="kn-note__title"><a class="stretched" href="note-pd-and-dga.html">Reading partial discharge and DGA together</a></h4>
+              <p class="kn-note__text">Partial discharge shows the electrical condition of the insulation; dissolved gases show what is happening in the oil. This note sets out what each measurement can and cannot tell you about a power transformer, and why one does not replace the other.</p>
+              <ul class="tags" aria-label="Tags"><li class="tag tag--quiet">Power transformer</li><li class="tag tag--quiet">Partial discharge</li><li class="tag tag--quiet">Dissolved gas analysis</li></ul>
+            </div>
+            <div class="kn-note__side">
+              <svg class="kn-cover" viewBox="0 0 240 132" aria-hidden="true" focusable="false">
+                <path class="kn-cover__grid" d="M0 33H240M0 66H240M0 99H240"/>
+                <path class="kn-cover__ghost" d="M0 52C30 18 60 18 90 52S150 86 180 52 225 18 240 30"/>
+                <path class="kn-cover__pulses" d="M14 52V38M22 52V30M30 52V40M38 52V26M46 52V36M104 52V64M112 52V72M120 52V60M128 52V78M136 52V66M194 52V40M202 52V30M210 52V42"/>
+                <path class="kn-cover__trace" d="M0 118 30 117 60 116 90 114 120 111 150 107 180 101 210 93 240 82"/>
+                <text x="0" y="8" class="kn-cover__t">PD · now</text><text x="0" y="134" class="kn-cover__t">Gas · accumulated</text>
+              </svg>
+              <span class="kn-note__go">Read the note<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</span>
+            </div>
+          </article>
+        </li>
+        <li class="kn-item" data-kn-item data-tags="power-transformer power-quality data-centers glinker-note">
+          <article class="kn-note">
+            <p class="kn-note__n" aria-hidden="true">03</p>
+            <div class="kn-note__main">
+              <p class="label"><span class="label--signal">Glinker note</span> · Note 03 · 5 min read</p>
+              <h4 class="kn-note__title"><a class="stretched" href="note-data-center-power-chain.html">Data center reliability: the power chain</a></h4>
+              <p class="kn-note__text">Redundancy protects the load, not the equipment. This note follows the power chain from grid connection to distribution board and marks where a slow-developing fault can sit behind a redundant design.</p>
+              <ul class="tags" aria-label="Tags"><li class="tag tag--quiet">Power transformer</li><li class="tag tag--quiet">Power quality</li><li class="tag tag--quiet">Data centers</li></ul>
+            </div>
+            <div class="kn-note__side">
+              <svg class="kn-cover" viewBox="0 0 240 132" aria-hidden="true" focusable="false">
+                <path class="kn-cover__ghost" d="M12 66H60M60 66C80 66 80 34 100 34H180M60 66C80 66 80 98 100 98H180M180 34C200 34 200 66 220 66M180 98C200 98 200 66 220 66"/>
+                <path class="kn-cover__trace" d="M12 66H60C80 66 80 34 100 34H180C200 34 200 66 220 66"/>
+                <g class="kn-cover__nodes"><circle cx="12" cy="66" r="4"/><circle cx="100" cy="34" r="4"/><circle cx="140" cy="34" r="4"/><circle cx="100" cy="98" r="4"/><circle cx="220" cy="66" r="5"/></g>
+                <circle class="kn-cover__dot" cx="140" cy="98" r="4.5"/>
+                <text x="140" y="122" text-anchor="middle" class="kn-cover__t">Condition?</text>
+              </svg>
+              <span class="kn-note__go">Read the note<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</span>
+            </div>
+          </article>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Digests -->
+    <div class="kn-group" data-kn-group id="digests">
+      <div class="kn-group__head">
+        <h3 class="kn-group__title">Digests</h3>
+        <p class="label">Summaries in our words. The articles belong to their publishers.</p>
+      </div>
+      <ol class="kn-list">
+        <li class="kn-item" id="digest-choosing-pd-system" data-kn-item data-tags="partial-discharge power-transformer generator-motor digest">
+          <article class="kn-digest" aria-labelledby="dg1-title">
+            <div class="kn-digest__head">
+              <p class="label">Digest · Megger Knowledge Hub · 7 October 2025</p>
+              <h4 class="kn-digest__title" id="dg1-title">Choosing a partial discharge monitoring system</h4>
+              <ul class="tags" aria-label="Tags"><li class="tag tag--quiet">Partial discharge</li><li class="tag tag--quiet">Power transformer</li><li class="tag tag--quiet">Generator &amp; motor</li></ul>
+            </div>
+            <dl class="kn-digest__points">
+              <div><dt class="label">What it says</dt><dd>Partial discharge systems fall into distinct categories, with permanent online monitoring at one end and portable or periodic measurement at the other; the choice follows from the asset type, operating requirements and the purpose of the monitoring.</dd></div>
+              <div><dt class="label">Why it matters</dt><dd>The decision is about the asset and its criticality first and the instrument second, which is a useful order for a specification.</dd></div>
+              <div><dt class="label">Who it is for</dt><dd>Maintenance and asset management teams preparing a monitoring specification.</dd></div>
+            </dl>
+            <div class="kn-digest__foot">
+              <a class="kn-source" href="https://www.megger.com/en/knowledge-hub/partial-discharge-monitoring-systems-choosing-the-right-solution" target="_blank" rel="noopener">Open the source (megger.com)<span class="kn-source__ext" aria-hidden="true">↗</span><span class="visually-hidden"> — external site, opens in a new tab</span></a>
+              <a class="link-arrow link-arrow--plain kn-related" href="partial-discharge.html"><span class="label">Related on this site</span> Partial Discharge Monitoring<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a>
+            </div>
+          </article>
+        </li>
+        <li class="kn-item" id="digest-hydrogen-acetylene" data-kn-item data-tags="dga power-transformer digest">
+          <article class="kn-digest" aria-labelledby="dg2-title">
+            <div class="kn-digest__head">
+              <p class="label">Digest · Megger · June 2026</p>
+              <h4 class="kn-digest__title" id="dg2-title">Why hydrogen and acetylene are the two gases to watch</h4>
+              <ul class="tags" aria-label="Tags"><li class="tag tag--quiet">Dissolved gas analysis</li><li class="tag tag--quiet">Power transformer</li></ul>
+            </div>
+            <dl class="kn-digest__points">
+              <div><dt class="label">What it says</dt><dd>Hydrogen appears early in most developing transformer faults, while acetylene points to high-energy faults; following both online gives a warning between laboratory samples.</dd></div>
+              <div><dt class="label">Why it matters</dt><dd>It explains what a two-gas online monitor is for, and by implication what still needs a full laboratory analysis.</dd></div>
+              <div><dt class="label">Who it is for</dt><dd>Transformer engineers and substation maintenance managers.</dd></div>
+            </dl>
+            <div class="kn-digest__foot">
+              <a class="kn-source" href="https://www.megger.com/en/why-hydrogen-and-acetylene-monitoring-prevent-asset-failure" target="_blank" rel="noopener">Open the source (megger.com)<span class="kn-source__ext" aria-hidden="true">↗</span><span class="visually-hidden"> — external site, opens in a new tab</span></a>
+              <a class="link-arrow link-arrow--plain kn-related" href="dga.html"><span class="label">Related on this site</span> DGA Monitoring<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a>
+            </div>
+          </article>
+        </li>
+      </ol>
+      <p class="small muted kn-disclaimer">Digests are our own short summaries. For the full argument and the figures, read the source.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band is-dark instrument" aria-labelledby="cta-title">
+  <svg class="cta-band__trace" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M0 62 L40 60 80 63 120 59 160 62 200 61 240 64 280 60 320 62 360 59 400 63 440 61 480 60 520 63 560 61 600 62 640 59 680 62 720 60 760 63 800 61 840 62 880 60 920 63 960 61 1000 59 1040 62 1080 61 1120 63 1160 60 1200 62 1240 61 1280 59 1320 62 1360 61 1400 63 1440 61"/></svg>
+  <div class="wrap cta-band__inner">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">→</span>Ask</p>
+    </div>
+    <div class="cta-band__grid">
+      <h2 class="cta-band__title" id="cta-title" data-reveal>A question that a note should answer?</h2>
+      <div class="cta-band__body" data-reveal>
+        <p class="lead">Tell us. Notes are written from the questions engineers ask.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="contact.html?topic=monitoring">Plan a technical meeting<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a>
+          <a class="btn btn--ghost" href="contact.html?topic=supply">Send your requirement</a>
+        </div>
+        <p class="label cta-band__contact"><a href="mailto:koordinasyon@glinkergroup.com">koordinasyon@glinkergroup.com</a><span aria-hidden="true"> · </span>Ankara, Türkiye</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer class="site-footer is-dark" id="footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="brand brand--lg" href="index.html" aria-label="Glinker Group — Home"><svg class="brand__glyph" viewBox="0 0 34 28" width="34" height="28" aria-hidden="true" focusable="false"><path d="M18.4 7.6A9 9 0 1 0 21 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><path d="M12 14h17" fill="none" stroke="currentColor" stroke-width="2.2"/><circle class="brand__node" cx="30" cy="14" r="3"/></svg><span class="brand__name">Glinker</span><span class="brand__sub">Group</span>
+</a>
+        <p class="site-footer__tagline">Solution partner for monitoring and supply in critical electrical infrastructure.</p>
+        <p class="site-footer__identity">Trade Facilitator — one point of access between international buyers and Turkish manufacturers.</p>
+        <p class="label site-footer__contact"><a href="mailto:koordinasyon@glinkergroup.com">koordinasyon@glinkergroup.com</a><br>Ankara, Türkiye</p>
+      </div>
+      <nav class="site-footer__nav" id="footer-nav" aria-label="Main navigation (footer)">
+        <div class="site-footer__col">
+          <p class="label">Online Monitoring</p>
+          <ul>
+            <li><a href="monitoring.html">Overview</a></li>
+            <li><a href="partial-discharge.html">Partial Discharge Monitoring</a></li>
+            <li><a href="dga.html">DGA Monitoring</a></li>
+            <li><a href="cable-mv.html">Cable &amp; MV Monitoring</a></li>
+            <li><a href="distribution-power-quality.html">Distribution Transformer &amp; Power Quality</a></li>
+            <li><a href="asset-management.html">Asset Management</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <p class="label">Sectors</p>
+          <ul>
+            <li><a href="data-centers.html">Data Centers</a></li>
+            <li><a href="airports.html">Airports</a></li>
+            <li><a href="distribution-utilities.html">Distribution Utilities</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <p class="label">Company</p>
+          <ul>
+            <li><a href="supply.html">Supply &amp; Project Solutions</a></li>
+            <li><a href="knowledge.html">Knowledge Notes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy Notice</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <p class="site-footer__slogan" aria-label="Bridging Cultures, Building Trust."><span>Bridging Cultures,</span> <span>Building Trust.</span></p>
+    <div class="site-footer__legal">
+      <p>© 2026 Glinker Group · Ankara, Türkiye</p>
+      <p class="site-footer__notes">Online monitoring solutions are provided in Türkiye as a strategic partner of Megger. Product and company names are trademarks of their respective owners. Technical values are per manufacturer data.</p>
+      <p><a href="#top" class="site-footer__top-link">Back to top ↑</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

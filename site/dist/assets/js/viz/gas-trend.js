@@ -168,8 +168,8 @@
   var STR = {
     en: { label: 'Illustration: hydrogen, acetylene and moisture trends over time. Hydrogen rises faster and faster until it crosses the alarm level; the period of rapid change is highlighted.',
       title: 'DISSOLVED GAS & MOISTURE · TREND', titleS: 'GAS & MOISTURE · TREND', ill: 'ILLUSTRATIVE', alarm: 'ALARM LEVEL', roc: 'RATE OF CHANGE', moist: 'MOISTURE', time: 'TIME →', level: 'LEVEL' },
-    tr: { label: 'Temsili görsel: hidrojen, asetilen ve nem eğilimleri. Hidrojen giderek hızlanarak yükselir ve alarm seviyesini aşar; hızlı değişim dönemi vurgulanır.',
-      title: 'ÇÖZÜNMÜŞ GAZ VE NEM · EĞİLİM', titleS: 'GAZ VE NEM · EĞİLİM', ill: 'TEMSİLİ', alarm: 'ALARM SEVİYESİ', roc: 'DEĞİŞİM HIZI', moist: 'NEM', time: 'ZAMAN →', level: 'SEVİYE' }
+    tr: { label: 'Temsilî görsel: hidrojen, asetilen ve nem eğilimleri. Hidrojen giderek hızlanarak yükselir ve alarm seviyesini aşar; hızlı değişim dönemi vurgulanır.',
+      title: 'ÇÖZÜNMÜŞ GAZ VE NEM · EĞİLİM', titleS: 'GAZ VE NEM · EĞİLİM', ill: 'TEMSİLÎ', alarm: 'ALARM SEVİYESİ', roc: 'DEĞİŞİM HIZI', moist: 'NEM', time: 'ZAMAN →', level: 'SEVİYE' }
   }[LANG];
 
   mount('gas-trend', function (el) {

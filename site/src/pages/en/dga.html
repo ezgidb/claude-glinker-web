@@ -1,0 +1,338 @@
+---
+title: DGA Monitoring | InsuLogix G2 | Glinker Group
+description: Online monitoring of hydrogen, acetylene and moisture in transformer oil with InsuLogix G2. Early fault warning. Glinker Group, in partnership with Megger.
+nav: monitoring
+header: dark
+body_class: page-tech page-dga
+---
+<section class="page-hero page-hero--dark is-dark instrument" aria-labelledby="page-title">
+  <div class="wrap">
+    <nav aria-label="Breadcrumb"><ol class="crumbs">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="monitoring.html">Online Monitoring</a></li>
+      <li><span aria-current="page">DGA Monitoring</span></li>
+    </ol></nav>
+    <div class="page-hero__grid">
+      <div class="page-hero__main">
+        <p class="label"><span class="label--trace">Technology T2</span> · Oil-filled power transformer</p>
+        <h1 class="page-hero__title" id="page-title">Dissolved Gas Analysis (DGA) Monitoring</h1>
+        <p class="page-hero__lead-strong">Online gas measurement gives an early warning between laboratory oil samples.</p>
+        <p class="lead">When a fault develops inside an oil-filled transformer, the oil and paper insulation break down and release gases that dissolve in the oil. Hydrogen and acetylene are the two gases that carry most of the early-warning information.</p>
+        <div class="hero-limit">
+          <p class="label">Read this first</p>
+          <p>This page is about a two-gas online monitor. It warns that something is developing. It does not replace laboratory DGA, and it does not identify the type of fault.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="contact.html?topic=monitoring">Plan a technical meeting{{> arrow}}</a>
+          <a class="btn btn--ghost" href="#product">InsuLogix® G2 datasheet</a>
+        </div>
+      </div>
+      <figure class="page-hero__aside fig ticks" style="--tick: var(--trace)">
+        <div class="fig__body fig__body--flush">
+          <div class="viz" data-viz="gas-trend" data-theme="dark">
+            <svg class="viz__fallback dg" viewBox="0 0 560 350" role="img" aria-label="Illustration: hydrogen, acetylene and moisture in oil over time. Hydrogen rises faster and faster until it crosses the alarm limit." focusable="false">
+              <path class="dg-grid" d="M40 80H530M40 160H530M40 240H530"/>
+              <path class="dg-axis" d="M40 40V310H530"/>
+              <path class="dg-limit" d="M40 110H530"/>
+              <text x="522" y="102" text-anchor="end" class="dg-signal">Alarm limit</text>
+              <path class="dg-line dg-line--trace" d="M40 280 120 278 200 276 280 270 340 256 390 234 430 204 465 168 500 120 530 84"/>
+              <path class="dg-line dg-line--ghost" d="M40 296 200 295 330 293 430 288 530 276"/>
+              <text x="48" y="56">Gas in oil · illustrative</text><text x="522" y="330" text-anchor="end">Time →</text>
+            </svg>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+  <div class="wrap"><div class="ruler" aria-hidden="true"></div></div>
+</section>
+
+<nav class="pagenav no-line" aria-label="On this page">
+  <div class="wrap"><ul class="pagenav__list">
+    <li><a href="#phenomenon"><span>01</span>Phenomenon</a></li>
+    <li><a href="#detects"><span>02</span>Detects</a></li>
+    <li><a href="#reading"><span>03</span>Reading it</a></li>
+    <li><a href="#limits"><span>04</span>Can and cannot</a></li>
+    <li><a href="#applies"><span>05</span>Applies</a></li>
+    <li><a href="#product"><span>06</span>Product</a></li>
+    <li><a href="#after-alarm"><span>07</span>After an alarm</a></li>
+    <li><a href="#related"><span>08</span>Related</a></li>
+    <li><a href="#standards"><span>09</span>Standards</a></li>
+    <li><a href="#faq"><span>10</span>FAQ</a></li>
+  </ul></div>
+</nav>
+
+<section class="section" id="phenomenon" aria-labelledby="phenomenon-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">01</span>The phenomenon</p>
+      <h2 class="sec-head__title" id="phenomenon-title">The oil keeps a record of what happens inside the tank.</h2>
+    </div>
+    <div class="split split--even">
+      <div class="prose" data-reveal>
+        <p>A transformer’s insulation is oil and paper. Under normal operation both age slowly. Under abnormal stress, whether electrical or thermal, they decompose faster and release gases. Those gases dissolve in the oil and circulate with it.</p>
+        <p>Which gases form depends on how much energy the fault releases. Low-energy processes produce mainly hydrogen. Very high temperatures and arcing produce acetylene. Other gases sit in between, and their proportions are what a laboratory uses to tell fault types apart.</p>
+        <p>The oil therefore carries information that cannot be seen from outside the tank. A laboratory sample reads it in detail, at intervals. An online monitor reads part of it, all the time.</p>
+      </div>
+      <figure class="gasscale" data-reveal aria-labelledby="gs-cap">
+        <p class="label gasscale__axis">Energy released by the fault <span aria-hidden="true">→</span></p>
+        <ol class="gasscale__track">
+          <li class="gasscale__stop is-on"><b>H<sub>2</sub></b><span class="gasscale__e">Low energy</span><span class="gasscale__r">General signal</span></li>
+          <li class="gasscale__stop is-lab"><b>Other fault gases</b><span class="gasscale__e">In between</span><span class="gasscale__r">Laboratory DGA</span></li>
+          <li class="gasscale__stop is-on is-signal"><b>C<sub>2</sub>H<sub>2</sub></b><span class="gasscale__e">Very high temperature · arcing</span><span class="gasscale__r">Serious signal</span></li>
+        </ol>
+        <div class="gasscale__key"><span class="is-on">On the online two-gas monitor</span><span class="is-lab">Laboratory only</span></div>
+        <figcaption id="gs-cap" class="gasscale__cap">Which gas forms depends on the energy of the fault. Schematic, not to scale.</figcaption>
+      </figure>
+    </div>
+    <p class="pull mt-8" data-reveal>A laboratory sample tells you a great deal, occasionally. A monitor tells you less, continuously. You need both.</p>
+  </div>
+</section>
+
+<section class="section section--paper2" id="detects" aria-labelledby="detects-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">02</span>What it detects</p>
+      <h2 class="sec-head__title sec-head__title--wide" id="detects-title">Two gases and the water content. Three readings, three meanings.</h2>
+    </div>
+    <div class="gas-tiles" data-reveal-group>
+      <article class="gas-tile">
+        <p class="label">Gas 01 · general signal</p>
+        <p class="gas-tile__sym" aria-hidden="true">H<sub>2</sub></p>
+        <h3 class="gas-tile__name">Hydrogen</h3>
+        <p class="muted">Produced by most developing faults, including partial discharge and overheating, so it is a general early indicator.</p>
+      </article>
+      <article class="gas-tile gas-tile--signal">
+        <p class="label label--signal">Gas 02 · serious signal</p>
+        <p class="gas-tile__sym" aria-hidden="true">C<sub>2</sub>H<sub>2</sub></p>
+        <h3 class="gas-tile__name">Acetylene</h3>
+        <p class="muted">Associated with arcing and very high temperatures, so even small amounts need attention.</p>
+      </article>
+      <article class="gas-tile">
+        <p class="label">Water · insulation ageing</p>
+        <p class="gas-tile__sym" aria-hidden="true">H<sub>2</sub>O</p>
+        <h3 class="gas-tile__name">Moisture in oil</h3>
+        <p class="muted">Reduces dielectric strength and speeds up ageing of paper insulation.</p>
+      </article>
+    </div>
+    <div class="defrow defrow--flush mt-6" data-reveal>
+      <p class="label label--fg">Key line</p>
+      <p class="measure">An online two-gas monitor answers the question “is something developing, and how fast?”. Identifying the type of fault needs a full multi-gas analysis.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reading" aria-labelledby="reading-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">03</span>Reading it</p>
+      <h2 class="sec-head__title" id="reading-title">The rate matters more than the number.</h2>
+    </div>
+    <div class="split split--even">
+      <dl class="spec" data-reveal>
+        <div class="spec__row"><dt>Level</dt><dd>The concentration of a gas in the oil, in parts per million. A level means little without the transformer’s own history: design, age, loading and earlier samples all shift what is normal for a unit.</dd></div>
+        <div class="spec__row"><dt>Rate of change</dt><dd>How fast the level is rising. A stable level, even a raised one, describes a past event or a stable condition. A rising level describes something active now. <strong>This is what an online monitor shows and a periodic sample cannot.</strong></dd></div>
+        <div class="spec__row"><dt>Hydrogen</dt><dd>The general signal. Because most fault types produce it, hydrogen is the broad alert. It says “look closer”, not “this is the cause”.</dd></div>
+        <div class="spec__row"><dt>Acetylene</dt><dd>The serious signal. It forms only at very high energy. In a transformer where it has been absent, its appearance deserves prompt attention.</dd></div>
+        <div class="spec__row"><dt>Moisture</dt><dd>Read with temperature. Water moves between paper and oil as temperature changes, so a moisture reading is read together with oil temperature and load. Its trend over days says more than one value.</dd></div>
+      </dl>
+      <figure class="fig is-dark instrument ticks rate-fig sticky" style="--tick: var(--signal)" data-reveal>
+        <div class="fig__head"><p class="label label--fg">Fig. 2 — Two units, two stories</p><p class="label">Illustrative</p></div>
+        <div class="fig__body">
+          <svg class="dg" viewBox="0 0 520 330" role="img" aria-labelledby="rate-t rate-d" focusable="false">
+            <title id="rate-t">A high stable level compared with a lower rising level</title>
+            <desc id="rate-d">Unit A has a raised hydrogen level that stays flat. Unit B starts lower but rises steadily and will pass unit A. The rising unit is the one with something active now.</desc>
+            <path class="dg-grid" d="M40 70H500M40 140H500M40 210H500"/>
+            <path class="dg-axis" d="M40 30V280H500"/>
+            <path class="dg-line dg-line--ghost" d="M40 110 100 112 160 109 220 111 280 110 340 112 400 110 460 111 500 110" style="stroke-dasharray: none; opacity: .75"/>
+            <path class="dg-line dg-line--signal" d="M40 252 100 250 160 244 220 232 280 214 340 190 400 160 460 124 500 96"/>
+            <circle class="dg-dot--signal" cx="500" cy="96" r="5"/>
+            <text x="48" y="100" class="dg-fg">Unit A · raised, stable</text>
+            <text x="490" y="240" text-anchor="end" class="dg-signal">Unit B · lower, rising</text>
+            <text x="40" y="300">Level (ppm)</text><text x="500" y="300" text-anchor="end">Time →</text>
+          </svg>
+        </div>
+        <figcaption class="fig__cap"><p>Unit A describes a past event or a stable condition. Unit B describes something active now. Illustrative, not measured data.</p></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper2" id="limits" aria-labelledby="limits-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <p class="sec-index"><span class="sec-index__n">04</span>Can and cannot</p>
+      <h2 class="sec-head__title" id="limits-title">What a two-gas monitor can and cannot tell you.</h2>
+      <p class="lead">The honest version, before anything else. The monitor raises the question; the laboratory and the engineer answer it.</p>
+    </div>
+    <div data-reveal>
+      <table class="cando">
+        <caption class="visually-hidden">What an online two-gas monitor can and cannot tell you</caption>
+        <thead><tr><th scope="col">A two-gas online monitor can tell you</th><th scope="col">It cannot tell you</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Can tell you">That gas is being generated, and how quickly</td><td data-label="Cannot tell you">The type of fault: ratio-based methods need the full set of gases</td></tr>
+          <tr><td data-label="Can tell you">That acetylene has appeared or is rising</td><td data-label="Cannot tell you">Where in the transformer the fault is</td></tr>
+          <tr><td data-label="Can tell you">That moisture in the oil is rising</td><td data-label="Cannot tell you">The condition of the paper insulation directly</td></tr>
+          <tr><td data-label="Can tell you">When to take an oil sample sooner than planned</td><td data-label="Cannot tell you">Whether the unit is safe to keep in service; that is an engineering decision made with more data</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-8" data-reveal>
+      <p class="label gloss__head">Terms used on this page</p>
+      <dl class="gloss gloss--2">
+        <div><dt>DGA</dt><dd>Dissolved gas analysis: measuring the gases dissolved in transformer oil.</dd></div>
+        <div><dt>ppm</dt><dd>Parts per million, the unit of gas concentration in oil.</dd></div>
+        <div><dt>Limit of detection</dt><dd>The smallest concentration the instrument can report.</dd></div>
+        <div><dt>Multi-gas / full DGA</dt><dd>Laboratory analysis of the full set of fault gases, used for fault-type interpretation.</dd></div>
+        <div><dt>Ratio methods</dt><dd>Interpretation methods that compare the proportions of several gases. They cannot be applied to two gases alone.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="applies" aria-labelledby="applies-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">05</span>Where it applies</p>
+      <h2 class="sec-head__title sec-head__title--wide" id="applies-title">An oil-filled transformer whose failure is expensive and whose replacement takes a long time.</h2>
+    </div>
+    <ul class="ledger" style="--ledger-cols: 3" data-reveal-group>
+      <li class="ledger__cell"><p class="label">A1</p><h3>Substation power transformers</h3><p class="muted">Power transformers in transmission and distribution substations.</p></li>
+      <li class="ledger__cell"><p class="label">A2</p><h3>Generator step-up and plant transformers</h3><p class="muted">Transformers that connect a generating plant to the network, and those that supply the plant itself.</p></li>
+      <li class="ledger__cell"><p class="label">A3</p><h3>Transformers on critical loads</h3><p class="muted">Where an unplanned outage has a high cost.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--paper2" id="product" aria-labelledby="product-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">06</span>Product</p>
+    </div>
+    <article class="datasheet datasheet--wide ticks" data-reveal>
+      <header class="datasheet__head">
+        <div class="stack">
+          <div class="datasheet__meta"><p class="label">Product · Megger</p></div>
+          <h2 class="datasheet__name" id="product-title">InsuLogix® G2</h2>
+          <p class="datasheet__desc">Megger’s online monitor for hydrogen, acetylene and moisture in transformer oil.</p>
+        </div>
+        <div class="stack">
+          <div class="limit-note">
+            <p class="limit-note__label">Limit — two gases</p>
+            <p>InsuLogix G2 is a two-gas monitor. It does not replace laboratory DGA, and ratio-based interpretation methods cannot be applied to its readings alone.</p>
+          </div>
+          <div class="datasheet__why">
+            <p class="label label--fg">Why one valve matters</p>
+            <p class="small muted">A monitor that mounts on a single existing valve can be fitted without modifying the tank. The installation method for a specific transformer is confirmed per unit.</p>
+          </div>
+        </div>
+      </header>
+      <div class="datasheet__body">
+        <dl class="spec">
+          <div class="spec__row"><dt>Measures</dt><dd>Dissolved hydrogen, dissolved acetylene, moisture in oil</dd></div>
+          <div class="spec__row"><dt>Limits of detection</dt><dd><span class="lod"><b>25 ppm</b> hydrogen</span><span class="lod"><b>0.5 ppm</b> acetylene</span><span class="lod"><b>2 ppm</b> moisture</span></dd></div>
+          <div class="spec__row"><dt>Mounting</dt><dd>On a single 38 mm (1.5 in) valve</dd></div>
+          <div class="spec__row"><dt>Weight</dt><dd>Approximately 13.5 kg</dd></div>
+          <div class="spec__row"><dt>Communication, standard</dt><dd>Modbus RTU and Modbus TCP</dd></div>
+          <div class="spec__row"><dt>Communication, optional</dt><dd>DNP3 and IEC 61850</dd></div>
+        </dl>
+      </div>
+      <footer class="datasheet__foot">
+        <p class="tag tag--dot">Per manufacturer data</p>
+        <p class="label">Ask us for the current datasheet for any value not listed here</p>
+      </footer>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="after-alarm" aria-labelledby="after-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">07</span>After an alarm</p>
+      <h2 class="sec-head__title sec-head__title--wide" id="after-title">The monitor raises the question. The laboratory answers it.</h2>
+    </div>
+    <ol class="steps steps--row steps--5" data-reveal-group>
+      <li class="step"><p class="step__n">01 · Monitor</p><h3 class="h3">Alarm.</h3><p class="muted">Hydrogen, acetylene or moisture passes a set limit, or rises faster than a set rate.</p></li>
+      <li class="step"><p class="step__n">02 · Site</p><h3 class="h3">Check the context.</h3><p class="muted">Load, oil temperature, recent switching or maintenance. Rule out an operational explanation.</p></li>
+      <li class="step"><p class="step__n">03 · Sample</p><h3 class="h3">Take an oil sample.</h3><p class="muted">Send it for full multi-gas laboratory DGA.</p></li>
+      <li class="step step--lab"><p class="step__n">04 · Laboratory</p><h3 class="h3">Interpret.</h3><p class="muted">Under IEC 60599 or IEEE C57.104. This is the step that points to a fault type.</p></li>
+      <li class="step"><p class="step__n">05 · Engineer</p><h3 class="h3">Cross-check and plan.</h3><p class="muted">Compare with partial discharge data and electrical tests. Decide on loading, further tests or an outage.</p></li>
+    </ol>
+    <p class="small muted mt-6">General sequence. Limits and procedures are set by the asset owner.</p>
+  </div>
+</section>
+
+<section class="section section--paper2" id="related" aria-labelledby="related-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <p class="sec-index"><span class="sec-index__n">08</span>Related technology</p>
+      <h2 class="sec-head__title" id="related-title">The same insulation system, from two sides.</h2>
+      <p class="lead">Gas shows the chemical result of a fault. Partial discharge shows electrical activity as it happens. Each catches things the other is slow to see, and on power transformers the two are read together.</p>
+    </div>
+    <div class="xlinks" data-reveal-group>
+      <a class="xlink" href="partial-discharge.html"><span class="xlink__n">T1</span><span class="xlink__t">Partial Discharge Monitoring</span><span class="xlink__d">The electrical side of the same insulation.</span>{{> arrow}}</a>
+      <a class="xlink" href="note-pd-and-dga.html"><span class="xlink__n">Note</span><span class="xlink__t">Reading partial discharge and DGA together</span><span class="xlink__d">What each measurement can and cannot tell you about a power transformer.</span>{{> arrow}}</a>
+      <a class="xlink" href="distribution-power-quality.html"><span class="xlink__n">T4</span><span class="xlink__t">Distribution Transformer &amp; Power Quality Monitoring</span><span class="xlink__d">For oil-condition sensing on distribution transformers.</span>{{> arrow}}</a>
+      <a class="xlink" href="asset-management.html"><span class="xlink__n">T5</span><span class="xlink__t">Asset Management</span><span class="xlink__d">Bring gas and moisture trends into the asset record.</span>{{> arrow}}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="standards" aria-labelledby="standards-title">
+  <div class="wrap">
+    <div class="split split--rail">
+      <div class="sec-head">
+        <p class="sec-index"><span class="sec-index__n">09</span>Standards</p>
+        <h2 class="h3" id="standards-title">Relevant standards</h2>
+      </div>
+      <div data-reveal>
+        <dl class="spec spec--lg">
+          <div class="spec__row"><dt>IEC 60599</dt><dd>Guide for interpreting full multi-gas DGA results from laboratory analysis.</dd></div>
+          <div class="spec__row"><dt>IEEE C57.104</dt><dd>Guide for interpreting gases generated in oil-immersed transformers.</dd></div>
+        </dl>
+        <p class="small muted mt-5 measure">An alarm from an online monitor is normally followed by an oil sample interpreted under one of these guides. The guides apply to the laboratory result, not to the two-gas reading.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper2" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="split split--rail">
+      <div class="sec-head">
+        <p class="sec-index"><span class="sec-index__n">10</span>FAQ</p>
+        <h2 class="h3" id="faq-title">Questions we are asked</h2>
+      </div>
+      <div class="acc-group" data-reveal>
+        <details class="acc" open><summary><span class="acc__n">Q1</span><span class="acc__title">Is InsuLogix G2 a full DGA monitor?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>No. It measures two gases, hydrogen and acetylene, and moisture. It is an early-warning monitor. Fault-type diagnosis needs laboratory multi-gas DGA.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q2</span><span class="acc__title">Then why monitor only two gases?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>Because they carry most of the early-warning information. Hydrogen appears in most developing faults. Acetylene points to high-energy faults. Together they say when to look closer.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q3</span><span class="acc__title">Can we stop taking laboratory samples?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>No. The monitor fills the time between samples and tells you when to take one sooner. Routine laboratory analysis remains the basis for diagnosis.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q4</span><span class="acc__title">What does a moisture alarm mean?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>That water content in the oil has risen. Moisture lowers the dielectric strength of the oil and speeds up paper ageing. Read it with oil temperature, because water moves between paper and oil as temperature changes.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q5</span><span class="acc__title">How does the monitor connect to our systems?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>Per manufacturer data: Modbus RTU and Modbus TCP as standard, DNP3 and IEC 61850 as options.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight tseq-sec" aria-labelledby="tseq-title">
+  <div class="wrap tseq">
+    <div class="tseq__top">
+      <p class="sec-index"><span class="sec-index__n">T2</span>Technology 2 of 5</p>
+      <h2 class="visually-hidden" id="tseq-title">More monitoring technologies</h2>
+      <a class="link-arrow" href="monitoring.html#assets">Back to all assets{{> arrow}}</a>
+    </div>
+    <ol class="tseq__rail">
+      <li><a class="tseq__stop" href="partial-discharge.html"><b>T1</b><span>Partial Discharge</span></a></li>
+      <li><span class="tseq__stop" aria-current="page"><b>T2</b><span>DGA</span></span></li>
+      <li><a class="tseq__stop" href="cable-mv.html"><b>T3</b><span>Cable &amp; MV</span></a></li>
+      <li><a class="tseq__stop" href="distribution-power-quality.html"><b>T4</b><span>Distribution &amp; Power Quality</span></a></li>
+      <li><a class="tseq__stop" href="asset-management.html"><b>T5</b><span>Asset Management</span></a></li>
+    </ol>
+    <div class="tseq__nav">
+      <a class="tseq__go tseq__go--prev" href="partial-discharge.html" rel="prev"><span class="label">{{> arrow}}Previous · T1</span><span class="tseq__t">Partial Discharge Monitoring</span><span class="tseq__q">Is the insulation defect stable or growing?</span></a>
+      <a class="tseq__go tseq__go--next" href="cable-mv.html" rel="next"><span class="label">Next · T3{{> arrow}}</span><span class="tseq__t">Cable &amp; MV Monitoring</span><span class="tseq__q">Where along the route?</span></a>
+    </div>
+  </div>
+</section>
+
+{{> cta cta_title="Ask about DGA monitoring." cta_text="Tell us the transformer rating, its role in the network and your current sampling interval." cta_topic="monitoring"}}

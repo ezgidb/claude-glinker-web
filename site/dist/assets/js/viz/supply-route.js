@@ -168,8 +168,8 @@
   var STR = {
     en: { label: 'Diagram: a field of eighty-one dots, one for each province in the supplier network, converges through a single node, Glinker Group, into one line that reaches the buyer. The line is marked Define, Build, Run.',
       field: '81 PROVINCES · MANUFACTURERS', node: 'GLINKER GROUP', one: 'ONE CONTACT', buyer: 'BUYER', steps: ['DEFINE', 'BUILD', 'RUN'], ill: 'SCHEMATIC' },
-    tr: { label: 'Şema: tedarikçi ağındaki her il için bir nokta olmak üzere seksen bir noktalık alan, tek bir düğümde, Glinker Group\'ta birleşir ve alıcıya tek bir hat olarak ulaşır. Hat üzerinde Tanımla, Kur, İşlet adımları işaretlidir.',
-      field: '81 İL · ÜRETİCİLER', node: 'GLINKER GROUP', one: 'TEK MUHATAP', buyer: 'ALICI', steps: ['TANIMLA', 'KUR', 'İŞLET'], ill: 'ŞEMATİK' }
+    tr: { label: 'Şema: tedarikçi ağındaki her il için bir nokta olmak üzere seksen bir noktalık alan, tek bir düğümde, Glinker Group\'ta birleşir ve alıcıya tek bir hat olarak ulaşır. Hat üzerinde Tanımla, Kurgula, Yürüt adımları işaretlidir.',
+      field: '81 İL · ÜRETİCİLER', node: 'GLINKER GROUP', one: 'TEK MUHATAP', buyer: 'ALICI', steps: ['TANIMLA', 'KURGULA', 'YÜRÜT'], ill: 'ŞEMATİK' }
   }[LANG];
   var MARK = 'M8.43 -7.07A11 11 0 1 0 11 0H0';   /* the Glinker mark, centred on its node */
 

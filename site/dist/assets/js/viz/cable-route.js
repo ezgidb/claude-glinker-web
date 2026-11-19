@@ -169,8 +169,8 @@
     en: { label: 'Illustration in two parts. Above: an underground HV cable route with terminations at both ends and four joints; one joint shows rising temperature and screen current. Below: an MV overhead feeder with three line sensors; the fault is located in the section between the second and third sensor.',
       a: 'HV CABLE CIRCUIT · JOINTS & TERMINATIONS', aS: 'HV CABLE · JOINTS', b: 'MV OVERHEAD FEEDER · LINE SENSORS', bS: 'MV FEEDER · LINE SENSORS', ill: 'ILLUSTRATIVE',
       j: 'J', s: 'S', term: 'TERMINATION', hot1: 'TEMPERATURE ↑', hot2: 'SCREEN CURRENT ↑', fault: 'FAULT SECTION LOCATED', faultS: 'FAULT SECTION' },
-    tr: { label: 'İki bölümlü temsili görsel. Üstte: iki ucunda başlık ve dört ek bulunan yer altı YG kablo güzergâhı; eklerden birinde sıcaklık ve ekran akımı yükseliyor. Altta: üç hat sensörlü OG havai hat; arıza, ikinci ve üçüncü sensör arasındaki bölümde konumlandırılıyor.',
-      a: 'YG KABLO HATTI · EKLER VE BAŞLIKLAR', aS: 'YG KABLO · EKLER', b: 'OG HAVAİ HAT · HAT SENSÖRLERİ', bS: 'OG HAT · SENSÖRLER', ill: 'TEMSİLİ',
+    tr: { label: 'İki bölümlü temsilî görsel. Üstte: iki ucunda başlık ve dört ek bulunan yer altı YG kablo güzergâhı; eklerden birinde sıcaklık ve ekran akımı yükseliyor. Altta: üç hat sensörlü OG havai hat; arıza, ikinci ve üçüncü sensör arasındaki bölümde konumlandırılıyor.',
+      a: 'YG KABLO HATTI · EKLER VE BAŞLIKLAR', aS: 'YG KABLO · EKLER', b: 'OG HAVAİ HAT · HAT SENSÖRLERİ', bS: 'OG HAT · SENSÖRLER', ill: 'TEMSİLÎ',
       j: 'E', s: 'S', term: 'BAŞLIK', hot1: 'SICAKLIK ↑', hot2: 'EKRAN AKIMI ↑', fault: 'ARIZALI BÖLÜM BELİRLENDİ', faultS: 'ARIZALI BÖLÜM' }
   }[LANG];
 

@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DGA Monitoring | InsuLogix G2 | Glinker Group</title>
+  <meta name="description" content="Online monitoring of hydrogen, acetylene and moisture in transformer oil with InsuLogix G2. Early fault warning. Glinker Group, in partnership with Megger.">
+  <meta name="theme-color" content="#0B1220">
+  <meta property="og:site_name" content="Glinker Group">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DGA Monitoring | InsuLogix G2 | Glinker Group">
+  <meta property="og:description" content="Online monitoring of hydrogen, acetylene and moisture in transformer oil with InsuLogix G2. Early fault warning. Glinker Group, in partnership with Megger.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/viz.css">
+  <link rel="stylesheet" href="assets/css/pages-monitoring.css">
+  <link rel="stylesheet" href="assets/css/pages-sectors-supply.css">
+  <link rel="stylesheet" href="assets/css/pages-editorial.css">
+  <script src="assets/js/editorial.js" defer></script>
+  <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+</head>
+<body class="page-tech page-dga" data-nav="monitoring" data-slug="dga" data-header="dark">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<!-- Glinker Group icon set · 24px grid · 1.5px stroke · currentColor. Use: <svg class="icon" viewBox="0 0 24 24"><use href="#i-NAME"/></svg> -->
+<symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 8 22M12 3l4 19M5 7h14M6.5 11.5h11M5 7v2M19 7v2M6.5 11.5v2M17.5 11.5v2M9.4 15.5l6.2 4M14.6 15.5l-6.2 4"/></symbol>
+<symbol id="i-hv-cable" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h5.5M16.5 12H22M10.5 9v6M13.5 9v6"/><rect x="7.5" y="9" width="9" height="6" rx="1.5"/><path d="M4 16.5c1 1 2 1 3 0M17 16.5c1 1 2 1 3 0" opacity=".55"/></symbol>
+<symbol id="i-power-transformer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="13" height="11" rx="1"/><path d="M6.5 9V5M10 9V5M13.5 9V5M5.5 5h2M9 5h2M12.5 5h2M16.5 11.5h3.5M16.5 14.5h3.5M16.5 17.5h3.5M20 10.5v8M2.5 20h15"/></symbol>
+<symbol id="i-generator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11.5" r="7"/><path d="M8.5 11.5c1-2.6 2.5-2.6 3.5 0s2.5 2.6 3.5 0M19 11.5h3M7.5 17 6 21M16.5 17l1.5 4M4 21h16"/></symbol>
+<symbol id="i-gis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="8" rx="4"/><path d="M9 7.5v11M15 7.5v11M12 9V4.5M10 4.5h4"/><circle cx="12" cy="13" r="1.4"/></symbol>
+<symbol id="i-mv-feeder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v18M5 8h14M6 8V5.5M18 8V5.5M12 4V2.5M9 8l3 3 3-3M1.5 4.5c1.6 1.3 3 1.5 4.5 1M18 5.5c1.5.5 2.9.3 4.5-1M9.5 22h5"/></symbol>
+<symbol id="i-distribution-transformer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><circle cx="12" cy="15" r="5"/><path d="M12 4V2M12 20v2"/></symbol>
+<symbol id="i-busbar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="3" rx=".5"/><path d="M7 8v9.5M12 8v9.5M17 8v9.5"/><circle cx="7" cy="19" r="1.4"/><circle cx="12" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></symbol>
+<symbol id="i-fleet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="4.5" r="1.4"/><circle cx="6" cy="9.5" r="1.4"/><circle cx="6" cy="14.5" r="1.4"/><circle cx="12" cy="4.5" r="1.4"/><circle cx="12" cy="9.5" r="1.4"/><circle cx="12" cy="14.5" r="1.4"/><circle cx="18" cy="4.5" r="1.4"/><circle cx="18" cy="9.5" r="1.4"/><circle cx="18" cy="14.5" r="1.4"/><path d="M3 18.5v2.5h18v-2.5"/></symbol>
+<symbol id="i-pd" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2.5-9 7.5-9 10 0s7.5 9 10 0M4.5 6V3M6.5 4.5V2M15 18v3M17 19.5V22"/></symbol>
+<symbol id="i-dga" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.5 4.5 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 2.5-6.5 6-11z"/><circle cx="10.3" cy="13.5" r="1.3"/><circle cx="13.6" cy="16.3" r=".9"/></symbol>
+<symbol id="i-cable" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c5 0 4-12 9-12s4 9 9 9"/><circle cx="3" cy="18" r="1.8" fill="currentColor" stroke="none"/><circle cx="12" cy="6" r="1.8" fill="currentColor" stroke="none"/><circle cx="21" cy="15" r="1.8" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-pq" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c1-6 3-6 4 0s3 6 4 0c.7-2.5 2.3-2.5 3 0s2.3 2.5 3 0c1-6 3-6 4 0 .5 3 1.2 4.5 2 4.5M10 19h6M10 17.5v3M16 17.5v3"/></symbol>
+<symbol id="i-apm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v17h17"/><circle cx="9" cy="15" r="1.3"/><circle cx="13" cy="11.5" r="1.3"/><circle cx="8.5" cy="8" r="1.3"/><circle cx="17.5" cy="6.5" r="2" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-earthing" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9M5 12h14M7.5 16h9M10 20h4"/></symbol>
+<symbol id="i-cables" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="8.2" r="2.5"/><circle cx="8.7" cy="13.9" r="2.5"/><circle cx="15.3" cy="13.9" r="2.5"/></symbol>
+<symbol id="i-mv-installations" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5l8-2.5L20 5v16M3 21h18M12 7v14M7 10h2M15 10h2M10 14v2M14 14v2"/></symbol>
+<symbol id="i-panels" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M8 7h8M8 10.5h8M9 14.5v3M12 14.5v3M15 14.5v3"/></symbol>
+<symbol id="i-lighting" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21V7a4 4 0 0 1 4-4h2M13 3h6l-1.2 3h-3.6zM14 9.5v2M17.2 9l1 1.8M10.8 9l-1 1.8M4.5 21h5"/></symbol>
+<symbol id="i-data-center" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M5 9h14M5 15h14M11.5 6H16M11.5 12H16M11.5 18H16"/><circle cx="8" cy="6" r="1.1" fill="currentColor" stroke="none"/><circle cx="8" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="8" cy="18" r="1.1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16M4 16h16"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.25"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></symbol>
+<symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+</svg>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" id="top">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="index.html" aria-label="Glinker Group — Home"><svg class="brand__glyph" viewBox="0 0 34 28" width="34" height="28" aria-hidden="true" focusable="false"><path d="M18.4 7.6A9 9 0 1 0 21 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><path d="M12 14h17" fill="none" stroke="currentColor" stroke-width="2.2"/><circle class="brand__node" cx="30" cy="14" r="3"/></svg><span class="brand__name">Glinker</span><span class="brand__sub">Group</span>
+</a>
+    <a class="nav-toggle" href="#footer-nav" data-nav-toggle aria-controls="site-nav">
+      <span class="nav-toggle__label" data-open="Menu" data-close="Close">Menu</span>
+      <span class="nav-toggle__icon" aria-hidden="true"><i></i><i></i></span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main navigation">
+      <ul class="nav__list">
+        <li class="nav__item has-mega" data-mega>
+          <a class="nav__link" href="monitoring.html" aria-current="true">Online Monitoring</a>
+          <button class="nav__mega-toggle" type="button" aria-expanded="false" aria-controls="mega-monitoring" aria-label="Open the Online Monitoring menu">
+            <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4.5 6 8.5l4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+          </button>
+          <div class="mega" id="mega-monitoring">
+            <div class="wrap mega__grid">
+              <div class="mega__intro">
+                <a class="mega__overview" href="monitoring.html">
+                  <span class="label">00</span>
+                  <span class="mega__overview-title">Online Monitoring overview</span>
+                  <span class="mega__overview-text">Start from your asset: eight links in the power chain, and what to measure on each.</span>
+                  <span class="link-arrow link-arrow--plain" aria-hidden="true"><svg class="arrow" viewBox="0 0 24 12" width="24" height="12"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+                </a>
+                <p class="label mega__partner">In Türkiye as a strategic partner of Megger</p>
+              </div>
+              <div class="mega__col">
+                <p class="label mega__head">Technologies</p>
+                <ul class="mega__list">
+                  <li><a href="partial-discharge.html"><span class="mega__n">T1</span><span class="mega__t">Partial Discharge Monitoring</span><span class="mega__h">Is the insulation defect growing?</span></a></li>
+                  <li><a href="dga.html"><span class="mega__n">T2</span><span class="mega__t">DGA Monitoring</span><span class="mega__h">Is something developing in the oil?</span></a></li>
+                  <li><a href="cable-mv.html"><span class="mega__n">T3</span><span class="mega__t">Cable &amp; MV Monitoring</span><span class="mega__h">Where along the route?</span></a></li>
+                  <li><a href="distribution-power-quality.html"><span class="mega__n">T4</span><span class="mega__t">Distribution Transformer &amp; Power Quality</span><span class="mega__h">Oil condition and voltage quality</span></a></li>
+                  <li><a href="asset-management.html"><span class="mega__n">T5</span><span class="mega__t">Asset Management</span><span class="mega__h">Which asset first?</span></a></li>
+                </ul>
+              </div>
+              <div class="mega__col mega__col--narrow">
+                <p class="label mega__head">Sectors</p>
+                <ul class="mega__list">
+                  <li><a href="data-centers.html"><span class="mega__n">S1</span><span class="mega__t">Data Centers</span></a></li>
+                  <li><a href="airports.html"><span class="mega__n">S2</span><span class="mega__t">Airports</span></a></li>
+                  <li><a href="distribution-utilities.html"><span class="mega__n">S3</span><span class="mega__t">Distribution Utilities</span></a></li>
+                  <li><a href="monitoring.html#other-facilities"><span class="mega__n">S4</span><span class="mega__t">Other critical facilities</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="supply.html">Supply &amp; Project Solutions</a></li>
+        <li class="nav__item"><a class="nav__link" href="knowledge.html">Knowledge Notes</a></li>
+        <li class="nav__item"><a class="nav__link" href="about.html">About</a></li>
+        <li class="nav__item nav__item--contact"><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__aside">
+        <div class="lang" role="group" aria-label="Language"><span class="lang__item is-current" aria-current="true" lang="en">EN</span><span class="lang__item is-disabled" aria-disabled="true" title="This page is not yet available in this language">TR</span></div>
+        <a class="btn btn--primary btn--sm nav__cta" href="contact.html?topic=monitoring">Request a technical meeting</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+<section class="page-hero page-hero--dark is-dark instrument" aria-labelledby="page-title">
+  <div class="wrap">
+    <nav aria-label="Breadcrumb"><ol class="crumbs">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="monitoring.html">Online Monitoring</a></li>
+      <li><span aria-current="page">DGA Monitoring</span></li>
+    </ol></nav>
+    <div class="page-hero__grid">
+      <div class="page-hero__main">
+        <p class="label"><span class="label--trace">Technology T2</span> · Oil-filled power transformer</p>
+        <h1 class="page-hero__title" id="page-title">Dissolved Gas Analysis (DGA) Monitoring</h1>
+        <p class="page-hero__lead-strong">Online gas measurement gives an early warning between laboratory oil samples.</p>
+        <p class="lead">When a fault develops inside an oil-filled transformer, the oil and paper insulation break down and release gases that dissolve in the oil. Hydrogen and acetylene are the two gases that carry most of the early-warning information.</p>
+        <div class="hero-limit">
+          <p class="label">Read this first</p>
+          <p>This page is about a two-gas online monitor. It warns that something is developing. It does not replace laboratory DGA, and it does not identify the type of fault.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="contact.html?topic=monitoring">Plan a technical meeting<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a>
+          <a class="btn btn--ghost" href="#product">InsuLogix® G2 datasheet</a>
+        </div>
+      </div>
+      <figure class="page-hero__aside fig ticks" style="--tick: var(--trace)">
+        <div class="fig__body fig__body--flush">
+          <div class="viz" data-viz="gas-trend" data-theme="dark">
+            <svg class="viz__fallback dg" viewBox="0 0 560 350" role="img" aria-label="Illustration: hydrogen, acetylene and moisture in oil over time. Hydrogen rises faster and faster until it crosses the alarm limit." focusable="false">
+              <path class="dg-grid" d="M40 80H530M40 160H530M40 240H530"/>
+              <path class="dg-axis" d="M40 40V310H530"/>
+              <path class="dg-limit" d="M40 110H530"/>
+              <text x="522" y="102" text-anchor="end" class="dg-signal">Alarm limit</text>
+              <path class="dg-line dg-line--trace" d="M40 280 120 278 200 276 280 270 340 256 390 234 430 204 465 168 500 120 530 84"/>
+              <path class="dg-line dg-line--ghost" d="M40 296 200 295 330 293 430 288 530 276"/>
+              <text x="48" y="56">Gas in oil · illustrative</text><text x="522" y="330" text-anchor="end">Time →</text>
+            </svg>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+  <div class="wrap"><div class="ruler" aria-hidden="true"></div></div>
+</section>
+
+<nav class="pagenav no-line" aria-label="On this page">
+  <div class="wrap"><ul class="pagenav__list">
+    <li><a href="#phenomenon"><span>01</span>Phenomenon</a></li>
+    <li><a href="#detects"><span>02</span>Detects</a></li>
+    <li><a href="#reading"><span>03</span>Reading it</a></li>
+    <li><a href="#limits"><span>04</span>Can and cannot</a></li>
+    <li><a href="#applies"><span>05</span>Applies</a></li>
+    <li><a href="#product"><span>06</span>Product</a></li>
+    <li><a href="#after-alarm"><span>07</span>After an alarm</a></li>
+    <li><a href="#related"><span>08</span>Related</a></li>
+    <li><a href="#standards"><span>09</span>Standards</a></li>
+    <li><a href="#faq"><span>10</span>FAQ</a></li>
+  </ul></div>
+</nav>
+
+<section class="section" id="phenomenon" aria-labelledby="phenomenon-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">01</span>The phenomenon</p>
+      <h2 class="sec-head__title" id="phenomenon-title">The oil keeps a record of what happens inside the tank.</h2>
+    </div>
+    <div class="split split--even">
+      <div class="prose" data-reveal>
+        <p>A transformer’s insulation is oil and paper. Under normal operation both age slowly. Under abnormal stress, whether electrical or thermal, they decompose faster and release gases. Those gases dissolve in the oil and circulate with it.</p>
+        <p>Which gases form depends on how much energy the fault releases. Low-energy processes produce mainly hydrogen. Very high temperatures and arcing produce acetylene. Other gases sit in between, and their proportions are what a laboratory uses to tell fault types apart.</p>
+        <p>The oil therefore carries information that cannot be seen from outside the tank. A laboratory sample reads it in detail, at intervals. An online monitor reads part of it, all the time.</p>
+      </div>
+      <figure class="gasscale" data-reveal aria-labelledby="gs-cap">
+        <p class="label gasscale__axis">Energy released by the fault <span aria-hidden="true">→</span></p>
+        <ol class="gasscale__track">
+          <li class="gasscale__stop is-on"><b>H<sub>2</sub></b><span class="gasscale__e">Low energy</span><span class="gasscale__r">General signal</span></li>
+          <li class="gasscale__stop is-lab"><b>Other fault gases</b><span class="gasscale__e">In between</span><span class="gasscale__r">Laboratory DGA</span></li>
+          <li class="gasscale__stop is-on is-signal"><b>C<sub>2</sub>H<sub>2</sub></b><span class="gasscale__e">Very high temperature · arcing</span><span class="gasscale__r">Serious signal</span></li>
+        </ol>
+        <div class="gasscale__key"><span class="is-on">On the online two-gas monitor</span><span class="is-lab">Laboratory only</span></div>
+        <figcaption id="gs-cap" class="gasscale__cap">Which gas forms depends on the energy of the fault. Schematic, not to scale.</figcaption>
+      </figure>
+    </div>
+    <p class="pull mt-8" data-reveal>A laboratory sample tells you a great deal, occasionally. A monitor tells you less, continuously. You need both.</p>
+  </div>
+</section>
+
+<section class="section section--paper2" id="detects" aria-labelledby="detects-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">02</span>What it detects</p>
+      <h2 class="sec-head__title sec-head__title--wide" id="detects-title">Two gases and the water content. Three readings, three meanings.</h2>
+    </div>
+    <div class="gas-tiles" data-reveal-group>
+      <article class="gas-tile">
+        <p class="label">Gas 01 · general signal</p>
+        <p class="gas-tile__sym" aria-hidden="true">H<sub>2</sub></p>
+        <h3 class="gas-tile__name">Hydrogen</h3>
+        <p class="muted">Produced by most developing faults, including partial discharge and overheating, so it is a general early indicator.</p>
+      </article>
+      <article class="gas-tile gas-tile--signal">
+        <p class="label label--signal">Gas 02 · serious signal</p>
+        <p class="gas-tile__sym" aria-hidden="true">C<sub>2</sub>H<sub>2</sub></p>
+        <h3 class="gas-tile__name">Acetylene</h3>
+        <p class="muted">Associated with arcing and very high temperatures, so even small amounts need attention.</p>
+      </article>
+      <article class="gas-tile">
+        <p class="label">Water · insulation ageing</p>
+        <p class="gas-tile__sym" aria-hidden="true">H<sub>2</sub>O</p>
+        <h3 class="gas-tile__name">Moisture in oil</h3>
+        <p class="muted">Reduces dielectric strength and speeds up ageing of paper insulation.</p>
+      </article>
+    </div>
+    <div class="defrow defrow--flush mt-6" data-reveal>
+      <p class="label label--fg">Key line</p>
+      <p class="measure">An online two-gas monitor answers the question “is something developing, and how fast?”. Identifying the type of fault needs a full multi-gas analysis.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reading" aria-labelledby="reading-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">03</span>Reading it</p>
+      <h2 class="sec-head__title" id="reading-title">The rate matters more than the number.</h2>
+    </div>
+    <div class="split split--even">
+      <dl class="spec" data-reveal>
+        <div class="spec__row"><dt>Level</dt><dd>The concentration of a gas in the oil, in parts per million. A level means little without the transformer’s own history: design, age, loading and earlier samples all shift what is normal for a unit.</dd></div>
+        <div class="spec__row"><dt>Rate of change</dt><dd>How fast the level is rising. A stable level, even a raised one, describes a past event or a stable condition. A rising level describes something active now. <strong>This is what an online monitor shows and a periodic sample cannot.</strong></dd></div>
+        <div class="spec__row"><dt>Hydrogen</dt><dd>The general signal. Because most fault types produce it, hydrogen is the broad alert. It says “look closer”, not “this is the cause”.</dd></div>
+        <div class="spec__row"><dt>Acetylene</dt><dd>The serious signal. It forms only at very high energy. In a transformer where it has been absent, its appearance deserves prompt attention.</dd></div>
+        <div class="spec__row"><dt>Moisture</dt><dd>Read with temperature. Water moves between paper and oil as temperature changes, so a moisture reading is read together with oil temperature and load. Its trend over days says more than one value.</dd></div>
+      </dl>
+      <figure class="fig is-dark instrument ticks rate-fig sticky" style="--tick: var(--signal)" data-reveal>
+        <div class="fig__head"><p class="label label--fg">Fig. 2 — Two units, two stories</p><p class="label">Illustrative</p></div>
+        <div class="fig__body">
+          <svg class="dg" viewBox="0 0 520 330" role="img" aria-labelledby="rate-t rate-d" focusable="false">
+            <title id="rate-t">A high stable level compared with a lower rising level</title>
+            <desc id="rate-d">Unit A has a raised hydrogen level that stays flat. Unit B starts lower but rises steadily and will pass unit A. The rising unit is the one with something active now.</desc>
+            <path class="dg-grid" d="M40 70H500M40 140H500M40 210H500"/>
+            <path class="dg-axis" d="M40 30V280H500"/>
+            <path class="dg-line dg-line--ghost" d="M40 110 100 112 160 109 220 111 280 110 340 112 400 110 460 111 500 110" style="stroke-dasharray: none; opacity: .75"/>
+            <path class="dg-line dg-line--signal" d="M40 252 100 250 160 244 220 232 280 214 340 190 400 160 460 124 500 96"/>
+            <circle class="dg-dot--signal" cx="500" cy="96" r="5"/>
+            <text x="48" y="100" class="dg-fg">Unit A · raised, stable</text>
+            <text x="490" y="240" text-anchor="end" class="dg-signal">Unit B · lower, rising</text>
+            <text x="40" y="300">Level (ppm)</text><text x="500" y="300" text-anchor="end">Time →</text>
+          </svg>
+        </div>
+        <figcaption class="fig__cap"><p>Unit A describes a past event or a stable condition. Unit B describes something active now. Illustrative, not measured data.</p></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper2" id="limits" aria-labelledby="limits-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <p class="sec-index"><span class="sec-index__n">04</span>Can and cannot</p>
+      <h2 class="sec-head__title" id="limits-title">What a two-gas monitor can and cannot tell you.</h2>
+      <p class="lead">The honest version, before anything else. The monitor raises the question; the laboratory and the engineer answer it.</p>
+    </div>
+    <div data-reveal>
+      <table class="cando">
+        <caption class="visually-hidden">What an online two-gas monitor can and cannot tell you</caption>
+        <thead><tr><th scope="col">A two-gas online monitor can tell you</th><th scope="col">It cannot tell you</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Can tell you">That gas is being generated, and how quickly</td><td data-label="Cannot tell you">The type of fault: ratio-based methods need the full set of gases</td></tr>
+          <tr><td data-label="Can tell you">That acetylene has appeared or is rising</td><td data-label="Cannot tell you">Where in the transformer the fault is</td></tr>
+          <tr><td data-label="Can tell you">That moisture in the oil is rising</td><td data-label="Cannot tell you">The condition of the paper insulation directly</td></tr>
+          <tr><td data-label="Can tell you">When to take an oil sample sooner than planned</td><td data-label="Cannot tell you">Whether the unit is safe to keep in service; that is an engineering decision made with more data</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-8" data-reveal>
+      <p class="label gloss__head">Terms used on this page</p>
+      <dl class="gloss gloss--2">
+        <div><dt>DGA</dt><dd>Dissolved gas analysis: measuring the gases dissolved in transformer oil.</dd></div>
+        <div><dt>ppm</dt><dd>Parts per million, the unit of gas concentration in oil.</dd></div>
+        <div><dt>Limit of detection</dt><dd>The smallest concentration the instrument can report.</dd></div>
+        <div><dt>Multi-gas / full DGA</dt><dd>Laboratory analysis of the full set of fault gases, used for fault-type interpretation.</dd></div>
+        <div><dt>Ratio methods</dt><dd>Interpretation methods that compare the proportions of several gases. They cannot be applied to two gases alone.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="applies" aria-labelledby="applies-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">05</span>Where it applies</p>
+      <h2 class="sec-head__title sec-head__title--wide" id="applies-title">An oil-filled transformer whose failure is expensive and whose replacement takes a long time.</h2>
+    </div>
+    <ul class="ledger" style="--ledger-cols: 3" data-reveal-group>
+      <li class="ledger__cell"><p class="label">A1</p><h3>Substation power transformers</h3><p class="muted">Power transformers in transmission and distribution substations.</p></li>
+      <li class="ledger__cell"><p class="label">A2</p><h3>Generator step-up and plant transformers</h3><p class="muted">Transformers that connect a generating plant to the network, and those that supply the plant itself.</p></li>
+      <li class="ledger__cell"><p class="label">A3</p><h3>Transformers on critical loads</h3><p class="muted">Where an unplanned outage has a high cost.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--paper2" id="product" aria-labelledby="product-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">06</span>Product</p>
+    </div>
+    <article class="datasheet datasheet--wide ticks" data-reveal>
+      <header class="datasheet__head">
+        <div class="stack">
+          <div class="datasheet__meta"><p class="label">Product · Megger</p></div>
+          <h2 class="datasheet__name" id="product-title">InsuLogix® G2</h2>
+          <p class="datasheet__desc">Megger’s online monitor for hydrogen, acetylene and moisture in transformer oil.</p>
+        </div>
+        <div class="stack">
+          <div class="limit-note">
+            <p class="limit-note__label">Limit — two gases</p>
+            <p>InsuLogix G2 is a two-gas monitor. It does not replace laboratory DGA, and ratio-based interpretation methods cannot be applied to its readings alone.</p>
+          </div>
+          <div class="datasheet__why">
+            <p class="label label--fg">Why one valve matters</p>
+            <p class="small muted">A monitor that mounts on a single existing valve can be fitted without modifying the tank. The installation method for a specific transformer is confirmed per unit.</p>
+          </div>
+        </div>
+      </header>
+      <div class="datasheet__body">
+        <dl class="spec">
+          <div class="spec__row"><dt>Measures</dt><dd>Dissolved hydrogen, dissolved acetylene, moisture in oil</dd></div>
+          <div class="spec__row"><dt>Limits of detection</dt><dd><span class="lod"><b>25 ppm</b> hydrogen</span><span class="lod"><b>0.5 ppm</b> acetylene</span><span class="lod"><b>2 ppm</b> moisture</span></dd></div>
+          <div class="spec__row"><dt>Mounting</dt><dd>On a single 38 mm (1.5 in) valve</dd></div>
+          <div class="spec__row"><dt>Weight</dt><dd>Approximately 13.5 kg</dd></div>
+          <div class="spec__row"><dt>Communication, standard</dt><dd>Modbus RTU and Modbus TCP</dd></div>
+          <div class="spec__row"><dt>Communication, optional</dt><dd>DNP3 and IEC 61850</dd></div>
+        </dl>
+      </div>
+      <footer class="datasheet__foot">
+        <p class="tag tag--dot">Per manufacturer data</p>
+        <p class="label">Ask us for the current datasheet for any value not listed here</p>
+      </footer>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="after-alarm" aria-labelledby="after-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">07</span>After an alarm</p>
+      <h2 class="sec-head__title sec-head__title--wide" id="after-title">The monitor raises the question. The laboratory answers it.</h2>
+    </div>
+    <ol class="steps steps--row steps--5" data-reveal-group>
+      <li class="step"><p class="step__n">01 · Monitor</p><h3 class="h3">Alarm.</h3><p class="muted">Hydrogen, acetylene or moisture passes a set limit, or rises faster than a set rate.</p></li>
+      <li class="step"><p class="step__n">02 · Site</p><h3 class="h3">Check the context.</h3><p class="muted">Load, oil temperature, recent switching or maintenance. Rule out an operational explanation.</p></li>
+      <li class="step"><p class="step__n">03 · Sample</p><h3 class="h3">Take an oil sample.</h3><p class="muted">Send it for full multi-gas laboratory DGA.</p></li>
+      <li class="step step--lab"><p class="step__n">04 · Laboratory</p><h3 class="h3">Interpret.</h3><p class="muted">Under IEC 60599 or IEEE C57.104. This is the step that points to a fault type.</p></li>
+      <li class="step"><p class="step__n">05 · Engineer</p><h3 class="h3">Cross-check and plan.</h3><p class="muted">Compare with partial discharge data and electrical tests. Decide on loading, further tests or an outage.</p></li>
+    </ol>
+    <p class="small muted mt-6">General sequence. Limits and procedures are set by the asset owner.</p>
+  </div>
+</section>
+
+<section class="section section--paper2" id="related" aria-labelledby="related-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <p class="sec-index"><span class="sec-index__n">08</span>Related technology</p>
+      <h2 class="sec-head__title" id="related-title">The same insulation system, from two sides.</h2>
+      <p class="lead">Gas shows the chemical result of a fault. Partial discharge shows electrical activity as it happens. Each catches things the other is slow to see, and on power transformers the two are read together.</p>
+    </div>
+    <div class="xlinks" data-reveal-group>
+      <a class="xlink" href="partial-discharge.html"><span class="xlink__n">T1</span><span class="xlink__t">Partial Discharge Monitoring</span><span class="xlink__d">The electrical side of the same insulation.</span><svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a>
+      <a class="xlink" href="note-pd-and-dga.html"><span class="xlink__n">Note</span><span class="xlink__t">Reading partial discharge and DGA together</span><span class="xlink__d">What each measurement can and cannot tell you about a power transformer.</span><svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a>
+      <a class="xlink" href="distribution-power-quality.html"><span class="xlink__n">T4</span><span class="xlink__t">Distribution Transformer &amp; Power Quality Monitoring</span><span class="xlink__d">For oil-condition sensing on distribution transformers.</span><svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a>
+      <a class="xlink" href="asset-management.html"><span class="xlink__n">T5</span><span class="xlink__t">Asset Management</span><span class="xlink__d">Bring gas and moisture trends into the asset record.</span><svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="standards" aria-labelledby="standards-title">
+  <div class="wrap">
+    <div class="split split--rail">
+      <div class="sec-head">
+        <p class="sec-index"><span class="sec-index__n">09</span>Standards</p>
+        <h2 class="h3" id="standards-title">Relevant standards</h2>
+      </div>
+      <div data-reveal>
+        <dl class="spec spec--lg">
+          <div class="spec__row"><dt>IEC 60599</dt><dd>Guide for interpreting full multi-gas DGA results from laboratory analysis.</dd></div>
+          <div class="spec__row"><dt>IEEE C57.104</dt><dd>Guide for interpreting gases generated in oil-immersed transformers.</dd></div>
+        </dl>
+        <p class="small muted mt-5 measure">An alarm from an online monitor is normally followed by an oil sample interpreted under one of these guides. The guides apply to the laboratory result, not to the two-gas reading.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper2" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="split split--rail">
+      <div class="sec-head">
+        <p class="sec-index"><span class="sec-index__n">10</span>FAQ</p>
+        <h2 class="h3" id="faq-title">Questions we are asked</h2>
+      </div>
+      <div class="acc-group" data-reveal>
+        <details class="acc" open><summary><span class="acc__n">Q1</span><span class="acc__title">Is InsuLogix G2 a full DGA monitor?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>No. It measures two gases, hydrogen and acetylene, and moisture. It is an early-warning monitor. Fault-type diagnosis needs laboratory multi-gas DGA.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q2</span><span class="acc__title">Then why monitor only two gases?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>Because they carry most of the early-warning information. Hydrogen appears in most developing faults. Acetylene points to high-energy faults. Together they say when to look closer.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q3</span><span class="acc__title">Can we stop taking laboratory samples?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>No. The monitor fills the time between samples and tells you when to take one sooner. Routine laboratory analysis remains the basis for diagnosis.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q4</span><span class="acc__title">What does a moisture alarm mean?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>That water content in the oil has risen. Moisture lowers the dielectric strength of the oil and speeds up paper ageing. Read it with oil temperature, because water moves between paper and oil as temperature changes.</p></div></details>
+        <details class="acc"><summary><span class="acc__n">Q5</span><span class="acc__title">How does the monitor connect to our systems?</span><span class="acc__meta"></span></summary><div class="acc__body"><p>Per manufacturer data: Modbus RTU and Modbus TCP as standard, DNP3 and IEC 61850 as options.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight tseq-sec" aria-labelledby="tseq-title">
+  <div class="wrap tseq">
+    <div class="tseq__top">
+      <p class="sec-index"><span class="sec-index__n">T2</span>Technology 2 of 5</p>
+      <h2 class="visually-hidden" id="tseq-title">More monitoring technologies</h2>
+      <a class="link-arrow" href="monitoring.html#assets">Back to all assets<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a>
+    </div>
+    <ol class="tseq__rail">
+      <li><a class="tseq__stop" href="partial-discharge.html"><b>T1</b><span>Partial Discharge</span></a></li>
+      <li><span class="tseq__stop" aria-current="page"><b>T2</b><span>DGA</span></span></li>
+      <li><a class="tseq__stop" href="cable-mv.html"><b>T3</b><span>Cable &amp; MV</span></a></li>
+      <li><a class="tseq__stop" href="distribution-power-quality.html"><b>T4</b><span>Distribution &amp; Power Quality</span></a></li>
+      <li><a class="tseq__stop" href="asset-management.html"><b>T5</b><span>Asset Management</span></a></li>
+    </ol>
+    <div class="tseq__nav">
+      <a class="tseq__go tseq__go--prev" href="partial-discharge.html" rel="prev"><span class="label"><svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+Previous · T1</span><span class="tseq__t">Partial Discharge Monitoring</span><span class="tseq__q">Is the insulation defect stable or growing?</span></a>
+      <a class="tseq__go tseq__go--next" href="cable-mv.html" rel="next"><span class="label">Next · T3<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</span><span class="tseq__t">Cable &amp; MV Monitoring</span><span class="tseq__q">Where along the route?</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band is-dark instrument" aria-labelledby="cta-title">
+  <svg class="cta-band__trace" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M0 62 L40 60 80 63 120 59 160 62 200 61 240 64 280 60 320 62 360 59 400 63 440 61 480 60 520 63 560 61 600 62 640 59 680 62 720 60 760 63 800 61 840 62 880 60 920 63 960 61 1000 59 1040 62 1080 61 1120 63 1160 60 1200 62 1240 61 1280 59 1320 62 1360 61 1400 63 1440 61"/></svg>
+  <div class="wrap cta-band__inner">
+    <div class="sec-head">
+      <p class="sec-index"><span class="sec-index__n">→</span>Start</p>
+    </div>
+    <div class="cta-band__grid">
+      <h2 class="cta-band__title" id="cta-title" data-reveal>Ask about DGA monitoring.</h2>
+      <div class="cta-band__body" data-reveal>
+        <p class="lead">Tell us the transformer rating, its role in the network and your current sampling interval.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="contact.html?topic=monitoring">Request a technical meeting<svg class="arrow" viewBox="0 0 24 12" width="24" height="12" aria-hidden="true" focusable="false"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+</a>
+          <a class="btn btn--ghost" href="contact.html?topic=supply">Send your requirement</a>
+        </div>
+        <p class="label cta-band__contact"><a href="mailto:koordinasyon@glinkergroup.com">koordinasyon@glinkergroup.com</a><span aria-hidden="true"> · </span>Ankara, Türkiye</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer class="site-footer is-dark" id="footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="brand brand--lg" href="index.html" aria-label="Glinker Group — Home"><svg class="brand__glyph" viewBox="0 0 34 28" width="34" height="28" aria-hidden="true" focusable="false"><path d="M18.4 7.6A9 9 0 1 0 21 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><path d="M12 14h17" fill="none" stroke="currentColor" stroke-width="2.2"/><circle class="brand__node" cx="30" cy="14" r="3"/></svg><span class="brand__name">Glinker</span><span class="brand__sub">Group</span>
+</a>
+        <p class="site-footer__tagline">Solution partner for monitoring and supply in critical electrical infrastructure.</p>
+        <p class="site-footer__identity">Trade Facilitator — one point of access between international buyers and Turkish manufacturers.</p>
+        <p class="label site-footer__contact"><a href="mailto:koordinasyon@glinkergroup.com">koordinasyon@glinkergroup.com</a><br>Ankara, Türkiye</p>
+      </div>
+      <nav class="site-footer__nav" id="footer-nav" aria-label="Main navigation (footer)">
+        <div class="site-footer__col">
+          <p class="label">Online Monitoring</p>
+          <ul>
+            <li><a href="monitoring.html">Overview</a></li>
+            <li><a href="partial-discharge.html">Partial Discharge Monitoring</a></li>
+            <li><a href="dga.html">DGA Monitoring</a></li>
+            <li><a href="cable-mv.html">Cable &amp; MV Monitoring</a></li>
+            <li><a href="distribution-power-quality.html">Distribution Transformer &amp; Power Quality</a></li>
+            <li><a href="asset-management.html">Asset Management</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <p class="label">Sectors</p>
+          <ul>
+            <li><a href="data-centers.html">Data Centers</a></li>
+            <li><a href="airports.html">Airports</a></li>
+            <li><a href="distribution-utilities.html">Distribution Utilities</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <p class="label">Company</p>
+          <ul>
+            <li><a href="supply.html">Supply &amp; Project Solutions</a></li>
+            <li><a href="knowledge.html">Knowledge Notes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy Notice</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <p class="site-footer__slogan" aria-label="Bridging Cultures, Building Trust."><span>Bridging Cultures,</span> <span>Building Trust.</span></p>
+    <div class="site-footer__legal">
+      <p>© 2026 Glinker Group · Ankara, Türkiye</p>
+      <p class="site-footer__notes">Online monitoring solutions are provided in Türkiye as a strategic partner of Megger. Product and company names are trademarks of their respective owners. Technical values are per manufacturer data.</p>
+      <p><a href="#top" class="site-footer__top-link">Back to top ↑</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/viz/gas-trend.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,519 @@
+Glinker Group Site Prototype
+Tasarım notlarını göster
+Glinker
+GROUP
+Menu
+Online Monitoring
+Online Monitoring overview
+Technologies
+Partial Discharge Monitoring
+DGA Monitoring
+Cable & MV Monitoring
+Distribution Transformer & Power Quality
+Asset Management
+Sectors
+Data Centers
+Airports
+Distribution Utilities
+Supply & Project Solutions
+Knowledge Notes
+About
+Contact
+Show for
+All
+Data Centers
+Airports
+Distribution Utilities
+Open sector page
+HV cable circuit
+Next asset
+Main risk
+Joint and termination failure.
+Joint or termination failure on the single supply route.
+Joint and termination failure on supply routes.
+What is different
+The weak points are spread along the route, not in one place.
+Monitoring
+Cable & MV Monitoring
+Product
+Synaptec Greenlight
+Power transformer
+Next asset
+Main risk
+Insulation breakdown in windings and bushings; developing internal fault.
+Insulation fault developing unnoticed under continuous high load.
+Internal fault leading to loss of the main supply.
+Developing internal fault; long replacement lead time.
+What is different
+Long replacement lead time: early warning has the highest value here.
+Monitoring
+Partial Discharge
+·
+DGA
+Product
+ICMobserver · InsuLogix G2
+Generator & HV motor
+Next asset
+Main risk
+Stator winding insulation deterioration.
+What is different
+Some partial discharge is always present, so the trend matters, not the single reading.
+Monitoring
+Partial Discharge Monitoring
+Product
+ICMobserver
+MV overhead feeder
+Next asset
+Main risk
+Line faults, broken conductors, high-impedance faults.
+Long fault-location times; broken conductors.
+What is different
+The task is locating a fault on a long line, not assessing insulation.
+Monitoring
+Cable & MV Monitoring
+Product
+MS5200 with Megger Grid Analytics
+Distribution transformer
+Next asset
+Main risk
+Oil ageing and moisture.
+Oil ageing and moisture across many units.
+Oil ageing and moisture across a large population.
+What is different
+Many low-cost units: one sensor per unit, not a full monitoring system.
+Monitoring
+Distribution Transformer & Power Quality
+Product
+TrafoStick (A. Eberle)
+Supply point / busbar
+Next asset
+Main risk
+Voltage dips, harmonics, flicker, unbalance.
+Voltage dips and harmonics from non-linear load.
+Voltage dips and harmonics affecting electronic loads.
+Supply quality obligations.
+What is different
+A network property measured at a connection point, not a condition of one asset.
+Monitoring
+Distribution Transformer & Power Quality
+Product
+PQI-DA smart (A. Eberle)
+Whole fleet
+Next asset
+Main risk
+Maintenance and investment effort placed on the wrong assets.
+No single view of asset condition across sites.
+Prioritising maintenance and investment.
+What is different
+Combines data from all assets; adds no new measurement.
+Monitoring
+Asset Management
+Product
+IPS APM
+Glinker
+GROUP
+Trade Facilitator
+· One point of access between international buyers and Turkish manufacturers
+Solution partner for monitoring and supply in critical electrical infrastructure
+What do you need?
+Monitor critical assets
+Transformers, cables, machines, networks
+→
+Data Centers
+Airports
+Distribution Utilities
+Source electrical materials
+From Turkish manufacturers, one contact
+→
+Megger
+Strategic partner
+81
+Provinces in supplier network
+18+
+Years in electrical supply
+Start with a technical conversation
+Request a technical meeting
+Online Monitoring
+Faults develop over weeks. Continuous monitoring shows the trend while the asset stays in service.
+Select an asset
+Technologies
+Partial Discharge
+DGA
+Cable & MV
+Distribution & Power Quality
+Asset Management
+Why continuous monitoring?
+Most insulation and network faults do not appear suddenly. They develop over weeks or months, and for most of that time the asset keeps operating normally. A periodic test records one moment. A permanently installed monitor measures while the asset is in service, records the trend and raises an alarm when a set limit is passed, so maintenance can be planned around the condition of the asset.
+Generation, transmission, rail, defence-industry and other critical facilities use the same assets. For these, and for other solutions and field test instruments, contact us.
+Discuss your assets
+Request a technical meeting
+Online Monitoring
+/ Partial Discharge Monitoring
+Partial Discharge Monitoring
+Shows whether an insulation defect is stable or growing, while the asset stays energised.
+Detects
+Applies
+Product
+Standards
+What it detects
+Voids and cracks
+Inside solid insulation.
+Surface tracking
+On bushings and terminations.
+Stator discharges
+Slot and end-winding discharges in stator windings.
+Rising trend
+Changes in magnitude and repetition rate over time.
+A single measurement shows discharge is present. A trend tells you whether to act.
+Where it applies
+Power transformer
+Generator & HV motor
+Cable terminations
+Product
+ICMobserver
+Permanently installed monitoring system from Megger's Power Diagnostix line.
+Per manufacturer data
+In one unit
+Spectrum analyser, time-domain oscilloscope, voltage measurement, partial discharge monitor
+Alarms
+Qp on discharge level; NQS on discharge events per second
+Operation
+Web browser
+Existing sensors
+Sensors from other suppliers can typically be integrated
+Sensors
+Defined per installation with the manufacturer
+Standards
+IEC 60270
+Reference standard for partial discharge measurement.
+IEC TS 62478
+Electromagnetic and acoustic measurement methods.
+IEC TS 60034-27-2
+Online measurement on stator windings of rotating machines.
+See also:
+DGA Monitoring
+Ask about partial discharge monitoring
+Request a technical meeting
+Online Monitoring
+/ DGA Monitoring
+Dissolved Gas Analysis (DGA) Monitoring
+Online gas measurement gives an early warning between laboratory oil samples.
+Detects
+Applies
+Product
+Standards
+What it detects
+H₂
+Hydrogen
+Produced by most developing faults: a general early indicator.
+C₂H₂
+Acetylene
+Associated with arcing; even small amounts need attention.
+Moisture
+Reduces dielectric strength and speeds up paper ageing.
+A two-gas monitor shows that something is developing. Fault type needs laboratory DGA.
+Where it applies
+Oil-filled power transformer
+Product
+InsuLogix G2
+Megger's online monitor for transformer oil.
+Per manufacturer data
+Measures
+Hydrogen, acetylene, moisture in oil
+Detection limits
+25 ppm H₂ · 0.5 ppm C₂H₂ · 2 ppm moisture
+Mounting
+Single 38 mm (1.5 in) valve
+Weight
+Approx. 13.5 kg
+Communication
+Modbus RTU / TCP; DNP3 and IEC 61850 optional
+Two-gas monitor. It does not replace laboratory DGA; ratio methods do not apply to its readings alone.
+Standards
+IEC 60599
+Guide for interpreting full multi-gas DGA results from laboratory analysis.
+IEEE C57.104
+Guide for interpreting gases generated in oil-immersed transformers.
+See also:
+Partial Discharge Monitoring
+Ask about DGA monitoring
+Request a technical meeting
+Online Monitoring
+/ Cable & MV Monitoring
+Cable & MV Monitoring
+The asset is a route, not a single item: watch known weak points, locate faults fast.
+Detects
+Applies
+Products
+What it detects
+Screen current
+Abnormal sheath currents at HV joints and terminations.
+Overheating
+Temperature at HV joints and terminations.
+Broken conductor
+On MV overhead feeders, with the faulted section identified.
+High-impedance fault
+On MV overhead feeders.
+Where it applies
+HV cable circuit
+MV overhead feeder
+Products
+Synaptec Greenlight
+For HV cable circuits; from Synaptec, offered by Megger under a strategic alliance.
+Per manufacturer data
+Monitors
+Joints and terminations along the circuit
+Measures
+Phase current, screen current, temperature
+Sensors
+Passive; no control power at the measuring point
+MS5200 with Megger Grid Analytics
+Line-mounted MV sensor and the software that analyses its data.
+Per manufacturer data
+Accuracy
+0.5 % current and voltage measurement
+Versions
+MS5200-SU with radio; MS5200-GS with integrated cellular gateway
+Software
+Identifies broken conductors and high-impedance faults; Megger-hosted or on the customer's server
+See also:
+Partial Discharge Monitoring
+·
+Distribution Transformer & Power Quality
+Ask about cable and MV monitoring
+Request a technical meeting
+Online Monitoring
+/ Distribution Transformer & Power Quality
+Distribution Transformer & Power Quality Monitoring
+A compact sensor for transformer oil, and a Class A analyser for the quality of supply.
+Detects
+Applies
+Products
+Standards
+What it detects
+Oil strength
+Falling dielectric strength of transformer oil.
+Moisture
+Rising moisture in the oil.
+Voltage events
+Dips, swells, harmonics, flicker and unbalance, with recorded waveforms.
+Where it applies
+Distribution transformer
+Supply point / busbar
+Products
+TrafoStick (A. Eberle)
+In-oil sensor for continuous monitoring of transformer oil condition.
+PQI-DA smart (A. Eberle)
+Fixed-installed power quality analyser and fault recorder for LV, MV and HV networks.
+Per manufacturer data
+Measurement class
+Class A to IEC 61000-4-30 Edition 3
+Classification
+PQI-A-FI-H under IEC 62586
+Fault recorder
+Sampling at 40.96 kHz
+Standards
+EN 50160
+Voltage characteristics of public electricity networks.
+IEC 61000-4-30
+How power quality parameters are measured; Class A gives comparable, contractually reliable results.
+See also:
+DGA Monitoring
+·
+Asset Management
+Ask about distribution and power quality monitoring
+Request a technical meeting
+Online Monitoring
+/ Asset Management
+Asset Management
+Software that turns test and monitoring data into a ranked plan for the whole fleet.
+Does
+Applies
+Product
+What it does
+1
+Collect
+Test and monitoring data in one record per asset.
+2
+Assess
+A condition indication per asset.
+3
+Rank
+By condition and importance to the network.
+4
+Plan
+Maintenance and longer-term investment.
+It adds no new measurement. Its value depends on the data that monitoring and testing provide.
+Where it applies
+Whole fleet
+Product
+IPS APM
+Asset performance management software from IPS-ENERGY, offered by Megger.
+Platform
+IPS SYSTEMS enterprise asset management for power utilities
+Data
+Test and monitoring data brought into the asset record
+Planning
+Asset investment planning through a dedicated module
+Scope
+Data sources and interfaces defined per organisation
+Ask about asset management
+Request a technical meeting
+Online Monitoring
+/ Sectors / Data Centers
+Online Monitoring for Data Centers
+Redundancy hides a slow insulation fault; it does not remove it.
+Racks, PDU, UPS and ATS/STS: see
+Supply & Project Solutions
+. ·
+See all assets
+Discuss your data center
+Request a technical meeting
+Online Monitoring
+/ Sectors / Airports
+Online Monitoring for Airports
+One substation fault can stop the whole operation, and maintenance windows are short.
+See all assets
+Discuss your airport
+Request a technical meeting
+Online Monitoring
+/ Sectors / Distribution Utilities
+Online Monitoring for Distribution Utilities
+Where is the fault, which asset is closest to failure, what to maintain first?
+See all assets
+Discuss your network
+Request a technical meeting
+Supply & Project Solutions
+Electrical materials and project solutions matched with Turkish manufacturers. Glinker Group is not a manufacturer; you deal with one contact.
+Supply scope
+Earthing & conduit
+Cables & conductors
+MV installations
+Panels & switchgear
+Lighting
+Data center power
+Galvanized strip
+Copper
+Grounding rods and boards
+Lightning protection
+PVC pipes and conduits
+Cases, boxes and fixing units
+Cable trays and ladders
+Under-floor cable trays
+MV and LV power cables
+Industrial, wind and solar power cables
+Signal cables
+Weak current cables
+Fiber optic cables
+Special production cables
+Structured cabling systems
+Materials for medium-voltage installations
+Low voltage panels
+Panelboards and switchboards
+Protection and control products
+Switchgear
+Busbar
+Switches and sockets
+Compensation equipment
+Indoor lighting
+Exterior and outdoor lighting
+Motion sensors
+Emergency kits and lighting
+Lighting automation
+Passive infrastructure
+Racks
+PDU
+UPS
+ATS/STS
+Monitoring for data centers
+How it works
+1
+Define
+2
+Build
+3
+Run
+You bring
+Item list, technical specification, applicable standards, target delivery.
+You get
+A clear scope and a short list of open questions.
+You bring
+Answers to the open questions; your priorities on specification, quality and delivery time.
+You get
+A comparable proposal from matched manufacturers. The choice stays with you.
+You bring
+Your selection and order.
+You get
+Order, production follow-up, documents and logistics through one contact; a status you can follow.
+The scope of each engagement is set out in the agreement.
+81 provinces
+in the supplier network. A preliminary study can be started for items where you are looking for an alternative.
+You can also contact us for needs in engineering and project design, building systems, software and cyber security.
+Send your requirement
+Knowledge Notes
+Our notes, and short summaries of industry sources.
+All
+Partial discharge
+Dissolved gas analysis
+Digest · Megger Knowledge Hub
+Choosing a partial discharge monitoring system
+For: maintenance and asset management teams preparing a specification.
+3-point summary
+What it says:
+systems range from permanent online monitoring to portable, periodic measurement; the choice follows from the asset and the purpose.
+Why it matters:
+the decision is about the asset and its criticality first, the instrument second.
+Open the source (megger.com)
+Digest · Megger
+Why hydrogen and acetylene are the two gases to watch
+For: transformer engineers and substation maintenance managers.
+3-point summary
+What it says:
+hydrogen appears early in most developing transformer faults, while acetylene points to high-energy faults.
+Why it matters:
+it explains what a two-gas online monitor is for, and what still needs laboratory analysis.
+Open the source (megger.com)
+About Glinker Group
+Ankara-based engineering and supply company; solution partner for critical electrical infrastructure.
+Online Monitoring
+In strategic partnership with Megger.
+Supply & Project Solutions
+18+ years in electrical supply.
+Trade Facilitator
+Bridging Cultures, Building Trust.
+Trade Facilitator
+International buyers
+Turkish manufacturers
+One point of access to Turkish manufacturers, with alternatives in quality and delivery time and follow-up of the supply process.
+Where a manufacturer is looking to enter an international market, Glinker Group can help open the relevant network connections. Write to koordinasyon@glinkergroup.com.
+Start with a technical conversation
+Request a technical meeting
+Contact
+Tell us your sector and the asset or need.
+Ankara, Türkiye
+koordinasyon@glinkergroup.com
+Please check the fields below.
+What is it about?
+Online monitoring
+Supply and projects
+Sourcing from Türkiye
+Other
+Full name
+Work email
+Organization
+Phone (optional)
+Short note (optional)
+Your personal data is processed by Glinker Group as data controller, only to respond to your request. See the
+Privacy Notice (KVKK)
+.
+Send request
+Your request has been received.
+Thank you. We will reply to the email address you provided.
+Privacy Notice (KVKK)
+This notice explains how Glinker Group processes personal data sent through the contact form.
+Back to Contact
+Glinker Group · Ankara, Türkiye
+koordinasyon@glinkergroup.com
+Contact
+Privacy Notice
+© 2026 Glinker Group

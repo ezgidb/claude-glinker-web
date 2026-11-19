@@ -169,8 +169,8 @@
     en: { label: 'Illustrative animation: a measurement trend runs level for months, then slowly rises until it crosses the alarm threshold.',
       thr: 'ALARM THRESHOLD', alarm: 'ALARM', normal: 'NORMAL', rising: 'TREND RISING', ill: 'ILLUSTRATIVE',
       month: 'MONTH', state: 'STATE', level: 'LEVEL', axis: 'TIME / MONTHS', cont: 'CONTINUOUS MEASUREMENT' },
-    tr: { label: 'Temsili animasyon: ölçüm eğilimi aylarca düz seyreder, sonra yavaşça yükselerek alarm eşiğini aşar.',
-      thr: 'ALARM EŞİĞİ', alarm: 'ALARM', normal: 'NORMAL', rising: 'EĞİLİM YÜKSELİYOR', ill: 'TEMSİLİ',
+    tr: { label: 'Temsilî animasyon: ölçüm eğilimi aylarca düz seyreder, sonra yavaşça yükselerek alarm eşiğini aşar.',
+      thr: 'ALARM EŞİĞİ', alarm: 'ALARM', normal: 'NORMAL', rising: 'EĞİLİM YÜKSELİYOR', ill: 'TEMSİLÎ',
       month: 'AY', state: 'DURUM', level: 'SEVİYE', axis: 'ZAMAN / AY', cont: 'SÜREKLİ ÖLÇÜM' }
   }[LANG];
 

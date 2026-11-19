@@ -168,8 +168,8 @@
   var STR = {
     en: { label: 'Illustration: a phase-resolved partial discharge pattern. Discharge pulses accumulate in clusters on the rising quadrants of the voltage cycle; below, the activity trend rises slowly.',
       title: 'PHASE-RESOLVED PD PATTERN', titleS: 'PD PATTERN', ill: 'ILLUSTRATIVE', trend: 'PD ACTIVITY · TREND', phase: 'PHASE', ref: 'VOLTAGE REFERENCE', time: 'TIME' },
-    tr: { label: 'Temsili görsel: faz çözümlemeli kısmi deşarj deseni. Deşarj darbeleri gerilim çevriminin yükselen çeyreklerinde kümelenir; altta aktivite eğilimi yavaşça yükselir.',
-      title: 'FAZ ÇÖZÜMLEMELİ KISMİ DEŞARJ DESENİ', titleS: 'KISMİ DEŞARJ DESENİ', ill: 'TEMSİLİ', trend: 'KISMİ DEŞARJ AKTİVİTESİ · EĞİLİM', phase: 'FAZ', ref: 'GERİLİM REFERANSI', time: 'ZAMAN' }
+    tr: { label: 'Temsilî görsel: faz çözümlü kısmi deşarj (PRPD) deseni. Deşarj darbeleri gerilim çevriminin yükselen çeyreklerinde kümelenir; altta aktivite eğilimi yavaşça yükselir.',
+      title: 'FAZ ÇÖZÜMLÜ KISMİ DEŞARJ DESENİ', titleS: 'KISMİ DEŞARJ DESENİ', ill: 'TEMSİLÎ', trend: 'KISMİ DEŞARJ AKTİVİTESİ · EĞİLİM', phase: 'FAZ', ref: 'GERİLİM REFERANSI', time: 'ZAMAN' }
   }[LANG];
 
   mount('pd-pattern', function (el) {

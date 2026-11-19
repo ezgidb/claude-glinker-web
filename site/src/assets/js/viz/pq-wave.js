@@ -168,8 +168,8 @@
   var STR = {
     en: { label: 'Illustration: a three-phase voltage waveform. One marked event is a voltage dip, where the amplitude drops for a few cycles; another is a segment distorted by harmonics.',
       title: 'THREE-PHASE VOLTAGE · EVENTS', titleS: 'VOLTAGE · EVENTS', ill: 'ILLUSTRATIVE', dip: 'VOLTAGE DIP', harm: 'HARMONICS', rms: 'RMS', evt: 'EVENT' },
-    tr: { label: 'Temsili görsel: üç fazlı gerilim dalga şekli. İşaretli olaylardan biri, genliğin birkaç çevrim boyunca düştüğü gerilim çukurudur; diğeri harmoniklerle bozulmuş bir bölümdür.',
-      title: 'ÜÇ FAZLI GERİLİM · OLAYLAR', titleS: 'GERİLİM · OLAYLAR', ill: 'TEMSİLİ', dip: 'GERİLİM ÇUKURU', harm: 'HARMONİKLER', rms: 'RMS', evt: 'OLAY' }
+    tr: { label: 'Temsilî görsel: üç fazlı gerilim dalga şekli. İşaretli olaylardan biri, genliğin birkaç periyot boyunca düştüğü bir gerilim çökmesidir; diğeri harmoniklerle bozulmuş bir bölümdür.',
+      title: 'ÜÇ FAZLI GERİLİM · OLAYLAR', titleS: 'GERİLİM · OLAYLAR', ill: 'TEMSİLÎ', dip: 'GERİLİM ÇÖKMESİ', harm: 'HARMONİKLER', rms: 'RMS', evt: 'OLAY' }
   }[LANG];
 
   mount('pq-wave', function (el) {

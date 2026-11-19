@@ -168,8 +168,8 @@
   var STR = {
     en: { label: 'Illustration: assets plotted as dots by condition and importance. As new condition data arrives the dots move and the ranking changes; the three assets with the highest priority are highlighted.',
       title: 'FLEET · CONDITION × IMPORTANCE', titleS: 'CONDITION × IMPORTANCE', ill: 'ILLUSTRATIVE', x: 'CONDITION', good: 'GOOD', poor: 'POOR', y: 'IMPORTANCE', first: 'ACT FIRST', rank: 'PRIORITY', asset: 'ASSET' },
-    tr: { label: 'Temsili görsel: varlıklar durum ve önem eksenlerinde nokta olarak gösterilir. Yeni durum verisi geldikçe noktalar yer değiştirir ve sıralama güncellenir; en yüksek öncelikli üç varlık vurgulanır.',
-      title: 'FİLO · DURUM × ÖNEM', titleS: 'DURUM × ÖNEM', ill: 'TEMSİLİ', x: 'DURUM', good: 'İYİ', poor: 'KÖTÜ', y: 'ÖNEM', first: 'ÖNCE BUNLAR', rank: 'ÖNCELİK', asset: 'VARLIK' }
+    tr: { label: 'Temsilî görsel: varlıklar durum ve önem eksenlerinde nokta olarak gösterilir. Yeni durum verisi geldikçe noktalar yer değiştirir ve sıralama güncellenir; en yüksek öncelikli üç varlık vurgulanır.',
+      title: 'VARLIK PARKI · DURUM × ÖNEM', titleS: 'DURUM × ÖNEM', ill: 'TEMSİLÎ', x: 'DURUM', good: 'İYİ', poor: 'ZAYIF', y: 'ÖNEM', first: 'ÖNCE MÜDAHALE', rank: 'ÖNCELİK', asset: 'VARLIK' }
   }[LANG];
 
   mount('fleet-matrix', function (el) {
